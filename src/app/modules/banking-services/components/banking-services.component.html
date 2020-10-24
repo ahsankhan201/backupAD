@@ -1,0 +1,74 @@
+<section class="banking-service-comp"
+    [ngClass]="(selectedLang === arabicLanguageText) ? 'banking-service-comp-rtl': ''">
+    <div class="banking-service-comp__wrapper">
+        <div class="banking-service-comp__wrapper__container padding-lrn margin-lrn">
+            <div class="banking-service-comp__wrapper__container__body">
+                <div class="col-12 padding-lrn"
+                    *ngIf="!enableBankingServiceRequest && !showChequeBookReqForm && !showDetailsComponents">
+                    <div class="banking-service-comp__wrapper__container__body__title d-flex justify-content-between">
+                        <div class="banking-service-comp__wrapper__container__body__title-wrapper">
+                            <div class="banking-service-comp__wrapper__container__body__title-wrapper__back-button">
+                                <div class="cta-back-btn"
+                                    *ngIf="selectedComponent !== BANKING_SERVICE_CONST.bankingServicesComponent"
+                                    (click)="handleBackButtonClick($event)" translate>tr_navControl_backText</div>
+                            </div>
+                            <div class="title">{{ selectedComponent | translate }}</div>
+                        </div>
+                    </div>
+                    <div class="banking-service-comp__wrapper__container__body__container">
+                        <div class="banking-service-comp__wrapper__container__body__container__alert-message">
+                            <div class="alert-message  alert-message-grey"
+                                *ngIf="requestButtonLabel && bankingServiceAlertText" translate>
+                                {{ bankingServiceAlertText }} </div>
+                            <div class="add-icon"
+                                *ngIf="selectedComponent !== BANKING_SERVICE_CONST.bankingServicesComponent && requestButtonLabel">
+                                <button class="solid-border-button" (click)="handleBankingServiceRequest()">
+                                    <img alt="add icon small" src="{{iconsConst.addIconSmall}}"> <span
+                                        translate>{{ requestButtonLabel }}</span>
+                                </button>
+                            </div>
+                            <div class="summary-cards" *ngIf="selectedComponent !== BANKING_SERVICE_CONST.bankingServicesComponent && 
+                                (accountsSummaryReponseList.length > 0 || paymentsSummaryReponseList.length >0)">
+                                <app-banking-services-dashboard [selectedService]="selectedServiceType"
+                                    [accountsServiceSummaryData]="accountsSummaryReponseList"
+                                    [paymentsServiceSummaryData]="paymentsSummaryReponseList"
+                                    (selectedRequestId)="getSelectedRequestDetails($event)">
+                                </app-banking-services-dashboard>
+                            </div>
+                        </div>
+                        <div class="banking-service-comp__wrapper__container__body__category-wrapper"
+                            *ngIf="selectedComponent === BANKING_SERVICE_CONST.bankingServicesComponent">
+                            <app-card-categories (selectedCardCategory)="getBankingService($event)"
+                                [cardCategoriesList]="bankingServiceListValues" [componentName]="'bankingService'">
+                            </app-card-categories>
+                        </div>
+                    </div>
+                </div>
+                <app-banking-services-details *ngIf="showDetailsComponents" [selectedService]="selectedServiceType"
+                    [accountServiceRequestDetails]="selectedAccountRequestDetails"
+                    [paymentServiceRequestDetails]="selectedPaymentRequestDetails">
+                </app-banking-services-details>
+
+                <!-- Request for banking service - component will udpate here -->
+                <app-bank-certificate
+                    *ngIf="enableBankingServiceRequest && (selectedComponent === bankingServiceList.bankCertificate)">
+                </app-bank-certificate>
+
+                <!-- Request for banking service - component will udpate here -->
+                <app-payment-order
+                    *ngIf="enableBankingServiceRequest && (selectedComponent === bankingServiceList.paymentOrder)">
+                </app-payment-order>
+                <app-demand-draft
+                    *ngIf="enableBankingServiceRequest && (selectedComponent === bankingServiceList.demandDraft)">
+                </app-demand-draft>
+
+                <!-- Request for banking service - component will udpate here -->
+                <app-cheque-book
+                    *ngIf="enableBankingServiceRequest && showChequeBookReqForm && (selectedComponent === bankingServiceList.chequeBook)">
+                </app-cheque-book>
+            </div>
+        </div>
+    </div>
+</section>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,75 @@
+<div class="card-products-comp" [ngClass]="(selectedLang === arabicLanguageText) ? 'card-products-comp-rtl': ''">
+    <app-card-categories *ngIf="showComponentName==='PRODUCT_LIST'"
+        (selectedCardCategory)="getCardSubCategories($event)" [cardCategoriesList]="cardCategories">
+    </app-card-categories>
+    <div class="card-products-comp__form-container">
+        <div class="top-section"
+            *ngIf="showComponentName==='CARD_SUB_CATEGORIES_FORM' || showComponentName==='ENQUIRY_FORM'">
+            <div class="cta-back-btn" (click)="showCardsTab()" translate>tr_navControl_backText</div>
+            <div class="title">{{productTitle}}</div>
+        </div>
+        <app-card-sub-categories *ngIf="showComponentName==='CARD_SUB_CATEGORIES_FORM'"
+            [cardCategoryCatalog]="cardSubCategoriesList" (selectedCardOption)="getSelectedProductInfo($event)">
+        </app-card-sub-categories>
+        <form [formGroup]="cardEnquiryFormGroup" *ngIf="showComponentName==='ENQUIRY_FORM'" class="card-enquiry-form">
+            <div class="row margin-lrn form-wrapper">
+                <mat-form-field class="col-lg-6 padding-lrn card-limit-field">
+                    <mat-label translate>tr_cards_enterCardLimitText</mat-label>
+                    <input matInput formControlName="cardLimit" numbersOnly decimals="3" maxlength="{{ AMOUNT_LENGTH }}"
+                        autocomplete="off" appInputWithComma>
+                    <mat-error>
+                        <app-show-form-errors [control]="cardEnquiryFormGroup.get('cardLimit')" label="Card Limit">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-lg-6 padding-lrn mobile-field">
+                    <mat-label translate>tr_common_mobileNumberText</mat-label>
+                    <input type="tel" matInput formControlName="mobileNumber" inputmode="numeric" pattern="[0-9]*"
+                        numbersOnly maxlength="{{MOBILE_NUMBER_LENGTH}}" minlength="{{MOBILE_NUMBER_MIN_LENGTH}}"
+                        autocomplete="off">
+                    <mat-error>
+                        <app-show-form-errors [control]="cardEnquiryFormGroup.get('mobileNumber')"
+                            label="Mobile Number">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-lg-6 padding-lrn email-field">
+                    <mat-label translate>tr_productsComponent_emailIdText</mat-label>
+                    <input type="email" matInput formControlName="emailId" autocomplete="off">
+                    <mat-error>
+                        <app-show-form-errors [control]="cardEnquiryFormGroup.get('emailId')" label="Email Id">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <span class="title" translate>tr_productsComponent_contactModeText</span>
+            <app-checkbox-generic [optionsList]="cardEquiryModes" [componentName]="'cardEnquiryContactMode'"
+                (selectedOptionValue)="getSelectedContactMode($event)" class="enquiry-contact-mode"
+                [ngClass]="(selectedLang === arabicLanguageText) ? 'enquiry-contact-mode-rtl': ''"
+                customClassName="active-blue" [emitSelectedEleID]="'true'">
+            </app-checkbox-generic>
+            <div class="contact-timings" *ngIf="showContactTimings">
+                <span class="title" translate>tr_productsComponent_contactTimeText</span>
+                <app-checkbox-generic [optionsList]="cardEquiryTimings" [componentName]="'cardEnquiryContactTime'"
+                    (selectedOptionValue)="getSelectedTimings($event)" class="enquiry-contact-mode"
+                    [ngClass]="(selectedLang === arabicLanguageText) ? 'enquiry-contact-mode-rtl': ''"
+                    customClassName="active-blue" [emitSelectedEleID]="'true'">
+                </app-checkbox-generic>
+            </div>
+            <div class="button-wrapper">
+                <button class="next-btn" (click)="registerProductEnquiry()"
+                    [disabled]="!cardEnquiryFormGroup.valid || !enableNextBtn" translate>tr_common_submitText</button>
+                <span translate>tr_productsComponent_termsANDCondotionsText</span>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="showComponentName==='SUCCESS_SCREEN'"
+        [ngClass]="(selectedLang === arabicLanguageText) ? 'card-products-comp-success-rtl': ''">
+        <div class="products-comp__success-title" translate>tr_common_cardsText</div>
+        <app-success-screen [componentName]="'productEnquiry'" [productEnquired]="typeOfProductEnquired"
+            class="enquiry-success-comp">
+        </app-success-screen>
+        <button translate class="next-btn enquiry-success-screen-btn"
+            (click)="showCardsTab()">tr_productsComponent_productsDashBoardText</button>
+    </div>
+</div>

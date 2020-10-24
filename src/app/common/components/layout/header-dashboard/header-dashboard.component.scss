@@ -1,0 +1,297 @@
+@import "src/assets/styles/default";
+
+$border: rgb(240, 240, 240);
+
+.ibd-header {
+  &.header-rtl-layout {
+    direction: rtl;
+    .ibd-header__wrapper__logo {
+      margin-left: unset !important;
+      margin-right: auto;
+    }
+    .ibd-header__wrapper__lang {
+      border-right: 1px $very-light-gray solid;
+      margin-left: unset;
+      margin-right: 52px;
+      @include respond-to(screen-m-min) {
+        margin-right: unset;
+      }
+      p {
+        span {
+          &:first-child {
+            border-left: 2px $border solid;
+            border-right: unset;
+            padding-left: 6px;
+            padding-right: 0;
+          }
+          &:last-child {
+            padding-right: 6px;
+            padding-left: 0;
+          }
+        }
+      }
+    }
+    .header__funds__wrapper {
+      text-align: right;
+      .ibd-header__wrapper__funds__amount {
+        direction: ltr;
+      }
+      .custom-switch {
+        margin-left: unset !important;
+        margin-right: 1rem;
+      }
+    }
+    .ibd-header__wrapper__profile {
+      .user {
+        margin-right: 16px;
+        margin-left: 0;
+        text-align: right;
+        .username {
+          img {
+            margin-right: 8px;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+  flex-basis: 100%;
+  border-bottom: 1px $border solid;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  background-color: $white;
+  opacity: 1;
+  box-shadow: inset 0px -1px 0px 0px rgb(230, 230, 230),
+    0px 4px 8px 0px rgba(0, 0, 0, 0.06);
+  @include respond-to(screen-m-min) {
+    height: 92px;
+    padding: 1rem;
+    z-index: 15;
+  }
+  @media (orientation: screen-s-min-land) {
+    border-top: unset;
+    height: 56px;
+  }
+  &__wrapper {
+    &__profile {
+      display: none;
+      width: 91px;
+      color: $solid-blue;
+      font-size: 14px;
+      font-weight: 500;
+      @include respond-to(screen-m-min) {
+        display: flex;
+        border-right: 1px $very-light-gray solid;
+        align-items: center;
+        flex: 0 0 22.3%;
+      }
+      @include respond-to(screen-l-min) {
+        flex: 0 0 16.7%;
+      }
+      @include respond-to(screen-xl-min) {
+        flex: 0 0 11.9%;
+      }
+      .navbar-header {
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        padding-top: 0.8px;
+        .user {
+          .welcome {
+            @extend .ibd-small-text;
+            font-size: 13px;
+            line-height: 15px;
+          }
+          .username {
+            font-family: $font-regular;
+            font-size: 12px;
+            color: $solid-blue;
+            display: flex;
+            position: relative;
+            margin-right: 5px;
+            line-height: normal;
+            img {
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+    }
+
+    .navbar-toggler {
+      @include respond-to(screen-m-min) {
+        display: none;
+      }
+    }
+    .user {
+      .welcome {
+        @extend .ibd-small-text;
+        font-size: 13px;
+        line-height: 15px;
+      }
+      .username {
+        font-family: $font-regular;
+        font-size: 12px;
+        color: $solid-blue;
+        display: flex;
+        position: relative;
+        img {
+          margin-left: 8px;
+        }
+      }
+    }
+
+    &__funds {
+      padding-top: 0.3rem;
+      order: 2;
+      color: $solid-blue;
+      height: 56px;
+      font-size: 17px;
+      font-weight: 500;
+      border-bottom: 1px $border solid;
+      border-top: 1px $border solid;
+      display: none;
+      align-items: center;
+
+      .ibd-small-text {
+        font-size: 13px;
+      }
+
+      .ibd-small-text-fund {
+        font-size: 14px;
+        font-family: $font-medium;
+        color: $suva-grey;
+      }
+      .custom-control-label::before {
+        border: #5e5f60 solid 1px;
+        cursor: pointer;
+      }
+
+      .custom-switch .custom-control-label::after {
+        border: #5e5f60 solid 1px;
+        background-color: transparent;
+        cursor: pointer;
+      }
+      .custom-control-input:checked ~ .custom-control-label::before {
+        background-color: transparent;
+        cursor: pointer;
+      }
+      .custom-control-input:checked ~ .custom-control-label::after {
+        border: 2px solid #00a0e6;
+      }
+      &__amount,
+      &__amount-show {
+        line-height: 1rem;
+        @include respond-to(screen-m-min) {
+          line-height: 26px;
+        }
+      }
+      &__amount-show {
+        font-size: 1.3rem;
+      }
+
+      @include respond-to(screen-m-min) {
+        border-top: unset;
+        order: 0;
+        padding: 0rem 1rem;
+        display: flex;
+        border-bottom: unset;
+        border-left: none;
+        border-right: 1px $border solid;
+        flex: 0 0 28.3%;
+        padding-right: 1px;
+        .header__funds__wrapper {
+          width: 100%;
+        }
+      }
+      @include respond-to(screen-l-min) {
+        font-size: 1.3rem;
+        min-width: 18%;
+        flex: 0 0 22%;
+      }
+      @include respond-to(screen-xl-min) {
+        min-width: 16%;
+        flex: 0 0 11.4%;
+      }
+      @include respond-to(screen-s-min-land) {
+        border-top: unset;
+        order: 0;
+      }
+    }
+    &__lang {
+      width: 33%;
+      border-right: 1px solid $border;
+      border-left: 1px solid $border;
+      padding-top: 0.4rem;
+      padding-bottom: 0.4rem;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0px;
+      line-height: 26px;
+      p {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+        span {
+          &:first-child {
+            border-right: 2px $border solid;
+            padding-right: 10px;
+          }
+          &:last-child {
+            padding-left: 10px;
+          }
+        }
+        @include respond-to(screen-m-min) {
+          margin: 0;
+        }
+      }
+      a {
+        cursor: pointer;
+        color: $grey;
+        &.active {
+          color: $solid-blue;
+        }
+      }
+
+      @include respond-to(screen-m-min) {
+        border-right: none;
+        font-size: 13px;
+        border-left: unset;
+        flex: 0 0 12%;
+        max-width: 12.79%;
+      }
+    }
+    &__logo {
+      width: 49%;
+      padding-top: 0.4rem;
+      padding-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      @include respond-to(screen-m-min) {
+        flex: 0 0 32%;
+      }
+      @include respond-to(screen-l-min) {
+        border-left: 1px $border solid;
+      }
+    }
+    .navbar-light .navbar-toggler {
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+:host ::ng-deep app-menu-option {
+  .settings-icon {
+    display: none;
+  }
+  .triangle-icon {
+    display: block;
+    position: absolute;
+    padding: 6px 8px;
+  }
+}

@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/modules/cards/components/activate-card/activate-card.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">All files</a> / <a href="index.html">src/app/modules/cards/components/activate-card</a> activate-card.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>41/75</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">8.82% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>3/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">41.18% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.29% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>38/70</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { SharedService } from 'src/app/common/services/shared.service';
+import { CardsService } from '../../services/cards.service';
+import { CARDS_MASTER_DATA } from '../../cards-module.constants';
+import { NAV_CONTROLS, E_STATEMENT_DIALOG_DATA, SNACKBAR_MESSAGETYPE, DOMAINS, HTTP_STATUS_CODE } from 'src/app/common/global-constants';
+import { DebitCardData } from 'src/app/common/models/cards-module.model';
+import { MatSelectChange } from '@angular/material/select';
+import { OTPResponse } from 'src/app/common/models/otp.model';
+import { DEBIT_CARD_STATUS_API_URL } from 'src/app/common/api-endpoints';
+&nbsp;
+@Component({
+  selector: 'app-activate-card',
+  templateUrl: './activate-card.component.html',
+  styleUrls: ['./activate-card.component.scss']
+})
+export class ActivateCardComponent implements OnInit, OnDestroy {
+  @Output() backButtonClicked = new EventEmitter&lt;boolean&gt;(false);
+  readonly CARDS_MASTER_DATA = CARDS_MASTER_DATA;
+  subscription$ = new Subscription();
+  cardDetails: DebitCardData;
+  monthsList = [];
+  yearsList = [];
+  activateCardFormGroup: FormGroup;
+  selectedMonth: string;
+  selectedYear: string;
+  currentMonth: string;
+  currentYear: number;
+  selectedExpiryDate: string;
+  showOTPScreen: boolean;
+  location: string;
+  showSuccessScreen: boolean;
+  alertMessage: string;
+  constructor(
+    private sharedService: SharedService,
+    private cardsService: CardsService,
+    private formBuilder: FormBuilder) {
+    this.sharedService.setHorizontalLineClass(NAV_CONTROLS.CHANGE_PASSWORD_DIVIDER_CLASS);
+  }
+&nbsp;
+  ngOnInit() {
+    this.setComponentInitialData();
+  }
+&nbsp;
+  /**
+   * @methodName setComponentInitialData
+   * @parameter none
+   * @description used to set the component initial data
+   * @return none
+   */
+  setComponentInitialData(): void {
+    this.cardDetails = this.cardsService.selectedNewCard;
+    this.createActivateCardForm();
+    this.getMonthsYearsList();
+  }
+&nbsp;
+  /**
+   * @methodName createActivateCardForm
+   * @parameter none
+   * @description used to create the finance enquiry form group
+   * @return none
+   */
+  createActivateCardForm(): void {
+    this.activateCardFormGroup = this.formBuilder.group({
+      months: ['', [Validators.required]],
+      years: ['', [Validators.required]]
+    });
+  }
+&nbsp;
+  /**
+   * @methodName getMonthsYearsList
+   * @parameter none
+   * @description used to get months and years list
+   * @return none
+   */
+  getMonthsYearsList() {
+    const currentDate = new Date();
+    this.currentMonth = (currentDate.getMonth() + E_STATEMENT_DIALOG_DATA.ONE &lt; E_STATEMENT_DIALOG_DATA.TEN
+      ? <span class="branch-0 cbranch-no" title="branch not covered" >E_STATEMENT_DIALOG_DATA.ZERO_STRING + (currentDate.getMonth() + E_STATEMENT_DIALOG_DATA.ONE) </span>:
+      currentDate.getMonth() + E_STATEMENT_DIALOG_DATA.ONE).toString();
+    this.currentYear = currentDate.getFullYear();
+    // calculate months data
+    for (let i = E_STATEMENT_DIALOG_DATA.ONE; i &lt; E_STATEMENT_DIALOG_DATA.THIRTEEN; i++) {
+      this.monthsList.push({
+        id: i,
+        value: (i &lt; E_STATEMENT_DIALOG_DATA.TEN ? E_STATEMENT_DIALOG_DATA.ZERO_STRING + i : i)
+      });
+    }
+    // calculate years data
+    for (let i = E_STATEMENT_DIALOG_DATA.ZERO; i &lt; E_STATEMENT_DIALOG_DATA.TEN; i++) {
+      this.yearsList.push({
+        id: this.currentYear + i,
+        value: this.currentYear + i
+      });
+    }
+  }
+&nbsp;
+  /**
+   * @methodName onMonthChange
+   * @parameter event
+   * @description set value of selected month
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  onMonthChange(</span>event: MatSelectChange): void {
+<span class="cstat-no" title="statement not covered" >    this.selectedMonth = event.source.value;</span>
+  }
+&nbsp;
+  /**
+   * @methodName onYearChange
+   * @parameter event
+   * @description set value of selected year
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  onYearChange(</span>event: MatSelectChange): void {
+<span class="cstat-no" title="statement not covered" >    this.selectedYear = event.source.value;</span>
+  }
+&nbsp;
+  /**
+   * @methodName showOTPComponent
+   * @parameter none
+   * @description used to show OTP component
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  showOTPComponent(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.alertMessage = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedExpiryDate = this.selectedMonth.toString() +</span>
+      this.selectedYear.toString().slice(E_STATEMENT_DIALOG_DATA.TWO);
+<span class="cstat-no" title="statement not covered" >    if (this.selectedExpiryDate === this.cardDetails.cardExpiryDate) {</span>
+<span class="cstat-no" title="statement not covered" >      this.showOTPScreen = true;</span>
+<span class="cstat-no" title="statement not covered" >      this.getOTPLocationDetails();</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.alertMessage = this.CARDS_MASTER_DATA.wrongExpiryMessage;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName onBackButtonClicked
+   * @description used to emit backButtonClicked
+   * @parameters none
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  onBackButtonClicked(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.backButtonClicked.emit(true);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getOTPLocationDetails
+   * @param &lt;boolean&gt;
+   * @description Used to otp location details
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  getOTPLocationDetails(</span>isItPostCall?: boolean): void {</span>
+<span class="cstat-no" title="statement not covered" >    if (!isItPostCall) {</span>
+<span class="cstat-no" title="statement not covered" >      this.showOTPScreen = true;</span>
+    }
+    const OTP_LOCATION_API = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, true) + DEBIT_CARD_STATUS_API_URL +</span>
+      this.CARDS_MASTER_DATA.ACTIVE_CARD_STATUS;
+    const payload = <span class="cstat-no" title="statement not covered" >{ cardNumber: this.cardDetails.cardNumber };</span>
+<span class="cstat-no" title="statement not covered" >    this.subscription$.add(this.cardsService.fetchOTPLocation(OTP_LOCATION_API, payload).subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (response['body']) {</span>
+<span class="cstat-no" title="statement not covered" >        response['body'] = JSON.parse(response['body'].toString());</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (isItPostCall &amp;&amp; response['status'] === HTTP_STATUS_CODE.NO_CONTENT) {</span>
+<span class="cstat-no" title="statement not covered" >        this.showOTPScreen = false;</span>
+<span class="cstat-no" title="statement not covered" >        this.showSuccessScreen = true;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      response &amp;&amp; response['body'] &amp;&amp; response['body'].location ?</span>
+        (this.location = response['body'].location, this.showOTPScreen = true) : this.location = null;
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName resendOTPRequired
+   * @param &lt;boolean&gt;
+   * @description Used to fetch the OTP Location details
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  resendOTPRequired(</span>resendOTP): void {
+<span class="cstat-no" title="statement not covered" >    if (resendOTP) {</span>
+<span class="cstat-no" title="statement not covered" >      this.getOTPLocationDetails(false);</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName getResponse
+   * @param &lt;OTPResponse&gt;
+   * @description Used to fetch or post the OTP info to CIAM
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  getResponse(</span>otpResponseObj: OTPResponse): void {
+<span class="cstat-no" title="statement not covered" >    if (otpResponseObj &amp;&amp; otpResponseObj.success) {</span>
+<span class="cstat-no" title="statement not covered" >      this.getOTPLocationDetails(true);</span>
+    } else <span class="cstat-no" title="statement not covered" >if (otpResponseObj &amp;&amp; Object.keys(otpResponseObj).length &amp;&amp; !otpResponseObj.success) {</span>
+<span class="cstat-no" title="statement not covered" >      this.sharedService.setSnackBarMessage(otpResponseObj, SNACKBAR_MESSAGETYPE.ERROR);</span>
+<span class="cstat-no" title="statement not covered" >      this.getOTPLocationDetails(false);</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName handleNextButtonClick
+   * @description used to update handle next event
+   * @parameters status&lt;boolean&gt;
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  handleNextButtonClick(</span>status: boolean): void {</span>
+<span class="cstat-no" title="statement not covered" >    if (status) {</span>
+<span class="cstat-no" title="statement not covered" >      this.cardsService.reLoadCardList(false);</span>
+<span class="cstat-no" title="statement not covered" >      this.subscription$.add(this.cardsService.updateCardList.subscribe(<span class="fstat-no" title="function not covered" >updateStatus =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (updateStatus) {</span>
+<span class="cstat-no" title="statement not covered" >          this.onBackButtonClicked();</span>
+        }
+      }));
+    }
+  }
+&nbsp;
+  ngOnDestroy() {
+    this.sharedService.setHorizontalLineClass(undefined);
+    this.subscription$.unsubscribe();
+  }
+&nbsp;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

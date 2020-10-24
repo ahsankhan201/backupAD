@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>1208D116-E1D6-4252-B94D-64A57A50EF61@2x</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-1.0.0.1" transform="translate(-56.000000, -552.000000)">
+            <g id="Payees" transform="translate(40.000000, 414.000000)">
+                <g id="Card" transform="translate(0.000000, 122.000000)">
+                    <g id="ic.RTA" transform="translate(16.000000, 16.000000)">
+                        <rect id="Bond" stroke="#979797" opacity="0" x="0" y="0" width="32" height="32"></rect>
+                        <path d="M19.3255053,2.5 C19.6888596,2.5 20.0260828,2.63023051 20.288436,2.84988502 C20.5507892,3.06953953 20.7382724,3.37861804 20.8021467,3.73631404 L20.8021467,3.73631404 L25.087861,27.736314 C25.1606759,28.1440773 25.0613186,28.5427517 24.8418169,28.857689 C24.6295305,29.1622738 24.3048685,29.3885362 23.9148945,29.46895 L23.9148945,29.46895 L8.38878038,29.5 C7.97456682,29.5 7.59956682,29.3321068 7.32812021,29.0606602 C7.06563466,28.7981746 6.8999783,28.4388599 6.88932698,28.0408918 L6.88932698,28.0408918 L11.1978533,3.73631404 C11.2617276,3.37861804 11.4492108,3.06953953 11.711564,2.84988502 C11.9739172,2.63023051 12.3111404,2.5 12.6744947,2.5 L12.6744947,2.5 Z" id="Rectangle" stroke="#003774"></path>
+                        <polygon id="Icon-Path-Copy-5" fill="#00A0E6" fill-rule="nonzero" points="17 27 16.4210526 24 15.5789474 24 15 27"></polygon>
+                        <polygon id="Icon-Path-Copy-3" fill="#00A0E6" fill-rule="nonzero" points="17 22 16.4210526 19 15.5789474 19 15 22"></polygon>
+                        <polygon id="Icon-Path-Copy-4" fill="#00A0E6" fill-rule="nonzero" points="17 17 16.4789474 14 15.7210526 14 15.2 17"></polygon>
+                        <polygon id="Icon-Path-Copy-4" fill="#00A0E6" fill-rule="nonzero" points="16.8 11.5 16.3657895 9 15.7342105 9 15.3 11.5"></polygon>
+                        <polygon id="Icon-Path-Copy-4" fill="#00A0E6" fill-rule="nonzero" points="16.5 7 16.2105263 5 15.7894737 5 15.5 7"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

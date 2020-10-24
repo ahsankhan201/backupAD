@@ -1,0 +1,57 @@
+@import "src/assets/styles/default";
+
+.product-catalog-divider,
+.add-beneficiary-divider,
+.open-account-divider {
+  border: 0.5px solid $bright-gray;
+  margin-top: 182px;
+  @include respond-to(screen-m-min) {
+    margin-top: 230px;
+  }
+}
+.add-beneficiary-divider {
+  margin-top: 186px;
+  @include respond-to(screen-m-min) {
+    margin-top: 240px;
+  }
+}
+.open-account-divider {
+  margin-top: 134px;
+  @include respond-to(screen-m-min) {
+    margin-top: 184px;
+  }
+}
+
+.change-password-divider,
+.profile-divider-class {
+  border: 0.5px solid $bright-gray;
+  margin-top: 110px;
+  @include respond-to(screen-m-min) {
+    margin-top: 186px;
+  }
+  @include respond-to(screen-l-min) {
+    margin-top: 175px;
+  }
+}
+
+.banking-service-divider {
+  border: 0.5px solid $bright-gray;
+  margin-top: 132px;
+  @include respond-to(screen-m-min) {
+    margin-top: 172px;
+  }
+  @include respond-to(screen-xl-min) {
+    margin-top: 193px;
+  }
+}
+
+.payment-order-divider {
+  border: 0.5px solid $bright-gray;
+  margin-top: 166px;
+  @include respond-to(screen-m-min) {
+    margin-top: 212px;
+  }
+  @include respond-to(screen-xl-min) {
+    margin-top: 232px;
+  }
+}

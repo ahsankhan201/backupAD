@@ -1,0 +1,482 @@
+@import "src/assets/styles/default";
+
+.transfers-payments-list {
+  padding: 16px;
+
+  &.show-all-cards {
+    padding: 0px 16px 12px 16px;
+    @include respond-to(screen-xl-min) {
+      padding: 20px 27px;
+    }
+  }
+
+  @include respond-to(screen-m-min) {
+    padding: 0px 16px 16px 16px;
+  }
+
+  @include respond-to(screen-l-min) {
+    padding: 21px 16px 20px 16px;
+  }
+
+  @include respond-to(screen-xl-min) {
+    padding: 21px 16px 20px 27px;
+  }
+
+  .btn-wrapper {
+    padding-bottom: 16px;
+
+    &.search-box-container {
+      margin-bottom: 50px;
+      @include respond-to(screen-m-min) {
+        margin-bottom: 0;
+      }
+    }
+
+    .title {
+      @extend .ibd-small-text;
+      font-size: 14px;
+      font-family: $font-regular;
+      float: left;
+      letter-spacing: 0.16px;
+      padding-top: 5px;
+    }
+
+    .btn {
+      @extend .ibd-font-regular-cerulean;
+      text-align: center;
+      letter-spacing: 0.2px;
+      border: 1px dashed $grey;
+      padding-top: 7px;
+      padding-bottom: 7px;
+      min-width: 120px;
+      border-radius: 14px;
+      float: right;
+      border-style: dashed;
+      background: $white;
+      outline: none;
+      line-height: normal;
+      font-size: 12px;
+      font-family: $font-regular;
+      color: $cerulean-blue;
+      box-shadow: none;
+      cursor: pointer;
+
+      img {
+        margin-left: 11px;
+        height: 12px;
+        width: 12px;
+      }
+    }
+    .view-all-btn {
+      min-width: 90px;
+      display: none;
+      @include respond-to(screen-m-min) {
+        margin-left: 16px;
+        display: inline-block;
+      }
+      @include respond-to(screen-xl-min) {
+        margin-left: 27px;
+        display: inline-block;
+      }
+    }
+  }
+
+  .card-wrapper {
+    display: flex;
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    align-items: center;
+    scrollbar-width: none;
+    cursor: pointer;
+
+    @include respond-to(screen-l-min) {
+      padding-top: 10px;
+    }
+    @include respond-to(screen-xl-min) {
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .view-all {
+      color: $cerulean-blue;
+      font-family: $font-regular;
+      font-size: 12px;
+      font-weight: normal;
+      height: 14px;
+      letter-spacing: 0.2px;
+      text-align: center;
+      width: 45px;
+      margin-left: 24px;
+      cursor: pointer;
+    }
+
+    .card {
+      background: $white;
+      border-radius: 16px;
+      box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.1);
+      min-width: 320px;
+      margin: 0 16px 16px 0;
+      height: 100px;
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover {
+        box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.2);
+      }
+      @include respond-to(screen-xl-min) {
+        margin: 0 27px 27px 0;
+      }
+
+      .payee-container {
+        padding: 14px 12px 14px 16px;
+        .payee-logo {
+          width: 40px;
+          height: 40px;
+          float: left;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .detail-wrapper {
+          margin-left: 12px;
+          width: 65%;
+          float: left;
+          .title {
+            color: $active-blue;
+            font-family: $font-medium;
+            font-size: 16px;
+            font-weight: 500;
+            height: 19px;
+            letter-spacing: 0px;
+            min-width: 65%;
+            overflow: hidden;
+          }
+          .company-name {
+            margin-top: 6px;
+            color: $grey;
+            font-family: $font-regular;
+            font-size: 11px;
+            font-weight: normal;
+            height: 13px;
+            letter-spacing: 0px;
+            width: 90%;
+          }
+          .account-number {
+            @extend .ibd-small-text;
+            font-size: 12px;
+            font-family: $font-regular;
+            padding-top: 5px;
+            font-weight: normal;
+            height: 16px;
+            letter-spacing: 0px;
+            width: 100%;
+            &::after {
+              content: " ";
+              border: solid 1px $cerulean-blue;
+              display: block;
+              width: 25px;
+              margin-top: 6px;
+              @include respond-to(screen-m-min) {
+                width: 30px;
+              }
+            }
+          }
+        }
+        .icon-wrapper {
+          text-align: right;
+          float: right;
+          .icons {
+            text-align: end;
+            .favorite {
+              display: inline-flex;
+              height: 14px;
+              width: 14px;
+              cursor: pointer;
+              .status-icon {
+                width: 14px;
+                height: 14px;
+                background-repeat: no-repeat;
+              }
+              .N {
+                background-image: url(/assets/icons/mdi-light-star@2x.svg);
+              }
+              .Y {
+                background-image: url(/assets/icons/mdi-fill-star@2x.svg);
+              }
+              img {
+                vertical-align: inherit;
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .setting {
+              height: 24px;
+              width: 24px;
+              text-align: right;
+              cursor: pointer;
+            }
+          }
+          .detail-icon {
+            text-align: center;
+            align-self: center;
+            height: 12px;
+            width: 7px;
+            display: inline-flex;
+            padding-left: 3px;
+            cursor: pointer;
+            margin-right: 8px;
+          }
+        }
+      }
+
+      .available-text {
+        @extend .ibd-small-text;
+
+        margin-top: 47px;
+        @include respond-to(screen-m-min) {
+          font-size: 13px;
+        }
+        @include respond-to(screen-l-min) {
+          margin-top: 44px;
+        }
+      }
+      .fund {
+        @extend .ibd-medium-text;
+
+        color: $solid-blue;
+        font-family: $font-medium;
+        &::after {
+          content: " ";
+          border: solid 1px $grey;
+          display: block;
+          width: 25px;
+          margin-top: 6px;
+          @include respond-to(screen-m-min) {
+            width: 30px;
+          }
+        }
+
+        .currency,
+        .decimal {
+          @extend .ibd-small-text;
+        }
+
+        @include respond-to(screen-m-min) {
+          font-size: 20px;
+        }
+      }
+
+      .cardImg {
+        height: 30px;
+        width: 40px;
+        object-fit: cover;
+      }
+      .ctaLink {
+        @extend .cta-link-btn;
+
+        padding-top: 19px;
+      }
+    }
+  }
+
+  .show-all-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .card {
+      margin-bottom: 16px;
+      min-width: 328px;
+
+      @include respond-to(screen-xl-min) {
+        margin: 0px 27px 27px 0px;
+      }
+    }
+  }
+
+  .no-payee-wrapper {
+    background: $white;
+    border-radius: 16px;
+    border: 1px solid $bright-gray;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 0px;
+    margin-bottom: 20px;
+    margin-top: 27px;
+
+    @include respond-to(screen-m-min) {
+      height: 47px;
+      width: 589px;
+      margin-top: 54px;
+      margin-bottom: 40px;
+    }
+    .icon {
+      @include respond-to(screen-m-min) {
+        height: 17px;
+        width: 17px;
+      }
+      height: 32px;
+      width: 32px;
+      margin: 0px 12px 0px 18px;
+      img {
+        vertical-align: top;
+        width: 100%;
+        height: auto;
+      }
+    }
+    .message {
+      color: $active-blue;
+      font-family: $font-light;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0px;
+    }
+  }
+  &__navigation-wrapper {
+    text-align: center;
+    padding-left: 55px;
+
+    &__btn {
+      &:first-child {
+        margin-right: 8px;
+      }
+      height: 25px;
+      width: 25px;
+      background-color: $grey;
+      border-radius: 50%;
+      opacity: 0.3;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      line-height: 21px;
+      &:active,
+      &:focus {
+        border: none;
+      }
+
+      img {
+        margin-bottom: 2px;
+      }
+      &__next {
+        margin-left: 2px;
+      }
+      &__prev {
+        margin-right: 2px;
+      }
+      &:disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+    .view-all {
+      color: $cerulean-blue;
+      font-family: $font-regular;
+      font-size: 12px;
+      font-weight: normal;
+      height: 14px;
+      letter-spacing: 0.2px;
+      text-align: center;
+      width: 45px;
+      float: right;
+      cursor: pointer;
+      @include respond-to(screen-m-min) {
+        display: none;
+      }
+    }
+  }
+}
+
+.payee-list-rtl-layout {
+  @include respond-to(screen-xl-min) {
+    padding: 21px 27px 20px 16px;
+  }
+  .btn-wrapper {
+    .title {
+      float: right;
+    }
+    .search-box-wrapper {
+      float: left;
+      input {
+        right: 0;
+        margin-left: 27px;
+        margin-right: 0px;
+      }
+      .btn {
+        float: left;
+      }
+      .view-all-btn {
+        float: left;
+        margin-left: 0px;
+        @include respond-to(screen-m-min) {
+          margin-right: 16px;
+        }
+        @include respond-to(screen-xl-min) {
+          margin-right: 27px;
+        }
+      }
+      .btn {
+        img {
+          margin-left: 0px;
+          margin-right: 11px;
+        }
+      }
+    }
+  }
+  .card-wrapper {
+    .view-all {
+      margin-right: 24px;
+      margin-left: 0px;
+    }
+
+    .card {
+      &:last-child {
+        margin-right: unset;
+      }
+      margin: 0 0px 16px 16px;
+      @include respond-to(screen-xl-min) {
+        margin: 0 0px 27px 27px;
+      }
+      .payee-container {
+        padding: 14px 16px 14px 12px;
+        .payee-logo {
+          float: right;
+        }
+        .detail-wrapper {
+          margin-left: 0px;
+          margin-right: 12px;
+          float: right;
+          text-align: right;
+          text-align: -webkit-right;
+        }
+        .icon-wrapper {
+          text-align: left;
+          float: left;
+          .icons {
+            .setting {
+              text-align: left;
+            }
+          }
+          .detail-icon {
+            transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+  .transfers-payments-list__navigation-wrapper {
+    direction: ltr;
+    padding-right: 0px;
+  }
+}
+
+:host ::ng-deep .payee-setting-menu .mat-menu-trigger {
+  padding: 5px 8px 5px 12px;
+}

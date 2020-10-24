@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/environments/environment.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/environments</a> environment.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>1/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>1/1</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const environment = {
+  production: false,
+  API_CONNECT_URL: 'https://apisitgateway.adib.co.ae', // replace DEV URL When we consuming STI Services 'https://apisitgateway.adib.co.ae'
+  ADIB: '/adib/sb',
+  APP: '/app',
+  DELIVERY_MECH_VALUE: 'ibotp',
+  retryCount: 0,
+  SYMMETRIC_KEY: 'd58d25f4f0c68755ad60304d6ddc327798aeab21a4af35be9ef5d70db138e874',
+  CRYPTOGRAPHY_ENABLED: true,
+  IBM_CLIENT_ID: '8ee90755-df76-477d-ac8c-1071f1dfcf77', // will be used when apisitgateway is enabled
+  // IBM_CLIENT_ID: '9284c1a1-d999-47b1-88cf-7943b18f3559', // for dev
+  SESSION_IDLE_TIMEOUT: 300,
+  SESSION_LOGOUT_INDICATION_TIME: 60,
+  APPLICATION_SUB_DOMAIN: '.adib.co.ae',
+  GOOGLE_PLAY_DOWNLOAD_LINK: 'https://play.google.com/store/apps/details?id=com.adib.mobile',
+  APP_STORE_DOWNLOAD_LINK: 'https://apps.apple.com/ae/app/adib-mobile-banking-app/id1128180440',
+  CAPTCHA: {
+    URL: 'https://www.google.com/recaptcha/api.js',
+    SITEKEY: '6LdLTM0ZAAAAAGyrPpkurQB1LC7GuZHOzZK7_K8V',
+  },
+  CIAM: {
+    CLIENT_ID: 'AuthenticatorIBClient',
+    SCOPE: 'read',
+    GRANT_TYPE: 'password',
+    REFRESH_TOKEN_GRANT_TYPE: 'refresh_token',
+    MODE_CARD_NUM_PIN: 'cardnumpin',
+    MODE: 'mode',
+    USERNAME: 'username',
+    PASSWORD: 'password',
+    CONTENT_TYPE: 'application/x-www-form-urlencoded',
+    ENDPOINTS: {
+      VALIDATE_CARD_PIN: '/mga/sps/oauth/oauth20/token',
+      NEW_USER_REGISTRATION: '/mga/sps/apiauthsvc/policy/newuserregistration',
+      FORGET_PASSWORD: '/mga/sps/apiauthsvc/policy/forgetpassword',
+      UNLOCK_USERNAME: '/mga/sps/apiauthsvc/policy/unlockusername',
+      FORGET_USERNAME: '/mga/sps/apiauthsvc/policy/forgetusername',
+      DE_REGISTARTION: '/mga/sps/apiauthsvc/policy/deRegisterIBUser',
+      LOGIN: '/mga/sps/oauth/oauth20/token',
+      DEVICE_SESSION_REG: '/mga/sps/ac',
+      LOGOUT: '/mga/sps/oauth/oauth20/revoke',
+      CHANGE_PASSWORD: '/mga/sps/apiauthsvc/policy/changepassword'
+    },
+    LOGIN: {
+      MODE: 'uidpass'
+    }
+  }
+};
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

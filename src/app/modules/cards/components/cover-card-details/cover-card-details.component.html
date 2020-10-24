@@ -1,0 +1,116 @@
+<div class="cover-card-details"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'cover-card-details-rtl-layout': ''">
+    <div class="cover-card-details__header padding-lrn">
+        <div translate class="cover-card-details__header__back" (click)="onBackButtonClicked()">tr_navControl_backText
+        </div>
+        <div class="cover-card-details__header__title"><span translate>tr_cards_coverCardText</span>:
+            {{ coverCardDetails.productDescription }}</div>
+    </div>
+    <div class="cover-card-details__details">
+        <div class="cover-card-details__details__wrapper">
+            <div class="cover-card-details__details__wrapper__card padding-lrn">
+                <img alt="card image" class="cover-card-details__details__wrapper__card__icon" src="{{ coverCardDetails.cardImage }}" />
+                <div class="cover-card-details__details__wrapper__card__status">
+                    <div translate class="cover-card-details__details__wrapper__card__status__label">
+                        tr_cards_cardStatusText</div>
+                    <span class="cover-card-details__details__wrapper__card__status__value">
+                        {{ coverCardDetails.cardStatus | translate }}</span>
+                </div>
+            </div>
+            <div class="cover-card-details__details__wrapper__details-list padding-lrn">
+                <div class="cover-card-details__details__wrapper__details-list__detail-item">
+                    <div class="cover-card-details__details__wrapper__details-list__detail-item__label">
+                        {{CARDS_MASTER_DATA.AVAILABLE_BALANCE | translate}}</div>
+                    <div
+                        class="cover-card-details__details__wrapper__details-list__detail-item__value font-medium-weight">
+                        <span>{{ coverCardDetails.creditAvailable | numberFormat }}</span>.<span
+                            class="cover-card-details__details__wrapper__details-list__detail-item__value__decimal">{{ coverCardDetails.creditAvailable | getDecimalValue }}</span>
+                        <span class="cover-card-details__details__wrapper__details-list__detail-item__value__currency">
+                            {{ coverCardDetails.currencyCode }}</span></div>
+                </div>
+                <div class="cover-card-details__details__wrapper__details-list__detail-item">
+                    <div class="cover-card-details__details__wrapper__details-list__detail-item__label">
+                        {{CARDS_MASTER_DATA.OUTSTANDING_BALANCE | translate}}</div>
+                    <div class="cover-card-details__details__wrapper__details-list__detail-item__value">
+                        <span>{{ coverCardDetails.dueBalance | numberFormat }}</span>.<span
+                            class="cover-card-details__details__wrapper__details-list__detail-item__value__decimal">{{ coverCardDetails.dueBalance | getDecimalValue }}</span>
+                        <span class="cover-card-details__details__wrapper__details-list__detail-item__value__currency">
+                            {{ coverCardDetails.currencyCode }}</span></div>
+                </div>
+                <div class="cover-card-details__details__wrapper__details-list__detail-item">
+                    <div translate class="cover-card-details__details__wrapper__details-list__detail-item__label">
+                        tr_cards_minimumAmountDueText</div>
+                    <div class="cover-card-details__details__wrapper__details-list__detail-item__value">
+                        <span>{{ coverCardDetails.minimumDueBalance | numberFormat }}</span>.<span
+                            class="cover-card-details__details__wrapper__details-list__detail-item__value__decimal">{{ coverCardDetails.minimumDueBalance | getDecimalValue }}</span>
+                        <span class="cover-card-details__details__wrapper__details-list__detail-item__value__currency">
+                            {{ coverCardDetails.currencyCode }}</span></div>
+                </div>
+                <div class="cover-card-details__details__wrapper__details-list__detail-item">
+                    <div translate class="cover-card-details__details__wrapper__details-list__detail-item__label">
+                        tr_cards_paymentDueDateText</div>
+                    <div class="cover-card-details__details__wrapper__details-list__detail-item__value">
+                        {{ coverCardDetails.paymentDueDate | date: 'dd/MM/yyyy' }}</div>
+                </div>
+                <div class="cover-card-details__details__wrapper__details-list__detail-item">
+                    <div translate class="cover-card-details__details__wrapper__details-list__detail-item__label">
+                        tr_cards_lastStatementDateText</div>
+                    <div class="cover-card-details__details__wrapper__details-list__detail-item__value">
+                        {{ coverCardDetails.lastStmtDate | date: 'dd/MM/yyyy' }}</div>
+                </div>
+                <div class="cover-card-details__details__wrapper__details-list__detail-item">
+                    <div translate class="cover-card-details__details__wrapper__details-list__detail-item__label">
+                        tr_cards_lastStatementBalanceText</div>
+                    <div class="cover-card-details__details__wrapper__details-list__detail-item__value">
+                        <span>{{ coverCardDetails.lastStmtBalance | numberFormat }}</span>.<span
+                            class="cover-card-details__details__wrapper__details-list__detail-item__value__decimal">{{ coverCardDetails.lastStmtBalance | getDecimalValue }}</span>
+                        <span class="cover-card-details__details__wrapper__details-list__detail-item__value__currency">
+                            {{ coverCardDetails.currencyCode }}</span></div>
+                </div>
+                <div *ngIf="showPaymentBtn" translate
+                    class="cover-card-details__details__wrapper__details-list__payment"
+                    (click)="makePaymentToCard(coverCardDetails)">
+                    <span translate
+                        class="cover-card-details__details__wrapper__details-list__payment__btn">tr_cards_makePaymentText</span>
+                </div>
+                <div class="cover-card-details__details__wrapper__details-list__item">
+                    <div translate class="cover-card-details__details__wrapper__details-list__item__label">
+                        tr_common_cardNumberText</div>
+                    <div class="cover-card-details__details__wrapper__details-list__item__value font-medium-weight">
+                        {{ coverCardDetails.cardNumber | formatMaskCardNumber }}</div>
+                </div>
+                <div class="cover-card-details__details__wrapper__details-list__item">
+                    <div translate class="cover-card-details__details__wrapper__details-list__item__label">
+                        tr_cards_expiryDateText</div>
+                    <div class="cover-card-details__details__wrapper__details-list__item__value">
+                        {{ coverCardDetails.expiryDate | expiryDateFormat }}</div>
+                </div>
+                <div class="cover-card-details__details__wrapper__details-list__item">
+                    <div translate class="cover-card-details__details__wrapper__details-list__item__label">
+                        tr_cards_coverLimitText</div>
+                    <div class="cover-card-details__details__wrapper__details-list__item__value">
+                        {{ coverCardDetails.availableLimit | numberFormat }}.{{ coverCardDetails.availableLimit | getDecimalValue }}
+                        {{ coverCardDetails.currencyCode }}</div>
+                </div>
+                <div class="cover-card-details__details__wrapper__details-list__item">
+                    <div translate class="cover-card-details__details__wrapper__details-list__item__label">
+                        tr_cards_pendingAuthorisationsText</div>
+                    <div class="cover-card-details__details__wrapper__details-list__item__value">
+                        {{ coverCardDetails.outStandingAmount | numberFormat }}.{{ coverCardDetails.outStandingAmount | getDecimalValue }}
+                        {{ coverCardDetails.currencyCode }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cover-card-details__quick-links">
+        <app-quick-links class="quick-links-wrapper" [item]="coverCardDetails"
+            (clickedItem)="quickItemClickHandler($event)" [quickLinksData]="quickLinksData"></app-quick-links>
+    </div>
+    <div class="cover-card-details__transactions">
+        <app-transaction-grid [transactionHeaderList]="transactionHeaderList"
+            [transactionHistoryAPIURL]="transactionHistoryAPIURL"
+            [transactionGridComponentName]="transactionGridComponentName"
+            [pendingTransactionsAPIURL]="pendingTransactionsAPIURL">
+        </app-transaction-grid>
+    </div>
+</div>

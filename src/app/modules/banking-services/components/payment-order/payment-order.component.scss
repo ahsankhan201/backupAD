@@ -1,0 +1,60 @@
+@import "src/assets/styles/default";
+.ibd-payment-order {
+  width: 100%;
+  &__title {
+    @extend .idb-font-family;
+    font-size: 16px;
+    font-family: $font-regular;
+    margin-bottom: 16px;
+    @include respond-to(screen-m-min) {
+      margin: 12px 0px 16px;
+    }
+    @include respond-to(screen-xl-min) {
+      margin: 12px 0px 32px;
+    }
+  }
+  &__header {
+    font-family: $font-light;
+    color: $grey;
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+:host ::ng-deep mat-horizontal-stepper {
+  .mat-horizontal-stepper-header-container {
+    @include respond-to(screen-m-min) {
+      margin-left: -35px;
+      max-width: 532px;
+    }
+  }
+  .mat-horizontal-stepper-header {
+    padding: 0;
+    &:first-child {
+      padding: 0;
+    }
+  }
+  .mat-horizontal-content-container {
+    padding: 28px 0 0 0;
+  }
+  .ibd-payment-order__step-wrapper__title {
+    color: rgb(141, 141, 141);
+    font-family: $font-regular;
+    font-size: 16px;
+    margin-bottom: 22px;
+  }
+}
+
+:host ::ng-deep .ibd-payment-order-rtl {
+  .mat-form-field-right {
+    mat-form-field {
+      text-align: right;
+      text-align: -webkit-right;
+    }
+  }
+  .cancel-btn {
+    @include respond-to(screen-m-min) {
+      margin-left: 27px;
+    }
+  }
+}

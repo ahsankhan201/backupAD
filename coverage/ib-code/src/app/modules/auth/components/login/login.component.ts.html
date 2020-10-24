@@ -1,0 +1,1253 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/modules/auth/components/login/login.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">All files</a> / <a href="index.html">src/app/modules/auth/components/login</a> login.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">27.59% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>48/174</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">7.37% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>7/95</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25.81% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/31</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">27.61% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>45/163</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HttpParams } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+&nbsp;
+import { HttpHeaderService } from 'src/app/common/services/http-headers/http-header.service';
+import { SharedService } from 'src/app/common/services/shared.service';
+import { AuthService } from '../../services/auth.service';
+import { LogoutService } from 'src/app/modules/logout/services/logout.service';
+&nbsp;
+import { environment } from 'src/environments/environment';
+import { AGREEMENT_ENDPOINTS, DEVICE_REGISTRATION, DISPLACE_SESSION } from 'src/app/common/api-endpoints';
+import { BrowserRegistrationDetails } from 'src/app/common/models/registration.model';
+import { OTPResponse } from 'src/app/common/models/otp.model';
+import {
+  DASH_BOARD_ROUTE_URL, ACCESS_TOKEN_TEXT,
+  ERROR_DESCRIPTION_TEXT, NONE_TEXT, REFRESH_TOKEN_TEXT
+} from '../../auth-module.constants';
+import { COMPONENT_LIST, IS_REGISTRED_COOKIE_TEXT } from '../../auth-module.constants';
+import { CIAM_ERROR_MAPPING, ERROR_LIST } from 'src/app/common/ciam-error-mapping';
+import {
+  DOMAINS, IS_REGISTERED_TEXT, HTTP_STATUS_CODE, DIALOG_OPTION_USER_AGREEMENT,
+  AGREEMENT_CODE, CAPTCHA_TEXT, ARABIC_LANG_TEXT, DIALOG_OPTION_USER_SESSION_MANAGEMENT
+} from 'src/app/common/global-constants';
+import { Dialog } from 'src/app/common/models/dialog.model';
+import { DialogService } from 'src/app/common/services/dialog.service';
+import { UserAgreementRequest } from 'src/app/common/models/global.model';
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit, OnDestroy {
+&nbsp;
+  showInfoContainer: boolean;
+  loginFormGroup: FormGroup;
+  loginFromNewDevice: boolean;
+  location: string;
+  componentList = COMPONENT_LIST;
+  enableRecaptcha = false;
+  selectedLanguage: string;
+  arabicLanguageText = ARABIC_LANG_TEXT;
+  subscription$ = new Subscription();
+  @ViewChild('informationContainer', { static: false }) infoContainer: ElementRef;
+&nbsp;
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private httpHeadersService: HttpHeaderService,
+    private sharedService: SharedService,
+    private dialogService: DialogService,
+    private logoutService: LogoutService) {
+  }
+  ngOnInit() {
+    this.createLoginForm();
+    this.getSelectedLanguage();
+    this.showInfoContainer = this.sharedService.getCookie(IS_REGISTRED_COOKIE_TEXT) ? <span class="branch-0 cbranch-no" title="branch not covered" >true </span>: false;
+  }
+&nbsp;
+  /**
+   * @methodName createLoginForm
+   * @parameter none
+   * @description used to create the login form group
+   * @return none
+   */
+  createLoginForm(): void {
+    this.loginFormGroup = this.formBuilder.group({
+      userName: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      captcha: [''],
+    });
+  }
+&nbsp;
+  /**
+   * @methodName showForgetComponent
+   * @parameter componentName&lt;string&gt;
+   * @description used to show forget username / password component view
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  showForgetComponent(</span>componentName: string) {
+<span class="cstat-no" title="statement not covered" >    this.authService.clearInputFieldValues$.next(true); </span> // reset input field value for request
+<span class="cstat-no" title="statement not covered" >    this.authService.forgetComponentName = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    this.sharedService.userEmailId = undefined; </span>// resetting user email
+<span class="cstat-no" title="statement not covered" >    if (componentName) {</span>
+<span class="cstat-no" title="statement not covered" >      this.authService.forgetComponentName = componentName;</span>
+<span class="cstat-no" title="statement not covered" >      this.authService.showComponent$.next(componentName);</span>
+    }
+  }
+&nbsp;
+  /** @methodName loginUser
+   * @parameter none
+   * @description used to get access token using credentials from server
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  loginUser(<span class="cstat-no" title="statement not covered" ></span>displaceSession: boolean = false)</span>: void {</span>
+<span class="cstat-no" title="statement not covered" >    this.enableRecaptcha = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.infoContainer.nativeElement.classList.remove('error');</span>
+    const reqPayLoad = <span class="cstat-no" title="statement not covered" >this.generateLoginPayLoad();</span>
+    let LOGIN_URL = <span class="cstat-no" title="statement not covered" >`${environment.API_CONNECT_URL}${environment.ADIB}${environment.CIAM.ENDPOINTS.LOGIN}`;</span>
+<span class="cstat-no" title="statement not covered" >    LOGIN_URL = this.sharedService.handleDisplaceSession(LOGIN_URL, displaceSession);</span>
+<span class="cstat-no" title="statement not covered" >    this.authService.postLoginDetails(encodeURI(LOGIN_URL), reqPayLoad).subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (response.status === HTTP_STATUS_CODE.OK &amp;&amp; response.body &amp;&amp; response.body[ACCESS_TOKEN_TEXT]) {</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.accessToken = response.body[ACCESS_TOKEN_TEXT];</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.customerRIMID = response.body['rimid'];</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.refreshToken = response.body[REFRESH_TOKEN_TEXT];</span>
+<span class="cstat-no" title="statement not covered" >        this.checkDeviceRegistaration();</span>
+<span class="cstat-no" title="statement not covered" >        this.resetCaptcha();</span>
+      }
+    },
+<span class="fstat-no" title="function not covered" >      (</span>error) =&gt; {
+<span class="cstat-no" title="statement not covered" >        if (error &amp;&amp; error.error &amp;&amp; error.error.details &amp;&amp;</span>
+          (error.error.details[ERROR_DESCRIPTION_TEXT] === CIAM_ERROR_MAPPING.R02 ||
+            error.error.details[ERROR_DESCRIPTION_TEXT] === CIAM_ERROR_MAPPING.R01)) {
+<span class="cstat-no" title="statement not covered" >          this.infoContainer.nativeElement.classList.add('error');</span>
+        } else <span class="cstat-no" title="statement not covered" >if (error &amp;&amp; error.error &amp;&amp; error.error.details &amp;&amp;</span>
+          (error.error.details[ERROR_DESCRIPTION_TEXT] === ERROR_LIST.R14)) {
+<span class="cstat-no" title="statement not covered" >          this.infoContainer.nativeElement.classList.add('error');</span>
+<span class="cstat-no" title="statement not covered" >          this.loginFormGroup.get(CAPTCHA_TEXT).setValidators(Validators.required);</span>
+<span class="cstat-no" title="statement not covered" >          this.loginFormGroup.get(CAPTCHA_TEXT).updateValueAndValidity();</span>
+<span class="cstat-no" title="statement not covered" >          this.enableRecaptcha = true;</span>
+        } else <span class="cstat-no" title="statement not covered" >if (error &amp;&amp; error.error &amp;&amp; error.error.details &amp;&amp;</span>
+          (error.error.details[ERROR_DESCRIPTION_TEXT] === CIAM_ERROR_MAPPING.R15)) {
+          // rest login username and password
+<span class="cstat-no" title="statement not covered" >          this.loginFormGroup.reset();</span>
+          // unlock user and forgot password are using same component - COMPONENT_LIST.FORGET_PASSWORD
+          // Error Code - R03
+<span class="cstat-no" title="statement not covered" >          this.authService.isUserBlockedStatus = true;</span>
+<span class="cstat-no" title="statement not covered" >          this.authService.isUserBlocked$.next(true);</span>
+<span class="cstat-no" title="statement not covered" >          this.authService.forgetComponentName = COMPONENT_LIST.UNLOCK_USERNAME;</span>
+<span class="cstat-no" title="statement not covered" >          this.authService.showComponent$.next(COMPONENT_LIST.FORGET_PASSWORD);</span>
+        } else <span class="cstat-no" title="statement not covered" >if (error &amp;&amp; error.error &amp;&amp; error.error.details &amp;&amp;</span>
+          (error.error.details[ERROR_DESCRIPTION_TEXT] === ERROR_LIST.R115)) {
+<span class="cstat-no" title="statement not covered" >            this.handleUserSessionManagment();</span>
+        }
+<span class="cstat-no" title="statement not covered" >        this.resetCaptcha();</span>
+<span class="cstat-no" title="statement not covered" >        this.loginFormGroup.updateValueAndValidity();</span>
+      });
+  }
+&nbsp;
+  /**
+   * @methodName getUserAgreementData
+   * @parameter none
+   * @description it will get user agreement content
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  getUserAgreementData(): void {</span></span>
+    const GET_AGREEMENT_URL =
+<span class="cstat-no" title="statement not covered" >      this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false) +</span>
+      AGREEMENT_ENDPOINTS.AGREEMENT_REQ + '?agreementCode=' + AGREEMENT_CODE;
+<span class="cstat-no" title="statement not covered" >    this.sharedService.getUserAgreement(GET_AGREEMENT_URL).subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (response &amp;&amp; response.agreementStatus) {</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.agreementVersion = response.agreementVersion;</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.agreementContent = atob(response.agreementContent);</span>
+<span class="cstat-no" title="statement not covered" >        this.handleTermsAndCondition();</span>
+      } else <span class="cstat-no" title="statement not covered" >if (response &amp;&amp; !response.agreementStatus) {</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.isUserLoggedIn = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.toggleBackgroundImageClasses();</span>
+<span class="cstat-no" title="statement not covered" >        this.router.navigateByUrl(DASH_BOARD_ROUTE_URL);</span>
+      }
+    });
+  }
+&nbsp;
+  /**
+   * @methodName handleTermsAndCondition
+   * @parameter none
+   * @description used to handle terms and condition after login
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  handleTermsAndCondition(): void {</span></span>
+    const OPTIONS: Dialog = <span class="cstat-no" title="statement not covered" >DIALOG_OPTION_USER_AGREEMENT;</span>
+<span class="cstat-no" title="statement not covered" >    this.dialogService.open(OPTIONS);</span>
+<span class="cstat-no" title="statement not covered" >    this.dialogService.confirmed().subscribe(<span class="fstat-no" title="function not covered" >confirmed =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (confirmed === true) {</span>
+<span class="cstat-no" title="statement not covered" >        this.userAgreementRequest();</span>
+      }
+    });
+  }
+&nbsp;
+  /**
+   * @methodName userAgreementRequest
+   * @parameter none
+   * @description used to make certificate request
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  userAgreementRequest(): void {</span></span>
+    const AGREEMENT_REQ_API = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false)</span>
+      + AGREEMENT_ENDPOINTS.AGREEMENT_REQ;
+    const userAgreementPayload = <span class="cstat-no" title="statement not covered" >{} as UserAgreementRequest;</span>
+<span class="cstat-no" title="statement not covered" >    userAgreementPayload.agreementVersion = this.sharedService.agreementVersion;</span>
+<span class="cstat-no" title="statement not covered" >    userAgreementPayload.agreementCode = AGREEMENT_CODE;</span>
+<span class="cstat-no" title="statement not covered" >    userAgreementPayload.agreementStatus = true;</span>
+<span class="cstat-no" title="statement not covered" >    userAgreementPayload.nickName = this.authService.getDeviceName();</span>
+<span class="cstat-no" title="statement not covered" >    this.sharedService.makeUserAgreementReq(AGREEMENT_REQ_API, userAgreementPayload).subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (response) {</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.isUserLoggedIn = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.toggleBackgroundImageClasses();</span>
+<span class="cstat-no" title="statement not covered" >        this.router.navigateByUrl(DASH_BOARD_ROUTE_URL);</span>
+      }
+    });
+  }
+&nbsp;
+  /**
+   * @methodName checkDeviceRegistaration
+   * @parameter none
+   * @description used to get access token using credentials from server
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  checkDeviceRegistaration(): void {</span></span>
+    const CIAM_SESSION_URL = <span class="cstat-no" title="statement not covered" >`${environment.API_CONNECT_URL}${environment.ADIB}${environment.CIAM.ENDPOINTS.DEVICE_SESSION_REG}`;</span>
+<span class="cstat-no" title="statement not covered" >    this.httpHeadersService.customHeaderFunction = this.httpHeadersService.generateDeviceSessionRegHeaders;</span>
+<span class="cstat-no" title="statement not covered" >    this.authService.getDeviceRegistrationSession(CIAM_SESSION_URL, this.generateBrowserDetailsPayLoad()).subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (response &amp;&amp; response.body) {</span>
+<span class="cstat-no" title="statement not covered" >        document.cookie = `ac.uuid=${response.body};domain=${environment.APPLICATION_SUB_DOMAIN}`;</span>
+<span class="cstat-no" title="statement not covered" >        this.registerDevice();</span>
+      }
+    });
+  }
+&nbsp;
+  /**
+   * @methodName registerDevice
+   * @parameter none
+   * @description used to get access token using credentials from server
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  registerDevice(): void {</span></span>
+    const DEVICE_REG_URL = <span class="cstat-no" title="statement not covered" >`${this.sharedService.generateApiUrl(DOMAINS.API_SIT_CONNECT, true, true)}${DEVICE_REGISTRATION}`;</span>
+<span class="cstat-no" title="statement not covered" >    this.httpHeadersService.customHeaderFunction = this.httpHeadersService.generateDeviceRegHeaders;</span>
+    const requestPayLoad = <span class="cstat-no" title="statement not covered" >this.generateBrowserDetailsPayLoad();</span>
+<span class="cstat-no" title="statement not covered" >    requestPayLoad.timestamp = this.sharedService.getTimeStamp().toString();</span>
+<span class="cstat-no" title="statement not covered" >    this.authService.registerDeviceInfo(DEVICE_REG_URL, requestPayLoad).subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (response &amp;&amp; response.body &amp;&amp; typeof response.body === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >        response.body = JSON.parse(response.body);</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (response &amp;&amp; response.headers &amp;&amp; response.headers.get(IS_REGISTERED_TEXT)) {</span>
+<span class="cstat-no" title="statement not covered" >        document.cookie = `${IS_REGISTERED_TEXT}=${response.headers.get(IS_REGISTERED_TEXT)}`;</span>
+<span class="cstat-no" title="statement not covered" >        this.getUserAgreementData();</span>
+      } else <span class="cstat-no" title="statement not covered" >if (response &amp;&amp; response.body &amp;&amp; response.body['location']) {</span>
+<span class="cstat-no" title="statement not covered" >        this.loginFromNewDevice = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.location = response.body['location'];</span>
+      } else {
+        // if any of the above condition fails allow the user to continue with the flow
+<span class="cstat-no" title="statement not covered" >        this.getUserAgreementData();</span>
+      }
+    }, <span class="fstat-no" title="function not covered" >error =&gt; {</span>
+      // if API fails instoring browser data allow the user to continue with the flow
+<span class="cstat-no" title="statement not covered" >      this.getUserAgreementData();</span>
+    });
+  }
+&nbsp;
+  /**
+   * @methodName generateLoginPayLoad
+   * @parameter none
+   * @description used to genreate the login request payload
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  generateLoginPayLoad(): HttpParams {</span>
+<span class="cstat-no" title="statement not covered" >    this.httpHeadersService.customHeaderFunction = this.httpHeadersService.generateLoginHeaders;</span>
+    let params: HttpParams = <span class="cstat-no" title="statement not covered" >new HttpParams();</span>
+<span class="cstat-no" title="statement not covered" >    params = params.append('grant_type', environment.CIAM.GRANT_TYPE);</span>
+<span class="cstat-no" title="statement not covered" >    params = params.append('client_id', environment.CIAM.CLIENT_ID);</span>
+<span class="cstat-no" title="statement not covered" >    params = params.append('username', this.loginFormGroup.get('userName').value);</span>
+<span class="cstat-no" title="statement not covered" >    params = params.append('password', this.loginFormGroup.get('password').value);</span>
+<span class="cstat-no" title="statement not covered" >    params = params.append('scope', environment.CIAM.SCOPE);</span>
+<span class="cstat-no" title="statement not covered" >    params = params.append('mode', environment.CIAM.LOGIN.MODE);</span>
+<span class="cstat-no" title="statement not covered" >    if (this.httpHeadersService.reCaptchaValue) {</span>
+<span class="cstat-no" title="statement not covered" >      params = params.append(CAPTCHA_TEXT, this.httpHeadersService.reCaptchaValue);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return params;</span>
+  }
+&nbsp;
+  /**
+   * @methodName generateBrowserDetailsPayLoad
+   * @parameter none
+   * @description used to genreate browser details payload
+   * @return BrowserRegistrationDetails
+   */
+<span class="fstat-no" title="function not covered" >  generateBrowserDetailsPayLoad(): BrowserRegistrationDetails {</span>
+    const reqPayLaod = <span class="cstat-no" title="statement not covered" >{} as BrowserRegistrationDetails;</span>
+<span class="cstat-no" title="statement not covered" >    reqPayLaod.browserPlugins = this.authService.getBrowserPlugins();</span>
+    // @ts-ignore
+    const client = <span class="cstat-no" title="statement not covered" >new ClientJS();</span>
+<span class="cstat-no" title="statement not covered" >    reqPayLaod.deviceFonts = client.getFonts() ? client.getFonts() : NONE_TEXT;</span>
+<span class="cstat-no" title="statement not covered" >    reqPayLaod.deviceNickname = this.authService.getDeviceName();</span>
+<span class="cstat-no" title="statement not covered" >    return reqPayLaod;</span>
+  }
+&nbsp;
+  /**
+   * @methodName getOTPResponse
+   * @param &lt;OTPResponse&gt;
+   * @description Used to fetch or post the OTP info to CIAM
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  getOTPResponse(</span>otpResponseObj: OTPResponse): void {
+<span class="cstat-no" title="statement not covered" >    if (otpResponseObj &amp;&amp; otpResponseObj.success) {</span>
+<span class="cstat-no" title="statement not covered" >      this.registerDevice();</span>
+    }
+  }
+&nbsp;
+&nbsp;
+  /**
+   * @methodName resendOTPRequired
+   * @param &lt;boolean&gt;
+   * @description Used to fetch the OTP Location details
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  resendOTPRequired(</span>resendOTP: boolean): void {
+<span class="cstat-no" title="statement not covered" >    if (resendOTP) {</span>
+<span class="cstat-no" title="statement not covered" >      this.registerDevice();</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName handleOtpCancelButtonClick
+   * @description used to update handle cancel event from otp component
+   * @parameters status&lt;boolean&gt;
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleOtpCancelButtonClick(</span>status: boolean): void {
+<span class="cstat-no" title="statement not covered" >    if (status) {</span>
+<span class="cstat-no" title="statement not covered" >      this.loginFormGroup.reset();</span>
+<span class="cstat-no" title="statement not covered" >      this.loginFromNewDevice = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.logoutService.logoutUser(true);</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.sharedService.getCookie(IS_REGISTRED_COOKIE_TEXT)) {</span>
+<span class="cstat-no" title="statement not covered" >        this.authService.openRegistraionConfirmModal();</span>
+      }
+    }
+  }
+&nbsp;
+  /**
+   * @methodName handleRecaptchaResponse
+   * @description used to handle recaptcha response
+   * @parameters response&lt;string&gt;
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleRecaptchaResponse(</span>response: string): void {
+<span class="cstat-no" title="statement not covered" >    if (response) {</span>
+      // recatcha success response
+<span class="cstat-no" title="statement not covered" >      this.loginFormGroup.get(CAPTCHA_TEXT).setValue(response);</span>
+<span class="cstat-no" title="statement not covered" >      this.httpHeadersService.reCaptchaValue = response;</span>
+    } else {
+      // recatcha time out response
+<span class="cstat-no" title="statement not covered" >      this.resetCaptcha();</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName resetCaptcha
+   * @description used to reset captcha
+   * @parameters none
+   * @return none
+   */
+  resetCaptcha(): void {
+    this.httpHeadersService.reCaptchaValue = undefined;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (this.loginFormGroup &amp;&amp; this.loginFormGroup.get(CAPTCHA_TEXT)) {
+      this.loginFormGroup.get(CAPTCHA_TEXT).reset();
+      this.loginFormGroup.get(CAPTCHA_TEXT).setValidators(null);
+    }
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedLanguage
+   * @parameter none
+   * @description Used to set selected language EN | AR
+   * @return none
+   */
+  getSelectedLanguage(): void {
+    this.subscription$.add(this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) =&gt; {
+      this.selectedLanguage = selectedLanguage;
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName handleUserSessionManagment
+   * @parameter none
+   * @description used to handle user session managment
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  handleUserSessionManagment(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.subscription$.add(this.dialogService.handleMultipleUserSessionManagment().subscribe(</span>
+<span class="fstat-no" title="function not covered" >      response =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (response === true) {</span>
+<span class="cstat-no" title="statement not covered" >          this.loginUser(true);</span>
+        } else <span class="cstat-no" title="statement not covered" >if (response === false) {</span>
+<span class="cstat-no" title="statement not covered" >          this.authService.showComponent$.next(COMPONENT_LIST.LOGIN);</span>
+        }
+      }
+    ));
+  }
+&nbsp;
+  ngOnDestroy() {
+    this.resetCaptcha();
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (this.loginFormGroup &amp;&amp; this.loginFormGroup.get(CAPTCHA_TEXT)) { this.loginFormGroup.reset(); }
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

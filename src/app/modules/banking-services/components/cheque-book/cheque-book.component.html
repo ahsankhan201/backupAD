@@ -1,0 +1,44 @@
+<section class="cheque-book-comp" [ngClass]="(selectedLang === arabicLanguageText) ? 'cheque-book-comp-rtl': ''">
+    <div class="cheque-book-comp__wrapper" *ngIf="!showSummaryScreen">
+        <div class="col-sm-12 padding-lrn title" translate>tr_chequeBookComponent_requestChequeBook</div>
+        <form [formGroup]="chequeBookFormGroup" class="cheque-book-comp__wrapper__form">
+            <mat-form-field class="col-md-12 padding-lrn floating-field">
+                <mat-label translate>tr_common_selectAccounText</mat-label>
+                <input type="text" matInput formControlName="selectAccount" [matAutocomplete]="selectAccount">
+                <mat-error>
+                    <app-show-form-errors [control]="chequeBookFormGroup.get('selectAccount')"
+                        label="tr_common_accountNumberText">
+                    </app-show-form-errors>
+                </mat-error>
+                <mat-autocomplete #selectAccount="matAutocomplete"
+                    (optionSelected)="accountSelectionChange($event.option.id)" autoActiveFirstOption>
+                    <mat-option
+                        *ngFor="let account of eligibleAccounts | filterText:chequeBookFormGroup.controls['selectAccount'].value:'accountValueForDropDown'"
+                        value="{{account}}" id="{{account}}">
+                        {{account}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field class="col-md-12 padding-lrn">
+                <mat-label translate>tr_common_mobileNumberText</mat-label>
+                <input type="tel" matInput formControlName="mobileNumber" inputmode="numeric" pattern="[0-9]*"
+                    numbersOnly maxlength="{{ mobileMaxLength }}" autocomplete="off">
+                <mat-error>
+                    <app-show-form-errors [control]="chequeBookFormGroup.get('mobileNumber')"
+                        label="tr_common_mobileNumberText">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+        </form>
+
+        <div class="button-wrapper">
+            <button class="cancel-btn" (click)="cancelRequest()" translate>tr_common_cancelText</button>
+            <button class="next-btn" (click)="showSummaryScreenComp()"
+                [disabled]="!chequeBookFormGroup.valid || !enableNextBtn" translate>tr_common_nextText</button>
+        </div>
+    </div>
+    <!-- cheque book summary section code starts here -->
+    <div class="cheque-book-comp__wrapper__summary" *ngIf="showSummaryScreen">
+        <app-cheque-book-summary (showChequeBookForm)="toggleSummaryScreen()"></app-cheque-book-summary>
+    </div>
+</section>

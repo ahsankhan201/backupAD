@@ -1,0 +1,48 @@
+<section class="ibd-dashboard-comp" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'dashboard-rtl-layout': ''">
+    <div class="ibd-dashboard-comp__wrapper">
+        <div class="container ibd-dashboard-comp__wrapper__container padding-lrn margin-lrn">
+            <div class="row ibd-dashboard-comp__wrapper__container__body-wrapper margin-lrn">
+                <div class="col-sm-12 padding-lrn ibd-dashboard-comp__wrapper__container__body-wrapper__body"
+                    *ngIf="showComponent==='AccountListComponent'">
+                    <app-account-list (openAccount)="handleOpenAccount()" (showDetail)="showAccountDetail()">
+                    </app-account-list>
+                    <div
+                        class="row margin-lrn ibd-dashboard-comp__wrapper__container__body-wrapper__body__component-container">
+                        <div class="col-12 col-lg-4">
+                            <app-quick-links class="quick-links-wrapper" [quickLinksData]="quickLinksData"
+                                (clickedItem)="handleQuickLinkEvent($event)">
+                            </app-quick-links>
+                        </div>
+                        <div class="col-12 col-lg-8">
+                            <app-marketing-banner></app-marketing-banner>
+                        </div>
+                    </div>
+                </div>
+                <!-- Payments component code -->
+                <div class="payments-body" *ngIf="showComponent === 'PaymentsComponent'">
+                    <app-payments [showTransferFromStep]="'true'" [showTransferToStep]="'true'"
+                        [selectedAccountNumber]="selectedAccountNumber" [parentComponentTitle]="parentComponentTitle"
+                        [selectedComponentTitle]="selectedComponentTitle"
+                        (completeTransactionEvent)="changePaymentsView($event)">
+                    </app-payments>
+                </div>
+                <!-- Transfers component code -->
+                <div class="payments-body" *ngIf="showComponent === 'MoneyTransferComponent' ">
+                    <app-money-transfer [showMoneyTransferFromStep]="'true'" [showMoneyTransferToStep]="'true'"
+                        [parentComponentTitle]="parentComponentTitle"
+                        [selectedComponentTitle]="'tr_common_moneyTransferText'"
+                        [selectedAccountNumber]="selectedAccountForMoneyTransfer" [showCardsTabInStepFrom]="'true'"
+                        (completeTransferEvent)="changeMoneyTransferView($event)">
+                    </app-money-transfer>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-account-details (showAccountList)="showDashboard()" *ngIf="showComponent === 'AccountDetailsComponent' ">
+</app-account-details>
+<!-- Open Account component -->
+<app-open-account (backButtonClick)="handleOpenAccountBackButton($event)"
+    *ngIf="showComponent === 'OpenAccountComponent' "></app-open-account>
+<!-- Open Account component -->
+<router-outlet></router-outlet>

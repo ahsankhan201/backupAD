@@ -1,0 +1,64 @@
+@import "src/assets/styles/default";
+
+.ibd-registration-otp-step {
+  @include respond-to(screen-land) {
+    padding: 0px 30px;
+  }
+  @include respond-to(screen-m-min) {
+    padding: 0px 20px;
+  }
+  @include respond-to(screen-l-min) {
+    padding: 8px 28px 0px;
+  }
+  @include respond-to(screen-xl-min) {
+    padding: 8px 16px;
+  }
+  &__buttons {
+    width: 100%;
+    position: static;
+    margin-bottom: 16px;
+    button {
+      width: 100%;
+      margin-top: 16px;
+      @include respond-to(screen-m-min) {
+        width: 184px;
+        min-width: 184px;
+        margin-top: 0;
+      }
+    }
+    @include respond-to(screen-m-min) {
+      position: static;
+      display: flex;
+      .next-btn,
+      .previous-btn {
+        margin-left: 27px;
+      }
+    }
+  }
+
+  &__security-tips-wrapper {
+    margin-top: 24px;
+    color: $cerulean-blue;
+    font-size: 12px;
+    font-family: $font-regular;
+    text-align: center;
+    @include respond-to(screen-m-min) {
+      margin-top: 32px;
+    }
+    @include respond-to(screen-l-min) {
+      display: none;
+    }
+    &__text {
+      cursor: pointer;
+    }
+    span {
+      margin-left: 8px;
+    }
+  }
+}
+
+:host ::ng-deep app-otp {
+  .otp-message-comp__wrapper__title {
+    text-align: center;
+  }
+}

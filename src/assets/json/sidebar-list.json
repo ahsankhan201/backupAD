@@ -1,0 +1,38 @@
+[
+    {
+        "navIcon": "/assets/icons/account.svg",
+        "navIconActive": "/assets/icons/active-account.svg",
+        "navText": "tr_common_accountsText",
+        "navLink": "dashboard"
+    },
+    {
+        "navIcon": "/assets/icons/card.svg",
+        "navIconActive": "/assets/icons/active-card.svg",
+        "navText": "tr_common_cardsText",
+        "navLink": "cards"
+    },
+    {
+        "navIcon": "/assets/icons/finance.svg",
+        "navIconActive": "/assets/icons/active-finance.svg",
+        "navText": "tr_common_financeText",
+        "navLink": "finance"
+    },
+    {
+        "navIcon": "/assets/icons/transfer-payment.svg",
+        "navIconActive": "/assets/icons/active-transfer-payment.svg",
+        "navText": "tr_common_transfer&PaymentText",
+        "navLink": "transfers-payments"
+    },
+    {
+        "navIcon": "/assets/icons/product-offer.svg",
+        "navIconActive": "/assets/icons/active-product-offer.svg",
+        "navText": "tr_common_productsOffersText",
+        "navLink": "products"
+    },
+    {
+        "navIcon": "/assets/icons/service.svg",
+        "navIconActive": "/assets/icons/active-service.svg",
+        "navText": "tr_common_servicesText",
+        "navLink": "services"
+    }
+]

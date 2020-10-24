@@ -1,0 +1,27 @@
+<div class="open-account-comp" [ngClass]="(selectedLang === arabicLanguageText) ? 'open-account-comp-rtl': ''">
+    <div class="open-account-comp__wrapper">
+        <div class="open-account-comp__wrapper__header">
+            <div class="cta-back-btn" (click)="showAccountsTab()" translate>tr_navControl_backText</div>
+            <div class="title" translate>{{ openAccountTitle }}</div>
+        </div>
+        <div class="open-account-comp__wrapper__cards" *ngIf="showComponent === 'OpenAccountComponent'">
+            <div class="title" translate>tr_openAccount_accountsTypesLabel</div>
+            <app-product-card [openAccountCardsList]="openAccountCardsList"
+                (selectedCardOption)="handleSelectedCardOption($event)"></app-product-card>
+        </div>
+        <div>
+            <!-- Investment Deposit Accounts Component-->
+            <app-investment-deposit-account (backButtonClick)="handleBackButtonClick($event)"
+                (showSummary)="handleShowSummary($event)" (cancelOpenAccountTransaction)="showAccountsTab()"
+                *ngIf="showComponent === 'InvestmentDepositAccountComponent' ">
+            </app-investment-deposit-account>
+
+            <app-savings-account *ngIf="showComponent ==='SAVINGS_ACCOUNT_COMPONENT'"
+                (cancelOpenAccountTransaction)="showAccountsTab()"></app-savings-account>
+
+            <app-ghina-savings-account *ngIf="showComponent ==='GHINA_ACCOUNT_COMPONENT'"
+                (cancelOpenAccountTransaction)="showAccountsTab()"></app-ghina-savings-account>
+
+        </div>
+    </div>
+</div>

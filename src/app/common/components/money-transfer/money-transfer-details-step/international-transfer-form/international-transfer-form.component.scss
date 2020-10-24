@@ -1,0 +1,175 @@
+@import "src/assets/styles/default";
+
+.international-transfer-comp {
+  min-height: 385px;
+  position: relative;
+  &__wrapper {
+    &__available-funds {
+      .text {
+        font-family: $font-light;
+        margin-bottom: 4px;
+        font-size: 16px;
+        color: $grey;
+      }
+      .amount {
+        &__digit {
+          color: $active-blue;
+          font-family: $font-medium;
+          font-size: 20px;
+          line-height: normal;
+          position: relative;
+        }
+        &__decimal,
+        &__currency {
+          color: $suva-grey;
+          font-family: $font-medium;
+          font-size: 12px;
+          line-height: normal;
+        }
+        &__currency {
+          padding-left: 4px;
+        }
+        &::after {
+          content: " ";
+          border: 1px solid $cerulean-blue;
+          display: block;
+          width: 25px;
+          margin-top: 6px;
+        }
+      }
+      margin-bottom: 24px;
+    }
+    &__buttons {
+      width: 100%;
+      position: static;
+      margin-bottom: 16px;
+      button {
+        width: 100%;
+        margin-top: 16px;
+        @include respond-to(screen-m-min) {
+          width: 184px;
+          min-width: 184px;
+          margin-top: 0;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        display: flex;
+        .next-btn,
+        .previous-btn {
+          margin-left: 27px;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        margin-top: 38px;
+      }
+    }
+    form {
+      .external-amount,
+      .local-amount {
+        width: 72%;
+        @include respond-to(screen-m-min) {
+          width: 100%;
+        }
+        span {
+          display: inline-block;
+          width: 44%;
+          position: absolute;
+          text-align: center;
+          @include respond-to(screen-m-min) {
+            display: none;
+          }
+        }
+      }
+      .exchange-rate-wrapper {
+        padding: 0 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $thin-gray;
+        font-family: $font-regular;
+        font-size: 14px;
+        width: 30%;
+        margin-left: auto;
+        span {
+          display: none;
+          @include respond-to(screen-m-min) {
+            display: inline;
+          }
+        }
+        &__beneficiary {
+          .web {
+            margin: 0 10px;
+          }
+        }
+        @include respond-to(screen-m-min) {
+          .mobile {
+            display: none;
+          }
+          width: 100%;
+        }
+      }
+      .transfer-purpose {
+        @include respond-to(screen-m-min) {
+          padding-right: 15px;
+        }
+      }
+    }
+    .alert-message {
+      margin-top: 15px;
+    }
+  }
+  @include respond-to(screen-m-min) {
+    max-width: 600px;
+  }
+}
+
+.intl-transfer-details-rtl {
+  .international-transfer-comp__wrapper {
+    .bottom-text {
+      text-align: right;
+      text-align: -webkit-right;
+    }
+    &__available-funds {
+      text-align: right;
+      text-align: -webkit-align;
+      direction: ltr;
+      .amount {
+        &__digit {
+          &::after {
+            left: 3px;
+          }
+        }
+        &__currency {
+          padding-left: 4px;
+        }
+        &::after {
+          margin-left: auto;
+        }
+      }
+    }
+    form {
+      mat-form-field {
+        text-align: right;
+        text-align: -webkit-right;
+      }
+      .exchange-rate-wrapper {
+        margin-left: unset;
+        margin-right: auto;
+      }
+      .transfer-purpose {
+        @include respond-to(screen-m-min) {
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+  .international-transfer-comp__wrapper__buttons {
+    .next-btn,
+    .previous-btn {
+      @include respond-to(screen-m-min) {
+        margin-left: 0px;
+        margin-right: 27px;
+      }
+    }
+  }
+}

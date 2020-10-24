@@ -1,0 +1,69 @@
+<div class="open-account-comp-summary" >
+    <div class="open-account-comp-summary__wrapper" *ngIf="showComponent==='SummaryComponent'">
+        <div class="open-account-comp-summary__wrapper__title" translate>tr_common_summary</div>
+        <div class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_timeDepositAccount_summary_accountCurrencyText</div>
+            <div class="summary-label-group__value " >{{ summaryScreenDetails.accountCurrency }}</div>
+        </div>
+        <div class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_timeDepositAccount_summary_accountDurationText</div>
+            <div class="summary-label-group__value" >{{ summaryScreenDetails.accountDuration }}
+                <span translate>tr_timeDepositAccount_monthText</span>
+            </div>
+        </div>
+        <div class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_timeDepositAccount_summary_depositAmountText</div>
+            <div class="summary-label-group__value text" >{{ summaryScreenDetails.depositAmount | numberFormat  }}.{{summaryScreenDetails?.depositAmount | getDecimalValue}} <span class="currency">{{ summaryScreenDetails.accountCurrency }}</span></div>
+        </div>
+        <div class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_timeDepositAccount_summary_payFromText</div>
+            <div class="summary-label-group__value" >{{ summaryScreenDetails.transferFromAccount }}</div>
+        </div>
+        <div class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_timeDepositAccount_summary_maturityOptionText</div>
+            <div class="summary-label-group__value" >{{ summaryScreenDetails.maturityOptionTransferTo }}</div>
+        </div>
+        <div class="summary-label-group" *ngIf="summaryScreenDetails.maturityOptionAccount">
+            <div class="summary-label-group__label" translate>tr_timeDepositAccount_transferToText</div>
+            <div class="summary-label-group__value" >{{ summaryScreenDetails.maturityOptionAccount }}</div>
+        </div>
+        <div class="summary-label-group" >
+            <div class="summary-label-group__label" translate>tr_timeDepositAccount_profitCreditOptionText</div>
+            <div class="summary-label-group__value" >{{ summaryScreenDetails.profitCreditOptionTransferTo }}</div>
+        </div>
+        <div class="summary-label-group" *ngIf="summaryScreenDetails.profitCreditOptionAccount">
+            <div class="summary-label-group__label" translate>tr_timeDepositAccount_transferToText</div>
+            <div class="summary-label-group__value" >{{ summaryScreenDetails.profitCreditOptionAccount }}</div>
+        </div>
+        <div class="summary-terms-and-conditions">
+            <div class="summary-terms-and-conditions__tick">
+                <img (click)="handleTermsAndCondition()" src="{{bankingServiceTermsTickImage}}" alt="image">
+            </div>
+            <div class="summary-terms-and-conditions__text">
+               <span translate>tr_openAccountComponent_accountIaccepttheText</span>
+               <span class="link" translate  (click)="handleTermsAndCondition()"> tr_openAccountComponent_termsAndConditionsText</span>
+               <span translate> tr_openAccountComponent_bankingServiceText</span>
+            </div>
+        </div>
+        <div class="summary-buttons">
+            <button class="btn cancel-btn" type="button" (click)="showOpenAccountForm(undefined)"
+            translate>tr_common_editText</button>
+            <button class="btn next-btn" type="button" [disabled]="!isTermsAgreed"  (click)="getOTPLocationDetails()" translate>tr_common_confirmWithOTPText</button>
+        </div>
+    </div>
+    <div class="open-account-comp-summary__otp-screen" *ngIf="showComponent ==='OTPComponent'">
+        <app-otp *ngIf="location" [location]='location' [masking]=true
+        (response)="getOTPResponse($event)" (resendOTPRequired)="resendOTPRequired($event)"></app-otp>
+    </div>
+    <div class="open-account-comp-summary__success-screen" *ngIf="showComponent ==='SuccessScreenComponent'">
+        <app-success-screen 
+            [showAlertIcon]="false"
+            [openedAccountCurrencyCode]="summaryScreenDetails.accountCurrency"
+            [newAccountNumber]="newAccountNumber" 
+            componentName="timeDepositAccount"
+            class="time-deposit-account-success-comp">
+        </app-success-screen>
+        <button class="btn next-btn success-screen-btn"
+            (click)="showOpenAccountForm(true)">{{sourceDashBoardName | translate}}</button>
+    </div>
+</div>

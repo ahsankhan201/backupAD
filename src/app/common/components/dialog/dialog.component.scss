@@ -1,0 +1,367 @@
+@import "src/assets/styles/default";
+
+.dialog-message {
+  color: $dark-grey;
+}
+.dialog-btn {
+  width: 100%;
+  min-height: 38px;
+  height: auto;
+}
+.mat-dialog-actions .next-btn {
+  margin-bottom: 8px;
+  @include respond-to(screen-m-min) {
+    margin-bottom: unset;
+  }
+}
+.mat-dialog-content {
+  .freeze-content {
+    .card-name {
+      color: $solid-blue;
+      font-family: $font-medium;
+      font-size: 16px;
+      font-weight: 500;
+      height: 19px;
+      letter-spacing: 0px;
+    }
+    .card-number {
+      color: $grey;
+      font-family: $font-regular;
+      font-size: 13px;
+      font-weight: normal;
+      height: 22px;
+      letter-spacing: 0px;
+      line-height: 22px;
+    }
+  }
+
+  .dialog-message {
+    color: $grey;
+    font-family: $font-regular;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 0px;
+    line-height: 22px;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .month-selection {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+
+    .month-year-cards {
+      cursor: pointer;
+      background: $white;
+      border-radius: 8px;
+      border: 1px solid $account-card-border;
+      height: 55px;
+      width: 74px;
+      &:nth-child(2),
+      &:nth-child(5) {
+        margin-right: 16px;
+        margin-left: 16px;
+      }
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        margin-bottom: 16px;
+      }
+      .month-year-option {
+        margin-top: 10px;
+        @extend .ibd-font-regular-12-grey;
+        line-height: 16px;
+        text-align: center;
+      }
+      &.active {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgb(215, 215, 221);
+        box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+        .month-year-option {
+          @extend .ibd-roboto-medium-text;
+          color: $solid-blue;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+.dialog-bullets-wrapper-rtl {
+  direction: rtl;
+  .bullet-text {
+    margin-right: 10px;
+  }
+}
+.dialog-product-header-rtl {
+  direction: rtl;
+  .heading-content {
+    margin-left: 0px;
+    margin-right: 17px;
+    text-align: right;
+  }
+}
+
+.download-buttons {
+  margin-top: 6px;
+  flex-direction: row-reverse;
+  .next-btn {
+    margin-bottom: unset;
+  }
+  .next-btn,
+  .cancel-btn {
+    height: 32px;
+    width: 47%;
+  }
+  .cancel-btn {
+    margin-right: 15px;
+  }
+}
+
+.terms-and-condition-com {
+  padding: 12px 10px 16px 16px;
+}
+
+.terms-and-condition-action {
+  margin-top: 16px;
+}
+
+.dialog-header {
+  display: flex;
+  .terms-and-condition-header {
+    color: #a2a2a2;
+    font-size: 14px;
+    font-family: $font-regular;
+    &__close-button {
+      margin-left: auto;
+      line-height: 0;
+      color: $cerulean-blue;
+      font-size: 14px;
+      font-family: $font-light;
+      font-weight: 300;
+      text-align: center;
+      letter-spacing: 0px;
+      border: none;
+      background: unset;
+      img {
+        margin-left: 3px;
+      }
+    }
+  }
+}
+
+.transaction-receipt {
+  background-image: url("/assets/images/BG_Phone_Potrait.png");
+  background-size: cover;
+  width: auto;
+  background-position: top;
+  height: 100vh;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-height: 640px;
+  min-height: 640px;
+  overflow-y: auto;
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 0 14px 0;
+    box-shadow: inset 0px -1px 0px 0px $bright-gray;
+    img {
+      width: 150px;
+      height: auto;
+    }
+  }
+  &__title {
+    font-family: $font-regular;
+    font-size: 14px;
+    color: $button-gray;
+    margin-top: 10px;
+    text-align: center;
+  }
+  &__wrapper {
+    padding: 0 16px;
+    &__field {
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+      box-shadow: inset 0px -1px 0px 0px $bright-gray;
+      margin-bottom: 8px;
+      &__name {
+        font-family: $font-light;
+        font-size: 12px;
+        color: $thin-gray;
+        flex: 0 50%;
+      }
+      &__value {
+        font-family: $font-regular;
+        font-size: 12px;
+        color: $solid-blue;
+        flex: 0 50%;
+        text-align: right;
+        .currency {
+          color: $suva-grey;
+          font-size: 12px;
+          line-height: normal;
+          margin-left: 2px;
+        }
+      }
+    }
+  }
+  &__buttons {
+    margin-top: 12px;
+    padding: 0 16px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    button {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.auth-dialog-modal {
+  .dialog-header {
+    justify-content: center;
+    font-size: 15px;
+    font-family: $font-regular;
+    .new-text {
+      color: $solid-blue;
+      font-family: $font-medium;
+    }
+  }
+  &__content {
+    text-align: center;
+    font-family: $font-light;
+    color: $button-gray;
+    padding: 16px;
+    line-height: 22px;
+    &__info {
+      font-size: 15px;
+      span {
+        color: $solid-blue;
+        font-family: $font-regular;
+      }
+    }
+    &__note-text {
+      margin-top: 16px;
+      font-size: 14px;
+      .note {
+        color: $solid-blue;
+        font-family: $font-medium;
+      }
+    }
+  }
+  &__buttons {
+    padding: 0 16px 16px;
+    text-align: center;
+    span {
+      display: inline-block;
+      cursor: pointer;
+      margin-top: 16px;
+      font-size: 14px;
+      font-family: $font-regular;
+    }
+  }
+}
+
+.session-timeout {
+  padding: 16px;
+  &__wrapper {
+    &__title {
+      font-family: $font-light;
+      font-size: 14px;
+      color: $thin-gray;
+      margin-bottom: 34px;
+      span {
+        background-color: $light-snow-white;
+        font-family: $font-regular;
+        font-size: 16px;
+        color: $solid-blue;
+        line-height: 20px;
+        padding: 3px 8px;
+        display: inline-block;
+      }
+    }
+    &__question {
+      font-family: $font-regular;
+      font-size: 14px;
+      color: $solid-blue;
+      margin-bottom: 16px;
+      line-height: 20px;
+    }
+  }
+  &__buttons {
+    display: flex;
+    button {
+      min-width: 143px;
+    }
+    .cancel-btn {
+      margin-right: 16px;
+    }
+  }
+}
+
+.user-blocked {
+  font-family: $font-regular;
+  &__title {
+    padding: 17px 16px;
+    height: 50px;
+    background: $mid-gray;
+    border-radius: 8px 8px 0px 0px;
+    .mat-dialog-title {
+      @extend .ibd-roboto-medium-text;
+      color: $solid-blue;
+      font-weight: normal;
+      letter-spacing: 0px;
+    }
+  }
+  &__content {
+    @extend .ibd-roboto-medium-text;
+    padding: 12px 16px 16px 16px;
+    line-height: 24px;
+    margin: 0px;
+    min-height: 81px;
+    max-height: 100%;
+    .dialog-message {
+      @extend .ibd-roboto-medium-text;
+      color: $dark-grey;
+      font-family: $font-regular;
+      line-height: 22px;
+    }
+  }
+}
+.user-agreement__buttons {
+  display: flex;
+  justify-content: center;
+  button {
+    width: 70%;
+  }
+}
+
+.user-agreement__version {
+  display: flex;
+  justify-content: center;
+  margin: 13px;
+  span {
+    @extend .ibd-font-regular-12-grey;
+  }
+}
+
+// RTL styles
+.transaction-receipt-rtl {
+  direction: rtl;
+  .transaction-receipt__wrapper {
+    .transaction-receipt__wrapper__field {
+      .transaction-receipt__wrapper__field__value {
+        text-align: left;
+      }
+      .transaction-receipt__wrapper__field__name {
+        text-align: right;
+      }
+    }
+  }
+}

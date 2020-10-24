@@ -1,0 +1,27 @@
+<section class="beneficiary-comp margin-lrn col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'add-beneficiary-rtl-layout': ''">
+    <div class="row beneficiary-comp__link-wrapper margin-lrn" routerLink="/transfers-payments">
+        <span class="beneficiary-comp__link-wrapper__back" translate>tr_navControl_backText</span>
+    </div>
+    <div class="row beneficiary-comp__text-wrapper margin-lrn" translate>tr_common_addBeneficiaryText</div>
+    <div class="row beneficiary-comp__step-wrapper margin-lrn">
+        <mat-horizontal-stepper linear #stepper (selectionChange)="stepIndexChanged(stepper,$event)"
+            [ngClass]="(selectedLanguage === arabicLanguageText) ? 'mat-horizontal-stepper-rtl': ''">
+            <ng-template matStepperIcon="edit">
+                <mat-icon></mat-icon>
+            </ng-template>
+            <mat-step label="{{stepperText.REGION | translate}}">
+                <app-region-selection></app-region-selection>
+            </mat-step>
+            <mat-step label="{{stepperText.BANK | translate}}">
+                <app-bank-selection></app-bank-selection>
+            </mat-step>
+            <mat-step label="{{stepperText.ACCOUNT | translate}}">
+                <app-account-selection></app-account-selection>
+            </mat-step>
+            <mat-step label="{{stepperText.CONFIRM | translate}}">
+                <app-confirm-account></app-confirm-account>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</section>

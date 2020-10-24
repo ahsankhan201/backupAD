@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/modules/transfers-payments/services/transfers-payments.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/modules/transfers-payments/services</a> transfers-payments.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>15/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">36.36% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">51.85% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>14/27</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+&nbsp;
+// include services
+import { APISyncService } from 'src/app/common/services/sync.service';
+import { SharedService } from 'src/app/common/services/shared.service';
+&nbsp;
+// include model and constants
+import { BeneficiaryListResponse } from '../../../common/models/beneficiary.model';
+import { TRANSFER_PAYMENT_CONST, DOMAINS } from '../../../common/global-constants';
+import { EditPayeePayload } from '../../../common/models/payee.model';
+import { RestrictedWordsList } from 'src/app/common/models/beneficiary-module.model';
+import { BENEFICIARY_ENDPOINTS } from 'src/app/common/api-endpoints';
+&nbsp;
+&nbsp;
+@Injectable({
+  providedIn: 'root'
+})
+export class TransfersPaymentsService {
+  constructor(
+    private syncService: APISyncService,
+    private sharedService: SharedService
+  ) { }
+  /**
+   * @methodName getAccountList
+   * @description used to fetch the accounts info from the server
+   * @parameters url&lt;string&gt;
+   * @return Observable
+   */
+  getAccountList(url: string): Observable&lt;any&gt; {
+    return this.syncService.get(url);
+  }
+&nbsp;
+  /**
+   * @methodName updateBeneficiaryAsFav
+   * @description update beneficiary as favourite
+   * @parameters url&lt;string&gt; payload&lt;any&gt;
+   * @return Observable
+   */
+<span class="fstat-no" title="function not covered" >  updateBeneficiaryAsFav(</span>url: string, payload: any): Observable&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.syncService.put(url, payload);</span>
+  }
+&nbsp;
+  /**
+   * @methodName changeFavorite
+   * @description get favorite status and swap it.
+   * @parameters status
+   * @return opposit status&lt;string&gt;
+   */
+<span class="fstat-no" title="function not covered" >  changeFavorite(</span>status: string): string {
+<span class="cstat-no" title="statement not covered" >    return status === 'Y' ? 'N' : 'Y';</span>
+  }
+&nbsp;
+  /**
+   * @methodName getFavoriteList
+   * @description get array of Beneficiar/Payee type and filter the favorite data
+   * @parameters listItems&lt;array&gt;
+   * @return favorite listItems&lt;array&gt;
+   */
+<span class="fstat-no" title="function not covered" >  getFavoriteList(</span>listItems: BeneficiaryListResponse[]): BeneficiaryListResponse[] {
+<span class="cstat-no" title="statement not covered" >    if (listItems.length) {</span>
+      let favoriteItem = <span class="cstat-no" title="statement not covered" >listItems.filter(<span class="fstat-no" title="function not covered" >item =&gt; <span class="cstat-no" title="statement not covered" >(item &amp;&amp; item.isFavourite === TRANSFER_PAYMENT_CONST.favoriteAttribute))</span>;</span></span>
+<span class="cstat-no" title="statement not covered" >      if (favoriteItem.length &lt; TRANSFER_PAYMENT_CONST.itemLimit) {</span>
+        let selectedItem = <span class="cstat-no" title="statement not covered" >[];</span>
+        const UNFAVORITEITEM = <span class="cstat-no" title="statement not covered" >listItems.filter(<span class="fstat-no" title="function not covered" >item =&gt; <span class="cstat-no" title="statement not covered" >(item &amp;&amp; item.isFavourite === TRANSFER_PAYMENT_CONST.unFavoriteeAttribute))</span>;</span></span>
+        const REMAININGITEM = <span class="cstat-no" title="statement not covered" >TRANSFER_PAYMENT_CONST.itemLimit - favoriteItem.length;</span>
+<span class="cstat-no" title="statement not covered" >        selectedItem = UNFAVORITEITEM.splice(0, REMAININGITEM);</span>
+<span class="cstat-no" title="statement not covered" >        return favoriteItem = [...favoriteItem, ...selectedItem];</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        return favoriteItem = favoriteItem.splice(0, TRANSFER_PAYMENT_CONST.itemLimit);</span>
+      }
+    }
+  }
+  /** @methodName editPayeeNickName
+   * @methodName deleteBeneficiary
+   * @description delete beneficiary using customerPayeeID
+   * @param payee&lt;BeneficiaryListResponse&gt;
+   * @return Observable
+   */
+&nbsp;
+<span class="fstat-no" title="function not covered" >  deleteUtility(</span>deleteUtilityURL: string): Observable&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.syncService.delete(deleteUtilityURL);</span>
+  }
+&nbsp;
+  /* @methodName editPayeeNickName
+   * @description edit payee nick name
+   * @parameter payloadObj&lt;EditPayeePayload&gt;
+   * @return none
+   */
+  // Return type to be changed after API integration
+<span class="fstat-no" title="function not covered" >  editPayeeNickName(</span>url: string, payloadObj: EditPayeePayload): Observable&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.syncService.put(url, payloadObj);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getRestricWordsList
+   * @description used to fetch all the restrict words list from sever
+   * @parameter none
+   * @return observable object
+   */
+&nbsp;
+  getRestricWordsList(): Observable&lt;RestrictedWordsList&gt; {
+    const URL = this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false) + BENEFICIARY_ENDPOINTS.GET_RESTRICT_WORDS_LIST;
+    return this.syncService.get(URL);
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

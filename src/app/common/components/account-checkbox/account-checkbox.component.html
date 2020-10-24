@@ -1,0 +1,34 @@
+<div class="account-checkbox-comp" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'account-checkbox-rtl': ''">
+    <div class="account-checkbox-comp__container" [ngClass]="(account.accountNumber===preSelectedValue)?'active':''"
+        *ngFor="let account of checkBoxAccountsList">
+        <div class="account-checkbox-comp__container__wrapper" (click)="handleChange(account,checkBoxName)">
+            <div class="account-checkbox-comp__container__wrapper__account">
+                <span class="account-checkbox-comp__container__wrapper__account__text">
+                    {{account.accountTypeDescription | translate}} <span *ngIf="account.isDefaultAccount">
+                        - <span>{{ACCOUNTS_MASTER_DATA.PRIMARY | translate}}</span></span>
+                </span>
+                <span class="account-checkbox-comp__container__wrapper__account__number">
+                    {{account.accountNumber}}
+                </span>
+            </div>
+            <div class="account-checkbox-comp__container__wrapper__input ibd-check-box">
+                <input type="radio" id="{{componentName}}{{account.accountNumber}}" value="{{account.accountNumber}}"
+                    name="{{componentName}}" #checkBoxName />
+                <label for="{{account.accountNumber}}"></label>
+            </div>
+            <div class="account-checkbox-comp__container__wrapper__funds">
+                <span class="account-checkbox-comp__container__wrapper__funds__text">
+                    {{ACCOUNTS_MASTER_DATA.availableFundsText | translate}}
+                </span>
+                <span class="account-checkbox-comp__container__wrapper__funds__amount">
+                    <span class="account-checkbox-comp__container__wrapper__funds__amount__digit">
+                        {{account.balanceAvailable | numberFormat}}</span>.<span
+                        class="account-checkbox-comp__container__wrapper__funds__amount__decimal">{{account.balanceAvailable | getDecimalValue}}</span>
+                    <span class="account-checkbox-comp__container__wrapper__funds__amount__currency">
+                        {{account.currencyCode}}
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

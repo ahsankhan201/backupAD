@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/modules/auth/components/auth.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/modules/auth/components</a> auth.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75.56% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>34/45</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">64.29% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>9/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75.61% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>31/41</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ResizedEvent } from 'angular-resize-event';
+import { Subscription } from 'rxjs';
+&nbsp;
+import { AuthService } from '../services/auth.service';
+import { SharedService } from 'src/app/common/services/shared.service';
+&nbsp;
+import { ADIB_WEBSITE_URL_TEXT, ICON, HIDE_OVERFLOW_CLASS, ARABIC_LANG_TEXT } from 'src/app/common/global-constants';
+import { COMPONENT_LIST, AUTH_TEXT, IS_REGISTRED_COOKIE_TEXT } from '../auth-module.constants';
+import { LARGE_DEVICE_BREAKPOINT } from '../../registration/registration-module.constants';
+&nbsp;
+@Component({
+  selector: 'app-auth',
+  templateUrl: './auth.component.html',
+  styleUrls: ['./auth.component.scss']
+})
+export class AuthComponent implements OnInit, OnDestroy {
+  adibWebsiteUrl: string = ADIB_WEBSITE_URL_TEXT;
+  componentList = COMPONENT_LIST;
+  activeComponent: string = COMPONENT_LIST.LOGIN;
+  prevComponent: string;
+  width: number;
+  height: number;
+  securityIcon = ICON.securityIcon;
+  authText = AUTH_TEXT;
+  subscription$ = new Subscription();
+  selectedLanguage: string;
+  arabicLanguageText = ARABIC_LANG_TEXT;
+&nbsp;
+  constructor(
+    private authService: AuthService,
+    private sharedService: SharedService) { }
+&nbsp;
+  ngOnInit() {
+    this.handleShowComponent();
+    this.checkDeviceRegistration();
+    this.getSelectedLanguage();
+  }
+&nbsp;
+  /* @methodName checkDeviceRegistration
+   * @params none
+   * @description used to check the device cookie value in browser
+   * @return none
+   */
+  checkDeviceRegistration(): void {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.sharedService.getCookie(IS_REGISTRED_COOKIE_TEXT)) {
+      this.authService.openRegistraionConfirmModal();
+    }
+  }
+&nbsp;
+  /** @methodName handleCloseButtonClick
+   * @params status&lt;boolean&gt;
+   * @description used to handle close button click event emited
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleCloseButtonClick(</span>status: boolean): void {
+<span class="cstat-no" title="statement not covered" >    if (status) {</span>
+<span class="cstat-no" title="statement not covered" >      this.authService.showComponent$.next(this.prevComponent);</span>
+    }
+  }
+&nbsp;
+  /** @methodName onResized
+   * @params event&lt;ResizedEvent&gt;
+   * @description close the popup of security screen in large devices
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  onResized(</span>event: ResizedEvent): void {
+<span class="cstat-no" title="statement not covered" >    if (event.newWidth &gt; LARGE_DEVICE_BREAKPOINT) {</span>
+<span class="cstat-no" title="statement not covered" >      this.handleCloseButtonClick(true);</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName handleSecurityTipsClick
+   * @params none
+   * @description Used to handle security tips screen
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  handleSecurityTipsClick(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.subscription$.add(this.authService.securityTipClickStatus.subscribe(<span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (res) {</span>
+<span class="cstat-no" title="statement not covered" >        this.showSecurityTips();</span>
+<span class="cstat-no" title="statement not covered" >        this.authService.updateSecurityTipsClick(undefined);</span>
+      }
+    }));
+  }
+&nbsp;
+  /** @methodName showSecurityTips
+   * @params none
+   * @description show security tips screen
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  showSecurityTips(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.prevComponent = this.activeComponent;</span>
+<span class="cstat-no" title="statement not covered" >    this.authService.showComponent$.next(COMPONENT_LIST.SECURITY_TIPS_COMP);</span>
+  }
+&nbsp;
+  /**
+   * @methodName handleShowComponent
+   * @params none
+   * @description Used to handle security tips screen
+   * @return none
+   */
+  handleShowComponent(): void {
+    this.authService.showComponent$.subscribe(res =&gt; {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (res) {
+        this.activeComponent = res;
+      }
+    });
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedLanguage
+   * @parameter none
+   * @description Used to set selected language EN | AR
+   * @return none
+   */
+  getSelectedLanguage(): void {
+    this.subscription$.add(this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) =&gt; {
+      this.selectedLanguage = selectedLanguage;
+    }));
+  }
+&nbsp;
+  ngOnDestroy() {
+    this.subscription$.unsubscribe();
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

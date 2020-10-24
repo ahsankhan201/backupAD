@@ -1,0 +1,16 @@
+<div class="region-selection-comp"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'region-selection-rtl-layout': ''">
+    <div class="region-selection-comp__wrapper">
+        <div class="region-selection-comp__wrapper__title" translate>tr_addBene_selectRegionText</div>
+        <div class="region-selection-comp__wrapper__region">
+            <app-checkbox-with-image [cardOptionsList]="regionSelectionList" [componentName]="'stepOneRegion'"
+                (selectedCardValue)="selectedRegion($event)" class="region-card"
+                [ngClass]="(selectedLanguage === arabicLanguageText) ? 'region-card-rtl': ''" [titleColor]="'blue'">
+            </app-checkbox-with-image>
+        </div>
+        <div class="region-selection-comp__wrapper__buttons">
+            <button matStepperNext class="btn next-btn" type="button" [disabled]="!enableNextBtn"
+                translate>tr_common_nextText</button>
+        </div>
+    </div>
+</div>

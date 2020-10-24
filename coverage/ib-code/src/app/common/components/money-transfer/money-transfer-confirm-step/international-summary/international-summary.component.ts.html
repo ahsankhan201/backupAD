@@ -1,0 +1,1118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/components/money-transfer/money-transfer-confirm-step/international-summary/international-summary.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../../index.html">All files</a> / <a href="index.html">src/app/common/components/money-transfer/money-transfer-confirm-step/international-summary</a> international-summary.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">24.84% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>40/161</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">21.05% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30.77% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">24.34% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>37/152</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+&nbsp;
+import { MoneyTransferService } from 'src/app/common/services/money-transfer/money-transfer.service';
+import { SharedService } from 'src/app/common/services/shared.service';
+import { AccountlistService } from 'src/app/modules/dashboard/services/accountlist.service';
+import { DialogService } from 'src/app/common/services/dialog.service';
+import { TranslateService } from '@ngx-translate/core';
+&nbsp;
+import { InternationalTransferSummaryModel, ChargeCode, TransferBeneficiaryDetails } from 'src/app/common/models/money-transfer.model';
+import {
+  TRANSFER_SUCCESS_SCREEN_TEXT, DOMAINS,
+  INTERNATIONAL_TRANSFER_TEXT, TRANSFER_RECEIPT_LABELS,
+  RECEIPT_COPY_TRANSLATION_KEYS, BANK_NAME, BANK_COUNTRY, ARABIC_LANG_TEXT, HTTP_STATUS_CODE
+} from 'src/app/common/global-constants';
+import { TRANSFER_ENDPOINTS } from 'src/app/common/api-endpoints';
+import { ListOfReceiptFields, ReceiptModel } from 'src/app/common/models/global.model';
+import { Dialog } from 'src/app/common/models/dialog.model';
+&nbsp;
+@Component({
+  selector: 'app-international-summary',
+  templateUrl: './international-summary.component.html',
+  styleUrls: ['./international-summary.component.scss']
+})
+export class InternationalTransferSummaryComponent implements OnInit, OnDestroy {
+  payAmountButtonLabel = TRANSFER_SUCCESS_SCREEN_TEXT.transferAmount;
+  summaryDetails: InternationalTransferSummaryModel;
+  showSuccessScreen: boolean;
+  referenceNumberForSuccessScreen: string;
+  summaryBtnText: string;
+  disableTransferButton: boolean;
+  subscription$ = new Subscription();
+  isBeneficiaryWithinUae = false;
+  isSameCurrencyTransaction = false;
+  transferReceipt = {} as ReceiptModel;
+  transctionTimeStamp: string;
+  selectedLanguage: string;
+  arabicLanguageText = ARABIC_LANG_TEXT;
+  constructor(
+    private moneyTransferService: MoneyTransferService,
+    private sharedService: SharedService,
+    private accountListService: AccountlistService,
+    private dialogService: DialogService,
+    private translateService: TranslateService) { }
+&nbsp;
+  ngOnInit() {
+    this.getSelectedLanguage();
+    this.setComponentInitialData();
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedLanguage
+   * @parameter none
+   * @description Used to set selected language EN | AR
+   * @return none
+   */
+  getSelectedLanguage(): void {
+    this.subscription$.add(this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) =&gt; {
+      this.selectedLanguage = selectedLanguage;
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName setComponentInitialData
+   * @parameter none
+   * @description used to set the component intial loda data
+   * @return none
+   */
+  setComponentInitialData(): void {
+    this.summaryBtnText = this.moneyTransferService.confirmScreenRoutingButtonText;
+    this.subscription$.add(this.moneyTransferService.getInternationalSummaryScreenInfo().subscribe((loadFormComponent: boolean) =&gt; {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!loadFormComponent &amp;&amp; this.moneyTransferService.selectedBeneficiaryForTransfer &amp;&amp;
+        this.moneyTransferService.selectedBeneficiaryForTransfer.beneType === INTERNATIONAL_TRANSFER_TEXT.external
+      ) {
+<span class="cstat-no" title="statement not covered" >        this.disableTransferButton = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.fetchExchangeRate();</span>
+<span class="cstat-no" title="statement not covered" >        this.handleCrossCurrencyWithinUAE();</span>
+      }
+    }));
+  }
+  /**
+   * @methodName makeTransferRequest
+   * @parameter none
+   * @description used to post the transfer request to the server
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  makeTransferRequest(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.generateRequestPayLoad();</span>
+<span class="cstat-no" title="statement not covered" >    this.disableTransferButton = true;</span>
+    const URL = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.API_SIT_CONNECT, true, false) + TRANSFER_ENDPOINTS.INTERNATIONAL_TRANSFER;</span>
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.makeInternationalTransferReq(URL).subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (response.status === HTTP_STATUS_CODE.CREATED) {</span>
+<span class="cstat-no" title="statement not covered" >        this.referenceNumberForSuccessScreen = this.sharedService.getReferenceNumber(</span>
+          response.headers.get(INTERNATIONAL_TRANSFER_TEXT.location).toString());
+<span class="cstat-no" title="statement not covered" >        this.showSuccessScreen = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.transctionTimeStamp = new Date().toString();</span>
+        // hiding summary title on successfull transfer
+<span class="cstat-no" title="statement not covered" >        document.querySelector('.' + INTERNATIONAL_TRANSFER_TEXT.SUMMARY_TITEL_CLASS).classList</span>
+          .add(INTERNATIONAL_TRANSFER_TEXT.HIDE_CLASS_TEXT);
+<span class="cstat-no" title="statement not covered" >        this.updateAccountList();</span>
+      }
+    });
+  }
+&nbsp;
+  /**
+   * @methodName generateRequestPayLoad
+   * @parameter none
+   * @description used to set the beneficiary, beneficiary bank transfer request payload
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  generateRequestPayLoad(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.setBeneDetailsForTransferReq();</span>
+<span class="cstat-no" title="statement not covered" >    this.setBeneBankDetailsForTransferReq();</span>
+  }
+&nbsp;
+  /**
+   * @methodName setBeneDetailsForTransferReq
+   * @parameter none
+   * @description used to set the beneficiary details for transfer request
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setBeneDetailsForTransferReq(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary = {} as TransferBeneficiaryDetails;</span>
+    const date = <span class="cstat-no" title="statement not covered" >new Date().toISOString();</span>
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.transferDate = date.substring(0, date.indexOf('T'));</span>
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryName =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneName;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryType = INTERNATIONAL_TRANSFER_TEXT.EXTERNAL;</span>
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.customerNumber =</span>
+      this.moneyTransferService.selectedTransferFromAccount.customerNumber;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.nickName =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.nickName;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryAccountCurrency =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneAccCurr;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryAccountNumber =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneAccNo;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryAddress1 =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneAdd1;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryAddress3 =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneAdd3;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryCity =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneCity;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryCountry =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneCountry;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryExternalAccountType =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneExtAccType;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryId =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneID;
+  }
+&nbsp;
+  /**
+   * @methodName setBeneBankDetailsForTransferReq
+   * @parameter none
+   * @description used to set the beneficiaryBank details for transfer request
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setBeneBankDetailsForTransferReq(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.transferType = INTERNATIONAL_TRANSFER_TEXT.TRANSFER_TYPE;</span>
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.branchCode =</span>
+      this.moneyTransferService.selectedTransferFromAccount.branchCode;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.swiftRoutingCode =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.swiftRoutingCode;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.abaNumber =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.abaNumber;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.accountBankFormat =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.accountBankFormat;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.bankSwiftCode =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.bankSwiftCode;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryBankAddress1 =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneBankAdd1;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryBankAddress2 =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneBankAdd2;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryBankBranch =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneBankBranch;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryBankCity =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneBankCity;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryBankCountry =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneBankCountry;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryBankId =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneBankId;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.beneficiary.beneficiaryBankName =</span>
+      this.moneyTransferService.selectedBeneficiaryForTransfer.beneBankName;
+  }
+&nbsp;
+  /**
+   * @methodName setChargeCodeInfo
+   * @parameter none
+   * @description used to set the chargeCode details for transfer request
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setChargeCodeInfo(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.chargeCode = {} as ChargeCode;</span>
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.chargeCode.chargeAccount =</span>
+      this.moneyTransferService.exchangeRateResponse.chargeAcctNumber;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.chargeCode.chargeAmount =</span>
+      this.moneyTransferService.exchangeRateResponse.chargeAmount;
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.internationalTransferRequestPayLoad.chargeCode.chargeCurrencyCode =</span>
+      this.moneyTransferService.exchangeRateResponse.chargeCurrencyCode;
+  }
+&nbsp;
+  /**
+   * @methodName moveToParentComponent
+   * @parameter showCancelPopUp&lt;boolean&gt;
+   * @description used to route to the parent screen
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  moveToParentComponent(</span>showCancelPopUp: boolean): void {
+<span class="cstat-no" title="statement not covered" >    this.sharedService.setCancelTransactionInfo(showCancelPopUp, true);</span>
+  }
+&nbsp;
+  /**
+   * @methodName fetchExchangeRate
+   * @parameter none
+   * @description used to fetch the exchange rate from the servcer
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  fetchExchangeRate(): void {</span></span>
+    const requestPayLoad = <span class="cstat-no" title="statement not covered" >this.moneyTransferService.generateExchangeRateRequestPayLoad(INTERNATIONAL_TRANSFER_TEXT.TRANSFER_TYPE,</span>
+      this.moneyTransferService.internationalTransferRequestPayLoad.debitAccount.amount);
+<span class="cstat-no" title="statement not covered" >    this.moneyTransferService.getExchangeRate(requestPayLoad).subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (response &amp;&amp; response.rate) {</span>
+<span class="cstat-no" title="statement not covered" >        this.setChargeCodeInfo();</span>
+<span class="cstat-no" title="statement not covered" >        this.moneyTransferService.exchangeRateResponse = response;</span>
+<span class="cstat-no" title="statement not covered" >        this.moneyTransferService.internationalTransferRequestPayLoad.creditAccount.amount = response.creditAmount;</span>
+<span class="cstat-no" title="statement not covered" >        this.moneyTransferService.internationalTransferRequestPayLoad.debitRates = response.debitRates;</span>
+<span class="cstat-no" title="statement not covered" >        this.moneyTransferService.internationalTransferRequestPayLoad.creditRates = response.creditRates;</span>
+<span class="cstat-no" title="statement not covered" >        this.summaryDetails = this.moneyTransferService.setInternationalTransferSummaryDetails();</span>
+<span class="cstat-no" title="statement not covered" >        this.disableTransferButton = false;</span>
+      }
+    });
+  }
+&nbsp;
+  /**
+   * @methodName updateAccountList
+   * @parameter none
+   * @description It'll update the account list on successfull transfer
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  updateAccountList(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.sharedService.setAccontsCardsList().subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      this.sharedService.accountsCardsList = JSON.parse(response.toString());</span>
+<span class="cstat-no" title="statement not covered" >      this.sharedService.networth.next(this.sharedService.accountsCardsList.myNetWorth);</span>
+<span class="cstat-no" title="statement not covered" >      this.updateAccountDetailsInfo();</span>
+    });
+  }
+&nbsp;
+  /**
+   * @methodName updateAccountDetailsInfo
+   * @parameter none
+   * @description used to update accountDetailData after the response from setAccontsCardsList()
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  updateAccountDetailsInfo(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (this.moneyTransferService.selectedAccForMoneyTransfer &amp;&amp; this.sharedService.accountsCardsList) {</span>
+      const SELECTED_ACCOUNT = <span class="cstat-no" title="statement not covered" >this.sharedService.accountsCardsList.accountsList.find(<span class="fstat-no" title="function not covered" >account =&gt; <span class="cstat-no" title="statement not covered" >account.accountNumber</span></span></span>
+        === this.moneyTransferService.selectedAccForMoneyTransfer);
+<span class="cstat-no" title="statement not covered" >      this.accountListService.accountDetailData = SELECTED_ACCOUNT;</span>
+      // resetting selected account in detals page for transfer
+<span class="cstat-no" title="statement not covered" >      this.moneyTransferService.selectedAccForMoneyTransfer = undefined;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName handleCrossCurrencyWithinUAE
+   * @parameter none
+   * @description used to set cross currency logic within UAE
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleCrossCurrencyWithinUAE(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.isBeneficiaryWithinUae = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.isSameCurrencyTransaction = this.moneyTransferService.isSameCurrencyTransaction;</span>
+<span class="cstat-no" title="statement not covered" >    if (this.moneyTransferService.isBeneficiaryOutsideAdibUAE()) {</span>
+<span class="cstat-no" title="statement not covered" >      this.isBeneficiaryWithinUae = true;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName generateTransferReceipt
+   * @parameter none
+   * @description used to generate the transfer receipt
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  generateTransferReceipt(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.transferReceipt.currency = this.summaryDetails.debitCurrency;</span>
+    let receiptObject = <span class="cstat-no" title="statement not covered" >{} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    this.transferReceipt.listOfFields = [] as ListOfReceiptFields[];</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = TRANSFER_RECEIPT_LABELS.statusText;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = TRANSFER_RECEIPT_LABELS.successfulText;</span>
+<span class="cstat-no" title="statement not covered" >    this.transferReceipt.listOfFields.push(receiptObject);</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = TRANSFER_RECEIPT_LABELS.referenceNumberText;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.referenceNumberForSuccessScreen;</span>
+<span class="cstat-no" title="statement not covered" >    this.transferReceipt.listOfFields.push(receiptObject);</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = TRANSFER_RECEIPT_LABELS.dateAndTimeText;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.transctionTimeStamp;</span>
+<span class="cstat-no" title="statement not covered" >    this.transferReceipt.listOfFields.push(receiptObject);</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = TRANSFER_RECEIPT_LABELS.amountText;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.summaryDetails.debitAmount;</span>
+<span class="cstat-no" title="statement not covered" >    this.transferReceipt.listOfFields.push(receiptObject);</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = TRANSFER_RECEIPT_LABELS.benNameText;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.summaryDetails.beneficiaryName;</span>
+<span class="cstat-no" title="statement not covered" >    this.transferReceipt.listOfFields.push(receiptObject);</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = TRANSFER_RECEIPT_LABELS.bankNameText;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.moneyTransferService.selectedBeneficiaryForTransfer.beneBankName;</span>
+<span class="cstat-no" title="statement not covered" >    this.transferReceipt.listOfFields.push(receiptObject);</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = TRANSFER_RECEIPT_LABELS.toAccountText;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.summaryDetails.creditAccountNumber;</span>
+<span class="cstat-no" title="statement not covered" >    this.transferReceipt.listOfFields.push(receiptObject);</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = TRANSFER_RECEIPT_LABELS.fromAccountNumberText;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.summaryDetails.debitAccountNumber;</span>
+<span class="cstat-no" title="statement not covered" >    this.transferReceipt.listOfFields.push(receiptObject);</span>
+<span class="cstat-no" title="statement not covered" >    this.openReceiptModal();</span>
+  }
+&nbsp;
+  /**
+   * @methodName openReceiptModal
+   * @parameter none
+   * @description used to open the transfer recipt in modal
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  openReceiptModal(): void {</span></span>
+    const OPTIONS = <span class="cstat-no" title="statement not covered" >{} as Dialog;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.isReceiptDialog = true;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.receiptDetails = this.transferReceipt;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.dialogClassName = 'receipt-dialog';</span>
+<span class="cstat-no" title="statement not covered" >    this.dialogService.open(OPTIONS);</span>
+<span class="cstat-no" title="statement not covered" >    this.dialogService.confirmed().subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (response) {</span>
+<span class="cstat-no" title="statement not covered" >        this.translateService.get(RECEIPT_COPY_TRANSLATION_KEYS).subscribe(<span class="fstat-no" title="function not covered" >translatedInfo =&gt; {</span></span>
+          const copyInformation =
+            `${<span class="cstat-no" title="statement not covered" >translatedInfo[TRANSFER_RECEIPT_LABELS.referenceNumberText]} : ${this.referenceNumberForSuccessScreen}</span>
+          ${translatedInfo[TRANSFER_RECEIPT_LABELS.transferredToText]} : ${this.summaryDetails.creditAccountNumber}
+          ${translatedInfo[BANK_NAME]} : ${this.moneyTransferService.selectedBeneficiaryForTransfer.beneBankName}
+          ${translatedInfo[BANK_COUNTRY]} : ${this.moneyTransferService.selectedBeneficiaryForTransfer.beneBankCountry}
+          ${translatedInfo[TRANSFER_RECEIPT_LABELS.transferAmountText]} : ${this.summaryDetails.debitAmount}`;
+<span class="cstat-no" title="statement not covered" >          this.sharedService.notifyCopyData(this.sharedService.copyToClipboard(copyInformation));</span>
+        });
+      }
+    });
+  }
+&nbsp;
+  ngOnDestroy() {
+    this.subscription$.unsubscribe();
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../../sorter.js"></script>
+</body>
+</html>

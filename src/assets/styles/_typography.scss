@@ -1,0 +1,67 @@
+@import "./colors";
+
+// Variable declaration
+$font-regular: "Roboto-Regular";
+$font-medium: "Roboto-Medium";
+$font-light: "Roboto-Light";
+$font-bold: "Roboto-Bold";
+
+.idb-font-family {
+  font-family: $font-regular;
+  letter-spacing: normal;
+  font-weight: normal;
+  line-height: normal;
+  color: $grey;
+}
+
+.ibd-font-regular-12-grey {
+  font-family: $font-regular;
+  color:$grey;
+  font-size: 12px;
+  font-weight: normal;
+  }
+
+.ibd-font-regular-cerulean {
+    color:$cerulean-blue;
+    font-family: $font-regular;
+    font-size: 12px;
+    font-weight: normal;
+  }
+.ibd-small-text {
+  @extend .idb-font-family;
+  font-family: $font-regular;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 20px;
+}
+
+.ibd-small-text--blue {
+  @extend .ibd-small-text;
+
+  color: $cerulean-blue;
+}
+
+.ibd-small-text--white {
+  @extend .ibd-small-text;
+
+  font-family: $font-regular;
+  color: $white;
+}
+
+.ibd-medium-text {
+  @extend .idb-font-family;
+  font-size: 18px;
+}
+
+.ibd-large-text {
+  @extend .idb-font-family;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.ibd-roboto-medium-text {
+  @extend .idb-font-family;
+  font-family: $font-medium;
+  font-size: 14px;
+  font-weight: 500;
+}

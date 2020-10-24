@@ -1,0 +1,14 @@
+<section class="ibd-header-common" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'login-header-rtl-layout': ''">
+    <div class="ibd-header-common__wrapper">
+       <div class="ibd-header-common__wrapper__container">
+           <div class="lang"> 
+               <span *ngFor="let eachLanguage of allLanguages" 
+                   (click)="switchLang(eachLanguage.LANGUAGE_ISO_CODE)"
+                   [ngClass]="(selectedLanguage === eachLanguage.LANGUAGE_ISO_CODE) ? 'active': ''">
+                    {{ eachLanguage.LANGUAGE_TEXT }}
+                </span>
+            </div>
+           <div class="logo"><img alt="Logo" src="{{ logo }}"  class="img-fluid d-inline-block align-center" alt="logo"></div>
+       </div>
+    </div>
+</section>

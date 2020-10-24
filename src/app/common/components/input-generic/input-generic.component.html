@@ -1,0 +1,29 @@
+<div class="input-generic"  [ngClass]="type === 'atmPin' ? 'pin-component' : type === 'otp'? 'otp-component' :'card-component' ">
+    <div class="input-title" translate *ngIf="componentTitle">{{ componentTitle }}</div>
+    <div [ngClass]="type === 'atmPin' ? 'pin-input-wrapper' : type === 'otp'? 'otp-input-wrapper' :'card-input-wrapper' ">
+        <form  id="input-form-{{type}}-{{uniqueId}}" autocomplete="off">
+            <mat-form-field appearance="none">
+                <mat-label translate *ngIf="inputLabel"> {{ inputLabel | translate }}</mat-label>
+                <input autocomplete="off" name="card-input" class="card-input" id="input-{{type}}-{{item}}-{{uniqueId}}" 
+                [(ngModel)]="cardNumber[item]" 
+                *ngFor="let item of inputArray; let index = index;" 
+                (keyup)="handleKeyUp(index,$event)"
+                (keydown)="handleKeyDown(index,$event)"
+                (click)="handleClickEvent(index,$event)"
+                numbersOnly
+                inputmode="numeric"
+                matInput
+                [style.width.%]="inputWidth"
+                [type]="inputType"
+                [maxlength]="maxlength" 
+                [minlength]="maxlength" />
+                <mat-error>
+                    <app-show-form-errors [control]="errors"
+                        [label]="inputLabel">
+                    </app-show-form-errors>
+                </mat-error>
+                <mat-hint align="start" *ngIf="inputHint" class="mat-card-hint-text">{{ inputHint | translate }} </mat-hint>
+            </mat-form-field>
+        </form>
+    </div>
+</div>

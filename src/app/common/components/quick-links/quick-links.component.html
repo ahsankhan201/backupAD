@@ -1,0 +1,11 @@
+<div class="quick-links" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'quick-links-rtl-layout': ''">
+    <div class="quick-links__item item-{{itemCounter}}" *ngFor="let item of quickLinksData"
+        (click)="clickHandler(item.action)">
+        <div class="quick-links__item__icon">
+            <img alt="title" src="{{item.icon}}" alt="{{item.title}}" />
+        </div>
+        <div class="quick-links__item__text">
+            {{item.title | translate}}
+        </div>
+    </div>
+</div>

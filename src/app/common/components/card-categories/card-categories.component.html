@@ -1,0 +1,25 @@
+<div class="card-categories-list" *ngIf="componentName !== 'bankingService'"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'card-categories-list-rtl': ''">
+    <div class="card-categories-list__card" *ngFor="let cardCategory of cardCategoriesList"
+        (click)="emitSelectedOption(cardCategory)">
+        <div class="image-wrapper">
+            <img alt="Card Category" src="assets/icons/cards/{{cardCategory}}.svg" />
+        </div>
+        <div class="card-categories-list__card__text-wrapper">
+            <div class="title">{{cardCategory | translate}}</div>
+        </div>
+    </div>
+</div>
+
+<div class="card-categories-list" *ngIf="componentName === 'bankingService'"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'card-categories-list-rtl': ''">
+    <div class="card-categories-list__card" *ngFor="let cardCategory of cardCategoriesList"
+        (click)="emitSelectedOption(cardCategory.serviceName)">
+        <div class="image-wrapper">
+            <img alt="ADIB card categories" src="{{cardCategory.serviceIcon}}" />
+        </div>
+        <div class="card-categories-list__card__text-wrapper">
+            <div class="title" translate>{{cardCategory.serviceName }}</div>
+        </div>
+    </div>
+</div>

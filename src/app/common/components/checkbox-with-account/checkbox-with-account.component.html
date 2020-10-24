@@ -1,0 +1,19 @@
+<div class="checkbox-with-account-comp">
+    <div class="checkbox-with-account-comp__container" *ngFor="let account of accountsList">
+        <div class="checkbox-with-account-comp__container__wrapper" [ngClass]="(account.id===selectedValue)?'active':''"
+            (click)="handleChange(account,checkBoxName)">
+            <div class="checkbox-with-account-comp__container__wrapper__text-wrapper">
+                <span class="checkbox-with-account-comp__container__wrapper__text-wrapper__title"
+                    translate>{{account.title}}</span>
+                <span
+                    class="checkbox-with-account-comp__container__wrapper__text-wrapper__description">{{account.description}}</span>
+            </div>
+            <div class="checkbox-with-account-comp__container__wrapper__input ibd-check-box">
+                <input type="{{inputType}}" id="{{account.id}}" value="{{account.id}}"
+                    name="{{inputType==='radio'?componentName:account.id}}" #checkBoxName
+                    [checked]="account.id===selectedValue" />
+                <label for="{{account.id}}"></label>
+            </div>
+        </div>
+    </div>
+</div>

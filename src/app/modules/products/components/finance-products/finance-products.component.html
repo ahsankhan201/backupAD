@@ -1,0 +1,123 @@
+<div class="account-products-comp" [ngClass]="(selectedLang === arabicLanguageText) ? 'account-products-comp-rtl': ''">
+    <app-product-card (selectedCardOption)="getSelectedProductInfo($event)" [productCardsList]="catalogList"
+        *ngIf="showComponentName==='PRODUCT_LIST'">
+    </app-product-card>
+
+    <div class="account-products-comp__form-container">
+        <div class="top-section" *ngIf="showComponentName==='ENQUIRY_FORM'">
+            <div class="cta-back-btn" (click)="showFinancesTab()" translate>tr_navControl_backText</div>
+            <div class="title">{{productTitle}}</div>
+        </div>
+        <form [formGroup]="financeEnquiryFormGroup" *ngIf="showComponentName==='ENQUIRY_FORM'">
+            <div class="row margin-lrn form-wrapper" *ngIf="selectedProductInfo.productNameEnglish === 'Car Finance'">
+                <app-checkbox-generic [optionsList]="financeCarTypes" [componentName]="'financeEnquiryCarType'"
+                    (selectedOptionValue)="getSelectedCarType($event)"
+                    class="enquiry-contact-mode col-md-12 padding-lrn" customClassName="active-blue"
+                    [ngClass]="(selectedLang === arabicLanguageText) ? 'enquiry-contact-mode-rtl': ''"
+                    [emitSelectedEleID]="'true'">
+                </app-checkbox-generic>
+
+                <mat-form-field class="col-md-6 padding-lrn">
+                    <mat-label translate>tr_productsComponent_selectCarBrandText </mat-label>
+                    <input type="text" matInput formControlName="carBrand" [matAutocomplete]="autoBrands">
+                    <mat-error>
+                        <app-show-form-errors [control]="financeEnquiryFormGroup.get('carBrand')"
+                            label="{{translateLabels.carBrand | translate}}">
+                        </app-show-form-errors>
+                    </mat-error>
+                    <mat-autocomplete #autoBrands="matAutocomplete" (optionSelected)="onBrandChange($event)"
+                        autoActiveFirstOption>
+                        <mat-option
+                            *ngFor="let item of carBrandList  | filterText:financeEnquiryFormGroup.controls['carBrand'].value:'value'"
+                            [value]="item.value" id="{{item.value}}">
+                            {{item.value}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <mat-form-field class="col-md-6 padding-lrn email-field">
+                    <mat-label translate>tr_productsComponent_selectCarModelText </mat-label>
+                    <input type="text" matInput formControlName="carModel" [matAutocomplete]="autoModel">
+                    <mat-error>
+                        <app-show-form-errors [control]="financeEnquiryFormGroup.get('carModel')"
+                            label="{{translateLabels.carModel | translate}}">
+                        </app-show-form-errors>
+                    </mat-error>
+                    <mat-autocomplete #autoModel="matAutocomplete" (optionSelected)="onModelChange($event)"
+                        autoActiveFirstOption>
+                        <mat-option
+                            *ngFor="let item of carModelList | filterText:financeEnquiryFormGroup.controls['carModel'].value:'value'"
+                            [value]="item.value" id="{{item.value}}">
+                            {{item.value}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <div class="row margin-lrn form-wrapper">
+                <mat-form-field class="col-md-12 padding-lrn full-width">
+                    <mat-label translate>tr_productsComponent_financeAmountText</mat-label>
+                    <input matInput formControlName="financeAmount" inputmode="numeric" numbersOnly
+                        maxlength="{{AMOUNT_LENGTH}}" autocomplete="off" appInputWithComma>
+                    <mat-error>
+                        <app-show-form-errors [control]="financeEnquiryFormGroup.get('financeAmount')"
+                            label="{{translateLabels.financeAmount | translate}}">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row margin-lrn form-wrapper">
+                <mat-form-field class="col-md-6 padding-lrn">
+                    <mat-label translate>tr_common_mobileNumberText</mat-label>
+                    <input type="tel" matInput formControlName="mobileNumber" inputmode="numeric" pattern="[0-9]*"
+                        numbersOnly maxlength="{{MOBILE_NUMBER_LENGTH}}" minlength="{{MOBILE_NUMBER_MIN_LENGTH}}"
+                        autocomplete="off">
+                    <mat-error>
+                        <app-show-form-errors [control]="financeEnquiryFormGroup.get('mobileNumber')"
+                            label="{{translateLabels.mobileNumber | translate}}">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-lg-6 padding-lrn email-field">
+                    <mat-label translate>tr_productsComponent_emailIdText</mat-label>
+                    <input type="email" matInput formControlName="emailId" autocomplete="off">
+                    <mat-error>
+                        <app-show-form-errors [control]="financeEnquiryFormGroup.get('emailId')"
+                            label="{{translateLabels.emailId | translate}}">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <span class="title" translate>tr_productsComponent_contactModeText</span>
+            <app-checkbox-generic [optionsList]="financeEquiryModes" [componentName]="'financeEnquiryContactMode'"
+                (selectedOptionValue)="getSelectedContactMode($event)" class="enquiry-contact-mode"
+                [ngClass]="(selectedLang === arabicLanguageText) ? 'enquiry-contact-mode-rtl': ''"
+                customClassName="active-blue" [emitSelectedEleID]="'true'">
+            </app-checkbox-generic>
+            <div class="contact-timings" *ngIf="showContactTimings">
+                <span class="title" translate>tr_productsComponent_contactTimeText</span>
+                <app-checkbox-generic [optionsList]="financeEquiryTimings" [componentName]="'financeEnquiryContactTime'"
+                    (selectedOptionValue)="getSelectedTimings($event)" class="enquiry-contact-mode"
+                    [ngClass]="(selectedLang === arabicLanguageText) ? 'enquiry-contact-mode-rtl': ''"
+                    customClassName="active-blue" [emitSelectedEleID]="'true'">
+                </app-checkbox-generic>
+            </div>
+            <div class="button-wrapper">
+                <button class="next-btn" (click)="registerProductEnquiry()"
+                    [disabled]="!financeEnquiryFormGroup.valid || !enableNextBtn"
+                    translate>tr_common_submitText</button>
+                <span translate>tr_productsComponent_termsANDCondotionsText</span>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="showComponentName==='SUCCESS_SCREEN'"
+        [ngClass]="(selectedLang === arabicLanguageText) ? 'account-products-comp-success-rtl': ''">
+        <div class="products-comp__success-title" translate>tr_common_financeText</div>
+        <app-success-screen [componentName]="'productEnquiry'" [productEnquired]="typeOfProductEnquired"
+            class="enquiry-success-comp">
+        </app-success-screen>
+
+        <button translate class="next-btn enquiry-success-screen-btn"
+            (click)="showFinancesTab()">tr_productsComponent_productsDashBoardText</button>
+    </div>
+</div>

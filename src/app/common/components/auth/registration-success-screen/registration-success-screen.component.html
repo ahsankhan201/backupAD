@@ -1,0 +1,21 @@
+<div class="ibd-registration-success-screen">
+    <div class="ibd-registration-success-screen__wrapper">
+        <div class="success-logo">
+            <img src="/assets/images/Ben_Success@2x.svg" alt="Registration Success" />
+        </div>
+        <div class="success-welcome-text" translate>{{ title }}</div>
+        <div class="success-title" *ngIf="subTitle" translate>{{subTitle}}</div>
+        <div class="success-sub-title" translate>{{message}}</div>
+        <div class="success-button">
+            <button class="btn next-btn" (click)="handleLoginRedirect()" [routerLink]="loginRouterLink" translate> tr_common_loginText </button>
+        </div>
+        <div class="security-tips-wrapper" *ngIf="subTitle">
+            <div class="security-tips-wrapper__text" translate>
+                <span (click)="handleSecurityTipClick()">
+                    <img alt="Security Tips" src="{{ securityIcon }}">
+                    <span translate>tr_registrationComponent_securityTipsText</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>42C6EE0A-D920-4F14-B0A9-B46D7A02353B@2.00x</title>
+    <g id="Registration/Signup---Phone" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Registration-Phone-Port-1.0.0.3" transform="translate(-26.000000, -224.000000)" fill-rule="nonzero">
+            <g id="Alert-Message" transform="translate(16.000000, 216.000000)">
+                <g id="ic.error">
+                    <g transform="translate(10.000000, 8.000000)">
+                        <rect id="ViewBox" x="0" y="0" width="24" height="24"></rect>
+                        <path d="M12,21 C7.02943725,21 3,16.9705627 3,12 C3,7.02943725 7.02943725,3 12,3 C16.9705627,3 21,7.02943725 21,12 C21,16.9705627 16.9705627,21 12,21 Z M12,20.0526396 C15.1712413,20.0526396 18.0471564,18.1912494 19.3460387,15.2982101 C20.6449209,12.4051707 20.1248808,9.01917752 18.0176842,6.64926316 L6.64926316,18.0176842 C8.12189534,19.3309432 10.0268586,20.0554229 12,20.0526396 Z M12,3.94735989 C8.82939036,3.94735989 5.95385189,5.80778056 4.65448875,8.69991142 C3.35512561,11.5920423 3.87381587,14.9774579 5.97947368,17.3478947 L17.3478947,5.97947368 C15.8755737,4.66789863 13.9717886,3.944494 12,3.94735989 Z" id="Icon-Shape" fill="#FA0000"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

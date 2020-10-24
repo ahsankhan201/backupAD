@@ -1,0 +1,47 @@
+@import "src/assets/styles/default";
+
+.payee-selection-comp {
+  &__wrapper {
+    @extend .ibd-small-text;
+    min-height: 420px;
+
+    @include respond-to(screen-m-min) {
+      min-height: auto;
+    }
+
+    font-size: 16px;
+    font-family: $font-regular;
+    color: $suva-grey;
+    &__buttons {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      z-index: 10;
+      button {
+        width: 100%;
+        margin: 0;
+        @include respond-to(screen-m-min) {
+          width: auto;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        position: static;
+      }
+    }
+    &__provider {
+      @include respond-to(screen-m-min) {
+        margin-bottom: 63px;
+      }
+      @include respond-to(screen-l-min) {
+        margin-bottom: 65px;
+      }
+    }
+  }
+}
+
+.payee-type-rtl {
+  .payee-selection-comp__wrapper__title,
+  .payee-selection-comp__wrapper__buttons {
+    display: flex;
+  }
+}

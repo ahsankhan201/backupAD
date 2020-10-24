@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/services/dialog.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/app/common/services</a> dialog.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>21/35</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">53.85% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>28/52</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.82% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>20/34</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">110x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
+import { DialogComponent } from '../components/dialog/dialog.component';
+import { Observable } from 'rxjs';
+import { map, take } from 'rxjs/operators';
+import { Dialog } from '../models/dialog.model';
+import { DIALOG_DEFAULT, HIDE_OVERFLOW_CLASS, E_STATEMENT_DIALOG_DATA, DIALOG_OPTION_USER_SESSION_MANAGEMENT } from '../global-constants';
+&nbsp;
+@Injectable({
+  providedIn: 'root'
+})
+export class DialogService {
+&nbsp;
+  constructor(public dialog: MatDialog) { }
+  private dialogRef: MatDialogRef&lt;DialogComponent&gt;;
+&nbsp;
+  /**
+   * @methodName open
+   * @description used to open dialog box
+   * @param options&lt;Dialog&gt;
+   * @return none
+   */
+  open(options: Dialog): void {
+    const DIALOGCONFIG = new MatDialogConfig();
+    DIALOGCONFIG.panelClass = options.isSessionTimeoutDialog ? <span class="branch-0 cbranch-no" title="branch not covered" >options.dialogClassName </span>: DIALOG_DEFAULT.panelClass;
+    DIALOGCONFIG.disableClose = options.disableClose ? <span class="branch-0 cbranch-no" title="branch not covered" >options.disableClose </span>: true;
+    DIALOGCONFIG.width = options.eStatementDialog ? <span class="branch-0 cbranch-no" title="branch not covered" >E_STATEMENT_DIALOG_DATA.WIDTH </span>: undefined;
+    DIALOGCONFIG.height = options.eStatementDialog ? <span class="branch-0 cbranch-no" title="branch not covered" >E_STATEMENT_DIALOG_DATA.HEIGHT </span>: undefined;
+    DIALOGCONFIG.maxWidth = options.eStatementDialog ? <span class="branch-0 cbranch-no" title="branch not covered" >E_STATEMENT_DIALOG_DATA.WIDTH </span>: DIALOGCONFIG.maxWidth;
+    DIALOGCONFIG.data = {
+      title: options.title,
+      message: options.message,
+      cancelText: options.cancelText ? options.cancelText : undefined,
+      confirmText: options.confirmText,
+      showForm: options.showForm ? <span class="branch-0 cbranch-no" title="branch not covered" >options.showForm </span>: false,
+      formData: options.formData ? <span class="branch-0 cbranch-no" title="branch not covered" >options.formData </span>: false,
+      freezeCard: options.freezeCard ? <span class="branch-0 cbranch-no" title="branch not covered" >options.freezeCard </span>: false,
+      cardName: options.cardName ? <span class="branch-0 cbranch-no" title="branch not covered" >options.cardName </span>: undefined,
+      cardNumber: options.cardNumber ? <span class="branch-0 cbranch-no" title="branch not covered" >options.cardNumber </span>: undefined,
+      productImage: options.productImage ? options.productImage : undefined,
+      bulletPoints: options.bulletPoints ? <span class="branch-0 cbranch-no" title="branch not covered" >options.bulletPoints </span>: undefined,
+      eStatementDialog: options.eStatementDialog ? <span class="branch-0 cbranch-no" title="branch not covered" >options.eStatementDialog </span>: false,
+      termsAndConditionComponent: options.termsAndConditionComponent ? <span class="branch-0 cbranch-no" title="branch not covered" >options.termsAndConditionComponent </span>: undefined,
+      termsAndCondtionAgreeStatus: options.termsAndCondtionAgreeStatus ? <span class="branch-0 cbranch-no" title="branch not covered" >options.termsAndCondtionAgreeStatus </span>: false,
+      isReceiptDialog: options.isReceiptDialog ? <span class="branch-0 cbranch-no" title="branch not covered" >options.isReceiptDialog </span>: false,
+      isRegistarationConfirmDialog: options.isRegistarationConfirmDialog ? options.isRegistarationConfirmDialog : false,
+      receiptDetails: options.receiptDetails ? <span class="branch-0 cbranch-no" title="branch not covered" >options.receiptDetails </span>: undefined,
+      isSessionTimeoutDialog: options.isSessionTimeoutDialog ? <span class="branch-0 cbranch-no" title="branch not covered" >options.isSessionTimeoutDialog </span>: false,
+      textTemplate: options.textTemplate ? <span class="branch-0 cbranch-no" title="branch not covered" >options.textTemplate </span>: undefined,
+      isBlockUser: options.isBlockUser ? <span class="branch-0 cbranch-no" title="branch not covered" >options.isBlockUser </span>: undefined,
+      isUserAgreementDialog: options.isUserAgreementDialog ? <span class="branch-0 cbranch-no" title="branch not covered" >options.isUserAgreementDialog </span>: false
+    };
+    this.dialogRef = this.dialog.open(DialogComponent, DIALOGCONFIG);
+    document.querySelector('body').classList.add(HIDE_OVERFLOW_CLASS);
+    if (options.dialogClassName) {
+      document.querySelector('mat-dialog-container').classList.add(options.dialogClassName);
+    }
+  }
+&nbsp;
+  /**
+   * @methodName confirmed
+   * @description used to get the value from dialog box
+   * @parameters none
+   * @return Observable&lt;any&gt;
+   */
+  // Return type to be changed after API integration
+  confirmed(): Observable&lt;any&gt; {
+    return this.dialogRef.afterClosed().pipe(take(1), map(<span class="fstat-no" title="function not covered" >res =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return res;</span>
+    }
+    ));
+  }
+&nbsp;
+  /**
+   * @methodName openEstatementDialog
+   * @description open download e-statement dialog
+   * @parameters none
+   * @return boolean
+   */
+<span class="fstat-no" title="function not covered" >  openEstatementDialog(): Observable&lt;boolean&gt; {</span>
+    const OPTIONS = <span class="cstat-no" title="statement not covered" >{} as Dialog;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.title = E_STATEMENT_DIALOG_DATA.TITLE;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.cancelText = E_STATEMENT_DIALOG_DATA.CLOSE;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.confirmText = E_STATEMENT_DIALOG_DATA.DOWNLOAD;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.message = E_STATEMENT_DIALOG_DATA.SELECT_MESSAGE;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.eStatementDialog = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.open(OPTIONS);</span>
+<span class="cstat-no" title="statement not covered" >    return this.confirmed();</span>
+  }
+&nbsp;
+  /**
+   * @methodName closeDialog
+   * @description It is called before opening session timeout modal to close existing modal
+   * @parameters none
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  closeDialog(): void {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.dialogRef &amp;&amp; this.dialogRef.close) {</span>
+<span class="cstat-no" title="statement not covered" >      this.dialogRef.close(undefined);</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName handleMultipleUserSessionManagment
+   * @parameter none
+   * @description used to handle multiple user session managment
+   * @return Observable&lt;boolean&gt;
+   */
+<span class="fstat-no" title="function not covered" >  handleMultipleUserSessionManagment(): Observable&lt;boolean&gt; {</span>
+    const OPTIONS: Dialog = <span class="cstat-no" title="statement not covered" >DIALOG_OPTION_USER_SESSION_MANAGEMENT;</span>
+<span class="cstat-no" title="statement not covered" >    this.open(OPTIONS);</span>
+<span class="cstat-no" title="statement not covered" >    return this.confirmed();</span>
+  }
+}
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

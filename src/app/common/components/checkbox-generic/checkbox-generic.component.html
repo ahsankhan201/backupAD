@@ -1,0 +1,25 @@
+<div class="checkbox-with-image-comp"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'checkbox-generic-rtl': ''">
+    <div class="checkbox-with-image-comp__container" *ngFor="let item of optionsList"
+        [ngClass]="{'hidden':item.id===hiddenOption}">
+        <div class="checkbox-with-image-comp__container__wrapper  {{customClassName}}" *ngIf="item.id!==hiddenOption"
+            [ngClass]="{'active':(componentName+item.id)===(componentName+preSelectedOption),'disabled':item.id===disabledOption}"
+            (click)="handleChange($event, checkBoxName, item)">
+            <div class="checkbox-with-image-comp__container__wrapper__input ibd-check-box">
+                <input type="radio" id="{{componentName+item.id}}" value="{{item.title}}" name="{{componentName}}"
+                    #checkBoxName />
+                <label for="{{item.id}}"></label>
+            </div>
+            <span class="checkbox-with-image-comp__container__wrapper__title arabic-timing"
+                *ngIf="(componentName !== 'productCategory'); else dynamicContent">{{item.title | translate}}</span>
+            <ng-template #dynamicContent>
+                <span *ngIf="(selectedLanguage !==arabicLanguageText); else arabicContent"
+                    class="checkbox-with-image-comp__container__wrapper__title">{{item.categoryNameEnglish}}</span>
+                <ng-template #arabicContent>
+                    <span class="checkbox-with-image-comp__container__wrapper__title">{{item.categoryNameArabic}}</span>
+                </ng-template>
+
+            </ng-template>
+        </div>
+    </div>
+</div>

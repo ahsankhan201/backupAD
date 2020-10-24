@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/modules/cards/services/cards.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/modules/cards/services</a> cards.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">43.42% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>33/76</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">27.27% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">45.07% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>32/71</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
+&nbsp;
+import { APISyncService } from 'src/app/common/services/sync.service';
+import { ChangeCoverCardLimitPayload } from 'src/app/common/models/cards-module.model';
+import { CARDS_ENDPOINTS } from 'src/app/common/api-endpoints';
+import { DialogService } from 'src/app/common/services/dialog.service';
+import { SnackBarService } from 'src/app/common/services/snack-bar.service';
+import { SharedService } from 'src/app/common/services/shared.service';
+&nbsp;
+import { CARDS_MASTER_DATA, ACTION_ITEMS, CARDS_DIALOG_TEXT } from '../cards-module.constants';
+import { DebitCardData, CoverCardData, CardStatusPayload, CoverCardStatementPayload } from 'src/app/common/models/cards-module.model';
+import { PromotionCardModel } from 'src/app/common/models/global.model';
+import { COVER_CARD_STATUS_API_URL, DEBIT_CARD_STATUS_API_URL } from 'src/app/common/api-endpoints';
+import { DOMAINS, SNACK_BAR_STATUS } from 'src/app/common/global-constants';
+import { MenuOption } from 'src/app/common/models/menu-option.model';
+import { OTPLocation } from 'src/app/common/models/otp.model';
+&nbsp;
+&nbsp;
+@Injectable({
+  providedIn: 'root'
+})
+export class CardsService {
+  selectedDebitCard = {} as DebitCardData;
+  selectedCoverCard = {} as CoverCardData;
+  selectedNewCard = {} as DebitCardData;
+  updateCardList = new Subject&lt;boolean&gt;();
+  cardEndPoint: string;
+  snackBarMessage: string;
+&nbsp;
+  constructor(
+    private syncService: APISyncService,
+    private sharedService: SharedService,
+    private dialogService: DialogService,
+    private httpService: APISyncService,
+    private snackBarService: SnackBarService) { }
+&nbsp;
+&nbsp;
+&nbsp;
+  /**
+   * @methodName getCardAds
+   * @description used to fetch the card ads from the server
+   * @parameters none
+   * @return Observable&lt;PromotionCardModel&gt;
+   */
+  getCardAds(): Observable&lt;PromotionCardModel&gt; {
+    const URL = CARDS_MASTER_DATA.COVER_CARD_JSON;
+    return this.syncService.get(URL, 'json');
+  }
+&nbsp;
+  /**
+   * @methodName setSelectedDebitCard
+   * @description used to set the selected debit card
+   * @parameters none
+   * @return Observable
+   */
+<span class="fstat-no" title="function not covered" >  setSelectedDebitCard(</span>debitCardData: DebitCardData): void {
+<span class="cstat-no" title="statement not covered" >    this.selectedDebitCard = debitCardData;</span>
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedDebitCard
+   * @description used to get the selected debit card details
+   * @parameters none
+   * @return Observable
+   */
+  getSelectedDebitCard(): DebitCardData {
+    return this.selectedDebitCard;
+  }
+&nbsp;
+  /**
+   * @methodName updateCoverCardLimit
+   * @description used to update cover limit API call
+   * @parameters coverCardLimitPayload&lt;ChangeCoverCardLimitPayload&gt;
+   * @return Observable&lt;any&gt;
+   */
+  updateCoverCardLimit(coverCardLimitPayload: ChangeCoverCardLimitPayload): Observable&lt;any&gt; {
+    const CARD_LIMIT_API = `${this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, true)}${CARDS_ENDPOINTS.COVER_CARD_LIMIT}`;
+    return this.httpService.put(CARD_LIMIT_API, coverCardLimitPayload)
+    .pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res.body ? JSON.parse(res.body) : res)</span>);</span>
+  }
+  /**
+   * @methodName postDebitCardLinkAccPayLoad
+   * @description used to post linking debit card with account payload
+   * @parameters url&lt;string&gt;, payLoad&lt;LinkDebitCardAccountPayLoad&gt;
+   * @return Observable
+   */
+<span class="fstat-no" title="function not covered" >  postDebitCardLinkAccPayLoad(</span>url: string, payLoad: any): Observable&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.syncService.put(url, payLoad);</span>
+  }
+  /**
+   * @methodName setSelectedCoverCard
+   * @description used to set the selected cover card
+   * @parameters none
+   * @return Observable
+   */
+<span class="fstat-no" title="function not covered" >  setSelectedCoverCard(</span>coverCardData: CoverCardData): void {
+<span class="cstat-no" title="statement not covered" >    this.selectedCoverCard = coverCardData;</span>
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedCoverCard
+   * @description used to get the selected cover card details
+   * @parameters none
+   * @return Observable
+   */
+  getSelectedCoverCard(): CoverCardData {
+    return this.selectedCoverCard;
+  }
+&nbsp;
+  /** @methodName setCardStatus
+   * @description send API call to change the status of card
+   * @parameter url&lt;string&gt;, payloadObj&lt;CardStatusPayload&gt;
+   * @return none
+   */
+  // Return type to be changed after API integration
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  setCardStatus(</span>url: string, payloadObj: CardStatusPayload): void {</span>
+    const URL = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false) +</span>
+      this.cardEndPoint + url;
+<span class="cstat-no" title="statement not covered" >    this.syncService.put(URL, payloadObj).subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      this.reLoadCardList(true);</span>
+    });
+  }
+&nbsp;
+  /**
+   * @methodName reLoadCardList
+   * @description reload cards list with updated data
+   * @parameters showSnackBar&lt;boolean&gt;
+   * @return void
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  reLoadCardList(</span>showSnackBar: boolean): void {</span>
+<span class="cstat-no" title="statement not covered" >    if (showSnackBar) {</span>
+<span class="cstat-no" title="statement not covered" >      this.snackBarService.showSnackBar({</span>
+        showSnackBar: true,
+        message: { msgType: SNACK_BAR_STATUS.success, msgText: this.snackBarMessage }
+      });
+    }
+<span class="cstat-no" title="statement not covered" >    this.sharedService.setAccontsCardsList().subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (response) {</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.accountsCardsList = JSON.parse(response.toString());</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.getAllCardsList();</span>
+<span class="cstat-no" title="statement not covered" >        this.updateCardList.next(true);</span>
+      }
+    });
+  }
+&nbsp;
+  /* @methodName handleCardStatus
+   * @description identify which action is clicked from menu or quicklink
+   * @parameter statusObject&lt;MenuOption&gt;
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleCardStatus(</span>statusObject: MenuOption): void {
+<span class="cstat-no" title="statement not covered" >    this.cardEndPoint = statusObject.actionItem.hasOwnProperty(CARDS_MASTER_DATA.PRIMARY_ACCOUNT_KEY) ? DEBIT_CARD_STATUS_API_URL</span>
+      : COVER_CARD_STATUS_API_URL;
+<span class="cstat-no" title="statement not covered" >    this.updateCardList.next(false);</span>
+<span class="cstat-no" title="statement not covered" >    if (statusObject.actionType === ACTION_ITEMS.freeze || statusObject.actionType === ACTION_ITEMS.unFreeze) {</span>
+<span class="cstat-no" title="statement not covered" >      this.handleFreezeStatus(statusObject);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (statusObject.actionType === ACTION_ITEMS.block) {</span>
+<span class="cstat-no" title="statement not covered" >      this.handleBlockStatus(statusObject);</span>
+    }
+  }
+&nbsp;
+  /* @methodName handleFreezeStatus
+   * @description perform freeze/unfreeze status change
+   * @parameter freezeObject&lt;MenuOption&gt;
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  handleFreezeStatus(</span>freezeObject: MenuOption): void {</span>
+    const OPTIONS = <span class="cstat-no" title="statement not covered" >{</span>
+      title: freezeObject.actionType === ACTION_ITEMS.freeze ? CARDS_DIALOG_TEXT.freezeTitle : CARDS_DIALOG_TEXT.unFreezeTitle,
+      message: freezeObject.actionType === ACTION_ITEMS.freeze ? CARDS_DIALOG_TEXT.freezeMessage : CARDS_DIALOG_TEXT.unFreezeMessage,
+      cancelText: CARDS_DIALOG_TEXT.freezeCancelText,
+      confirmText: CARDS_DIALOG_TEXT.freezeConfirmText,
+      freezeCard: true,
+      cardName: freezeObject.actionItem.hasOwnProperty(CARDS_MASTER_DATA.CARD_HOLDER_NAME_KEY) ? freezeObject.actionItem.cardHolderName
+        : freezeObject.actionItem.productDescription,
+      cardNumber: freezeObject.actionItem.cardNumber
+    };
+<span class="cstat-no" title="statement not covered" >    this.dialogService.open(OPTIONS);</span>
+<span class="cstat-no" title="statement not covered" >    this.dialogService.confirmed().subscribe(<span class="fstat-no" title="function not covered" >(</span>res) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (res) {</span>
+        const payload = <span class="cstat-no" title="statement not covered" >{ cardNumber: freezeObject.actionItem.cardNumber };</span>
+<span class="cstat-no" title="statement not covered" >        this.snackBarMessage = freezeObject.actionType === ACTION_ITEMS.freeze ? CARDS_DIALOG_TEXT.freezeSuccessMessage :</span>
+          CARDS_DIALOG_TEXT.unFreezeSuccessMessage;
+<span class="cstat-no" title="statement not covered" >        this.setCardStatus(this.getStatus(freezeObject), payload);</span>
+      }
+    });
+  }
+&nbsp;
+  /* @methodName handleBlockStatus
+   * @description perform block/unBlock status change
+   * @parameter handleBlockStatus&lt;MenuOption&gt;
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  handleBlockStatus(</span>blockObject: MenuOption): void {</span>
+    const OPTIONS = <span class="cstat-no" title="statement not covered" >{</span>
+      title: CARDS_DIALOG_TEXT.blockTitle,
+      message: CARDS_DIALOG_TEXT.blockMessage,
+      cancelText: CARDS_DIALOG_TEXT.blockCancelText,
+      confirmText: CARDS_DIALOG_TEXT.blockConfirmText,
+      freezeCard: true,
+      cardName: blockObject.actionItem.hasOwnProperty(CARDS_MASTER_DATA.CARD_HOLDER_NAME_KEY) ? blockObject.actionItem.cardHolderName
+        : blockObject.actionItem.productDescription,
+      cardNumber: blockObject.actionItem.cardNumber
+    };
+<span class="cstat-no" title="statement not covered" >    this.dialogService.open(OPTIONS);</span>
+<span class="cstat-no" title="statement not covered" >    this.dialogService.confirmed().subscribe(<span class="fstat-no" title="function not covered" >(</span>res) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (res) {</span>
+        const payload = <span class="cstat-no" title="statement not covered" >{ cardNumber: blockObject.actionItem.cardNumber };</span>
+<span class="cstat-no" title="statement not covered" >        this.snackBarMessage = CARDS_DIALOG_TEXT.blockSuccessMessage;</span>
+<span class="cstat-no" title="statement not covered" >        this.setCardStatus(CARDS_MASTER_DATA.BLOCK_CARD_STATUS, payload);</span>
+      }
+    });
+  }
+&nbsp;
+  /* @methodName getStatus
+   * @description return the alternate status
+   * @parameter card&lt;MenuOption&gt;
+   * @return string
+   */
+<span class="fstat-no" title="function not covered" >  getStatus(</span>card: MenuOption): string {
+    let cardStatus;
+<span class="cstat-no" title="statement not covered" >    if (card.actionType === ACTION_ITEMS.freeze || card.actionType === ACTION_ITEMS.unFreeze) {</span>
+<span class="cstat-no" title="statement not covered" >      cardStatus = card.actionItem.cardStatus === CARDS_MASTER_DATA.FREEZE_CARD_STATUS ||</span>
+        card.actionItem.cardStatus === CARDS_MASTER_DATA.FREZ_CARD_STATUS ?
+        CARDS_MASTER_DATA.UN_FREEZE_CARD_STATUS : CARDS_MASTER_DATA.FREEZE_CARD_STATUS;
+    }
+<span class="cstat-no" title="statement not covered" >    return cardStatus;</span>
+  }
+&nbsp;
+  /**
+   * @methodName generateCardStatement
+   * @description used to generate card statement
+   * @parameter url&lt;string&gt; payload&lt;CoverCardStatementPayload&gt;
+   * @return Observable&lt;CoverCardStatementPayload&gt;
+   */
+<span class="fstat-no" title="function not covered" >  generateCardStatement(</span>url: string, payloadObj: CoverCardStatementPayload): Observable&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.syncService.post(url, payloadObj, 'blob');</span>
+  }
+&nbsp;
+  /**
+   * @methodName fetchOTPLocation
+   * @description used to fetch the otp loacation details
+   * @parameter url payload
+   * @return Observable
+   */
+<span class="fstat-no" title="function not covered" >  fetchOTPLocation(</span>url: string, payloadObj): Observable&lt;OTPLocation&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.syncService.put(url, payloadObj);</span>
+  }
+&nbsp;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

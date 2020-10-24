@@ -1,0 +1,34 @@
+<section class="money-transfer-comp" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'money-transfer-rtl': ''">
+    <div class="money-transfer-comp__header" translate>{{parentComponentTitle}}</div>
+    <div class="money-transfer-comp__title" translate>{{selectedComponentTitle | translate}}</div>
+    <div class="row money-transfer-comp__step-wrapper margin-lrn">
+        <mat-horizontal-stepper linear #stepper (selectionChange)="stepIndexChanged(stepper,$event)"
+            [ngClass]="(selectedLanguage === arabicLanguageText) ? 'mat-horizontal-stepper-rtl': ''">
+            <ng-template matStepperIcon="edit">
+                <mat-icon></mat-icon>
+            </ng-template>
+            <mat-step label="{{stepperText.transferFrom | translate}}" *ngIf="showMoneyTransferFromStep">
+                <div class="money-transfer-comp__step-wrapper__title">
+                    {{stepperText.transferFrom | translate}}</div>
+                <app-money-transfer-from-step [showFromCardsTransferView]="showFromCardsTransferView"
+                    [selectedAccountNumber]="selectedAccountNumber" [showCardsTabInStepFrom]="showCardsTabInStepFrom">
+                </app-money-transfer-from-step>
+            </mat-step>
+            <mat-step label="{{stepperText.transferTo | translate}}" *ngIf="showMoneyTransferToStep">
+                <div class="money-transfer-comp__step-wrapper__title">
+                    {{stepperText.transferTo | translate}}</div>
+                <app-money-transfer-to-step></app-money-transfer-to-step>
+            </mat-step>
+            <mat-step label="{{stepperText.transferDetails | translate}}">
+                <div class="money-transfer-comp__step-wrapper__title">{{ stepperText.transferDetails | translate}}
+                </div>
+                <app-money-transfer-details-step></app-money-transfer-details-step>
+            </mat-step>
+            <mat-step translate label="{{stepperText.confirm | translate}}">
+                <div class="money-transfer-comp__step-wrapper__title moneyTransferSummaryStepTitle">
+                    {{ stepperText.summary | translate}}</div>
+                <app-money-transfer-confirm-step></app-money-transfer-confirm-step>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</section>

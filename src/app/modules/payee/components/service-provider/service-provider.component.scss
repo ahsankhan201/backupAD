@@ -1,0 +1,17 @@
+@import "src/assets/styles/default";
+
+.service-provider-comp {
+  &__header {
+    @extend .ibd-small-text;
+
+    font-family: $font-regular;
+    font-size: 16px;
+    color: $suva-grey;
+  }
+}
+
+.service-provider-rtl {
+  .service-provider-comp__header {
+    display: flex;
+  }
+}

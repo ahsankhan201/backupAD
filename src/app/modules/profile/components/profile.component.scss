@@ -1,0 +1,96 @@
+@import "src/assets/styles/default";
+
+.profile-component {
+  position: absolute;
+  top: 56px;
+  height: auto;
+  width: 100%;
+  @include respond-to(screen-m-min) {
+    width: calc(100% - 92px);
+    top: 92px;
+    left: 92px;
+  }
+  @include respond-to(screen-xl-min) {
+    max-width: 650px;
+  }
+  &__wrapper {
+    padding: 16px;
+    margin-bottom: 60px;
+    @include respond-to(screen-m-min) {
+      padding: 38px 38px 0 38px;
+    }
+    @include respond-to(screen-l-min) {
+      padding: 37px 41px 0 41px;
+    }
+    &__title {
+      color: $grey;
+      font-family: $font-regular;
+      font-size: 14px;
+      @include respond-to(screen-m-min) {
+        margin-bottom: 76px;
+      }
+      @include respond-to(screen-xl-min) {
+        margin-bottom: 68px;
+      }
+    }
+    &__sub-title {
+      font-family: $font-regular;
+      font-size: 14px;
+      color: $suva-grey;
+      margin-top: 32px;
+    }
+    &__info {
+      display: flex;
+      flex-direction: column;
+      @include respond-to(screen-m-min) {
+        flex: 0 50%;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+      @include respond-to(screen-xl-min) {
+        flex: 0 50%;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+      &__section {
+        display: flex;
+        flex-direction: column;
+        flex: 0 50%;
+        @include respond-to(screen-l-min) {
+          flex: 0 33%;
+        }
+        @include respond-to(screen-xl-min) {
+          flex: 0 50%;
+        }
+        &__label {
+          font-family: $font-light;
+          font-size: 14px;
+          color: $grey;
+          margin: 16px 0 6px 0;
+        }
+        &__value {
+          font-family: $font-light;
+          font-size: 14px;
+          color: $solid-blue;
+        }
+      }
+    }
+    &__note {
+      margin-top: 32px;
+      color: $grey;
+      font-family: $font-light;
+      font-size: 14px;
+      .text {
+        color: $solid-blue;
+      }
+    }
+    .next-btn {
+      margin: 32px 0;
+      width: 100%;
+      @include respond-to(screen-l-min) {
+        margin-top: 40px;
+        width: auto;
+      }
+    }
+  }
+}

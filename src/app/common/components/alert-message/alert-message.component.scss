@@ -1,0 +1,29 @@
+@import "src/assets/styles/default";
+
+.alert-message {
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    border: 0.5px solid $danger;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02);
+    min-width: 325px;
+    padding: 12px 12px 12px 35px;
+    font-family: $font-light;
+    font-size: 13px;
+    letter-spacing: 0px;
+    color: $danger;
+    min-height: 37px;
+    position: relative;
+    margin-bottom: 10px;
+    &::before {
+      content: " ";
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      background-image: url("/assets/icons/ic.error.svg");
+      position: absolute;
+      left: 10px;
+      background-repeat: no-repeat;
+      top: 8px;
+    }
+  }

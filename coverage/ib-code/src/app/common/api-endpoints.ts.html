@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/api-endpoints.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/app/common</a> api-endpoints.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>28/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>28/28</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { environment } from 'src/environments/environment';
+&nbsp;
+/* Add Local Routing URL'S */
+export const ROUTING_URLS = {
+    BENEFICIARY: '/beneficiary',
+    PAYEE: '/payee'
+};
+&nbsp;
+// Add Benefciary API End Points below
+&nbsp;
+export const BENEFICIARY_ENDPOINTS = {
+    GET_COUNTRIES_LIST: '/support/bank/country',
+    GET_BANKS_LIST: '/support/bank/bank-details',
+    GET_CURRENCY_LIST: '/support/bank/currency/',
+    ACCOUNTS_BENEFICIARY: '/accounts/v2/beneficiary',
+    ADD_INTERNATIONAL_BEN: '/accounts/v2/beneficiary/external',
+    ADD_INTERNAL_BEN: '/accounts/v2/beneficiary/internal',
+    ADD_UAE_OTHER_BEN: '/accounts/v2/beneficiary/local',
+    ACCOUNT_NUMBER_DETAILS: '/accounts/accounts/detail',
+    CARD_NUMBER_DETAILS: '/cards/covered-card/detail',
+    UTILITY_PROVIDER: '/support/utility-providers',
+    IS_ADIB_UAE_BANK_EXCLUDED: 'is_adib_uae_bank_excluded',
+    GET_RESTRICT_WORDS_LIST: '/support/bank/restricted-word',
+    VALIDATE_IBAN: '/accounts/accounts/iban-validate'
+};
+export const PARTY_ENDPOINTS = {
+    GET_CUSTOMER_DETAILS: '/party/rim',
+    GET_CUSTOMER_NAME_BY_MOBILE: '/party/name'
+};
+export const GET_MFP_CUSTOMER_DETAILS_BY_MOBILE = '/ADIBMBA/adapters/SMSAndEmailMgtAdapter/getCustomerNameByMobile';
+// GET_MFP_CUSTOMER_DETAILS_BY_RIM endpoint will remove after integrating user login
+export const GET_MFP_CUSTOMER_DETAILS_BY_RIM = '/ADIBMBA/adapters/LoginRegistrationAdapter/getCustomerDetails';
+export const PAYEE_ENDPOINTS = {
+    UTILITY_BENEFICIARY: '/accounts/v2/utility-beneficiary',
+    MARK_AS_FAV: '/favourite'
+};
+&nbsp;
+export const ACCOUNTS_ENDPOINTS = {
+    GET_ALL_BENIFICIARY: '/accounts/v2/beneficiary',
+    MARK_AS_FAV: '/favourite',
+    LIST_OF_ACCOUNTS: '/accounts/accounts/v2/details',
+    DOWNLOAD_STATEMENT: '/accounts/accounts/estatement',
+    OPEN_ACCOUNT: '/accounts/accounts/v2',
+    GET_CHARITY_LIST: '/accounts/charities'
+};
+&nbsp;
+export const FINANCE_ENDPOINTS = {
+    FINANCE_DETAILS: '/finance/detail',
+    FINANCE_HISTORY: '/finance/history',
+};
+export const CARDS_ENDPOINTS = {
+    COVER_CARD_LIMIT: '/cards/coveredCard/supplementary/limit',
+};
+// finance JSON files and this will remove after integrating with API endpoints
+export const FINANCE_PROMOTION_JSON = '/assets/json/finance-ads.json';
+&nbsp;
+export const TRANSACTION_HISTORY_API_URL = '/enquiry/transaction/history';
+export const PENDING_TRANSACTION_API_URL = '/cards/covered-card/pending';
+&nbsp;
+export const ACCOUNTS_CARDS_ENDPOINTS = '/enquiry/accounts-cards-details';
+&nbsp;
+export const DEBIT_CARD_STATUS_API_URL = '/cards/debit-card/status/';
+export const COVER_CARD_STATUS_API_URL = '/cards/covered-card/status/';
+&nbsp;
+export const UTILITY_PAYMENT_ENDPOINTS = {
+    INQUIRY: '/payments/utility/inquiry',
+    PAYMENT: '/payments/utility/v2/payment',
+    COVER_CARD_PAYMENT: '/payments/v2/covered-card'
+};
+&nbsp;
+export const TRANSFER_ENDPOINTS = {
+    UAE_INTERNAL_TRANSFER: '/payments/v2/account/internal',
+    UAE_EXTERNAL_TRANSFER: '/payments/v2/account/external',
+    UAE_COVERECARD_ACC_INTERNAL_TRANSFER: '/payments/v2/accounts',
+    EXCHANGE_RATE: '/payments/transfer-rate',
+    TRANSFER_PURPOSE: '/support/transfer-purpose',
+    INTERNATIONAL_TRANSFER: '/payments/v2/account/external',
+    ACCOUNT_INTERNAL_TRANSFER: '/payments/account/internal',
+    CARD_ACCOUNT_TRANSFER: '/payments/accounts'
+};
+&nbsp;
+export const PAYMENTS_ENDPOINTS = {
+    PAYMENT_ORDER: '/payments/service/payment-order'
+};
+&nbsp;
+export const CACHED_DATA_ENDPOINTS = {
+    ENTITY_DATA: '/support/cached-data/entity-data?entityList=COUNTRY_CODE_DETAILS',
+    BRANCH_SEARCH: '/support/location/branch/search',
+    COUNTRY_CODE_DETAILS: '/support/cached-data/country-codes'
+};
+&nbsp;
+export const PRODUCTS_ENDPOINTS = {
+    CATEGORY: '/products/categories',
+    PRODUCT_CATALOG: '/products/catalog',
+    CONTACT_MODES: '/products/preferred-contact',
+    CAR_BRAND: '/products/cars/brands',
+    REGISTER: '/products/register-product',
+    CAR_MODEL: '/products/cars/models'
+};
+&nbsp;
+export const DOWNLOAD_COVER_CARD_STATEMENT = '/cards/covered-card/estatement';
+export const RECAPTCHA = {
+    URL: environment.CAPTCHA.URL,
+    PARAMS: '?onload=grecaptchaCallback&amp;render=explicit',
+};
+&nbsp;
+export const DEVICE_REGISTRATION = '/enquiry/log/browser-login';
+export const SUBSCRIPTION_ENDPOINT = '/enquiry/subscription/status';
+&nbsp;
+export const BANKING_SERVICES_ENDPOINTS = {
+    CHEQUE_BOOK_ELIGIBILITY: '/accounts/service/cheque-book/eligibility',
+    BRANCH_LIST: '/support/location/branch/search',
+    CERTIFICATE_REQ: '/accounts/service/bank-certificate',
+    GET_CHARGES: '/payments/service/fees',
+    CHEQUE_BOOK_REQ: '/accounts/service/cheque-book',
+    ACCOUNTS_SERVICE_SUMMARY: '/accounts/service/summary',
+    PAYMENTS_SERVICE_SUMMARY: '/payments/service/summary',
+    ACCOUNTS_SERVICE_DETAILS: '/accounts/service/details/',
+    PAYMENTS_SERVICE_DETAILS: '/payments/service/details/'
+};
+export const CHANGE_CARD_PRIMARY_ACCOUNT = '/cards/debit-card/primary-account';
+&nbsp;
+export const AGREEMENT_ENDPOINTS = {
+    AGREEMENT_REQ: '/party/agreement',
+};
+&nbsp;
+export const DISPLACE_SESSION = '?displacesession=true';
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

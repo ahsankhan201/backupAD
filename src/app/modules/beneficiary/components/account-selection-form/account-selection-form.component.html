@@ -1,0 +1,180 @@
+<div class="account-form-comp" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'account-form-rtl': ''">
+    <form [formGroup]="accountForm" class="account-form-comp__form" *ngIf="showForm">
+        <div class="account-form-comp__form__row">
+            <!-- Currency List Component Code -->
+            <div class="account-form-comp__form__row__currency form-group col-12 padding-lrn"
+                *ngIf="currencyList?.length">
+                <mat-label class="currency-label" translate>tr_common_currencyText</mat-label>
+                <app-checkbox-generic [optionsList]="currencyList" [componentName]="'accountFormCurrency'"
+                    class="account-currency-list"
+                    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'currency-list-rtl': ''"
+                    (selectedOptionValue)="selectedCurrency($event)">
+                </app-checkbox-generic>
+            </div>
+            <!-- ABACode HTML Code Starts here -->
+            <div class="row margin-lrn" *ngIf="showABACode">
+                <div
+                    class="account-form-comp__form__row mat-form-field-right form-group col-12 padding-lrn first-child">
+                    <mat-form-field>
+                        <mat-label translate>tr_addBene_abaCodeText</mat-label>
+                        <input matInput #abaCode numbersOnly maxlength="{{ FORM_LENGTH.aba.maxLength}}"
+                            formControlName="abaCode">
+                        <mat-hint align="end">{{abaCode.value.length}} / {{ FORM_LENGTH.aba.maxLength }}</mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+            <!-- IBAN HTML Code Starts here -->
+            <div class="row margin-lrn first-child" *ngIf="showIBAN">
+                <div
+                    class="account-form-comp__form__row__two-cols-right mat-form-field-right form-group col-md-6 padding-lrn">
+                    <mat-form-field>
+                        <mat-label translate>tr_common_ibanText</mat-label>
+                        <input matInput #iban maxlength="{{ FORM_LENGTH.iban.maxLength}}" appAlphaNumeric
+                            [allowSpace]="false" formControlName="ibanNumber"
+                            (blur)="isBeneficiaryExisits('ibanNumber', 'iban')">
+                        <mat-hint align="end">{{iban.value.length}} / {{ FORM_LENGTH.iban.maxLength }}</mat-hint>
+                        <mat-error>
+                            <app-show-form-errors [control]="accountForm.get('ibanNumber')" label="IBAN">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div
+                    class="account-form-comp__form__row__two-cols-left mat-form-field-right form-group col-md-6 padding-lrn">
+                    <mat-form-field>
+                        <mat-label translate>tr_addBene_confirmIBANText</mat-label>
+                        <input matInput #confirmiban maxlength="{{ FORM_LENGTH.iban.maxLength}}" appAlphaNumeric
+                            [allowSpace]="false" formControlName="confirmIban">
+                        <mat-hint align="end">{{confirmiban.value.length}} / {{ FORM_LENGTH.iban.maxLength }}</mat-hint>
+                        <mat-error>
+                            <app-show-form-errors [control]="accountForm.get('confirmIban')" label="Confirm IBAN">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <!-- Account Number HTML Code Starts here -->
+            <div class="row margin-lrn first-child" *ngIf="showAccountNumber">
+                <div
+                    class="account-form-comp__form__row__two-cols-right mat-form-field-right form-group col-md-6 padding-lrn">
+                    <mat-form-field>
+                        <mat-label translate>tr_common_accountNumberText</mat-label>
+                        <input matInput type="tel" inputmode="numeric" numbersOnly #account
+                            maxlength="{{ FORM_LENGTH.accountNumber.maxLength }}" formControlName="account"
+                            (blur)="isBeneficiaryExisits('account', 'beneAccNo')">
+                        <mat-hint align="end">{{account.value.length}} / {{ FORM_LENGTH.accountNumber.maxLength }}
+                        </mat-hint>
+                        <mat-error>
+                            <app-show-form-errors [control]="accountForm.get('account')" label="Account">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div
+                    class="account-form-comp__form__row__two-cols-left mat-form-field-right form-group col-md-6 padding-lrn">
+                    <mat-form-field>
+                        <mat-label translate>tr_common_confirmAccountNumberText</mat-label>
+                        <input matInput #confirmaccount maxlength="{{ FORM_LENGTH.accountNumber.maxLength }}"
+                            numbersOnly formControlName="confirmAccount">
+                        <mat-hint align="end">{{confirmaccount.value.length}} /
+                            {{ FORM_LENGTH.accountNumber.maxLength }}</mat-hint>
+                        <mat-error>
+                            <app-show-form-errors [control]="accountForm.get('confirmAccount')" label="Confirm Account">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-group mt-3 mb-2" *ngIf="showCard">
+                <p class="account-form-comp__form__row__card" translate>tr_addBene_enterCardText</p>
+                <div class="account-form-comp_card_wrapper mat-form-field-right">
+                    <app-input-generic inputLabel='tr_common_cardNumberText' [errors]="accountForm.get('cardNumber')" [maxlength]="4" [resetInputValue]="resetInputValue" 
+                    (outputData)="handleCardNumber($event)" class="cardNumber"
+                    type="cardNumber"></app-input-generic>
+                </div>
+            </div>
+            <div class="form-group mat-form-field-right">
+                <mat-form-field>
+                    <mat-label translate>tr_common_nameText</mat-label>
+                    <input matInput formControlName="name" maxlength="{{ FORM_LENGTH.name.maxLength }}'">
+                    <mat-error>
+                        <app-show-form-errors [control]="accountForm.get('name')" label="Beneficiary Name">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <div
+                    class="account-form-comp__form__row__two-cols-right mat-form-field-right form-group col-md-6 padding-lrn">
+                    <mat-form-field>
+                        <mat-label translate>tr_addBene_address1Text</mat-label>
+                        <input matInput formControlName="addressOne" maxlength="{{ FORM_LENGTH.address.maxLength }}">
+                        <mat-error>
+                            <app-show-form-errors [control]="accountForm.get('addressOne')" label="Address Line 1">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div
+                    class="account-form-comp__form__row__two-cols-left mat-form-field-right form-group col-md-6 padding-lrn">
+                    <mat-form-field>
+                        <mat-label translate>tr_addBene_address2Text</mat-label>
+                        <input matInput formControlName="addressTwo" maxlength="{{ FORM_LENGTH.address.maxLength }}">
+                        <mat-error>
+                            <app-show-form-errors [control]="accountForm.get('addressTwo')" label="Address Line 2">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-row">
+                <div
+                    class="account-form-comp__form__row__two-cols-right mat-form-field-right form-group col-md-6 padding-lrn">
+                    <mat-form-field class="form-group-full">
+                        <mat-label translate>tr_addBene_cityText</mat-label>
+                        <input matInput formControlName="city" maxlength="30">
+                        <mat-error>
+                            <app-show-form-errors [control]="accountForm.get('city')" label="City">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div
+                    class="account-form-comp__form__row__two-cols-left mat-form-field-left form-group col-md-6 padding-lrn">
+                    <mat-form-field>
+                        <mat-label translate>tr_addBene_selectCountryText</mat-label>
+                        <input type="text" matInput formControlName="country" [matAutocomplete]="autoCountries">
+                        <mat-autocomplete #autoCountries="matAutocomplete" (optionSelected)="onCountryChange($event)"
+                            autoActiveFirstOption>
+                            <mat-option
+                                *ngFor="let item of countriesList | filterText:accountForm.controls['country'].value:'countryName'"
+                                [value]="item.countryName" id="{{item.countryISOCode}}">
+                                {{item.countryName}}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <mat-hint align="end" translate>tr_addBenComponent_countryHintText</mat-hint>
+                        <mat-error>
+                            <app-show-form-errors [control]="accountForm.get('country')" label="Country name">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-group mat-form-field-right">
+                <mat-form-field>
+                    <mat-label translate>tr_common_nickNameText</mat-label>
+                    <input matInput appAlphaNumeric formControlName="nickName" maxlength="30">
+                    <mat-error>
+                        <app-show-form-errors [control]="accountForm.get('nickName')" label="Nick Name">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+    <div class="account-form-comp__wrapper__buttons">
+        <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+        <button matStepperNext class="btn next-btn" (click)="onSubmit();" type="button"
+            [disabled]="!accountForm.valid || !isValidOtherInternationalForm" translate>tr_common_nextText</button>
+    </div>
+</div>

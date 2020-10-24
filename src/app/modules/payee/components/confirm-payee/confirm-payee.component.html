@@ -1,0 +1,52 @@
+<section class="confirm-payee-comp row margin-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'confirm-payee-rtl': ''">
+    <div class="confirm-payee-comp__row col-12 padding-lrn" *ngIf="!showOrHideOTPComp && !showSuccessScreen">
+        <div class="confirm-payee-comp__row__header col-12 padding-lrn" translate>tr_common_summary</div>
+
+        <div class="confirm-payee-comp__row__wrapper" *ngIf="payeeSummaryInfo.payeeType">
+            <div class="confirm-payee-comp__row__wrapper__title" translate>
+                tr_addPayee_payeetypeText
+            </div>
+            <div class="confirm-payee-comp__row__wrapper__description">
+                {{payeeSummaryInfo.payeeType}}
+            </div>
+        </div>
+        <div class="confirm-payee-comp__row__wrapper" *ngIf="payeeSummaryInfo.serviceProvider">
+            <div class="confirm-payee-comp__row__wrapper__title" translate>
+                tr_addPayee_serviceProviderText
+            </div>
+            <div class="confirm-payee-comp__row__wrapper__description">
+                {{payeeSummaryInfo.serviceProvider}}
+            </div>
+        </div>
+        <div class="confirm-payee-comp__row__wrapper" *ngIf="payeeSummaryInfo.accountNumber">
+            <div class="confirm-payee-comp__row__wrapper__title" translate>
+                tr_common_accountNumberText
+            </div>
+            <div class="confirm-payee-comp__row__wrapper__description">
+                {{payeeSummaryInfo.accountNumber}}
+            </div>
+        </div>
+        <div class="confirm-payee-comp__row__wrapper" *ngIf="payeeSummaryInfo.nickName">
+            <div class="confirm-payee-comp__row__wrapper__title" translate>
+                tr_common_nickNameText
+            </div>
+            <div class="confirm-payee-comp__row__wrapper__description">
+                {{payeeSummaryInfo.nickName}}
+            </div>
+        </div>
+        <div class="confirm-payee-comp__row__buttons mt-5">
+            <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+            <button class="btn next-btn" (click)="getOTPLocationDetails()" type="button"
+                translate>tr_common_confirmWithOTPText</button>
+        </div>
+    </div>
+    <div class="confirm-payee-comp__otp-wrapper" *ngIf="showOrHideOTPComp">
+        <app-otp *ngIf="location" [location]='location' [masking]=true
+            (response)="getOTPResponse($event)" (resendOTPRequired)="resendOTPRequired($event)"></app-otp>
+    </div>
+    <div class="confirm-payee-comp__success-screen" *ngIf="showSuccessScreen">
+        <app-success-screen [beneficiaryName]="payeeName" componentName="payee" [showPayeeSuccessScreen]="true">
+        </app-success-screen>
+    </div>
+</section>

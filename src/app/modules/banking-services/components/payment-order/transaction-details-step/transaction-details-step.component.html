@@ -1,0 +1,24 @@
+<section class="ibd-payorder-transaction-details col-12 padding-lrn">
+    <div class="ibd-payorder-transaction-details__wrapper">
+        <form [formGroup]="transactionDetailsFormGroup"
+            class="ibd-payorder-transaction-details__wrapper__form mat-form-field-right ">
+            <mat-form-field>
+                <mat-label translate>tr_common_amountText</mat-label>
+                <input autocomplete="off" matInput formControlName="amount" numbersOnly decimals="3"
+                    (focusout)="validateAmount()" appInputWithComma>
+                <mat-error>
+                    <app-show-form-errors [control]="transactionDetailsFormGroup.get('amount')"
+                        label="tr_common_amountText">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+        </form>
+        <div class="ibd-payorder-transaction-details__wrapper__buttons">
+            <button class="btn cancel-btn" type="button" (click)="handleCancelButtonClick()"
+                translate>tr_common_cancelTransactionText</button>
+            <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+            <button matStepperNext class="btn next-btn" type="button" [disabled]="!transactionDetailsFormGroup.valid"
+                (click)="handleNextButtonClick()" translate>tr_common_nextText</button>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,164 @@
+@import "src/assets/styles/default";
+
+.transfer-details-comp {
+  min-height: 385px;
+  position: relative;
+  &__wrapper {
+    &__available-funds {
+      .text {
+        font-family: $font-light;
+        margin-bottom: 4px;
+        font-size: 16px;
+        color: $grey;
+      }
+      .amount {
+        &__digit {
+          color: $active-blue;
+          font-family: $font-medium;
+          font-size: 20px;
+          line-height: normal;
+          position: relative;
+        }
+        &__decimal,
+        &__currency {
+          color: $suva-grey;
+          font-family: $font-medium;
+          font-size: 12px;
+          line-height: normal;
+        }
+        &__currency {
+          padding-left: 4px;
+        }
+        &::after {
+          content: " ";
+          border: 1px solid $cerulean-blue;
+          display: block;
+          width: 25px;
+          margin-top: 6px;
+        }
+      }
+      margin-bottom: 24px;
+    }
+    &__outstanding {
+      .text,
+      .decimal {
+        font-family: $font-light;
+        font-size: 13px;
+        color: $suva-grey;
+      }
+      .amount {
+        color: $active-blue;
+        font-family: $font-medium;
+        font-size: 14px;
+      }
+      .decimal {
+        font-family: $font-regular;
+        font-size: 12px;
+      }
+    }
+    &__buttons {
+      width: 100%;
+      position: static;
+      margin-bottom: 16px;
+      button {
+        width: 100%;
+        margin-top: 16px;
+        @include respond-to(screen-m-min) {
+          width: 184px;
+          min-width: 184px;
+          margin-top: 0;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        display: flex;
+        .next-btn,
+        .previous-btn {
+          margin-left: 27px;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        margin-top: 38px;
+      }
+    }
+    form {
+      mat-form-field:first-child {
+        &.mat-form-field-should-float {
+          margin-top: 24px;
+        }
+      }
+    }
+    form {
+      mat-form-field:first-child {
+        &.mat-form-field-should-float {
+          margin-top: 24px;
+        }
+      }
+    }
+  }
+  @include respond-to(screen-m-min) {
+    max-width: 600px;
+  }
+  .alert-message {
+    margin-top: 20px;
+  }
+}
+
+.transfer-details-rtl {
+  .transfer-details-comp__wrapper__buttons {
+    .next-btn,
+    .previous-btn {
+      @include respond-to(screen-m-min) {
+        margin-left: 0px;
+        margin-right: 27px;
+      }
+    }
+  }
+  .transfer-details-comp__wrapper {
+    &__available-funds {
+      text-align: right;
+      text-align: -webkit-align;
+      direction: ltr;
+      .amount {
+        &__digit {
+          &::after {
+            left: 3px;
+          }
+        }
+        &__currency {
+          padding-left: 4px;
+        }
+        &::after {
+          margin-left: auto;
+        }
+      }
+    }
+    &__outstanding {
+      text-align: right;
+      text-align: -webkit-right;
+    }
+    form {
+      mat-form-field {
+        text-align: right;
+        text-align: -webkit-right;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .payment-amount-generic-checkbox {
+  .checkbox-with-image-comp {
+    display: flex;
+    flex-wrap: wrap;
+    &__container {
+      margin-right: 7px;
+      margin-top: 10px;
+      @include respond-to(screen-m-min) {
+        margin-right: 27px;
+      }
+      &__wrapper {
+        padding-right: 16px;
+        margin: 0 0 24px 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+<div class="ghina-account-summary-comp"
+    [ngClass]="(selectedLang === arabicLanguageText) ? 'ghina-account-summary-comp-rtl': ''">
+    <div class="ghina-account-summary-comp__section" *ngIf="showedComponentName==='SUMMARY_SCREEN'">
+        <div class="ghina-account-summary-comp__section__title" translate>tr_common_summary</div>
+        <div class="ghina-account-summary-comp__section__wrapper">
+            <div class="ghina-account-summary-comp__section__wrapper__title" translate>
+                tr_openAccountComponent_accountCurrencyText</div>
+            <div class="ghina-account-summary-comp__section__wrapper__value">
+                {{summaryDetailsObj.targetAccountCurency}}
+            </div>
+        </div>
+        <div class="ghina-account-summary-comp__section__wrapper">
+            <div class="ghina-account-summary-comp__section__wrapper__title" translate>
+                tr_openAccountComponent_depositAmountText</div>
+            <div class="ghina-account-summary-comp__section__wrapper__value">
+                {{summaryDetailsObj.depositAmount}} {{summaryDetailsObj.targetAccountCurency}}
+            </div>
+        </div>
+        <div class="ghina-account-summary-comp__section__wrapper">
+            <div class="ghina-account-summary-comp__section__wrapper__title" translate>
+                tr_paymentComponent_payFromStepperText
+            </div>
+            <div class="ghina-account-summary-comp__section__wrapper__value">
+                {{summaryDetailsObj.payFromAccount}}
+            </div>
+        </div>
+        <div class="ghina-account-summary-comp__section__wrapper">
+            <div class="ghina-account-summary-comp__section__wrapper__title" translate>
+                tr_common_mobileNumberText
+            </div>
+            <div class="ghina-account-summary-comp__section__wrapper__value">
+                {{summaryDetailsObj.mobileNumber}}
+            </div>
+        </div>
+        <div class="ghina-account-summary-comp__section__wrapper">
+            <div class="ghina-account-summary-comp__section__wrapper__title" translate>
+                tr_productsComponent_emailIdText</div>
+            <div class="ghina-account-summary-comp__section__wrapper__value">
+                {{summaryDetailsObj.emailId}}
+            </div>
+        </div>
+        <div class="summary-terms-and-conditions banking-service">
+            <div class="summary-terms-and-conditions__tick">
+                <img (click)="handleTermsAndCondition()" src="{{bankingServiceTermsTickImage}}" alt="image">
+            </div>
+            <div class="summary-terms-and-conditions__text">
+                <span translate>tr_openAccountComponent_accountIaccepttheText</span>
+                <span class="link" translate (click)="handleTermsAndCondition()">
+                    tr_openAccountComponent_termsAndConditionsText</span>
+                <span translate> tr_openAccountComponent_bankingServiceText</span>
+            </div>
+        </div>
+        <div class="summary-terms-and-conditions ghina-service">
+            <div class="summary-terms-and-conditions__tick">
+                <img (click)="handleTermsAndCondition('terms-and-condition-ghina-service')"
+                    src="{{ghinaServiceTermsTickImage}}" alt="image">
+            </div>
+            <div class="summary-terms-and-conditions__text">
+                <span translate>tr_openAccountComponent_accountIaccepttheText</span>
+                <span class="link" translate (click)="handleTermsAndCondition('terms-and-condition-ghina-service')">
+                    tr_openAccountComponent_termsAndConditionsText</span>
+                <span translate> tr_openAccountComponent_ghinagServiceText</span>
+            </div>
+        </div>
+    </div>
+    <div class="ghina-account-summary-comp__otp-wrapper" *ngIf="showedComponentName==='OTP_COMPONENT'">
+        <app-otp *ngIf="location" [location]='location' [masking]=true
+            (response)="getOTPResponse($event)" (resendOTPRequired)="resendOTPRequired($event)"></app-otp>
+    </div>
+    <div class="ghina-account-summary-comp__success-screen" *ngIf="showedComponentName==='SUCCESS_SCREEN'">
+        <app-success-screen [openedAccountCurrencyCode]="summaryDetailsObj.targetAccountCurency"
+            [newAccountNumber]="newAccountNumber" componentName="openGhinaAccount" class="open-account-success">
+        </app-success-screen>
+        <button class="next-btn success-screen-btn"
+            (click)="showOpenAccountForm(true)">{{sourceDashBoardName | translate}}</button>
+    </div>
+    <div class="ghina-account-summary-comp__buttons" *ngIf="showedComponentName==='SUMMARY_SCREEN'">
+        <button class="btn cancel-btn" type="button" (click)="showOpenAccountForm(undefined)"
+            translate>tr_common_editText</button>
+        <button class="next-btn" (click)="createSavingsAccount()" [disabled]="disableConfirmWithOTP()"
+            translate>tr_common_confirmWithOTPText</button>
+    </div>
+</div>

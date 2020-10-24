@@ -1,0 +1,136 @@
+@import "src/assets/styles/default";
+
+.uae-adib-beneficiary-comp {
+  min-height: 370px;
+  position: relative;
+  &__title,
+  &__label {
+    @extend .ibd-small-text;
+    font-family: $font-regular;
+    font-size: 14px;
+    color: $suva-grey;
+    padding-top: 1rem;
+  }
+  &__wrapper {
+    &__buttons {
+      width: 100%;
+      position: fixed;
+      bottom: 84px;
+      .next-btn {
+        margin-left: 16px;
+        @include respond-to(screen-m-min) {
+          margin-left: 27px;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        position: absolute;
+        bottom: 20px;
+      }
+    }
+  }
+  @include respond-to(screen-m-min) {
+    min-height: 405px;
+    &__form {
+      &__row {
+        &__two-cols {
+          padding-right: 34px;
+        }
+        .confirm-account-label {
+          padding-left: 35px;
+        }
+        &__text {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .mat-card-hint-text {
+    font-size: 12px;
+    font-family: $font-light;
+    color: $grey;
+    strong {
+      color: $solid-blue;
+      font-family: $font-medium;
+    }
+  }
+
+  .nick-name-label .mat-form-field-should-float {
+    margin-top: 15px;
+    @include respond-to(screen-m-min) {
+      margin-top: 24px;
+    }
+  }
+
+  .uae-adib-beneficiary-comp_card_wrapper .mat-form-field-should-float {
+    margin-top: 24px;
+  }
+  .uae-adib-beneficiary-comp__title,
+  .uae-adib-beneficiary-comp__label {
+    margin: 0;
+  }
+  .mobile-number-field {
+    .mat-form-field-should-float {
+      margin-top: 12px;
+    }
+    p {
+      padding: 0 0 12px 0;
+    }
+  }
+}
+
+.uae-adib-beneficiary-rtl {
+  .uae-adib-beneficiary-comp__title {
+    display: flex;
+  }
+  .uae-adib-beneficiary-comp__wrapper__buttons {
+    display: flex;
+    .next-btn {
+      margin-right: 16px;
+      margin-left: 0px;
+      @include respond-to(screen-m-min) {
+        margin-right: 27px;
+      }
+    }
+  }
+  @include respond-to(screen-m-min) {
+    .uae-adib-beneficiary-comp__form__row {
+      &__two-cols {
+        padding-left: 34px;
+        padding-right: 0px;
+      }
+      .confirm-account-label {
+        padding-right: 35px;
+        padding-left: 0px;
+      }
+    }
+  }
+  .uae-adib-beneficiary-comp__form__row {
+    mat-form-field {
+      text-align: right;
+      text-align: -webkit-right;
+    }
+    .mobile-number-input {
+      direction: ltr;
+    }
+  }
+}
+
+:host ::ng-deep .addBy-checkbox-rtl {
+  .checkbox-with-image-comp {
+    &__container {
+      margin-right: 0px;
+      margin-left: 16px;
+      &:last-child {
+        margin-left: 0;
+      }
+      &__wrapper {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+app-input-generic {
+  width: 100%;
+}

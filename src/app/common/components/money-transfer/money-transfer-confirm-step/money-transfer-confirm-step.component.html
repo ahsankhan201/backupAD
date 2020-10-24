@@ -1,0 +1,88 @@
+<section class="confirm-transfer-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'confirm-transfer-rtl': ''">
+    <div class="confirm-transfer-comp__wrapper"
+        *ngIf="(showComponent !== 'Intrabank') && !showInternationalTransferSummary && !showSuccessScreen">
+        <div class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_common_transferFromText</div>
+            <div class="summary-label-group__value">
+                <span class="text">{{transferSummaryDetails.transferfromCurrency}} -
+                    {{transferSummaryDetails.transferfromDesc | translate}}</span>:
+                <span class="number">{{transferSummaryDetails.transferfromNumber}}</span>
+            </div>
+        </div>
+        <div class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_paymentComponent_transferToText</div>
+            <div class="summary-label-group__value" *ngIf="!isTransferToAdibCard">
+                <span class="text">{{transferSummaryDetails.transferToDesc}}</span>:
+                <span class="number">{{transferSummaryDetails.transferToNumber}}</span>
+            </div>
+            <div class="summary-label-group__value" *ngIf="isTransferToAdibCard">
+                <span class="text">{{transferSummaryDetails.transferToDesc}}</span>:
+                <span class="number">{{transferSummaryDetails.transferToNumber | formatMaskCardNumber}}</span>
+            </div>
+            <div class="summary-label-group__value" *ngIf="isTransferToAdibCard">
+                <span class="text" translate>tr_common_currencyText</span>:
+                <span class="number">{{transferSummaryDetails.transferToCurrency }}</span>
+            </div>
+            <div class="summary-label-group__value" *ngIf="isTransferToAdibCard">
+                <span class="text" translate>tr_cards_outstandingBalanceText</span>:
+                <span class="number">{{transferSummaryDetails.outstandingBalance }}</span>
+            </div>
+        </div>
+        <div class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_common_amountText</div>
+            <div class="summary-label-group__value">
+                <span
+                    class="number">{{transferSummaryDetails.amount | numberFormat}}.{{transferSummaryDetails.amount | getDecimalValue}}
+                    <span class="currency"
+                        *ngIf="!isCrossCurrencyTransaction">{{transferSummaryDetails.transferfromCurrency}}</span>
+                    <span class="currency"
+                        *ngIf="isCrossCurrencyTransaction">{{transferSummaryDetails.transferToCurrency}}</span>
+                </span>
+            </div>
+        </div>
+        <div class="summary-label-group" *ngIf="isCrossCurrencyTransaction">
+            <div class="summary-label-group__label" translate>tr_moneyTransferConfirmComponent_totalAmountText</div>
+            <div class="summary-label-group__value">
+                <span
+                    class="number">{{transferSummaryDetails?.debitAmount | numberFormat}}.{{transferSummaryDetails?.debitAmount | getDecimalValue}}
+                    <span class="currency">{{transferSummaryDetails.transferfromCurrency}}</span>
+                </span>
+            </div>
+        </div>
+        <div class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_paymentComponent_memoText</div>
+            <div class="summary-label-group__value">
+                <span class="number">{{transferSummaryDetails.memo?transferSummaryDetails.memo:'-'}}</span>
+            </div>
+        </div>
+        <div class="summary-label-group" *ngIf="isCrossCurrencyTransaction">
+            <div class="summary-label-group__label" translate>tr_moneyTransferConfirmComponent_exchangeRateText</div>
+            <div class="summary-label-group__value">
+                <span class="number">
+                    {{transferSummaryDetails.transferfromCurrency}} 1 = {{transferSummaryDetails.transferToCurrency}}
+                    {{ transferSummaryDetails.exchangeRate | numberFormat}}.{{transferSummaryDetails.exchangeRate | getDecimalValue}}
+                </span>
+            </div>
+        </div>
+
+        <div class="confirm-transfer-comp__wrapper__buttons">
+            <button class="btn cancel-btn" type="button" (click)="moveToParentComponent(true)"
+                translate>tr_common_cancelTransactionText</button>
+            <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+            <button matStepperNext class="btn next-btn" type="button" (click)="sendTransferRequest()"
+                [disabled]="disableConfirmBtn">{{ payAmountButtonLabel | translate }}</button>
+        </div>
+    </div>
+    <div class="confirm-transfer-comp__success-screen" *ngIf="showSuccessScreen">
+        <app-success-screen [paymentReferenceNumber]="referenceNumberForSuccessScreen"
+            [componentName]="successComponentName" class="transfer-success-component">
+        </app-success-screen>
+        <div class="receipt-btn" (click)="generateTransferReceipt()" translate>tr_transferReceipt_viewReceiptText</div>
+        <button translate class="next-btn"
+            (click)="moveToParentComponent(false)">{{confirmScreenRoutingButtonText}}</button>
+    </div>
+    <div class="money-transfer-confirm-comp__wrapper">
+        <app-international-summary *ngIf="showInternationalTransferSummary"></app-international-summary>
+    </div>
+</section>

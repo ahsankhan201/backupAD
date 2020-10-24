@@ -1,0 +1,65 @@
+@import "src/assets/styles/default";
+
+.checkbox-with-account-comp {
+  &__container {
+    &__wrapper {
+      cursor: pointer;
+      background: $white;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 15px 16px 13px 16px;
+      border-radius: 12px;
+      border: 1px solid rgb(210, 210, 210);
+      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02);
+      height: 64px;
+      &__text-wrapper {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        line-height: normal;
+        &__title {
+          @extend .ibd-small-text;
+          font-family: $font-regular;
+          color: $grey;
+          font-size: 12px;
+        }
+        &__description {
+          color: $solid-blue;
+          font-family: $font-medium;
+          font-size: 14px;
+        }
+      }
+
+      &:hover {
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
+      }
+      &__input {
+        margin-left: auto;
+        input {
+          pointer-events: none;
+        }
+      }
+    }
+    .active {
+      &.checkbox-with-account-comp__container__wrapper {
+        background: $light-blue;
+        border: 1px solid $blue-border;
+        box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.16);
+        .checkbox-with-account-comp__container__wrapper__text-wrapper__description {
+          color: $cerulean-blue;
+        }
+        .ibd-check-box {
+          label {
+            background: $light-blue;
+            border-color: $cerulean-blue;
+          }
+          input[type="radio"]:checked + label:after,
+          input[type="checkbox"]:checked + label:after {
+            border-color: $cerulean-blue;
+          }
+        }
+      }
+    }
+  }
+}

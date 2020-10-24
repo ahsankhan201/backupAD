@@ -1,0 +1,125 @@
+<div class="success-screen-comp" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'success-screen-rtl': ''">
+    <div class="success-screen-comp__title-wrapper" *ngIf="componentName==='linkAccount'">
+        <div class="success-screen-comp__title-wrapper__title" translate>{{linkAccountDetails.componentTitle}}</div>
+    </div>
+    <div class="success-screen-comp__wrapper row margin-lrn">
+        <div class="success-screen-comp__wrapper__success-image col-2 padding-lrn">
+            <img src="/assets/images/Ben_Success@2x.svg" alt="Success_Alt_Img" />
+        </div>
+        <div class="success-screen-comp__wrapper__text col-9 padding-lrn" [ngSwitch]="componentName">
+            <div class="success-screen-comp__wrapper__text__header">{{successHeader | translate}}
+            </div>
+            <div class="success-description-wrapper">
+                <span class="image-wrapper" *ngIf="showAlertIcon">
+                    <img src="/assets/images/Alert@2x.svg" alt="Alert_Alt_Img" />
+                </span>
+                <!-- Payee success code -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'payee'">
+                    <strong>{{successScreenTextPayee.note | translate}}:</strong>
+                    {{successScreenTextPayee.transferText | translate}}
+                    <strong>{{coolingTime}}</strong>
+                    {{successScreenTextPayee.lastText | translate}}.</span>
+                <!-- Beneficiary success code -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'beneficiary'">
+                    <strong>{{successScreenTextBeneficiary.note | translate}}:</strong>{{successScreenTextBeneficiary.transferText | translate}}
+                    {{beneficiaryName}} 
+                    {{successScreenTextBeneficiary.only | translate}}
+                    {{successScreenTextBeneficiary.after | translate}}
+                    <strong>{{coolingTime}}</strong>.</span>
+                <!-- Payment success code -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'payment'">
+                    {{paymentSuccessScreenText.billPaymentText | translate}}
+                    <strong> {{paymentSuccessScreenText.refNumberText | translate}} </strong>
+                    <strong>{{paymentReferenceNumber}}</strong></span>
+                <!-- Payment success code -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'coverCardpayment'">
+                    {{paymentSuccessScreenText.coverCardPaymentText | translate}}
+                    <strong> {{paymentSuccessScreenText.refNumberText | translate}} </strong>
+                    <strong>{{paymentReferenceNumber}}</strong></span>
+                <!-- Donation Payment success code -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'donation'">
+                    {{paymentSuccessScreenText.donationPaymentText | translate}}
+                    <strong> {{paymentSuccessScreenText.refNumberText | translate}} </strong>
+                    <strong>{{paymentReferenceNumber}}</strong></span>
+                <!-- Transfer success code -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'internationalTransfer'"
+                    translate>
+                    tr_moneyTransferConfirmComponent_transferSuccessText
+                    <strong> {{paymentSuccessScreenText.refNumberText | translate}} </strong>
+                    <strong>{{paymentReferenceNumber}}</strong></span>
+                <!-- Account success code -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'accountTransfer'"
+                    translate>
+                    tr_moneyTransferConfirmComponent_transferSuccessText
+                    <strong> {{paymentSuccessScreenText.refNumberText | translate}} </strong>
+                    <strong>{{paymentReferenceNumber}}</strong></span>
+                <!-- Product Enquiry success message -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'productEnquiry'">
+                    <span translate>tr_productsComponent_requestForText</span>
+                    <strong>{{productEnquired}}</strong>
+                    <span translate>tr_productsComponent_contactYouText</span>
+                </span>
+                <!-- Open Account success message -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'openAccount'">
+                    <span translate>tr_openAccountComponent_successScreenText </span>
+                    <strong translate> tr_common_savingAccount </strong>
+                    <strong>({{openedAccountCurrencyCode }}) {{newAccountNumber}}</strong>
+                </span>
+                <!-- Time Deposit Account success message -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'timeDepositAccount'">
+                    <span translate>tr_openAccountComponent_successScreenText </span>
+                    <strong translate> tr_timeDepositeAccountComponent_successScreenText </strong>
+                    <strong>{{newAccountNumber}}</strong>
+                </span>
+                <!-- Open Ghina Account success message -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'openGhinaAccount'">
+                    <span translate>tr_openAccountComponent_successScreenText </span>
+                    <strong translate> tr_common_saveGhinaAccount </strong>
+                    <strong>({{openedAccountCurrencyCode }}) {{newAccountNumber}}</strong>
+                </span>
+                <!-- Change Password success message -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'changePassword'">
+                    <span translate>tr_changePasswordComponent_changePasswordSuccess </span>
+                </span>
+                <!-- banking service - payment order -->
+                <span class="success-screen-comp__wrapper__text__description"
+                    *ngSwitchCase="'bankingServicePaymentOrder'">
+                    <span translate>tr_paymentOrder_successScreenTitle</span>
+                    <strong>{{newAccountNumber}}</strong>
+                </span>
+                <!-- Activate Card success message -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'activateCard'">
+                    <span translate>tr_common_yourDebitCardText </span>
+                    <strong>({{activatedCardNumber | formatMaskCardNumber}}) </strong>
+                    <span translate>tr_cards_activateSuccessText</span>
+                </span>
+                <!-- change cover limit card success message -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'changeCoverLimit'">
+                    <span translate>tr_cards_changeCoveredsuccessDescription </span>
+                </span>
+                <!-- Bank Certificate success message -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'bankCertificate'">
+                    <span translate>tr_bankCertificateComponent_yourReqText </span>
+                    <strong translate> tr_paymentSuccess_refNumberText</strong>
+                    <strong> {{paymentReferenceNumber}}</strong>
+                </span>
+                <!-- Change Debit Card Primary Account success message -->
+                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'linkAccount'">
+                    <span translate>
+                        <span translate>tr_linkAccount_newAccountText </span> {{linkAccountDetails.accountNumber}}
+                        <span translate>tr_linkAccount_debitCardSuccessText</span>
+                        {{linkAccountDetails.debitCardNumber}}.
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="success-screen-comp__wrapper__buttons">
+        <button class="btn" [ngClass]="(componentName === 'beneficiary') ? 'next-btn margin-lrn': 'previous-btn'"
+            type="button" routerLink="/transfers-payments"
+            *ngIf="componentName==='payee' || componentName==='beneficiary'">{{successScreenTextBeneficiary.transferPayments | translate}}</button>
+        <button class="btn next-btn" type="button" (click)="showPayBill('/transfers-payments')"
+            *ngIf="componentName==='payee'">{{successScreenTextBeneficiary.payNow | translate}}</button>
+
+    </div>
+</div>

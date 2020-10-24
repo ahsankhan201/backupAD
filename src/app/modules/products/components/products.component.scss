@@ -1,0 +1,145 @@
+@import "src/assets/styles/default";
+
+.products-comp {
+  &__wrapper {
+    &__container {
+      max-width: 100%;
+      .header {
+        display: none;
+        @include respond-to(screen-m-min) {
+          display: block;
+        }
+      }
+      &__body-wrapper {
+        &__body {
+          height: auto;
+          position: absolute;
+          top: 56px;
+          z-index: 8;
+          padding: 30px 16px 16px 16px;
+          @include respond-to(screen-m-min) {
+            width: calc(100% - 92px);
+            top: 92px;
+            left: 92px;
+            margin-left: auto;
+            padding: 38px 24px 0 38px;
+          }
+          @include respond-to(screen-xl-min) {
+            padding: 40px 24px 0 41px;
+          }
+          .title {
+            font-family: $font-regular;
+            color: $grey;
+            font-size: 14px;
+            padding-bottom: 30px;
+
+            @include respond-to(screen-m-min) {
+              padding-bottom: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep .products-comp__success-title {
+  color: $suva-grey;
+  font-family: $font-regular;
+  font-size: 16px;
+}
+
+:host ::ng-deep app-product-card,
+:host ::ng-deep app-card-categories,
+:host ::ng-deep app-card-sub-categories {
+  display: flex;
+  padding-top: 15px;
+}
+
+:host ::ng-deep .product-category-checkbox {
+  .checkbox-with-image-comp {
+    display: flex;
+    max-width: max-content;
+    overflow-x: auto;
+    @include respond-to(screen-m-min) {
+      max-width: unset;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    // mozilla browser
+    overflow: -moz-scrollbars-none;
+
+    // IE and Edge browser suppert
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &__container {
+      margin-right: 27px;
+      &__wrapper {
+        padding-right: 16px;
+        margin: 0 0 24px 0;
+        width: max-content;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .enquiry-success-comp {
+  .success-screen-comp {
+    padding: 0;
+    margin-top: 60px;
+    @include respond-to(screen-m-min) {
+      padding-bottom: 72px;
+    }
+    .success-screen-comp__wrapper__buttons {
+      margin-top: 0;
+    }
+  }
+}
+.products-comp-rtl {
+  direction: rtl;
+  .products-comp__wrapper__container__body-wrapper__body {
+    @include respond-to(screen-m-min) {
+      right: 92px;
+    }
+    .title {
+      text-align: right;
+    }
+  }
+}
+
+:host ::ng-deep .products-comp-rtl {
+  .checkbox-with-image-comp {
+    &__container {
+      margin-right: 0px;
+      margin-left: 27px;
+      &__wrapper {
+        padding-right: 0px;
+        padding-left: 16px;
+        &__input {
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep .products-comp-rtl {
+  .product-card-list {
+    &__card {
+      margin: 0 0 32px 32px;
+      &__text-wrapper {
+        margin-right: 17px;
+        margin-left: 0px;
+        .title {
+          text-align: right;
+        }
+        .description {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

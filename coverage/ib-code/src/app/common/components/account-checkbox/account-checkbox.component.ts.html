@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/components/account-checkbox/account-checkbox.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/common/components/account-checkbox</a> account-checkbox.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.43% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>27/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>9/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.15% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>25/26</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, Input, Output, EventEmitter, AfterViewChecked, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { SharedService } from '../../services/shared.service';
+import { AccountCheckBoxModel } from '../../models/global.model';
+import { ARABIC_LANG_TEXT } from '../../global-constants';
+import { ACCOUNTS_MASTER_DATA } from 'src/app/modules/dashboard/dashboard-module.constants';
+&nbsp;
+@Component({
+  selector: 'app-account-checkbox',
+  templateUrl: './account-checkbox.component.html',
+  styleUrls: ['./account-checkbox.component.scss']
+})
+export class AccountCheckBoxComponent implements OnInit, AfterViewChecked, OnDestroy {
+  @Input() checkBoxAccountsList: AccountCheckBoxModel[] = {} as AccountCheckBoxModel[];
+  @Input() componentName: string;
+  @Input() preSelectedValue?: string;
+  @Output() selectedAccountOption = new EventEmitter&lt;AccountCheckBoxModel&gt;();
+&nbsp;
+  subscription$ = new Subscription();
+  selectedLanguage: string;
+  arabicLanguageText = ARABIC_LANG_TEXT;
+  readonly ACCOUNTS_MASTER_DATA = ACCOUNTS_MASTER_DATA;
+&nbsp;
+  constructor(
+    private sharedService: SharedService
+  ) { }
+&nbsp;
+  ngOnInit() {
+    this.getSelectedLanguage();
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedLanguage
+   * @parameter none
+   * @description Used to set selected language EN | AR
+   * @return none
+   */
+  getSelectedLanguage(): void {
+    this.subscription$.add(this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) =&gt; {
+      this.selectedLanguage = selectedLanguage;
+    }));
+  }
+&nbsp;
+  ngAfterViewChecked() {
+    this.handleSelectedItemClickEvent();
+  }
+&nbsp;
+  /**
+   * @methodName handleChange
+   * @param account&lt;AccountCheckBoxModel&gt; input&lt;HTMLInputElement&gt;
+   * @description Used to emit the value to parent component and set the active status to clicked element
+   * @return none
+   */
+  handleChange(account: AccountCheckBoxModel, input: HTMLInputElement): void {
+    this.preSelectedValue = input.value;
+    this.selectedAccountOption.emit(account);
+  }
+&nbsp;
+  /**
+   * @methodName handleSelectedItemClickEvent
+   * @parameter none
+   * @description Used to trigger click event based on the UNIQUE_ID
+   * @return none
+   */
+  handleSelectedItemClickEvent(): void {
+    // it will select the option if passed from parent component
+    const UNIQUE_ID = this.componentName + this.preSelectedValue;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.preSelectedValue &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.componentName </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >document.getElementById(UNIQUE_ID) </span>&amp;&amp;
+<span class="branch-3 cbranch-no" title="branch not covered" >      !document.getElementById(UNIQUE_ID)['checked'])</span> {
+<span class="cstat-no" title="statement not covered" >      document.getElementById(UNIQUE_ID).click();</span>
+    }
+  }
+&nbsp;
+  ngOnDestroy() {
+    this.subscription$.unsubscribe();
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

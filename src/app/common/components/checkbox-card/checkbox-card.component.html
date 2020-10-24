@@ -1,0 +1,59 @@
+<div class="cards-checkbox-list" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'card-checkbox-rtl': ''">
+    <div class="cards-checkbox-list__container">
+        <div *ngFor="let coverCard of checkBoxCoverCardList" class="cards-checkbox-list__container__cover-card"
+            [ngClass]="(coverCard.cardNumber===preSelectedValue)?'active':''"
+            (click)="handleChange(coverCard,checkBoxName)">
+            <div class="cards-checkbox-list__container__cover-card__wrapper">
+                <div class="cards-checkbox-list__container__cover-card__wrapper__header row margin-lrn">
+                    <img alt="Card icon" class="cards-checkbox-list__container__cover-card__wrapper__header__card-icon"
+                        src="{{ coverCard.cardImage }}" />
+                    <div class="cards-checkbox-list__container__cover-card__wrapper__header__card">
+                        <div class="cards-checkbox-list__container__cover-card__wrapper__header__card__card-type">
+                            {{CARDS_MASTER_DATA.COVER_CARD | translate}}</div>
+                        <div
+                            class="cards-checkbox-list__container__cover-card__wrapper__header__card__card-description">
+                            {{ coverCard.productDescription }}</div>
+                    </div>
+                </div>
+                <div class="cards-checkbox-list__container__cover-card__wrapper__body">
+                    <div class="cards-checkbox-list__container__cover-card__wrapper__input ibd-check-box">
+                        <input type="radio" id="{{coverCard.cardNumber}}" value="{{coverCard.cardNumber}}"
+                            name="{{componentName}}" #checkBoxName
+                            [checked]="coverCard.cardNumber===preSelectedValue" />
+                        <label for="{{coverCard.cardNumber}}"></label>
+                    </div>
+                    <div class="cards-checkbox-list__container__cover-card__wrapper__body__name">
+                        {{ coverCard.customerName }}
+                    </div>
+                    <div class="cards-checkbox-list__container__cover-card__wrapper__body__card-number">
+                        {{ coverCard.cardNumber | formatMaskCardNumber }}</div>
+                </div>
+                <div class="cards-checkbox-list__container__cover-card__wrapper__footer row margin-lrn">
+                    <div class="cards-checkbox-list__container__cover-card__wrapper__footer__limit col-6 padding-lrn">
+                        <div translate
+                            class="cards-checkbox-list__container__cover-card__wrapper__footer__limit__title">
+                            {{CARDS_MASTER_DATA.AVAILABLE_BALANCE | translate}}</div>
+                        <div class="cards-checkbox-list__container__cover-card__wrapper__footer__limit__fund">
+                            <span>{{ coverCard.creditAvailable | numberFormat }}</span>.<span
+                                class="cards-checkbox-list__container__cover-card__wrapper__footer__limit__fund__decimal">{{ coverCard.creditAvailable | getDecimalValue }}</span>
+                            <span
+                                class="cards-checkbox-list__container__cover-card__wrapper__footer__limit__fund__currency">
+                                {{ coverCard.currencyCode }}</span>
+                        </div>
+                    </div>
+                    <div class="cards-checkbox-list__container__cover-card__wrapper__footer__balance col-6 padding-lrn">
+                        <div class="cards-checkbox-list__container__cover-card__wrapper__footer__balance__title">
+                            {{CARDS_MASTER_DATA.OUTSTANDING_BALANCE | translate}}</div>
+                        <div class="cards-checkbox-list__container__cover-card__wrapper__footer__balance__fund">
+                            <span>{{ coverCard.dueBalance | numberFormat }}</span>.<span
+                                class="cards-checkbox-list__container__cover-card__wrapper__footer__balance__fund__decimal">{{ coverCard.dueBalance | getDecimalValue }}</span>
+                            <span
+                                class="cards-checkbox-list__container__cover-card__wrapper__footer__balance__fund__currency">
+                                {{ coverCard.currencyCode }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

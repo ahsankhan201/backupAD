@@ -1,0 +1,14 @@
+<section class="rta-selection-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'rta-payee-rtl': ''">
+    <div class="rta-selection-comp__provider">
+        <app-checkbox-with-image [cardOptionsList]="rtaProvidersList" [componentName]="'rtaSelection'"
+            (selectedCardValue)="handleRTASelection($event)" class="rta-selection-card" [emitSelectedEleID]="true">
+        </app-checkbox-with-image>
+    </div>
+
+    <div class="rta-selection-comp__buttons">
+        <button matStepperPrevious class="btn previous-btn" type="button" translate>tr_common_previousText</button>
+        <button matStepperNext class="btn next-btn" type="button" [disabled]="!enableNextBtn"
+            translate>tr_common_nextText</button>
+    </div>
+</section>

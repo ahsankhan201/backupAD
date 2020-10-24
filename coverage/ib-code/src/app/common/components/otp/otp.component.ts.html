@@ -1,0 +1,1064 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/components/otp/otp.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/common/components/otp</a> otp.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">39.22% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>60/153</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.82% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/71</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">32% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">39.46% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>58/147</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, Input, Output, EventEmitter, ViewChild, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { CountdownComponent } from 'ngx-countdown';
+import { OTP_DATA, HTTP_STATUS_CODE, ARABIC_LANG_TEXT,
+  CIAM_MECHANISMS, SESSION_TIMEOUT_CLASS, MECHANISM_TEXT, USER_STATE_TEXT,
+   CAPTCHA_TEXT, SNACKBAR_MESSAGETYPE, LOCATION_TEXT } from '../../global-constants';
+import { BLOCKED_USER_DIALOG_DATA, REGISTRATION_CONFIG } from '../../global-constants';
+import { OTPService } from '../../services/otp.service';
+import { OTPResponse } from '../../models/otp.model';
+import { SharedService } from '../../services/shared.service';
+import { HttpHeaderService } from '../../services/http-headers/http-header.service';
+import { DialogService } from '../../services/dialog.service';
+import { Dialog } from '../../models/dialog.model';
+import { COMPONENT_LIST } from 'src/app/modules/auth/auth-module.constants';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { LogoutService } from 'src/app/modules/logout/services/logout.service';
+&nbsp;
+@Component({
+  selector: 'app-otp',
+  templateUrl: './otp.component.html',
+  styleUrls: ['./otp.component.scss']
+})
+export class OTPComponent implements OnInit, OnChanges, OnDestroy {
+  @ViewChild('countDownTimer', { static: false }) private countdown: CountdownComponent;
+  @Input() enableSubmitButton = true;
+  @Input() enableRecaptcha = false;
+  @Input() location: string;
+  @Input() masking = false;
+  @Output() response = new EventEmitter&lt;OTPResponse&gt;();
+  @Output() resendOTPRequired = new EventEmitter&lt;boolean&gt;();
+  @Output() cancelButtonClick = new EventEmitter&lt;boolean&gt;(false);
+  otpTextData = OTP_DATA;
+  maxLength = OTP_DATA.OTP_MAXLENGTH;
+  messageText = OTP_DATA.MESSAGE;
+  doneText = OTP_DATA.doneText;
+  maskedMobileNumber: string;
+  otp: any;
+  otpResponse = {} as OTPResponse;
+  enableResendOTPButton = false;
+  otpConfig = { leftTime: OTP_DATA.RESEND_OTP_TIMER, format: OTP_DATA.TIMER_FORMAT };
+  otpNumberlength = 6;
+  enableNextBtn = false;
+  showRecaptcha = false;
+  resetInputValue = false;
+  selectedLanguage: string;
+  arabicLanguageText = ARABIC_LANG_TEXT;
+  validCaptcha = false;
+  alertMessage: string;
+  constructor(
+    private otpService: OTPService,
+    private dialogService: DialogService,
+    private logoutService: LogoutService,
+    private authService: AuthService,
+    private router: Router,
+    private sharedService: SharedService,
+    private headerService: HttpHeaderService) { }
+&nbsp;
+  ngOnInit() {
+    this.validations();
+    this.getSelectedLanguage();
+  }
+<span class="fstat-no" title="function not covered" >  ngOnChanges(</span>changes: SimpleChanges) {
+<span class="cstat-no" title="statement not covered" >    if (changes &amp;&amp; changes.location.currentValue) {</span>
+<span class="cstat-no" title="statement not covered" >      this.location = changes.location.currentValue;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedLanguage
+   * @parameter none
+   * @description Used to set selected language EN | AR
+   * @return none
+   */
+  getSelectedLanguage(): void {
+    this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) =&gt; {
+      this.selectedLanguage = selectedLanguage;
+    });
+  }
+&nbsp;
+  /**
+   * @methodName maskMobileNumber
+   * @description used to mask mobile number
+   * @param mobileNumber&lt;string&gt;
+   * @return string
+   */
+<span class="fstat-no" title="function not covered" >  maskMobileNumber(</span>mobileNumber: string) {
+<span class="cstat-no" title="statement not covered" >    mobileNumber = mobileNumber.toString();</span>
+<span class="cstat-no" title="statement not covered" >    return OTP_DATA.MASKING_SYMBOL.concat(mobileNumber.substr(mobileNumber.length - OTP_DATA.SHOW_LAST_OF_MOBILE_NUMBER));</span>
+  }
+&nbsp;
+  /**
+   * @methodName verifyOTP
+   * @description used to verify otp
+   * @parameters none
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  verifyOTP(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.resetInputValue = false;</span>
+<span class="cstat-no" title="statement not covered" >    if (this.otp &amp;&amp; this.otp.toString().length === OTP_DATA.OTP_MAXLENGTH) {</span>
+<span class="cstat-no" title="statement not covered" >      this.otpService.verifyOTP(this.otp, this.location).subscribe(</span>
+<span class="fstat-no" title="function not covered" >        data =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          this.getOTPResponse(data);</span>
+        },
+<span class="fstat-no" title="function not covered" >        err =&gt;  { <span class="cstat-no" title="statement not covered" >this.getOTPErrorResponse(err); </span> }</span>
+      );
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.getOTPResponse(this.otpResponse.success = true);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    this.otp = '';</span>
+<span class="cstat-no" title="statement not covered" >    this.resetInputValue = true;</span>
+  }
+&nbsp;
+  /**
+   * @methodName otpTimer
+   * @description used to set otp timer
+   * @parameters event
+   * @return none
+   */
+  otpTimer(event): void {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (event.action === this.doneText) {
+<span class="cstat-no" title="statement not covered" >      this.enableResendOTPButton = true;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName resendOTP
+   * @description used to resend otp
+   * @parameters none
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  resendOTP(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.otp = '';</span>
+<span class="cstat-no" title="statement not covered" >    this.resetInputValue = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.enableResendOTPButton = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.countdown.restart();</span>
+<span class="cstat-no" title="statement not covered" >    this.resendOTPRequired.emit(true);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getOTPResponse
+   * @description used to get otp response
+   * @param data&lt;any&gt;
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  getOTPResponse(</span>data: any): void {
+<span class="cstat-no" title="statement not covered" >    if (data.status === HTTP_STATUS_CODE.OK) {</span>
+<span class="cstat-no" title="statement not covered" >      this.otpResponse.success = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.otpResponse.message = data.body.message ? data.body.message : OTP_DATA.INVALID_OTP_TEXT;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (data.status === HTTP_STATUS_CODE.NO_CONTENT) {</span>
+<span class="cstat-no" title="statement not covered" >      this.otpResponse.success = true;</span>
+<span class="cstat-no" title="statement not covered" >      this.otpResponse.message = '';</span>
+    }
+<span class="cstat-no" title="statement not covered" >    this.response.emit(this.otpResponse);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getOTPErrorResponse
+   * @description used to get error response
+   * @param error&lt;any&gt;
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  getOTPErrorResponse(</span>error: any): void {
+<span class="cstat-no" title="statement not covered" >    if (error.httpCode === HTTP_STATUS_CODE.BAD_FORMAT) {</span>
+<span class="cstat-no" title="statement not covered" >      this.resetInputValue = true;</span>
+<span class="cstat-no" title="statement not covered" >      this.otpResponse.success = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.otpResponse.message = OTP_DATA.OTP_EXPIRED;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (error.httpCode === HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR) {</span>
+<span class="cstat-no" title="statement not covered" >      this.otpResponse.success = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.otpResponse.message = OTP_DATA.INTERNAL_SERVER_ERROR;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    this.response.emit(this.otpResponse);</span>
+  }
+&nbsp;
+  /**
+   * @methodName validations
+   * @description used to validate otp
+   * @parameters none
+   * @return none
+   */
+  validations(): void {
+    this.otpResponse.success = false;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.location) {
+      this.otpResponse.message = OTP_DATA.NO_LOCATION_FOUND;
+      this.response.emit(this.otpResponse);
+    }
+  }
+&nbsp;
+  /**
+   * @methodName handleOtpNumber
+   * @description used to handle handle OtpNumber from input-generic component
+   * @parameters none
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleOtpNumber(</span>otpNumber: string): void {
+<span class="cstat-no" title="statement not covered" >    this.enableNextBtn = false;</span>
+    // Enable next button without captcha, only OTP value or Enable next button if captcha value and OTP value are valid
+<span class="cstat-no" title="statement not covered" >    if ( otpNumber ) {</span>
+<span class="cstat-no" title="statement not covered" >      this.otp = otpNumber;</span>
+<span class="cstat-no" title="statement not covered" >      this.handleNextButtonStatus();</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName handleCancelButton
+   * @description used to handle cancel button action to @output emit
+   * @parameters none
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleCancelButton(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.resetInputValue = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.cancelButtonClick.emit(true);</span>
+  }
+&nbsp;
+&nbsp;
+  /**
+   * @methodName verifyOTPwithRecaptcha
+   * @description used to verify otp and recatcha
+   * @parameters isPostCall - used to enable post or put call for OTP
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  verifyOTPwithRecaptcha(<span class="cstat-no" title="statement not covered" ></span>isPostCall = false)</span>: void {</span>
+<span class="cstat-no" title="statement not covered" >    this.resetInputValue = this.showRecaptcha =  false;</span>
+<span class="cstat-no" title="statement not covered" >    this.alertMessage = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    if (this.otp &amp;&amp; this.otp.toString().length === OTP_DATA.OTP_MAXLENGTH) {</span>
+      // To enable ReCaptcha this.enableRecaptcha = true; this.showRecaptcha = true; need to set true
+      const OTP_RESPONSE  =  <span class="cstat-no" title="statement not covered" >{} as OTPResponse;</span>
+<span class="cstat-no" title="statement not covered" >      this.otpService.verifyOTPWithCredential(this.otp, this.location, isPostCall).subscribe(</span>
+<span class="fstat-no" title="function not covered" >        data =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          OTP_RESPONSE.success = true;</span>
+<span class="cstat-no" title="statement not covered" >          OTP_RESPONSE.message = JSON.parse(data.body);</span>
+<span class="cstat-no" title="statement not covered" >          if (data.status === HTTP_STATUS_CODE.OK &amp;&amp; OTP_RESPONSE.message[MECHANISM_TEXT] === CIAM_MECHANISMS.otp_success) {</span>
+            // successfull OTP response
+          } else <span class="cstat-no" title="statement not covered" >if ( data.status === HTTP_STATUS_CODE.OK</span>
+            &amp;&amp; OTP_RESPONSE.message[MECHANISM_TEXT] === CIAM_MECHANISMS.otp_failure
+            &amp;&amp; OTP_RESPONSE.message['mappingRuleData'] === CIAM_MECHANISMS.mappingRuleData_R07 // OTP Retry Limit Exceeded
+            &amp;&amp; OTP_RESPONSE.message[USER_STATE_TEXT] === 'blocked'
+            ) {
+            // Open User blocked dialog
+<span class="cstat-no" title="statement not covered" >            this.openBlockUserDialog();</span>
+&nbsp;
+          } else <span class="cstat-no" title="statement not covered" >if ( data.status === HTTP_STATUS_CODE.OK</span>
+            &amp;&amp; OTP_RESPONSE.message[MECHANISM_TEXT] === CIAM_MECHANISMS.otp_failure
+            &amp;&amp; OTP_RESPONSE.message[USER_STATE_TEXT] === CAPTCHA_TEXT
+            ) {
+            // alert message to user after 4th invalid otp
+<span class="cstat-no" title="statement not covered" >            this.alertMessage  = (OTP_RESPONSE.message['retryCounter'] === OTP_DATA.invalid_otp_retryCounter_4) ?</span>
+            OTP_DATA.invalid_otp_retryCounter_4_message : undefined;
+            // recaptcha integration
+<span class="cstat-no" title="statement not covered" >            this.enableNextBtn = false; </span>// disable Next button
+<span class="cstat-no" title="statement not covered" >            this.enableRecaptcha = true; </span>// enable captcha
+<span class="cstat-no" title="statement not covered" >            this.showRecaptcha = true;</span>
+          } else <span class="cstat-no" title="statement not covered" >if (data.status === HTTP_STATUS_CODE.OK &amp;&amp; OTP_RESPONSE.message[MECHANISM_TEXT] === CIAM_MECHANISMS.otp_failure ) {</span>
+<span class="cstat-no" title="statement not covered" >            if (isPostCall) {</span>
+<span class="cstat-no" title="statement not covered" >              this.location = OTP_RESPONSE.message[LOCATION_TEXT];</span>
+              const SNACKBAR_MESSAGE = <span class="cstat-no" title="statement not covered" >new OTPResponse();</span>
+<span class="cstat-no" title="statement not covered" >              SNACKBAR_MESSAGE.success = OTP_RESPONSE.success;</span>
+<span class="cstat-no" title="statement not covered" >              SNACKBAR_MESSAGE.message = OTP_DATA.INVALID_OTP_TEXT;</span>
+<span class="cstat-no" title="statement not covered" >              this.sharedService.setSnackBarMessage(SNACKBAR_MESSAGE, SNACKBAR_MESSAGETYPE.ERROR);</span>
+            }
+            // invalid OTP
+<span class="cstat-no" title="statement not covered" >            this.enableNextBtn = false; </span>// disable Next button
+<span class="cstat-no" title="statement not covered" >            this.resetInputValue = true;</span>
+          }
+<span class="cstat-no" title="statement not covered" >          this.resetInputValue = true;</span>
+<span class="cstat-no" title="statement not covered" >          if (isPostCall &amp;&amp; data.body === null &amp;&amp; data.status === HTTP_STATUS_CODE.NO_CONTENT) {</span>
+<span class="cstat-no" title="statement not covered" >            this.getOTPResponse(data);</span>
+          } else <span class="cstat-no" title="statement not covered" >if (!isPostCall) {</span>
+<span class="cstat-no" title="statement not covered" >              this.response.emit(OTP_RESPONSE) ;</span>
+          }
+        },
+<span class="fstat-no" title="function not covered" >        err =&gt; <span class="cstat-no" title="statement not covered" >this.getOTPErrorResponse(err),</span></span>
+      );
+    }
+<span class="cstat-no" title="statement not covered" >    this.otp = '';</span>
+  }
+&nbsp;
+  /**
+   * @methodName handleRecaptchaResponse
+   * @description used to handle recaptcha response
+   * @parameters none
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleRecaptchaResponse(</span>response: string): void {
+<span class="cstat-no" title="statement not covered" >    if (response) {</span>
+      // recatcha success response
+<span class="cstat-no" title="statement not covered" >      this.headerService.reCaptchaValue = response;</span>
+<span class="cstat-no" title="statement not covered" >      this.handleNextButtonStatus();</span>
+    } else {
+      // recatcha time out response
+<span class="cstat-no" title="statement not covered" >      this.headerService.reCaptchaValue = undefined;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName handleNextButtonStatus
+   * @description used to handle handle next buttons status true | false
+   * @parameters none
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleNextButtonStatus(): void {</span>
+<span class="cstat-no" title="statement not covered" >    if ((this.showRecaptcha &amp;&amp; this.otp &amp;&amp; this.headerService.reCaptchaValue) || (!this.showRecaptcha &amp;&amp; this.otp)) {</span>
+<span class="cstat-no" title="statement not covered" >      this.enableNextBtn = true;</span>
+    }
+  }
+  /**
+   * @methodName openBlockUserDialog
+   * @description used to open dialog for blocked user warning
+   * @parameters none
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  openBlockUserDialog(): void {</span></span>
+    const OPTIONS = <span class="cstat-no" title="statement not covered" >{} as Dialog;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.title = BLOCKED_USER_DIALOG_DATA.title;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.message = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.cancelText = BLOCKED_USER_DIALOG_DATA.cancelText;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.confirmText = BLOCKED_USER_DIALOG_DATA.confirmText;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.dialogClassName = SESSION_TIMEOUT_CLASS;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.textTemplate = BLOCKED_USER_DIALOG_DATA.textTemplate; </span>  // dialog message template when a user blocked - invalid-otp
+<span class="cstat-no" title="statement not covered" >    OPTIONS.isBlockUser = true; </span>// The maximum number of retries (5) has been exceeded
+<span class="cstat-no" title="statement not covered" >    this.dialogService.open(OPTIONS);</span>
+<span class="cstat-no" title="statement not covered" >    this.dialogService.confirmed().subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (response) {</span>
+<span class="cstat-no" title="statement not covered" >        this.logoutService.logoutUser(true);</span>
+<span class="cstat-no" title="statement not covered" >        this.authService.showComponent$.next(COMPONENT_LIST.LOGIN);</span>
+      }
+    });
+  }
+&nbsp;
+  ngOnDestroy() {
+    this.showRecaptcha = false;
+    this.alertMessage = undefined;
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

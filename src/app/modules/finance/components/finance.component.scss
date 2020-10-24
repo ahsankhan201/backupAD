@@ -1,0 +1,82 @@
+@import "src/assets/styles/default";
+
+.ibd-finance-comp {
+  position: absolute;
+  top: 56px;
+  height: auto;
+  width: 100%;
+  @include respond-to(screen-m-min) {
+    width: calc(100% - 92px);
+    top: 92px;
+    left: 92px;
+  }
+  &__wrapper {
+    &__container {
+      max-width: 100%;
+      &__header {
+        display: none;
+        @include respond-to(screen-m-min) {
+          display: block;
+        }
+      }
+      &__body-wrapper {
+        &__body {
+          background-color: transparent;
+          &__component-container {
+            padding-left: 16px;
+            @include respond-to(screen-m-min) {
+              padding-left: 38px;
+            }
+            @include respond-to(screen-l-min) {
+              padding-left: 41px;
+            }
+          }
+        }
+        &__marketing-banner{
+            @include respond-to(screen-m-min) {
+                padding-right: 67px;
+                padding-left: 38px;
+              }
+              @include respond-to(screen-m-min) {
+                margin-top: 18px;
+              }
+              @include respond-to(screen-xl-min) {
+                margin-top: unset;
+                padding-left: 41px;
+              }
+              &__row{
+                @include respond-to(screen-xl-min) {
+                  max-width: 933px;
+                }
+              }
+          }
+      }
+    }
+  }
+  &.finance-rtl-layout {
+    direction: rtl;
+    @include respond-to(screen-m-min) {
+      width: calc(100% - 92px);
+      height: auto;
+      top: 92px;
+      right: 92px;
+      left: unset;
+    }
+    .ibd-finance-comp__wrapper__container__body-wrapper__body__component-container {
+      padding-right: 16px;
+      @include respond-to(screen-m-min) {
+        padding-right: 38px;
+      }
+      @include respond-to(screen-l-min) {
+        padding-right: 41px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .marketing-banner .marketing-banner__content {
+  background: transparent;
+    @include respond-to(screen-m-min) {
+        padding-left: 10px;
+      }
+}

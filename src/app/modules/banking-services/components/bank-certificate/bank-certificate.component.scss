@@ -1,0 +1,125 @@
+@import "src/assets/styles/default";
+.bank-certificate-comp {
+  .title {
+    color: $grey;
+    font-family: $font-regular;
+    font-size: 16px;
+  }
+  padding-top: 6px;
+  @include respond-to(screen-m-min) {
+    padding-top: 18px;
+  }
+  @include respond-to(screen-xl-min) {
+    padding-top: 10px;
+  }
+  &__wrapper {
+    @include respond-to(screen-m-min) {
+      padding-right: 43px;
+    }
+    @include respond-to(screen-l-min) {
+      max-width: 500px;
+      padding-right: 0;
+    }
+    form {
+      margin-top: 12px;
+    }
+    .floating-field {
+      margin-top: 48px;
+    }
+    .button-wrapper {
+      margin-top: 16px;
+      button {
+        width: 100%;
+        margin-bottom: 16px;
+      }
+      @include respond-to(screen-m-min) {
+        display: flex;
+        button {
+          &:first-child {
+            margin-right: 38px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.bank-certificate-comp-rtl {
+  direction: rtl;
+  .bank-certificate-comp__wrapper {
+    @include respond-to(screen-m-min) {
+      padding-right: 0px;
+      padding-left: 43px;
+    }
+    .bank-certificate-comp__wrapper__form {
+      text-align: right;
+      @include respond-to(screen-m-min) {
+        right: 92px;
+      }
+      .select-dir {
+        direction: ltr;
+      }
+      .title {
+        text-align: right;
+      }
+    }
+    .button-wrapper {
+      @include respond-to(screen-m-min) {
+        button {
+          &:first-child {
+            margin-left: 38px;
+            margin-right: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep .bank-branch-types {
+  .checkbox-with-image-comp {
+    display: flex;
+    @include respond-to(screen-m-min) {
+      flex-wrap: wrap;
+    }
+    &__container {
+      margin-right: 27px;
+      &__wrapper {
+        padding-right: 16px;
+        margin: 24px 0 27px 0;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .bank-branch-types-rtl {
+  .checkbox-with-image-comp {
+    &__container {
+      margin-right: 0px;
+      margin-left: 27px;
+    }
+  }
+}
+
+:host ::ng-deep .bank-certificate-comp-rtl {
+  .mat-form-field-right {
+    text-align: right;
+    text-align: -webkit-right;
+  }
+  .bank-certificate-summary-comp {
+    @include respond-to(screen-m-min) {
+      .button-wrapper {
+        button {
+          margin-left: 38px;
+          margin-right: 0px;
+        }
+        .cancel-btn {
+          margin-right: 0px;
+        }
+        .previous-btn {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+}

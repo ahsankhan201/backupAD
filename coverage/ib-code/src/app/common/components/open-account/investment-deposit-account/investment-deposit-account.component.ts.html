@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/components/open-account/investment-deposit-account/investment-deposit-account.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">All files</a> / <a href="index.html">src/app/common/components/open-account/investment-deposit-account</a> investment-deposit-account.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">39.04% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>57/146</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/40</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30.43% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">38.89% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>56/144</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+&nbsp;
+import { SharedService } from 'src/app/common/services/shared.service';
+import { MoneyTransferService } from 'src/app/common/services/money-transfer/money-transfer.service';
+import { OpenAccountService } from 'src/app/common/services/open-account/open-account.service';
+import {
+  NAV_CONTROLS, INVESTMENT_DEPOSIT_COMPONENT,
+  TIME_DEPOSIT_ACCOUNT_DURATION,
+} from 'src/app/common/global-constants';
+import { INVESTMENT_SUMMARY_COMPONENT, TIME_DEPOSIT_ACCOUNT_TEXT } from 'src/app/common/global-constants';
+import { INVESMENT_DEPOSIT_ACCOUNT_COMPONENT } from 'src/app/common/global-constants';
+import { TIME_DEPOSIT_ACCOUNT_DURATION_MONTH, OPEN_ACCOUNT_CURRENCY_LIST, MATURIY_OPTIONS } from 'src/app/common/global-constants';
+import { PROFIT_CREDIT_OPTIONS, TIME_DEPOSIT_ACCOUNT_MIN_AMOUNT, EXCHANGE_TRANSFER_AMOUNT_DEFAULT } from 'src/app/common/global-constants';
+import { INTERNATIONAL_TRANSFER_TEXT } from 'src/app/common/global-constants';
+import { AccountsList } from 'src/app/common/models/global.model';
+import { ExchangeRateRequestPayLoad } from 'src/app/common/models/money-transfer.model';
+import { DebitAccount, TransferTo } from 'src/app/common/models/open-account.model';
+&nbsp;
+@Component({
+  selector: 'app-investment-deposit-account',
+  templateUrl: './investment-deposit-account.component.html',
+  styleUrls: ['./investment-deposit-account.component.scss']
+})
+export class InvestmentDepositAccountComponent implements OnInit {
+  @Output() cancelOpenAccountTransaction = new EventEmitter();
+  @Output() backButtonClick = new EventEmitter();
+  @Output() showSummary = new EventEmitter(false);
+&nbsp;
+  showComponent = INVESTMENT_DEPOSIT_COMPONENT;
+  openAccountCurrencyList = OPEN_ACCOUNT_CURRENCY_LIST;
+  accountDurationList = TIME_DEPOSIT_ACCOUNT_DURATION;
+  MONTH = TIME_DEPOSIT_ACCOUNT_DURATION_MONTH;
+  maturityOptionTransferToList = MATURIY_OPTIONS;
+  profitCreditOptionTransferToList = PROFIT_CREDIT_OPTIONS;
+  openAccountTitle: string;
+  openAccountFormGroup: FormGroup;
+  maturityOptionAccountList = [] as AccountsList[];
+  profitCreditOptionAccountList = [] as AccountsList[];
+  summaryComponentData = [];
+  accountList = [] as AccountsList[];
+  targetAccountCurrency: string;
+  sourceAccountCurrency: string;
+  showMaturityAccount = false;
+  showProfitCreditAccount = false;
+  minimumAmountForOpeningAccount: string;
+  transferRateForView: string;
+  transferRateForCalculation: number;
+  preSelectedCurrency: string;
+&nbsp;
+  constructor(
+    private sharedService: SharedService,
+    private openAccountService: OpenAccountService,
+    private formBuilder: FormBuilder,
+    private transferService: MoneyTransferService
+  ) { }
+&nbsp;
+  ngOnInit() {
+    this.createAccountOpenForm();
+    this.initializeComponentData();
+  }
+&nbsp;
+  /**
+   * @methodName initializeComponentData
+   * @parameter none
+   * @description used to load and initalize all data related component
+   * @return none
+   */
+  initializeComponentData(): void {
+    this.openAccountService.selectedMaturityAccount = {} as AccountsList;
+    this.openAccountService.selectedProfitCreditAccount = {} as AccountsList;
+    this.accountList = this.openAccountService.generateAccountSelectBoxObj();
+    this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.maturityOptionTransferTo)
+      .setValue(this.maturityOptionTransferToList[0]);
+    this.openAccountService.selectedMaturityTransferTo = this.maturityOptionTransferToList[0];
+    this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.profitCreditOptionTransferTo)
+      .setValue(this.profitCreditOptionTransferToList[0]);
+    this.openAccountService.selectedProfitCreditTransferTo = this.profitCreditOptionTransferToList[0];
+    this.maturityOptionAccountList = this.openAccountService.generateAccountSelectBoxObj();
+    this.profitCreditOptionAccountList = this.openAccountService.generateAccountSelectBoxObj();
+    this.sharedService.setHorizontalLineClass(NAV_CONTROLS.OPEN_ACCOUNT_DIVIDER_CLASS);
+    this.openAccountTitle = this.openAccountService.openAccountSelectedCard;
+  }
+  /**
+   * @methodName createAccountOpenForm
+   * @parameter none
+   * @description used to create time deposit account open form group
+   * @return none
+   */
+  createAccountOpenForm(): void {
+    this.openAccountFormGroup = this.formBuilder.group({
+      accountCurrency: ['', [Validators.required]],
+      accountDuration: ['', [Validators.required]],
+      depositAmount: ['', [Validators.required]],
+      transferFromAccount: ['', [Validators.required]],
+      maturityOptionTransferTo: ['', [Validators.required]],
+      maturityOptionAccount: [''],
+      profitCreditOptionTransferTo: ['', [Validators.required]],
+      profitCreditOptionAccount: [''],
+    });
+  }
+&nbsp;
+  /**
+   * @methodName handleOpenAccountSubmit
+   * @parameter none
+   * @description used to handle open account submit action, to create summary component
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleOpenAccountSubmit(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.setSummaryComponentData();</span>
+<span class="cstat-no" title="statement not covered" >    this.showComponent = INVESTMENT_SUMMARY_COMPONENT;</span>
+  }
+&nbsp;
+  /**
+   * @methodName setSummaryComponentData
+   * @parameter none
+   * @description used to create summary data
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setSummaryComponentData(): void {</span>
+    const summary = <span class="cstat-no" title="statement not covered" >this.openAccountService.timeDepositSummaryDetails;</span>
+<span class="cstat-no" title="statement not covered" >    summary.accountCurrency = this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.accountCurrency).value;</span>
+<span class="cstat-no" title="statement not covered" >    summary.accountDuration = this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.accountDuration).value;</span>
+<span class="cstat-no" title="statement not covered" >    summary.depositAmount = this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.depositAmount).value ?</span>
+      this.sharedService.removeCommaFromString(this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.depositAmount).value) :
+      this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.depositAmount).value;
+<span class="cstat-no" title="statement not covered" >    summary.transferFromAccount = this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.transferFromAccount).value;</span>
+    const MATURIY_TRANSFER_TO = <span class="cstat-no" title="statement not covered" >this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.maturityOptionTransferTo).value;</span>
+<span class="cstat-no" title="statement not covered" >    summary.maturityOptionTransferTo = MATURIY_TRANSFER_TO.value;</span>
+<span class="cstat-no" title="statement not covered" >    summary.maturityOptionAccount = this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.maturityOptionAccount).value;</span>
+    const PROFIT_CREDIT_TRANSFER_TO = <span class="cstat-no" title="statement not covered" >this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.profitCreditOptionTransferTo).value;</span>
+<span class="cstat-no" title="statement not covered" >    summary.profitCreditOptionTransferTo = PROFIT_CREDIT_TRANSFER_TO.value;</span>
+<span class="cstat-no" title="statement not covered" >    summary.profitCreditOptionAccount = this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.profitCreditOptionAccount).value;</span>
+  }
+&nbsp;
+  /**
+   * @methodName handleAccountDurationChange
+   * @parameter none
+   * @description used to handle account duration change
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleAccountDurationChange(</span>accountDuration: string): void {
+<span class="cstat-no" title="statement not covered" >    if (accountDuration) {</span>
+<span class="cstat-no" title="statement not covered" >      this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.accountDuration).setValue(accountDuration);</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName accountSelectionChange
+   * @parameter selectedAccount&lt;string&gt;, accountType&lt;string&gt;
+   * @description used to set account selection based on the value selected
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  accountSelectionChange(</span>selectedAccount: string, accountType: string): void {
+    const ACCOUNT_DATA = <span class="cstat-no" title="statement not covered" >this.accountList.find(<span class="fstat-no" title="function not covered" >accountObj =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      return selectedAccount === accountObj.accountNumber;</span>
+    });
+<span class="cstat-no" title="statement not covered" >    switch (accountType) {</span>
+      case TIME_DEPOSIT_ACCOUNT_TEXT.transferFromAccount:
+<span class="cstat-no" title="statement not covered" >        this.openAccountService.selectedSourceAccount = {} as AccountsList;</span>
+<span class="cstat-no" title="statement not covered" >        this.openAccountService.selectedSourceAccount = ACCOUNT_DATA;</span>
+<span class="cstat-no" title="statement not covered" >        this.sourceAccountCurrency = this.openAccountService.selectedSourceAccount.currencyCode;</span>
+<span class="cstat-no" title="statement not covered" >        this.getExchangeRate();</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      case TIME_DEPOSIT_ACCOUNT_TEXT.maturityAccount:
+<span class="cstat-no" title="statement not covered" >        this.openAccountService.selectedMaturityAccount = {} as AccountsList;</span>
+<span class="cstat-no" title="statement not covered" >        this.openAccountService.selectedMaturityAccount = ACCOUNT_DATA;</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      case TIME_DEPOSIT_ACCOUNT_TEXT.profitCreditAccount:
+<span class="cstat-no" title="statement not covered" >        this.openAccountService.selectedProfitCreditAccount = {} as AccountsList;</span>
+<span class="cstat-no" title="statement not covered" >        this.openAccountService.selectedProfitCreditAccount = ACCOUNT_DATA;</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName handleSelectedCurrency
+   * @parameter none
+   * @description used to set selectedCurrency and calculate amount
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleSelectedCurrency(</span>selectedCurrency: string): void {
+<span class="cstat-no" title="statement not covered" >    if (selectedCurrency) {</span>
+<span class="cstat-no" title="statement not covered" >      this.targetAccountCurrency = selectedCurrency;</span>
+<span class="cstat-no" title="statement not covered" >      this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.accountCurrency).setValue(selectedCurrency);</span>
+<span class="cstat-no" title="statement not covered" >      this.calculateMinimumAmount();</span>
+<span class="cstat-no" title="statement not covered" >      this.getExchangeRate();</span>
+<span class="cstat-no" title="statement not covered" >      this.validateAmount();</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName calculateMinimumAmount
+   * @parameter none
+   * @description used to set min  amount based in the currency value
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  calculateMinimumAmount(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.minimumAmountForOpeningAccount = TIME_DEPOSIT_ACCOUNT_MIN_AMOUNT[this.targetAccountCurrency];</span>
+  }
+&nbsp;
+  /**
+   * @methodName validateAmount
+   * @parameter none
+   * @description used to set min amount validation error
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  validateAmount(): void {</span>
+    let AMOUNT = <span class="cstat-no" title="statement not covered" >this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.depositAmount).value;</span>
+<span class="cstat-no" title="statement not covered" >    AMOUNT = this.sharedService.removeCommaFromString(AMOUNT);</span>
+<span class="cstat-no" title="statement not covered" >    if (Number(AMOUNT) &lt; Number(this.minimumAmountForOpeningAccount)) {</span>
+      // set min amount form validation error
+<span class="cstat-no" title="statement not covered" >      this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.depositAmount)</span>
+        .setErrors({ openAccountMinError: { message: ` ${this.minimumAmountForOpeningAccount} ${this.targetAccountCurrency}.` } });
+    }
+<span class="cstat-no" title="statement not covered" >    this.calculateDebitAmount();</span>
+<span class="cstat-no" title="statement not covered" >    this.validateAccountBalance();</span>
+  }
+&nbsp;
+  /**
+   * @methodName getExchangeRate
+   * @parameter none
+   * @description used to get the exchange rate
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  getExchangeRate(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (this.targetAccountCurrency &amp;&amp; this.sourceAccountCurrency &amp;&amp; this.openAccountService.selectedSourceAccount) {</span>
+      const exchangeRatepayLoad = <span class="cstat-no" title="statement not covered" >{} as ExchangeRateRequestPayLoad;</span>
+<span class="cstat-no" title="statement not covered" >      exchangeRatepayLoad.creditAcctNumberCurrencyCode = this.targetAccountCurrency;</span>
+<span class="cstat-no" title="statement not covered" >      exchangeRatepayLoad.debitAcctNumber = this.openAccountService.selectedSourceAccount.accountNumber;</span>
+<span class="cstat-no" title="statement not covered" >      exchangeRatepayLoad.transferAccountCurrencyCode = this.sourceAccountCurrency;</span>
+<span class="cstat-no" title="statement not covered" >      exchangeRatepayLoad.transferAmount = EXCHANGE_TRANSFER_AMOUNT_DEFAULT;</span>
+<span class="cstat-no" title="statement not covered" >      this.transferService.getExchangeRate(exchangeRatepayLoad).subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (response) {</span>
+<span class="cstat-no" title="statement not covered" >          this.openAccountService.exchangeRateResponse = response;</span>
+<span class="cstat-no" title="statement not covered" >          this.transferRateForCalculation = Number(response.rate);</span>
+<span class="cstat-no" title="statement not covered" >          this.transferRateForView = this.sharedService.trimNumberWithoutRounding(this.transferRateForCalculation,</span>
+            INTERNATIONAL_TRANSFER_TEXT.FIXED_AMOUNT_DECIMAL);
+<span class="cstat-no" title="statement not covered" >          this.calculateDebitAmount();</span>
+<span class="cstat-no" title="statement not covered" >          this.validateAccountBalance();</span>
+        }
+      });
+    }
+  }
+&nbsp;
+  /**
+   * @methodName onChangeMaturityOption
+   * @parameter maturityOption&lt;string&gt;
+   * @description used to get the exchange rate
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  onChangeMaturityOption(</span>transferTo: TransferTo): void {
+<span class="cstat-no" title="statement not covered" >    this.showMaturityAccount = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountService.selectedMaturityTransferTo = {} as TransferTo;</span>
+<span class="cstat-no" title="statement not covered" >    if (transferTo &amp;&amp; transferTo.id === TIME_DEPOSIT_ACCOUNT_TEXT.Transfer) {</span>
+<span class="cstat-no" title="statement not covered" >      this.openAccountService.selectedMaturityTransferTo = transferTo;</span>
+<span class="cstat-no" title="statement not covered" >      this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.maturityOptionAccount)</span>
+        .setValidators([Validators.required]);
+<span class="cstat-no" title="statement not covered" >      this.showMaturityAccount = true;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.maturityOptionAccount)</span>
+        .setValidators(null);
+    }
+<span class="cstat-no" title="statement not covered" >    this.openAccountFormGroup.updateValueAndValidity();</span>
+  }
+&nbsp;
+  /**
+   * @methodName accountDurationDisplayFn
+   * @parameter accountDuration&lt;string&gt;
+   * @description used to display account duration with Month
+   * @return string
+   */
+  accountDurationDisplayFn(accountDuration: string): string {
+    return accountDuration ? `${<span class="branch-0 cbranch-no" title="branch not covered" >accountDuration} ${TIME_DEPOSIT_ACCOUNT_DURATION_MONTH}` </span>: accountDuration;
+  }
+&nbsp;
+  /**
+   * @methodName calculateDebitAmount
+   * @parameter none
+   * @description used to calculate the debit amount
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  calculateDebitAmount(): void {</span>
+    let AMOUNT = <span class="cstat-no" title="statement not covered" >this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.depositAmount).value;</span>
+<span class="cstat-no" title="statement not covered" >    AMOUNT = Number(this.sharedService.removeCommaFromString(AMOUNT));</span>
+    const DEBIT_AMOUNT = <span class="cstat-no" title="statement not covered" >this.openAccountService.getDebitAmount(AMOUNT, Number(this.transferRateForCalculation));</span>
+<span class="cstat-no" title="statement not covered" >    if (DEBIT_AMOUNT) {</span>
+<span class="cstat-no" title="statement not covered" >      this.openAccountService.timeDepositDebitAmount = {} as DebitAccount;</span>
+<span class="cstat-no" title="statement not covered" >      this.openAccountService.timeDepositDebitAmount.accountNumber = this.openAccountService.selectedSourceAccount.accountNumber;</span>
+<span class="cstat-no" title="statement not covered" >      this.openAccountService.timeDepositDebitAmount.amount = DEBIT_AMOUNT;</span>
+<span class="cstat-no" title="statement not covered" >      this.openAccountService.timeDepositDebitAmount.currencyCode = this.sourceAccountCurrency;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName cancelOpeningAccountProcess
+   * @parameter none
+   * @description used to cancel opening account flow
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  cancelOpeningAccountProcess(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountService.isBankSeviceTermsAgreed = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountService.ghinaSeviceTermsAgreed = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.cancelOpenAccountTransaction.emit(true);</span>
+  }
+&nbsp;
+  /**
+   * @methodName onChangeProfitCreditOption
+   * @parameter transferTo&lt;string&gt;
+   * @description used to get the exchange rate
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  onChangeProfitCreditOption(</span>transferTo: TransferTo): void {
+<span class="cstat-no" title="statement not covered" >    this.showProfitCreditAccount = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountService.selectedProfitCreditTransferTo = {} as TransferTo;</span>
+<span class="cstat-no" title="statement not covered" >    if (transferTo &amp;&amp; transferTo.id === TIME_DEPOSIT_ACCOUNT_TEXT.Transfer) {</span>
+<span class="cstat-no" title="statement not covered" >      this.openAccountService.selectedProfitCreditTransferTo = transferTo;</span>
+<span class="cstat-no" title="statement not covered" >      this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.profitCreditOptionAccount)</span>
+        .setValidators([Validators.required]);
+<span class="cstat-no" title="statement not covered" >      this.showProfitCreditAccount = true;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.profitCreditOptionAccount)</span>
+        .setValidators(null);
+    }
+<span class="cstat-no" title="statement not covered" >    this.openAccountFormGroup.updateValueAndValidity();</span>
+  }
+&nbsp;
+  /**
+   * @methodName showOpenAccountFormComponent
+   * @parameter boolean
+   * @description used to toggle the form component
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  showOpenAccountFormComponent(</span>isBackBtnClicked: boolean): void {
+<span class="cstat-no" title="statement not covered" >    isBackBtnClicked ? this.cancelOpeningAccountProcess() : (this.showComponent = INVESMENT_DEPOSIT_ACCOUNT_COMPONENT,</span>
+      this.preSelectedCurrency = this.openAccountService.timeDepositSummaryDetails.accountCurrency);
+  }
+&nbsp;
+  /**
+   * @methodName validateAccountBalance
+   * @parameter none
+   * @description used to validate the account balance
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  validateAccountBalance(): void {</span>
+    const selectAccountOption = <span class="cstat-no" title="statement not covered" >this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.transferFromAccount);</span>
+<span class="cstat-no" title="statement not covered" >    if (this.openAccountService.selectedSourceAccount &amp;&amp;</span>
+      Number(this.openAccountService.timeDepositDebitAmount.amount) &gt;
+      Number(this.openAccountService.selectedSourceAccount.balanceAvailable)) {
+<span class="cstat-no" title="statement not covered" >      selectAccountOption.setErrors({ openAccountBalanceError: { message: undefined } });</span>
+    } else <span class="cstat-no" title="statement not covered" >if (this.openAccountFormGroup.get(TIME_DEPOSIT_ACCOUNT_TEXT.depositAmount).value) {</span>
+<span class="cstat-no" title="statement not covered" >      selectAccountOption.setErrors(null);</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName transferToDisplayFn
+   * @parameter option&lt;string&gt;
+   * @description used to display account duration with Month
+   * @return string
+   */
+  transferToDisplayFn(option): string {
+    return option ? option.value : <span class="branch-1 cbranch-no" title="branch not covered" >option;</span>
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

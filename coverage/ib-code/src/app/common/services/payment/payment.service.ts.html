@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/services/payment/payment.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/common/services/payment</a> payment.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30.77% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>36/117</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.15% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/87</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30.7% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>35/114</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
+&nbsp;
+/* Include services here */
+import { APISyncService } from '../sync.service';
+&nbsp;
+import { PayeeListResponse } from '../../models/payee.model';
+import { AccountListModel } from '../../models/accounts-module.model';
+import {
+  UtilityPaymentPayLoad, UtilityInquiryPayLoad,
+  PaymentTransferDetails, UtilityOutStandingBalanceResponse, PaymentSummaryDetailsModel, UtilityPaymentCardObj, CoverCardPaymentPayLoad
+} from '../../models/payment.model';
+import { map } from 'rxjs/operators';
+import { PAYMENT_TYPES, ACCOUNT_ALLOWED_FOR_PAYMENTS, PAYMENT_SCREEN_TEXT, DOMAINS } from '../../global-constants';
+import { CoverCardData } from '../../models/cards-module.model';
+import { SharedService } from '../shared.service';
+import { ACCOUNTS_ENDPOINTS } from '../../api-endpoints';
+&nbsp;
+&nbsp;
+@Injectable({
+  providedIn: 'root'
+})
+export class PaymentService {
+  isPayeeSelectedForPayment: boolean;
+  selectedPaymentType: string;
+  utilityPaymentPayLoad = {} as UtilityPaymentPayLoad;
+  utilityInquiryPayLoad = {} as UtilityInquiryPayLoad;
+  selectedPayeeObj = {} as PayeeListResponse;
+  selectedCoverCardObj = {} as CoverCardData;
+  coverCardPaymentPayLoad = {} as CoverCardPaymentPayLoad;
+  isCoverCardSelectedForPayment: boolean;
+  selectedAccountForPayment = {} as AccountListModel;
+  utilityPayeeOutStandingBalance = {} as UtilityOutStandingBalanceResponse;
+  selectedCardObjectForPayment = {};
+  confirmScreenRoutingButtonText: string;
+&nbsp;
+  setTransferDetails$ = new BehaviorSubject(undefined);
+  setSummaryDetails$ = new BehaviorSubject(undefined);
+  setOutStandingBalnce$ = new BehaviorSubject(undefined);
+&nbsp;
+  constructor(
+    private httpService: APISyncService,
+    private sharedService: SharedService) { }
+  /**
+   * @methodName setPaymentTransferDetails
+   * @parameter transferDetails&lt;PaymentTransferDetails&gt;
+   * @description used to dispatch the transfer details to it's subscribers
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setPaymentTransferDetails(</span>transferDetails: PaymentTransferDetails): void {
+<span class="cstat-no" title="statement not covered" >    this.setTransferDetails$.next(transferDetails);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getPaymentTransferDetails
+   * @parameter none
+   * @description used to return the transfer details which sets in setPaymentTransferDetails()
+   * @return Observable&lt;PaymentTransferDetails&gt;
+   */
+  getPaymentTransferDetails(): Observable&lt;PaymentTransferDetails&gt; {
+    return this.setTransferDetails$.asObservable();
+  }
+&nbsp;
+  /**
+   * @methodName setPaymentSummaryDetails
+   * @parameter transferDetails&lt;PaymentTransferDetails&gt;
+   * @description used to dispatch the transfer details to it's subscribers
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setPaymentSummaryDetails(</span>summaryDetails: PaymentSummaryDetailsModel): void {
+<span class="cstat-no" title="statement not covered" >    this.setSummaryDetails$.next(summaryDetails);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getPaymentSummaryDetails
+   * @parameter none
+   * @description used to return the summaryInfo which sets in setPaymentSummaryDetails()
+   * @return Observable&lt;PaymentTransferDetails&gt;
+   */
+  getPaymentSummaryDetails(): Observable&lt;PaymentSummaryDetailsModel&gt; {
+    return this.setSummaryDetails$.asObservable();
+  }
+&nbsp;
+  /**
+   * @methodName setPaymentSummaryDetails
+   * @parameter transferDetails&lt;PaymentTransferDetails&gt;
+   * @description used to dispatch the transfer details to it's subscribers
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setOutStandingBalanceSubject(</span>getOutStandingBalance: boolean): void {
+<span class="cstat-no" title="statement not covered" >    this.setOutStandingBalnce$.next(getOutStandingBalance);</span>
+  }
+  /**
+   * @methodName getOutStandingBalanceSubject
+   * @parameter none
+   * @description It'll dispatch the outstanding balance details
+   * @return Observable&lt;PaymentTransferDetails&gt;
+   */
+  getOutStandingBalanceSubject(): Observable&lt;boolean&gt; {
+    return this.setOutStandingBalnce$.asObservable();
+  }
+  /**
+   * @methodName setUtilityInquiryPayLoad
+   * @parameter selectedPayee&lt;PayeeListResponse&gt;
+   * @description used to set the Utility Inquiry Payload
+   * @return &lt;UtilityInquiryPayLoad&gt;
+   */
+<span class="fstat-no" title="function not covered" >  setUtilityInquiryPayLoad(</span>selectedPayee: PayeeListResponse): UtilityInquiryPayLoad {
+    const utilityInquiryPayLoad = <span class="cstat-no" title="statement not covered" >{} as UtilityInquiryPayLoad;</span>
+<span class="cstat-no" title="statement not covered" >    utilityInquiryPayLoad.pin = selectedPayee.pin;</span>
+<span class="cstat-no" title="statement not covered" >    utilityInquiryPayLoad.utilityProviderId = selectedPayee.utilityProviderId;</span>
+<span class="cstat-no" title="statement not covered" >    utilityInquiryPayLoad.utilityProviderProductId = selectedPayee.utilityProviderProductId;</span>
+<span class="cstat-no" title="statement not covered" >    utilityInquiryPayLoad.utilityServiceNumber = selectedPayee.utilityServiceNumber;</span>
+<span class="cstat-no" title="statement not covered" >    return utilityInquiryPayLoad;</span>
+  }
+  /**
+   * @methodName generateSummaryScreenDetails
+   * @parameter paymentType&lt;string&gt;
+   * @description used to generate the summary screen details
+   * @return &lt;UtilityInquiryPayLoad&gt;
+   */
+<span class="fstat-no" title="function not covered" >  generateSummaryScreenDetails(</span>paymentType: string) {
+    let summaryDetails = <span class="cstat-no" title="statement not covered" >{} as PaymentSummaryDetailsModel;</span>
+<span class="cstat-no" title="statement not covered" >    switch (paymentType) {</span>
+      // It'll form the summary screen details of payee
+      case PAYMENT_TYPES.utilityPayment:
+      case PAYMENT_TYPES.donate:
+<span class="cstat-no" title="statement not covered" >        summaryDetails = this.setUtilityPayeeSummaryDetails();</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      case PAYMENT_TYPES.ccPayment:
+<span class="cstat-no" title="statement not covered" >        summaryDetails = this.setCoverCardPayeeSummaryDetails();</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    this.setPaymentSummaryDetails(summaryDetails);</span>
+  }
+  /**
+   * @methodName setUtilityPayeeSummaryDetails
+   * @parameter none
+   * @description used to set utility payee summary details
+   * @return &lt;PaymentSummaryDetailsModel&gt;
+   */
+<span class="fstat-no" title="function not covered" >  setUtilityPayeeSummaryDetails(): PaymentSummaryDetailsModel {</span>
+    const summaryDetails = <span class="cstat-no" title="statement not covered" >{} as PaymentSummaryDetailsModel;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.accountNumber = this.selectedAccountForPayment.accountNumber;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.accountTypeDescription = this.selectedAccountForPayment.accountType &amp;&amp;</span>
+      ACCOUNT_ALLOWED_FOR_PAYMENTS[this.selectedAccountForPayment.accountType] ?
+      ACCOUNT_ALLOWED_FOR_PAYMENTS[this.selectedAccountForPayment.accountType] : undefined;
+<span class="cstat-no" title="statement not covered" >    summaryDetails.currencyCode = this.selectedAccountForPayment.currencyCode;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.memo = this.utilityPaymentPayLoad.optionalMemo;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.payeeName = this.selectedPayeeObj.nickName;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.utilityServiceNumber = this.selectedPayeeObj.utilityServiceNumber;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.amount = this.utilityPaymentPayLoad.amount ?</span>
+      this.sharedService.removeCommaFromString(this.utilityPaymentPayLoad.amount) : this.utilityPaymentPayLoad.amount;
+<span class="cstat-no" title="statement not covered" >    summaryDetails.outstandingAmount = this.utilityPayeeOutStandingBalance.outstandingAmount;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.cardNumber = this.selectedCardObjectForPayment['cardNumber'];</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.cardDescription = this.selectedCardObjectForPayment['productDescription'];</span>
+<span class="cstat-no" title="statement not covered" >    if (this.isPaymentTypeDonation()) {</span>
+<span class="cstat-no" title="statement not covered" >      summaryDetails.currencyCode = (this.selectedCardObjectForPayment['cardNumber']) ?</span>
+        this.selectedCardObjectForPayment['currencyCode'] : this.selectedAccountForPayment.currencyCode;
+<span class="cstat-no" title="statement not covered" >      summaryDetails.donationTo = this.selectedPayeeObj ?</span>
+        `${this.selectedPayeeObj.payeeCategory}, ${this.selectedPayeeObj.nickName}` : undefined;
+    }
+<span class="cstat-no" title="statement not covered" >    return summaryDetails;</span>
+  }
+  /**
+   * @methodName setUtilityPaymentPayLoad
+   * @parameter none
+   * @description used to set the Utility payment payload
+   * @return &lt;UtilityPaymentPayLoad&gt;
+   */
+<span class="fstat-no" title="function not covered" >  setUtilityPaymentPayLoad(): UtilityPaymentPayLoad {</span>
+    const utilityPaymentPayload = <span class="cstat-no" title="statement not covered" >{} as UtilityPaymentPayLoad;</span>
+<span class="cstat-no" title="statement not covered" >    utilityPaymentPayload.accountNumber = this.selectedAccountForPayment &amp;&amp; this.selectedAccountForPayment.accountNumber ?</span>
+      this.selectedAccountForPayment.accountNumber : '';
+<span class="cstat-no" title="statement not covered" >    utilityPaymentPayload.amount = this.utilityPaymentPayLoad &amp;&amp; this.utilityPaymentPayLoad.amount ?</span>
+      this.sharedService.removeCommaFromString(this.utilityPaymentPayLoad.amount) : '';
+<span class="cstat-no" title="statement not covered" >    utilityPaymentPayload.optionalMemo = this.utilityPaymentPayLoad &amp;&amp; this.utilityPaymentPayLoad.optionalMemo ?</span>
+      this.utilityPaymentPayLoad.optionalMemo : '';
+<span class="cstat-no" title="statement not covered" >    utilityPaymentPayload.utilityProviderId = this.selectedPayeeObj &amp;&amp; this.selectedPayeeObj.utilityProviderId ?</span>
+      this.selectedPayeeObj.utilityProviderId : '';
+<span class="cstat-no" title="statement not covered" >    utilityPaymentPayload.utilityProviderProductId = this.selectedPayeeObj &amp;&amp; this.selectedPayeeObj.utilityProviderProductId ?</span>
+      this.selectedPayeeObj.utilityProviderProductId : '';
+<span class="cstat-no" title="statement not covered" >    utilityPaymentPayload.beneficiaryId = this.selectedPayeeObj &amp;&amp; this.selectedPayeeObj.customerPayeeID ?</span>
+      parseInt(this.selectedPayeeObj.customerPayeeID, 10) : undefined; // beneficiaryId udpated as part of V2 migration
+    // payload not required for charity donation
+<span class="cstat-no" title="statement not covered" >    if (!this.isPaymentTypeDonation()) {</span>
+<span class="cstat-no" title="statement not covered" >      utilityPaymentPayload.payeeId = this.selectedPayeeObj &amp;&amp; this.selectedPayeeObj.payeeID ?</span>
+        this.selectedPayeeObj.payeeID : ''; // payeeID udpated as part of v2 migration
+<span class="cstat-no" title="statement not covered" >      utilityPaymentPayload.pin = this.selectedPayeeObj &amp;&amp; this.selectedPayeeObj.pin ? this.selectedPayeeObj.pin : '';</span>
+<span class="cstat-no" title="statement not covered" >      utilityPaymentPayload.referenceNumConsumer = this.utilityPayeeOutStandingBalance &amp;&amp;</span>
+        this.utilityPayeeOutStandingBalance.utilityBillReferenceNumber ?
+        this.utilityPayeeOutStandingBalance.utilityBillReferenceNumber : '';
+<span class="cstat-no" title="statement not covered" >      utilityPaymentPayload.utilityServiceNumber = this.selectedPayeeObj &amp;&amp; this.selectedPayeeObj.utilityServiceNumber ?</span>
+        this.selectedPayeeObj.utilityServiceNumber : '';
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this.selectedCardObjectForPayment &amp;&amp; Object.keys(this.selectedCardObjectForPayment).length) {</span>
+<span class="cstat-no" title="statement not covered" >      utilityPaymentPayload.card = {} as UtilityPaymentCardObj;</span>
+<span class="cstat-no" title="statement not covered" >      utilityPaymentPayload.card.cardNumber = this.selectedCardObjectForPayment['cardNumber'];</span>
+<span class="cstat-no" title="statement not covered" >      utilityPaymentPayload.card.cardType = this.selectedCardObjectForPayment['cardType'];</span>
+<span class="cstat-no" title="statement not covered" >      utilityPaymentPayload.card.countryCode = this.selectedCardObjectForPayment['countryCode'] ?</span>
+        this.selectedCardObjectForPayment['countryCode'] : '';
+<span class="cstat-no" title="statement not covered" >      utilityPaymentPayload.card.currencyCode = this.selectedCardObjectForPayment['currencyCode'];</span>
+<span class="cstat-no" title="statement not covered" >      utilityPaymentPayload.card.expiryDate = this.selectedCardObjectForPayment['expiryDate'];</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return utilityPaymentPayload;</span>
+  }
+  /**
+   * @methodName fetchUtilityOutStandingBalance
+   * @parameter url&lt;string&gt;, payLoad&lt;UtilityInquiryPayLoad&gt;
+   * @description used to fetch the utility outstanding balance
+   * @return Observable&lt;UtilityOutStandingBalanceResponse&gt;
+   */
+<span class="fstat-no" title="function not covered" >  fetchUtilityOutStandingBalance(</span>url: string, payLoad: UtilityInquiryPayLoad): Observable&lt;UtilityOutStandingBalanceResponse&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.httpService.post(url, payLoad).pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res.body ? JSON.parse(res.body) : res)</span>);</span></span>
+  }
+  /**
+   * @methodName sendPaymentRequest
+   * @parameter url&lt;string&gt;, payLoad&lt;UtilityPaymentPayLoad&gt;
+   * @description used to post the payment request to the server
+   * @return Observable&lt;any&gt;
+   */
+&nbsp;
+  // It is consumed by multiple API's so retyrn type is any
+<span class="fstat-no" title="function not covered" >  sendPaymentRequest(</span>url: string, payLoad: UtilityPaymentPayLoad | CoverCardPaymentPayLoad): Observable&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.httpService.post(url, payLoad).pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res.body ? JSON.parse(res.body) : res)</span>);</span></span>
+  }
+&nbsp;
+  /**
+   * @methodName getCharityList
+   * @parameter none
+   * @description used to get charity list from server
+   * @return Observable&lt;string&gt;
+   */
+<span class="fstat-no" title="function not covered" >  getCharityList(): Observable&lt;string&gt; {</span>
+    const url = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.API_SIT_CONNECT, true, false) + ACCOUNTS_ENDPOINTS.GET_CHARITY_LIST;</span>
+<span class="cstat-no" title="statement not covered" >    return this.httpService.get(url);</span>
+  }
+&nbsp;
+  /**
+   * @methodName setCoverCardPayeeSummaryDetails
+   * @parameter none
+   * @description used to set the cover card summary details
+   * @return &lt;PaymentSummaryDetailsModel&gt;
+   */
+<span class="fstat-no" title="function not covered" >  setCoverCardPayeeSummaryDetails(): PaymentSummaryDetailsModel {</span>
+    const summaryDetails = <span class="cstat-no" title="statement not covered" >{} as PaymentSummaryDetailsModel;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.accountNumber = this.selectedAccountForPayment.accountNumber;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.accountTypeDescription = this.selectedAccountForPayment.accountType &amp;&amp;</span>
+      ACCOUNT_ALLOWED_FOR_PAYMENTS[this.selectedAccountForPayment.accountType] ?
+      ACCOUNT_ALLOWED_FOR_PAYMENTS[this.selectedAccountForPayment.accountType] : undefined;
+<span class="cstat-no" title="statement not covered" >    summaryDetails.currencyCode = this.selectedAccountForPayment.currencyCode;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.memo = this.coverCardPaymentPayLoad.optionalMemo;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.amount = this.coverCardPaymentPayLoad.amount ?</span>
+      this.sharedService.removeCommaFromString(this.coverCardPaymentPayLoad.amount) : this.coverCardPaymentPayLoad.amount;
+<span class="cstat-no" title="statement not covered" >    summaryDetails.payToCardNumber = this.selectedCoverCardObj.cardNumber;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.cardDescription = this.selectedCoverCardObj.productDescription;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.cardCurrencyCode = this.selectedCoverCardObj.currencyCode;</span>
+<span class="cstat-no" title="statement not covered" >    summaryDetails.outstandingAmount = this.selectedCoverCardObj.dueBalance;</span>
+<span class="cstat-no" title="statement not covered" >    return summaryDetails;</span>
+  }
+&nbsp;
+  /**
+   * @methodName setCoverCardPaymentPayLoad
+   * @parameter none
+   * @description used to set the cover card payment payload
+   * @return &lt;CoverCardPaymentPayLoad&gt;
+   */
+<span class="fstat-no" title="function not covered" >  setCoverCardPaymentPayLoad(): CoverCardPaymentPayLoad {</span>
+    const coverCardPaymentPayload = <span class="cstat-no" title="statement not covered" >{} as CoverCardPaymentPayLoad;</span>
+<span class="cstat-no" title="statement not covered" >    coverCardPaymentPayload.accountNumber = this.selectedAccountForPayment &amp;&amp; this.selectedAccountForPayment.accountNumber ?</span>
+      this.selectedAccountForPayment.accountNumber : '';
+<span class="cstat-no" title="statement not covered" >    coverCardPaymentPayload.amount = this.coverCardPaymentPayLoad &amp;&amp; this.coverCardPaymentPayLoad.amount ?</span>
+      this.sharedService.removeCommaFromString(this.coverCardPaymentPayLoad.amount) : '';
+<span class="cstat-no" title="statement not covered" >    coverCardPaymentPayload.optionalMemo = this.coverCardPaymentPayLoad &amp;&amp; this.coverCardPaymentPayLoad.optionalMemo ?</span>
+      this.coverCardPaymentPayLoad.optionalMemo : '';
+    // will be empty when paying from own accounts to own cards
+<span class="cstat-no" title="statement not covered" >    coverCardPaymentPayload.beneficiaryId = '';</span>
+<span class="cstat-no" title="statement not covered" >    coverCardPaymentPayload.card = {} as UtilityPaymentCardObj;</span>
+<span class="cstat-no" title="statement not covered" >    coverCardPaymentPayload.card.cardNumber = this.selectedCoverCardObj.cardNumber;</span>
+<span class="cstat-no" title="statement not covered" >    coverCardPaymentPayload.card.cardType = this.selectedCoverCardObj.cardType;</span>
+<span class="cstat-no" title="statement not covered" >    coverCardPaymentPayload.card.expiryDate = this.selectedCoverCardObj.expiryDate;</span>
+<span class="cstat-no" title="statement not covered" >    coverCardPaymentPayload.card.currencyCode = this.selectedCoverCardObj.currencyCode;</span>
+    // will be false when paying from own accounts to own cards
+<span class="cstat-no" title="statement not covered" >    coverCardPaymentPayload.intraBank = false;</span>
+    // will be UAE for payment from own accounts to own cards
+<span class="cstat-no" title="statement not covered" >    coverCardPaymentPayload.card.countryCode = PAYMENT_SCREEN_TEXT.uaeCountryCode;</span>
+<span class="cstat-no" title="statement not covered" >    return coverCardPaymentPayload;</span>
+  }
+&nbsp;
+  /**
+   * @methodName isPaymentTypeDonate
+   * @parameter none
+   * @description used to check payment type donation
+   * @return boolean
+   */
+  isPaymentTypeDonation(): boolean {
+    return (this.selectedPaymentType === PAYMENT_TYPES.donate) ? <span class="branch-0 cbranch-no" title="branch not covered" >true </span>: false;
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+@import "src/assets/styles/default";
+
+.account-form-comp {
+  min-height: 272px;
+  &__form__row__currency {
+    @extend .ibd-small-text;
+    margin-top: 1rem;
+    font-family: $font-regular;
+    font-size: 14px;
+  }
+  &__form__row__card {
+    @extend .ibd-small-text;
+
+    font-family: $font-regular;
+    font-size: 14px;
+  }
+  @include respond-to(screen-m-min) {
+    min-height: 242px;
+    &__form {
+      &__row {
+        &__two-cols-right {
+          padding-right: 34px;
+        }
+        &__two-cols-left {
+          padding-left: 34px;
+        }
+        &__text {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  &__wrapper {
+    &__buttons {
+      width: 100%;
+      margin-top: 32px;
+      .next-btn {
+        margin-left: 16px;
+        @include respond-to(screen-m-min) {
+          margin-left: 27px;
+        }
+      }
+      .next-btn,
+      .previous-btn {
+        width: 47%;
+      }
+      @include respond-to(screen-m-min) {
+        position: inherit;
+      }
+    }
+  }
+  form {
+    @include respond-to(screen-m-min) {
+      .first-child {
+        .mat-form-field-should-float {
+          margin-top: 12px;
+        }
+      }
+    }
+  }
+}
+
+.account-form-rtl {
+  .account-form-comp__form__row__card {
+    display: flex;
+  }
+  .account-form-comp__form__row {
+    .mat-form-field-right {
+      mat-form-field {
+        text-align: right;
+        text-align: -webkit-right;
+      }
+    }
+
+    .account-form-comp__form__row__currency {
+      .currency-label {
+        display: flex;
+      }
+    }
+  }
+  @include respond-to(screen-m-min) {
+    .account-form-comp__form__row {
+      &__two-cols-right {
+        padding-left: 34px;
+        padding-right: 0px;
+      }
+      &__two-cols-left {
+        padding-right: 34px;
+        padding-left: 0px;
+      }
+      .mat-form-field-left {
+        padding-left: 5px;
+      }
+    }
+  }
+  .account-form-comp__wrapper__buttons {
+    display: flex;
+    .next-btn {
+      margin-right: 16px;
+      margin-left: 0px;
+      @include respond-to(screen-m-min) {
+        margin-right: 27px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .account-currency-list {
+  .checkbox-with-image-comp {
+    display: flex;
+    flex-wrap: wrap;
+    &__container {
+      margin-right: 16px;
+      &:last-child {
+        margin-right: 0;
+      }
+      &__wrapper {
+        margin-top: 24px;
+      }
+    }
+    .checkbox-with-image-comp__container__wrapper__input {
+      label {
+        top: 1px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .currency-list-rtl {
+  .checkbox-with-image-comp {
+    &__container {
+      margin-right: 0px;
+      margin-left: 16px;
+      &:last-child {
+        margin-left: 0;
+      }
+      &__wrapper {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+.card-format {
+  font: 2.73ch Roboto-Regular, monospace;
+  @include respond-to(screen-l-min) {
+    font: 3.5ch Roboto-Regular, monospace;
+  }
+}

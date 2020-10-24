@@ -1,0 +1,11 @@
+<div class="step-three-comp" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'uae-other-beneficiary-rtl': ''">
+    <div class="step-three-comp__wrapper" *ngIf="showAddBy">
+        <div class="step-three-comp__wrapper__title" translate>tr_addBene_addByText</div>
+        <app-checkbox-generic [optionsList]="addbyList" id="addBy" componentName="addBy"
+            (selectedOptionValue)="selectedAccount($event)" class="step-three-addby"
+            [ngClass]="(selectedLanguage === arabicLanguageText) ? 'add-by-checkbox-rtl': ''">
+        </app-checkbox-generic>
+    </div>
+</div>
+<app-account-selection-form [showForm]="showForm" [currencyList]="currencyList" [showIBAN]="showIBAN"
+    [showCard]="showCard"></app-account-selection-form>

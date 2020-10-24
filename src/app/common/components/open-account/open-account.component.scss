@@ -1,0 +1,81 @@
+@import "src/assets/styles/default";
+
+.open-account-comp {
+  height: auto;
+  position: absolute;
+  top: 56px;
+  z-index: 8;
+  width: 100%;
+  @include respond-to(screen-m-min) {
+    width: calc(100% - 92px);
+    top: 92px;
+    left: 92px;
+    margin-left: auto;
+  }
+  &__wrapper {
+    padding: 14px 16px;
+    margin-bottom: 60px;
+
+    @include respond-to(screen-m-min) {
+      padding: 20px 38px;
+    }
+    @include respond-to(screen-xl-min) {
+      padding: 22px 40px;
+    }
+
+    &__header {
+      @include respond-to(screen-xl-min) {
+      }
+    }
+    &__cards {
+      padding-top: 16px;
+      @include respond-to(screen-xl-min) {
+        padding-top: 16px;
+      }
+    }
+  }
+}
+
+.title {
+  margin-bottom: 16px;
+  @include respond-to(screen-xl-min) {
+    margin-bottom: 19px;
+  }
+  color: $suva-grey;
+  font-family: $font-regular;
+  font-size: 16px;
+}
+.cta-back-btn {
+  font-size: 14px;
+  margin-bottom: 10px;
+  @include respond-to(screen-xl-min) {
+    margin-bottom: 18px;
+  }
+  &:before {
+    top: 4px;
+  }
+}
+
+.open-account-comp-rtl {
+  direction: rtl;
+  text-align: right;
+  left: 0px;
+  right: 92px;
+  .cta-back-btn {
+    margin-right: 12px;
+    &::before {
+      top: 8px;
+      left: 100%;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+:host ::ng-deep .open-account-comp-rtl {
+  .checkbox-generic-rtl {
+    .checkbox-with-image-comp__container {
+      margin-right: 0px;
+      margin-left: 27px;
+    }
+  }
+}

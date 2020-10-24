@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="25px" viewBox="0 0 26 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>5AB2E376-9A9D-4B11-90B7-FABFB2710A34@2x</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-1.0.0.0" transform="translate(-73.000000, -464.000000)">
+            <g id="Main-Navigation" transform="translate(40.000000, 40.000000)">
+                <g id="Transfer-&amp;-Payments-Normal" transform="translate(0.000000, 409.000000)">
+                    <g id="ic.Transfer-&amp;-Payments-Normal" transform="translate(34.000000, 15.000000)">
+                        <rect id="Bond" stroke="#AFAFAF" stroke-width="1.07" opacity="0" fill-rule="nonzero" x="0.535" y="0.535" width="22.93" height="22.93" rx="2"></rect>
+                        <g id="1" transform="translate(0.000000, 2.000000)" stroke="#1E326E">
+                            <path d="M4.99995253,0 C2.51098979,0 0,0.61885081 0,1.9995611 C0,3.38122234 2.51098979,4 4.99995253,4 C7.48901021,4 10,3.38122234 10,1.9995611 C10,0.61885081 7.48901021,0 4.99995253,0 Z" id="Path"></path>
+                            <path d="M10,5 C10,6.10436676 7.76126828,7 5,7 C2.23883987,7 0,6.10436676 0,5" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10,8 C10,9.10436676 7.76126828,10 5,10 C2.23883987,10 0,9.10436676 0,8" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10,14 C10,15.1043668 7.76126828,16 5,16 C2.23883987,16 0,15.1043668 0,14" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10,11 C10,12.1043668 7.76126828,13 5,13 C2.23883987,13 0,12.1043668 0,11" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10,17 C10,18.1043668 7.76126828,19 5,19 C2.23883987,19 0,18.1043668 0,17" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10,20 C10,21.1043668 7.76126828,22 5,22 C2.23883987,22 0,21.1043668 0,20" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <g id="2" transform="translate(14.000000, 10.000000)" stroke="#1E326E">
+                            <path d="M4.99995253,0 C2.51098979,0 0,0.61885081 0,1.9995611 C0,3.38122234 2.51098979,4 4.99995253,4 C7.48901021,4 10,3.38122234 10,1.9995611 C10,0.61885081 7.48901021,0 4.99995253,0 Z" id="Path"></path>
+                            <path d="M10,5 C10,6.10436676 7.76126828,7 5,7 C2.23883987,7 0,6.10436676 0,5" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10,8 C10,9.10436676 7.76126828,10 5,10 C2.23883987,10 0,9.10436676 0,8" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10,11 C10,12.1043668 7.76126828,13 5,13 C2.23883987,13 0,12.1043668 0,11" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <path d="M23.962216,3.16076294 C24.0396263,2.96676911 23.9967992,2.74347245 23.853714,2.59504347 L21.3536689,9.1038288e-15 L20.6466562,0.733878292 L22.2931859,2.44297392 L17.0000723,2.44297392 L17.0000723,3.48099134 L23.5002076,3.48099134 C23.7024258,3.48104413 23.8847664,3.35465978 23.962216,3.16076294 Z" id="Icon-Path" fill="#17396C" fill-rule="nonzero"></path>
+                        <path d="M15.038073,4.32022859 C14.9606627,4.51422242 15.0034898,4.73751908 15.146575,4.88594806 L17.6466201,7.48099153 L18.3536328,6.74711324 L16.7071031,5.03801761 L22.0002167,5.03801761 L22.0002167,3.99999934 L15.5000814,3.99999934 C15.2978222,3.99980695 15.1154133,4.12623863 15.038073,4.32022859 Z" id="Icon-Path" fill="#17396C" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

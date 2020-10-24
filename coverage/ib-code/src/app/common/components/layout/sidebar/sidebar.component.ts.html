@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/components/layout/sidebar/sidebar.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">All files</a> / <a href="index.html">src/app/common/components/layout/sidebar</a> sidebar.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">79.49% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>31/39</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">72.73% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">77.14% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>27/35</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+&nbsp;
+import { APISyncService } from 'src/app/common/services/sync.service';
+import { SharedService } from 'src/app/common/services/shared.service';
+import { LogoutService } from 'src/app/modules/logout/services/logout.service';
+&nbsp;
+import { NAVBAR_LIST_JSON, ARABIC_LANG_TEXT, LOGOUT_DROPDOWN, PROFILE_MENU_DATA } from 'src/app/common/global-constants';
+import { MenuOptionItem, MenuOption } from 'src/app/common/models/menu-option.model';
+import { Router } from '@angular/router';
+&nbsp;
+@Component({
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss']
+})
+export class SidebarComponent implements OnInit, OnDestroy {
+  logoutDropDownList: MenuOptionItem[] = LOGOUT_DROPDOWN;
+  collapseMenu = false;
+  navlists: string[];
+  selectedLanguage: string;
+  arabicLanguageText = ARABIC_LANG_TEXT;
+  subscription$ = new Subscription();
+  customerName: string;
+&nbsp;
+  @ViewChild('sideNavContent', { static: true }) sideNavContent: ElementRef;
+  constructor(
+    private router: Router,
+    private syncService: APISyncService,
+    private sharedService: SharedService,
+    private logoutService: LogoutService) { }
+&nbsp;
+  ngOnInit() {
+    this.syncService.get(NAVBAR_LIST_JSON, 'json').subscribe(
+<span class="fstat-no" title="function not covered" >      data =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        this.navlists = data as string[];</span>
+      });
+    this.loadUserData();
+    this.getSelectedLanguage();
+  }
+&nbsp;
+  /**
+   * @methodName closeMenu
+   * @description Toggle navbar after clicking outside on the grey background
+   * @parameters event
+   * @return none
+   */
+  closeMenu(event): void {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (event.target.classList.contains('showBg')) {
+      this.collapseMenu = false;
+      this.sideNavContent.nativeElement.classList.contains('show') ? <span class="branch-0 cbranch-no" title="branch not covered" >this.sideNavContent.nativeElement.classList.remove('show') </span>:
+        this.sideNavContent.nativeElement.classList.add('show');
+    }
+  }
+&nbsp;
+  /**
+   * @methodName loadUserData
+   * @description used to load userData from userService
+   * @parameters none
+   * @return none
+   */
+&nbsp;
+  loadUserData(): void {
+    this.subscription$.add(this.sharedService.customerDetailsSubject.subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      this.customerName = response;</span>
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedLanguage
+   * @parameter none
+   * @description Used to set selected language EN | AR
+   * @return none
+   */
+  getSelectedLanguage(): void {
+    this.subscription$.add(this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) =&gt; {
+      this.selectedLanguage = selectedLanguage;
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName menuClickHandler
+   * @description used to recieve clicked menu option and logout from the application
+   * @parameters selectedMenuItem&lt;string&gt;
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  menuClickHandler(</span>selectedMenuItem: MenuOption): void {
+<span class="cstat-no" title="statement not covered" >    if (selectedMenuItem.actionType === PROFILE_MENU_DATA.logout) {</span>
+<span class="cstat-no" title="statement not covered" >      this.logoutService.logoutUser();</span>
+    } else <span class="cstat-no" title="statement not covered" >if (selectedMenuItem.actionType === PROFILE_MENU_DATA.changePassword) {</span>
+<span class="cstat-no" title="statement not covered" >      this.router.navigateByUrl(PROFILE_MENU_DATA.changePasswordRoute);</span>
+    } else <span class="cstat-no" title="statement not covered" >if (selectedMenuItem.actionType === PROFILE_MENU_DATA.myProfile) {</span>
+<span class="cstat-no" title="statement not covered" >      this.router.navigateByUrl(PROFILE_MENU_DATA.profileRoute);</span>
+    }
+  }
+&nbsp;
+  ngOnDestroy() {
+    this.subscription$.unsubscribe();
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

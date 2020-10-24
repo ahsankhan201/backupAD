@@ -1,0 +1,12 @@
+<div class="checkbox-with-image-comp"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'checkbox-with-image-rtl': ''">
+    <div class="checkbox-with-image-comp__wrapper" *ngFor="let item of cardOptionsList"
+        (click)="handleChange($event, imageCheckBox)" [ngClass]="(item.title==activeOption)?'active':''">
+        <span class="checkbox-with-image-comp__wrapper__img"><img alt="checkbox" src="{{item.imgSrc}}"></span>
+        <span class="checkbox-with-image-comp__wrapper__title {{titleColor}}">{{item.title | translate}}</span>
+        <div class="checkbox-with-image-comp__wrapper__input ibd-check-box">
+            <input type="radio" id="{{item.id}}" name="{{componentName}}" value="{{item.title}}" #imageCheckBox />
+            <label for="{{item.id}}"></label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="ibd-dashboard-footer"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'footer-rtl-layout': ''">
+    <div class="ibd-dashboard-footer__wrapper">
+        <div class="ibd-dashboard-footer__wrapper__text" translate>tr_common_footer_copyright</div>
+        <div class="ibd-dashboard-footer__wrapper__link-wrapper">
+            <a class="ibd-dashboard-footer__wrapper__link-wrapper__link-text" [href]="bankingFeesLink" target="_blank"
+                translate>tr_common_footer_banking_fees</a>
+            <div class="ibd-dashboard-footer__wrapper__link-wrapper__seprator"></div>
+            <a class="ibd-dashboard-footer__wrapper__link-wrapper__link-text" [href]="securityTipsLink" target="_blank"
+                translate>tr_registrationComponent_fraudSecurityText</a>
+            <div class="ibd-dashboard-footer__wrapper__link-wrapper__seprator"></div>
+            <a class="ibd-dashboard-footer__wrapper__link-wrapper__link-text" [href]="termsConditionLink"
+                target="_blank" translate>tr_common_termsAndConditions</a>
+        </div>
+    </div>
+</div>

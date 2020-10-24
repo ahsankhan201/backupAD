@@ -1,0 +1,32 @@
+<section class="money-transfer-from-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'transfer-from-rtl': ''">
+    <div class="money-transfer-from-comp__wrapper">
+        <app-checkbox-generic [optionsList]="selectFromOptionList"
+            [preSelectedOption]="showFromCardsTransferView?'CARDS':'ACCOUNT'" componentName="selectionFromOption"
+            (selectedOptionValue)="selectedTransferFromOption($event)" customClassName="active-blue"
+            class="money-transfer-from-generic-checkbox"
+            [ngClass]="(selectedLanguage === arabicLanguageText) ? 'transfer-from-checkbox-rtl': ''"
+            *ngIf="showCardsTabInStepFrom">
+        </app-checkbox-generic>
+        <div *ngIf="showAccountsCheckbox">
+            <app-account-checkbox [checkBoxAccountsList]="transferFromAccountList"
+                componentName="transferFromAccountCheckBox" (selectedAccountOption)="selectedAccount($event)"
+                [preSelectedValue]="selectedAccountNumber">
+            </app-account-checkbox>
+        </div>
+        <div *ngIf="!showAccountsCheckbox && showCardsCheckbox && showCardsTabInStepFrom">
+            <app-checkbox-card [checkBoxCoverCardList]="transferFromCoverCardList"
+                componentName="transferFromCardCheckBox" (selectedCardOption)="selectedCard($event)">
+            </app-checkbox-card>
+        </div>
+        <div class="alert-message" *ngIf="showAlertMessage">
+            {{accountCardAlertText | translate}}
+        </div>
+        <div class="money-transfer-from-comp__wrapper__buttons">
+            <button class="btn cancel-btn" type="button" (click)="cancelTransaction(true)"
+                translate>tr_common_cancelTransactionText</button>
+            <button matStepperNext class="btn next-btn" type="button" [disabled]="!enableNextBtn"
+                (click)="moveToNextStep()" translate>tr_common_nextText</button>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,25 @@
+<section class="telecom-selection-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'telecom-payee-rtl': ''">
+    <div class="telecom-selection-comp__provider" *ngFor="let telecomProvider of telecomProvidersList">
+        <div class="telecom-selection-comp__provider__card">
+            <div class="telecom-selection-comp__provider__card__wrapper">
+                <span class="telecom-selection-comp__provider__card__wrapper__img"><img
+                        alt="telecom provider" src="{{telecomProvider.imgSrc}}"></span>
+                <span class="telecom-selection-comp__provider__card__wrapper__title">{{telecomProvider.provider | titlecase }}</span>
+            </div>
+        </div>
+        <div class="telecom-selection-comp__provider__checkbox">
+            <app-checkbox-generic [optionsList]="telecomProvider.providerProduct"
+                [componentName]="'telecomProviderSelection'" (selectedOptionValue)="selectedTelecomProduct($event)"
+                class="telecom-provider-checkbox"
+                [ngClass]="(selectedLanguage === arabicLanguageText) ? 'telecom-checkbox-rtl': ''"
+                [emitSelectedEleID]="true">
+            </app-checkbox-generic>
+        </div>
+    </div>
+    <div class="telecom-selection-comp__buttons">
+        <button matStepperPrevious class="btn previous-btn" type="button" translate>tr_common_previousText</button>
+        <button matStepperNext class="btn next-btn" type="button" [disabled]="!enableNextBtn"
+            translate>tr_common_nextText</button>
+    </div>
+</section>

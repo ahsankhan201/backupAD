@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/components/payments/payments.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/common/components/payments</a> payments.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>48/72</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>9/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">68.75% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>11/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.18% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>45/68</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { MatStepper } from '@angular/material';
+import { StepperSelectionEvent } from '@angular/cdk/stepper';
+import { Subscription } from 'rxjs';
+&nbsp;
+// import services
+import { SharedService } from 'src/app/common/services/shared.service';
+import { DialogService } from '../../services/dialog.service';
+import { NAV_CONTROLS, PAYMENT_VIEW_MAPPING_OBJ, PAYMENT_SCREEN_TEXT, ARABIC_LANG_TEXT } from '../../global-constants';
+import {
+  PAYMENT_STEPPER_TEXT,
+  CANCEL_TRANSACTION_POPUP_TEXT
+} from '../../../modules/transfers-payments/transfers-payments-module.constants';
+import { Dialog } from '../../models/dialog.model';
+import { PaymentService } from '../../services/payment/payment.service';
+&nbsp;
+@Component({
+  selector: 'app-payments',
+  templateUrl: './payments.component.html',
+  styleUrls: ['./payments.component.scss']
+})
+export class PaymentsComponent implements OnInit, OnDestroy {
+  @Input() showTransferFromStep: boolean;
+  @Input() showTransferToStep: boolean;
+  @Input() parentComponentTitle: string;
+  @Input() selectedComponentTitle: string;
+  @Input() selectedAccountNumber: string;
+  @Output() completeTransactionEvent: EventEmitter&lt;boolean&gt; = new EventEmitter();
+&nbsp;
+  stepperText = this.sharedService.clone(PAYMENT_STEPPER_TEXT);
+  navControls = NAV_CONTROLS;
+  transferFromScreenText = PAYMENT_SCREEN_TEXT;
+  subscription$ = new Subscription();
+  componentSelectionTitle: string;
+  showWrapperTitleTransferTo = true;
+  isPaymentToCoverCard: boolean;
+  showCardsPayBillsView: boolean;
+  stepperTextTransferDetailsTitle = this.stepperText.transferDetails;
+  stepperTextConfirmTitle = PAYMENT_STEPPER_TEXT.summary;
+  selectedLanguage: string;
+  arabicLanguageText = ARABIC_LANG_TEXT;
+  constructor(
+    private sharedService: SharedService,
+    private paymentService: PaymentService,
+    private dialogService: DialogService) {
+    this.handleStepperText();
+  }
+&nbsp;
+  ngOnInit() {
+    this.getSelectedLanguage();
+    this.sharedService.setCancelTransactionInfo(false);
+    this.getCancelTransactionRoute();
+    this.setIsPayPaymentToCoverCard();
+    this.setCardsPayBillsView();
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedLanguage
+   * @parameter none
+   * @description Used to set selected language EN | AR
+   * @return none
+   */
+  getSelectedLanguage(): void {
+    this.subscription$.add(this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) =&gt; {
+      this.selectedLanguage = selectedLanguage;
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName stepIndexChanged
+   * @param stepper, event
+   * @description Used to fetch the current step and set other steps interacted accordingly
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  stepIndexChanged(</span>stepper: MatStepper, event: StepperSelectionEvent): void {
+    const currentStep = <span class="cstat-no" title="statement not covered" >event.selectedIndex;</span>
+<span class="cstat-no" title="statement not covered" >    stepper.steps.toArray().forEach(<span class="fstat-no" title="function not covered" >(</span>step, index) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      step.interacted = index &lt; currentStep ? true : false;</span>
+    });
+  }
+&nbsp;
+  /**
+   * @methodName cancelTransaction
+   * @description used to toggle the payments view on cancelling transaction
+   * @parameters none
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  cancelTransaction(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.dialogService.open(this.setTransactionDialogInfo());</span>
+<span class="cstat-no" title="statement not covered" >    this.dialogService.confirmed().subscribe(<span class="fstat-no" title="function not covered" >(</span>dialogResponse: boolean) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (dialogResponse) {</span>
+<span class="cstat-no" title="statement not covered" >        this.completeTransactionEvent.emit(false);</span>
+      }
+    });
+  }
+&nbsp;
+  /**
+   * @methodName setTransactionDialogInfo
+   * @description used to set the cancel transaction dialog model info
+   * @parameters none
+   * @return object&lt;Dialog&gt;
+   */
+<span class="fstat-no" title="function not covered" >  setTransactionDialogInfo(): Dialog {</span>
+    const dialogModel = <span class="cstat-no" title="statement not covered" >{} as Dialog;</span>
+<span class="cstat-no" title="statement not covered" >    dialogModel.title = CANCEL_TRANSACTION_POPUP_TEXT.cancelTitle;</span>
+<span class="cstat-no" title="statement not covered" >    dialogModel.showForm = false;</span>
+<span class="cstat-no" title="statement not covered" >    dialogModel.message = CANCEL_TRANSACTION_POPUP_TEXT.cancelMessage;</span>
+<span class="cstat-no" title="statement not covered" >    dialogModel.cancelText = CANCEL_TRANSACTION_POPUP_TEXT.noText;</span>
+<span class="cstat-no" title="statement not covered" >    dialogModel.confirmText = CANCEL_TRANSACTION_POPUP_TEXT.yesText;</span>
+<span class="cstat-no" title="statement not covered" >    return dialogModel;</span>
+  }
+&nbsp;
+  /**
+   * @methodName handleStepperText
+   * @description used to udpate stepperText in required
+   * @parameters none
+   * @return none
+   */
+  handleStepperText(): void {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.paymentService.isPaymentTypeDonation()) {
+      const STEPPER_TEXT = <span class="cstat-no" title="statement not covered" >this.sharedService.clone(PAYMENT_STEPPER_TEXT);</span>
+<span class="cstat-no" title="statement not covered" >      this.stepperText.transferTo = STEPPER_TEXT.donateTo;</span>
+<span class="cstat-no" title="statement not covered" >      this.stepperText.transferDetails = STEPPER_TEXT.transactionDetails;</span>
+<span class="cstat-no" title="statement not covered" >      this.stepperTextTransferDetailsTitle = STEPPER_TEXT.transferDetails;</span>
+<span class="cstat-no" title="statement not covered" >      this.showWrapperTitleTransferTo = false;</span>
+    }
+  }
+&nbsp;
+  /* @methodName getCancelTransactionRoute
+   * @description listen to the cancel transaction route info from stepper form
+   * @parameters none
+   * @return none
+   */
+  getCancelTransactionRoute(): void {
+    this.subscription$.add(this.sharedService.getCancelTransactionInfo().subscribe(cancelTransaction =&gt; {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (cancelTransaction &amp;&amp; cancelTransaction.cancelTransaction) {
+<span class="cstat-no" title="statement not covered" >        this.cancelTransaction();</span>
+      } else <span class="missing-if-branch" title="if path not taken" >I</span>if (cancelTransaction &amp;&amp; cancelTransaction.hidePopUp) {
+<span class="cstat-no" title="statement not covered" >        this.completeTransactionEvent.emit(false);</span>
+      }
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName setIsPayPaymentToCoverCard
+   * @parameter none
+   * @description used to set isPaymentToCoverCard value
+   * @return none
+   */
+  setIsPayPaymentToCoverCard(): void {
+    this.isPaymentToCoverCard = false;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.parentComponentTitle === PAYMENT_VIEW_MAPPING_OBJ.paymentToCoverCard) {
+<span class="cstat-no" title="statement not covered" >      this.isPaymentToCoverCard = true;</span>
+<span class="cstat-no" title="statement not covered" >      this.stepperText.transferFrom = PAYMENT_VIEW_MAPPING_OBJ.payFromStepperText;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName setCardsPayBillsView
+   * @parameter none
+   * @description used to set card paybills view
+   * @return none
+   */
+  setCardsPayBillsView(): void {
+    this.showCardsPayBillsView = this.parentComponentTitle === PAYMENT_VIEW_MAPPING_OBJ.cardsDashBoard ? <span class="branch-0 cbranch-no" title="branch not covered" >true </span>: false;
+  }
+&nbsp;
+  ngOnDestroy() {
+    this.subscription$.unsubscribe();
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

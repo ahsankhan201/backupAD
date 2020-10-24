@@ -1,0 +1,63 @@
+<section class="money-transfer-to-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'transfer-to-rtl': ''">
+    <div class="money-transfer-to-comp__wrapper">
+        <app-checkbox-generic [optionsList]="selectTransferToOptionList" componentName="selectionToOption"
+            [preSelectedOption]="'ACCOUNT'" (selectedOptionValue)="selectedTransferToOption($event)"
+            [hiddenOption]="hideTransferToAdibCard?'CARD':''" customClassName="active-blue"
+            class="money-transfer-to-generic-checkbox"
+            [ngClass]="(selectedLanguage === arabicLanguageText) ? 'transfer-to-checkbox-rtl': ''">
+        </app-checkbox-generic>
+        <div *ngIf="showAccountsCheckbox && !showCardsCheckbox && !showBeneficiaryCheckbox">
+            <app-account-checkbox [checkBoxAccountsList]="transferToAccountList"
+                componentName="transferToAccountCheckBox" (selectedAccountOption)="selectedAccount($event)"
+                [preSelectedValue]="selectedAccountNumber">
+            </app-account-checkbox>
+        </div>
+        <div *ngIf="!showAccountsCheckbox && showCardsCheckbox && !showBeneficiaryCheckbox && !hideTransferToAdibCard">
+            <app-checkbox-card [checkBoxCoverCardList]="transferToCoverCardList" componentName="transferToCardCheckBox"
+                (selectedCardOption)="selectedCard($event)">
+            </app-checkbox-card>
+        </div>
+        <div *ngIf="!showAccountsCheckbox && !showCardsCheckbox && showBeneficiaryCheckbox">
+            <div class="transfer-to-beneficiary-controls" *ngIf="!showAlertMessage">
+                <div class="transfer-to-beneficiary-controls__search">
+                    <input [(ngModel)]="searchText" appAlphaNumeric
+                        placeholder="{{moneyTransferScreenText.searchText | translate}}"
+                        (input)="onBeneficiarySearch($event.target.value)">
+                    <span class="search-icon"></span>
+                </div>
+                <div class="transfer-to-beneficiary-controls__button-wrapper">
+                    <span class="add-btn" routerLink="/beneficiary" translate>tr_common_addBeneficiaryText
+                        <img alt="add icon" src="/assets/icons/add-icon.svg">
+                    </span>
+                    <span class="text">
+                        <strong translate>tr_common_noteText</strong> :
+                        <span translate>tr_moneyTransferComponent_coolingPeriodText</span>
+                    </span>
+                </div>
+            </div>
+            <app-checkbox-beneficiary (selectedOptionValue)="selectedBeneficiary($event)"
+                [checkBoxBeneficiaryList]="allBeneficiaryList" componentName="transferToBeneCheckBox">
+            </app-checkbox-beneficiary>
+        </div>
+        <div class="alert-message" *ngIf="showAlertMessage">
+            {{accountCardAlertText | translate}}
+        </div>
+        <div class="transfer-to-beneficiary-controls__button-wrapper mt-3" *ngIf="showAlertMessage">
+            <span *ngIf="showOpenAccountButton" class="add-btn ml-0" translate>tr_accountDetailComponent_OPEN_ACCOUNT
+                <img alt="add icon" src="/assets/icons/add-icon.svg">
+            </span>
+            <span *ngIf="showAddBeneficiaryButton" class="add-btn ml-0" translate
+                routerLink="/beneficiary">tr_common_addBeneficiaryText
+                <img alt="add icon" src="/assets/icons/add-icon.svg">
+            </span>
+        </div>
+        <div class="money-transfer-to-comp__wrapper__buttons">
+            <button class="btn cancel-btn" type="button" (click)="cancelTransaction(true)"
+                translate>tr_common_cancelTransactionText</button>
+            <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+            <button matStepperNext class="btn next-btn" type="button" [disabled]="!enableNextBtn"
+                (click)="moveToNextStep()" translate>tr_common_nextText</button>
+        </div>
+    </div>
+</section>

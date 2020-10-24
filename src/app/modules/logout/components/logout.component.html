@@ -1,0 +1,57 @@
+<section class="logout-component" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'logout-rtl-layout': ''">
+    <div class="logout-component__wrapper">
+        <div class="logout-component__wrapper__header">
+            <app-header-login-and-registration class="logout-component-header">
+            </app-header-login-and-registration>
+        </div>
+        <div class="logout-component__wrapper__body">
+            <div class="logout-component__wrapper__body__wrapper">
+                <!-- images for white background -->
+                <img *ngIf="!isSessionExpired" alt="logout" src="{{LOGOUT_SCREEN_IMAGES.LOGOUT_SUCCESS_IMG_BLUE}}">
+                <img *ngIf="isSessionExpired" alt="logout" src="{{LOGOUT_SCREEN_IMAGES.SESSION_EXP_IMG_BLUE}}">
+
+                <div class="sub" *ngIf="!isSessionExpired" translate>tr_logoutComponent_successfulLogoutText</div>
+                <div class="title" *ngIf="!isSessionExpired" translate>tr_logoutComponent_thankYouText</div>
+                <div class="title" *ngIf="isSessionExpired" translate>tr_logoutComponent_yourSessionExpiredText</div>
+                <div class="link-title" translate>tr_logoutComponent_loginBackText</div>
+            </div>
+            <button class="btn next-btn" type="button" routerLink="/" translate>tr_common_loginText</button>
+            <div class="logout-component__wrapper__body__footer">
+                <div class="logout-component__wrapper__body__footer__wrapper">
+                    <div class="footer-link">{{ adibWebsiteUrl | translate}}</div>
+                    <div class="footer-link" translate>tr_registrationComponent_fraudSecurityText</div>
+                    <div class="footer-link" translate>tr_common_termsAndConditions</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- right side section for larger devices -->
+    <div class="logout-component__security-tips">
+        <!-- images for blue background -->
+        <img *ngIf="!isSessionExpired" alt="logout" src="{{LOGOUT_SCREEN_IMAGES.LOGOUT_SUCCESS_IMG_WHITE}}">
+        <img *ngIf="isSessionExpired" alt="logout" src="{{LOGOUT_SCREEN_IMAGES.SESSION_EXP_IMG_WHITE}}">
+    </div>
+
+    <!-- QR images footer -->
+    <div class="logout-component__footer">
+        <div class="logout-component__footer__app-store">
+            <div class="logout-component__footer__app-store__qr-code"><img alt="Apple Store QR"
+                    src="{{SECURITY_TIPS_CONSTANTS.APP_STORE_QR}}">
+            </div>
+            <div class="logout-component__footer__app-store__app-link" (click)="openDownloadAppTab(APP_STORE_LINK)"><img
+                    alt="Apple Store" src="{{SECURITY_TIPS_CONSTANTS.APP_STORE_LINK}}"></div>
+        </div>
+        <div class="logout-component__footer__text">
+            <div class="logout-component__footer__text__download" translate>tr_registrationComponent_downloadText</div>
+            <div class="logout-component__footer__text__app" translate>tr_registrationComponent_appText</div>
+        </div>
+        <div class="logout-component__footer__google-play">
+            <div class="logout-component__footer__google-play__qr-code"><img alt="Google Play QR"
+                    src="{{SECURITY_TIPS_CONSTANTS.GOOGLE_PLAY_QR}}">
+            </div>
+            <div class="logout-component__footer__google-play__app-link" (click)="openDownloadAppTab(GOOGLE_PLAY_LINK)">
+                <img alt="Google Play" src="{{SECURITY_TIPS_CONSTANTS.GOOGLE_PLAY_LINK}}"></div>
+        </div>
+    </div>
+</section>

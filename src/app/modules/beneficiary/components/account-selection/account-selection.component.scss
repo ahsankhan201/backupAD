@@ -1,0 +1,66 @@
+@import "src/assets/styles/default";
+
+.step-three-comp {
+  &__wrapper {
+    &__title {
+      @extend .ibd-small-text;
+      font-family: $font-regular;
+      font-size: 14px;
+      color: $suva-grey;
+      padding-bottom: 16px;
+    }
+  }
+}
+
+:host ::ng-deep .step-three-addby {
+  .checkbox-with-image-comp {
+    display: flex;
+    flex-wrap: wrap;
+    &__container {
+      margin-right: 16px;
+      &:last-child {
+        margin-right: 0;
+      }
+      &__wrapper {
+        margin-top: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  }
+}
+
+$char-w: 1ch;
+$gap: 0.5 * $char-w;
+$n-char: 16;
+$in-w: $n-char * ($char-w + $gap);
+
+.otp {
+  display: inline-block;
+  margin: 2em auto;
+  border: none;
+  padding: 0;
+  width: $in-w;
+  background: repeating-linear-gradient(
+      90deg,
+      #959494 0,
+      #a6a3a3 1ch,
+      transparent 0,
+      transparent 1.5ch
+    )
+    0 100%/23.5ch 2px no-repeat;
+  color: rgb(30, 30, 30);
+  font: 4ch Roboto-Regular, monospace;
+  letter-spacing: $gap;
+  &:focus {
+    outline: none;
+    color: rgb(30, 30, 30);
+  }
+}
+
+.account-form {
+  @include respond-to(screen-m-min) {
+    mat-form-field {
+      width: 213px;
+    }
+  }
+}

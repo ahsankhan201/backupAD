@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="16px" viewBox="0 0 13 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>ic.Verified@2x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g id="Cards/Web/Accounts/Beneficiaries-NA" transform="translate(-16.000000, -17.000000)" fill-rule="nonzero">
+            <g id="ic.Verified" transform="translate(14.000000, 16.000000)">
+                <rect id="ViewBox" x="0" y="0" width="18" height="18"></rect>
+                <path d="M8.5,1.55190496 L2.5,4.35587872 L2.5,8.32374579 C2.5,10.2319711 3.15566955,12.0671806 4.25479334,13.5343002 C5.31671119,14.9517571 6.79403627,16.0272564 8.49980684,16.4835809 C10.2057791,16.0273907 11.6832225,14.9518456 12.7452067,13.5343002 C13.8443305,12.0671806 14.5,10.2319711 14.5,8.32374579 L14.5,4.35587872 L8.5,1.55190496 Z" id="Icon-Path" stroke="#828282"></path>
+                <polygon id="Icon-Path" stroke="#828282" stroke-width="0.4" fill="#828282" points="11.5 7.26661639 7.5 11 5.5 9.13330819 5.78565657 8.86669181 7.5 10.4667672 11.2139394 7 11.499596 7.26699349"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

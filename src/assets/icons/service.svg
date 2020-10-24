@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>A50E064A-4B03-48F8-9E00-C069A0058070@2x</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-1.0.0.0" transform="translate(-74.000000, -737.000000)">
+            <g id="Normal" transform="translate(40.000000, 103.000000)">
+                <g id="Services-Normal" transform="translate(0.000000, 612.000000)">
+                    <g id="ic.Services-Normal" transform="translate(34.000000, 22.000000)">
+                        <rect id="Bond" stroke="#AFAFAF" stroke-width="1.07" opacity="0" fill-rule="nonzero" x="0.535" y="0.535" width="22.93" height="22.93" rx="2"></rect>
+                        <path d="M12.0168424,1.57072616 L20.1678567,5.64395429 L4.05512266,6.40758422 L12.0168424,1.57072616 Z" id="Path" stroke="#1D2E65"></path>
+                        <rect id="Rectangle" fill="#1E326E" x="1" y="22" width="22" height="1" rx="0.5"></rect>
+                        <rect id="Rectangle" fill="#1E326E" x="4" y="9" width="1" height="11" rx="0.5"></rect>
+                        <rect id="Rectangle" fill="#1E326E" x="11" y="11" width="1" height="7" rx="0.5"></rect>
+                        <rect id="Rectangle" fill="#1E326E" x="19" y="9" width="1" height="11" rx="0.5"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

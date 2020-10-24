@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/modules/beneficiary/beneficiary-module.constants.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/app/modules/beneficiary</a> beneficiary-module.constants.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>25/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>25/25</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const BENEFICIARY_REGION = [{ title: 'tr_common_uaeText', id: 'UAE', imgSrc: '/assets/images/UAE_Flag@2x.svg' },
+{ title: 'tr_addBene_intlText', id: 'international', imgSrc: '/assets/images/International_Glob@2x.svg' }];
+&nbsp;
+export const BENEFICIARY_BANKS = [{ title: 'tr_common_adibText', id: 'ADIB', imgSrc: '/assets/images/ADIB_Globe@2x.svg' },
+{ title: 'tr_addBene_otherBanksText', id: 'otherBanks', imgSrc: '/assets/images/ic.Bank-updated.svg' }];
+&nbsp;
+export const BENEFICIARY_ADIB_INTERNATIONAL_BANKS = [{ title: 'ADIB Egypt', id: 'adib_egypt' },
+{ title: 'ADIB Qatar', id: 'adib_qatar' }, { title: 'ADIB UK', id: 'adib_uk' }];
+&nbsp;
+export const BENEFICIARY_ADIB_OTHER_BANK = [{ title: 'Account', id: 'account' },
+{ title: 'Card', id: 'card' }, { title: 'Mobile', id: 'mobile' }];
+&nbsp;
+export const BEN_UAE_OTHER = {
+    addBy: [{ title: 'tr_common_accountText', id: 'account' }, { title: 'tr_common_cardText', id: 'card' }],
+    currency: [{ title: 'INR', id: 'inr' }, { title: 'USD', id: 'usd' }, { title: 'AED', id: 'aed' },
+    { title: 'GBP', id: 'gbp' }, { title: 'EUR', id: 'eur' }]
+};
+&nbsp;
+export const BENEFICIARY_UAE_ADIB = {
+    addBy: [{ title: 'tr_common_accountText', id: 'account' },
+    { title: 'tr_common_cardText', id: 'card' }, { title: 'tr_common_mobileText', id: 'mobile' }],
+};
+&nbsp;
+export const COUNTRY_CODE_UAE = 'ARE';
+&nbsp;
+export const COUNTRY_ISO_CODE = 'countryISOCode';
+&nbsp;
+export const CURRENCY_CODE_UAE = 'AED';
+&nbsp;
+export const VALIDATOR_LENGTH = {
+    mobile: {
+        min: 6,
+        max: 12
+    },
+    iban: {
+        min: 6,
+        max: 12
+    },
+    coverCard: {
+        min: 6,
+        max: 12
+    },
+    account: {
+        main: 6,
+        max: 12
+    }
+};
+&nbsp;
+export const BENEFICIARY_FORM_TEXT = {
+    addBy: 'Add by',
+    currency: 'Currency',
+    abaCode: 'ABA Code',
+    iban: 'tr_common_ibanText',
+    IS_IBAN_REQUIRED: 'Y',
+    confirmIban: 'Confirm IBAN',
+    account: 'Account',
+    confirmAccount: 'Confirm Account',
+    cardText: 'Please enter the card number you would like to make a payment to',
+    name: 'Name',
+    address1: 'Address Line 1',
+    address2: 'Address Line 2',
+    city: 'City',
+    country: 'Country',
+    select: 'Select',
+    nickName: 'Nick name',
+    previous: 'Previous',
+    next: 'Next',
+    optional: 'Optional',
+    cardNumber: 'tr_common_cardNumberText',
+    mobileNumber: 'tr_common_mobileNumberText',
+    mobileNumberLabel: 'Send money to other ADIB accounts, using just their phone number',
+    mobileCountyCode: '+971',
+    mobileCountyCodeWithoutPlus: '971', // mobileCountyCode updated as part of beneficiary V2 migration
+    card: 'card',
+    utilityServiceNumber: 'utilityServiceNumber',
+    accountNumber: 'tr_common_accountNumberText',
+    nickNameProperty: 'nickName',
+    ibanNumber: 'ibanNumber',
+    mobileNumberText: 'mobileNumber',
+    adibCardHint: 'tr_addBenComponent_adibCardHintText',
+    noteText: 'tr_common_noteText',
+    beneAccNoText: 'beneAccNo',
+    addressOne: 'addressOne',
+    addressTwo: 'addressTwo',
+    romania: 'Romania'
+};
+&nbsp;
+export const SUMMARY_SCREEN_TEXT = {
+    currency: 'tr_common_currencyText',
+    name: 'tr_common_nameText',
+    address: 'tr_addBene_addressText'
+};
+&nbsp;
+export const BANK_SELECTION_SCREEN_TEXT = {
+    otherBanks: 'otherBanks',
+    uae: 'UAE',
+    adib: 'ADIB',
+    international: 'international',
+    selectBank: 'Select Bank',
+    selectCountry: 'Select Country',
+    bankName: 'Bank Name',
+    branch: 'Branch',
+    selectRegion: 'Select Region',
+    selectedCountry: 'selectedCountry',
+    selectedBank: 'selectedBank',
+    selectedBranch: 'selectedBranch',
+    matOptionClass: 'mat-option-text'
+};
+&nbsp;
+export const MOBILE_BENEFICIARY_ERROR_CODE = {
+    error_7109: '7109',
+    succees: '0000'
+&nbsp;
+};
+&nbsp;
+export const PAYEE_TYPE = {
+    utility: { shortCode: 'U', name: 'Utility' },
+    charity: { shotCode: 'C', name: 'CHARITY', code: '51' }
+};
+export const PAYEE_ID = {
+    mobileBene: '51',
+};
+&nbsp;
+export enum AddByType {
+    account = 'account',
+    card = 'card',
+    mobile = 'mobile'
+}
+&nbsp;
+export const STEPPER_TEXT = {
+    REGION: 'tr_addBene_regionText',
+    BANK: 'tr_addBene_bankText',
+    ACCOUNT: 'tr_common_accountText',
+    CONFIRM: 'tr_common_confirmText'
+};
+&nbsp;
+export const REGEX = {
+    seprator: '|',
+    param: 'i'
+};
+&nbsp;
+export const ACCOUNTS_OR_CARDS_MAP = {
+    CARD_NUMBER: 'cardNumber',
+    CARDS_LIST: 'cardsList',
+    ACCOUNTS_LIST: 'accountsList',
+    ACCOUNT_NUMBER: 'accountNumber'
+};
+&nbsp;
+export const ROMANIA_REGEX = /PO Box|Post Office Box/i;
+export const ROMANIA_RESTRICTED_WORDS = ['PO Box', 'Post Office Box'];
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

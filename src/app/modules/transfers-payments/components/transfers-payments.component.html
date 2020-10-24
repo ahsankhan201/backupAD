@@ -1,0 +1,71 @@
+<section class="transfers-payments-comp">
+    <div class="transfers-payments-comp__wrapper">
+        <div class="transfers-payments-comp__wrapper__container padding-lrn margin-lrn">
+            <div class="transfers-payments-comp__wrapper__container__body-wrapper row no-gutters">
+                <div class="col-12 padding-lrn transfers-payments-comp__wrapper__container__body-wrapper__body"
+                    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'transfers-payments-rtl-layout': ''"
+                    *ngIf="!showPaymentView && !showTransferView">
+                    <div class="row no-gutters transfers-payments-comp__wrapper__container__body-wrapper__body__link-wrapper"
+                        (click)="showDashboard()" *ngIf="showFullList" routerLink="/transfers-payments">
+                        <span
+                            class="transfers-payments-comp__wrapper__container__body-wrapper__body__link-wrapper__back"
+                            translate>
+                            tr_navControl_backText</span>
+                    </div>
+                    <div class="payment-transfer-dashboard" [ngClass]="{'show-all-cards' : showFullList}"
+                        *ngIf="!showFullList">
+                        <app-beneficiary-list (refreshBeneficiary)="refreshBeneficiaryList($event)"
+                            [formatedBeneList]="formatedBeneList" [showViewAllLink]="showViewAllBeneLink"
+                            (allBeneficiary)="showAllBeneficiaryList()"
+                            (showMoneyTransferView)="changeMoneyTransferView(true, $event, true)">
+                        </app-beneficiary-list>
+
+                        <app-payee-list (refreshPayee)="refreshPayeeList($event)"
+                            [formatedPayeeList]="formatedPayeeList" [showViewAllLink]="showViewAllPayeeLink"
+                            (allPayee)="showAllPayeeList()" (showPaymentView)="changePaymentsView(true, $event, true)">
+                        </app-payee-list>
+                        <div
+                            class="col-12 transfers-payments-comp__wrapper__container__body-wrapper__body__quick-links">
+                            <app-quick-links [quickLinksData]="quickLinksData"
+                                (clickedItem)="handleQuickLinkEvent($event)">
+                            </app-quick-links>
+                        </div>
+                    </div>
+                    <div class="view-all-list" *ngIf="showAllBene">
+                        <app-beneficiary-list (refreshBeneficiary)="refreshBeneficiaryList($event)"
+                            [formatedBeneList]="formatedBeneList" [showAll]="showAllBene"
+                            (showMoneyTransferView)="changeMoneyTransferView(true, $event, true)">
+                        </app-beneficiary-list>
+                    </div>
+                    <div class="view-all-list" *ngIf="showAllPayee">
+                        <app-payee-list (refreshPayee)="refreshPayeeList($event)"
+                            [formatedPayeeList]="formatedPayeeList" [showAll]="showAllPayee"
+                            (showPaymentView)="changePaymentsView(true, $event, true)">
+                        </app-payee-list>
+                    </div>
+                </div>
+                <!-- Payments component code -->
+                <div class=" col-12 padding-lrn transfers-payments-comp__wrapper__container__body-wrapper__body payments-body"
+                    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'payments-body-rtl': ''"
+                    *ngIf="showPaymentView">
+                    <app-payments [showTransferFromStep]="'true'" [showTransferToStep]="showTransferToStep"
+                        [parentComponentTitle]="parentComponentTitle" [selectedComponentTitle]="selectedComponentTitle"
+                        (completeTransactionEvent)="changePaymentsView($event)">
+                    </app-payments>
+                </div>
+                <!-- Transfers component code -->
+                <div class=" col-12 padding-lrn transfers-payments-comp__wrapper__container__body-wrapper__body transfers-body"
+                    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'transfers-body-rtl': ''"
+                    *ngIf="showTransferView">
+                    <app-money-transfer [showMoneyTransferFromStep]="'true'"
+                        [showMoneyTransferToStep]="showMoneyTransferToStep"
+                        [showCardsTabInStepFrom]="showCardsTabInStepFrom" [parentComponentTitle]="parentComponentTitle"
+                        [selectedComponentTitle]="selectedComponentTitle"
+                        (completeTransferEvent)="changeMoneyTransferView($event)">
+                    </app-money-transfer>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<router-outlet></router-outlet>

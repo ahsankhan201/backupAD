@@ -1,0 +1,65 @@
+<div class="ibd-finance-list row margin-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'finance-list-rtl-layout': ''">
+    <div class="col-sm-12 ibd-finance-list__btn-wrapper padding-lrn">
+        <span class="ibd-finance-list__btn-wrapper__title" translate>tr_common_financeText</span>
+    </div>
+
+    <div class="ibd-finance-list__wrapper padding-lrn" #scrollContainer (scroll)="moveScroll(undefined)">
+        <div class="ibd-finance-list__wrapper__no-beneficiary padding-lrn" *ngIf="showNoFinanceMessage">
+            <div class="ibd-finance-list__wrapper-no-beneficiary-container d-flex">
+                <div class="icon"><img alt="info icon" src="{{iconsConst.infoIcon}}" /> </div>
+                <div class="message" translate>tr_financeComponent_noBeneficiaryMessage</div>
+            </div>
+        </div>
+        <div class="ibd-finance-list__wrapper__card" *ngFor="let finance of financeList; let i = index"
+            (click)="viewFinanceDetails(finance)">
+            <div class="ibd-finance-list__wrapper__card__header">
+                <div class="ibd-finance-list__wrapper__card__header__title" translate>tr_financeComponent_financeAccount
+                </div>
+                <div class="ibd-finance-list__wrapper__card__header__account"><span
+                        translate>tr_financeComponent_acc</span>.{{ finance.accountNumber }}</div>
+            </div>
+            <div class="ibd-finance-list__wrapper__card__body">
+                <div class="ibd-finance-list__wrapper__card__body__name">{{ accountHolderName }}</div>
+                <div class="ibd-finance-list__wrapper__card__body__desription">{{ finance.classDesc }}</div>
+            </div>
+            <div class="ibd-finance-list__wrapper__card__footer">
+                <div class="ibd-finance-list__wrapper__card__footer__title" translate>
+                    tr_financeComponent_outstandingAmount</div>
+                <div class="ibd-finance-list__wrapper__card__footer__fund">
+                    <span> {{ finance.outstandingBalance | numberFormat}}</span>.<span
+                        class="ibd-finance-list__wrapper__card__footer__fund__decimal">{{ finance.outstandingBalance | getDecimalValue}}</span>
+                    <span class="ibd-finance-list__wrapper__card__footer__fund__currency"> {{ finance.currencyCode }}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="ibd-finance-list__wrapper__ads"
+            [ngClass]="{showads: (!financeList || showNoFinanceMessage)? true: false}">
+            <div class="ibd-finance-list__wrapper__ads__container">
+                <img alt="ads image" class="ibd-finance-list__wrapper__ads__image" src="{{financePromotionImage}}" />
+                <div class="ibd-finance-list__wrapper__ads__title">{{ financePromotion.title }}</div>
+                <div class="ibd-finance-list__wrapper__ads__subTitle">{{ financePromotion.subTitle }}</div>
+                <div class="ibd-finance-list__wrapper__ads__ctaLink" translate>tr_common_applyNowText</div>
+            </div>
+        </div>
+    </div>
+    <div class="ibd-finance-list__navigation-wrapper col-sm-12 px-0" *ngIf="hideNavigationControlls">
+        <button class="ibd-finance-list__navigation-wrapper__btn" [disabled]="disablePreviousBtn"
+            (click)="moveScroll('backward')">
+            <img class="ibd-finance-list__navigation-wrapper__btn__prev" src="/assets/icons/previous-icon.png"
+                alt="Previous_Icon">
+        </button>
+        <button class="ibd-finance-list__navigation-wrapper__btn" [disabled]="disableNextBtn"
+            (click)="moveScroll('forward')">
+            <img class="ibd-finance-list__navigation-wrapper__btn__next" src="/assets/icons/next-icon.png"
+                alt="Next_Icon">
+        </button>
+    </div>
+</div>
+
+<div class="row margin-lrn ibd-finance-list__marketing-banner">
+    <div class="margin-lrn ibd-finance-list__marketing-banner__row padding-lrn col-12 col-lg-12 col-xl-9">
+        <app-marketing-banner class="marketing-banner"></app-marketing-banner>
+    </div>
+</div>

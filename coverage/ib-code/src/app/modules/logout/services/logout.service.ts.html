@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/modules/logout/services/logout.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/modules/logout/services</a> logout.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">46.94% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>23/49</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">41.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">47.73% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>21/44</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">134x</span>
+<span class="cline-any cline-yes">134x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpParams } from '@angular/common/http';
+import { Router } from '@angular/router';
+&nbsp;
+import { SharedService } from 'src/app/common/services/shared.service';
+import { APISyncService } from 'src/app/common/services/sync.service';
+import { HttpHeaderService } from 'src/app/common/services/http-headers/http-header.service';
+import { DialogService } from 'src/app/common/services/dialog.service';
+&nbsp;
+import { environment } from 'src/environments/environment';
+import { DOMAINS, PROFILE_MENU_DATA, SESSION_TIMEOUT_CLASS, HTTP_STATUS_CODE } from 'src/app/common/global-constants';
+import { Dialog } from 'src/app/common/models/dialog.model';
+&nbsp;
+@Injectable()
+export class LogoutService {
+  idleSecondsTimer: number;
+  idleSecondsCounter: number;
+&nbsp;
+  constructor(
+    private sharedService: SharedService,
+    private httpService: APISyncService,
+    private httpHeaderService: HttpHeaderService,
+    private router: Router,
+    private dialogService: DialogService) { }
+&nbsp;
+  /**
+   * @methodName logout
+   * @description used to logout the user
+   * @parameters none
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  logout(): Observable&lt;any&gt; {</span>
+    const LOGOUT_URL = <span class="cstat-no" title="statement not covered" >`${this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false)}${environment.CIAM.ENDPOINTS.LOGOUT}`;</span>
+<span class="cstat-no" title="statement not covered" >    this.httpHeaderService.customHeaderFunction = this.httpHeaderService.generateLoginHeaders;</span>
+    const requestPayload = <span class="cstat-no" title="statement not covered" >new HttpParams().set('token', this.sharedService.accessToken)</span>
+      .set('client_id', environment.CIAM.CLIENT_ID);
+<span class="cstat-no" title="statement not covered" >    return this.httpService.post(LOGOUT_URL, requestPayload);</span>
+  }
+&nbsp;
+  /**
+   * @methodName logout
+   * @description It'll add event listeners to the document to track browser iddle time
+   * @parameters none
+   * @return none
+   */
+  getUserIdleTime() {
+    this.idleSecondsTimer = null;
+    this.idleSecondsCounter = 0;
+    // resetting idle titme to '0' on any user interaction
+    document.onclick = () =&gt; {
+      this.idleSecondsCounter = 0;
+    };
+    document.onmousemove = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      this.idleSecondsCounter = 0;</span>
+    };
+    document.onkeypress = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      this.idleSecondsCounter = 0;</span>
+    };
+    this.idleSecondsTimer = window.setInterval(this.checkBrowserIdleTime.bind(this), 1000);
+  }
+&nbsp;
+  /**
+   * @methodName checkBrowserIdleTime
+   * @description it will call openTimeoutModal based on iddle time calculation
+   * @parameters none
+   * @return none
+   */
+  checkBrowserIdleTime(): void {
+    this.idleSecondsCounter++;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.idleSecondsCounter === environment.SESSION_IDLE_TIMEOUT - environment.SESSION_LOGOUT_INDICATION_TIME) {
+<span class="cstat-no" title="statement not covered" >      this.openTimeoutModal();</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName logoutUser
+   * @description used to logout the user and clear access token
+   * @parameters none
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  logoutUser(<span class="cstat-no" title="statement not covered" ></span>routeToLogin = false)</span>: void {</span>
+<span class="cstat-no" title="statement not covered" >    clearInterval(this.idleSecondsTimer);</span>
+<span class="cstat-no" title="statement not covered" >    this.logout().subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (response.status === HTTP_STATUS_CODE.OK) {</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.accessToken = undefined;</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.refreshToken = undefined;</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.isUserLoggedIn = undefined;</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.toggleBackgroundImageClasses();</span>
+<span class="cstat-no" title="statement not covered" >        (routeToLogin) ? this.router.navigateByUrl('/')</span>
+          : this.router.navigateByUrl(PROFILE_MENU_DATA.logoutRoute);
+      }
+    });
+  }
+&nbsp;
+  /**
+   * @methodName openTimeoutModal
+   * @description used to open iddle timeout modal
+   * @parameters none
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  openTimeoutModal(): void {</span></span>
+    const OPTIONS = <span class="cstat-no" title="statement not covered" >{} as Dialog;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.isSessionTimeoutDialog = true;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.dialogClassName = SESSION_TIMEOUT_CLASS;</span>
+    // close the dialog if opened
+<span class="cstat-no" title="statement not covered" >    this.dialogService.closeDialog();</span>
+<span class="cstat-no" title="statement not covered" >    this.dialogService.open(OPTIONS);</span>
+<span class="cstat-no" title="statement not covered" >    this.dialogService.confirmed().subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (!response) {</span>
+<span class="cstat-no" title="statement not covered" >        this.logoutUser();</span>
+      }
+    });
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

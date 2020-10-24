@@ -1,0 +1,51 @@
+<section class="auth-component" [hidden]="activeComponent == componentList.SECURITY_TIPS_COMP"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'auth-rtl-layout': ''">
+    <div class="auth-component__wrapper">
+        <div class="auth-component__wrapper__header">
+            <app-header-login-and-registration class="auth-component-header">
+            </app-header-login-and-registration>
+        </div>
+        <div class="auth-component__wrapper__body">
+            <div class="auth-component__wrapper__body__login" [hidden]="activeComponent !== componentList.LOGIN">
+                <!-- LogIn component code starts here -->
+                <app-login></app-login>
+            </div>
+            <div class="auth-component__wrapper__body__login"
+                [hidden]="activeComponent !== componentList.FORGET_PASSWORD">
+                <app-forgot-password></app-forgot-password>
+            </div>
+            <div class="auth-component__wrapper__body__login"
+                [hidden]="activeComponent !== componentList.FORGET_USERNAME">
+                <app-forgot-username></app-forgot-username>
+            </div>
+            <div class="auth-component__wrapper__body__login"
+                [hidden]="activeComponent !== componentList.SUCCESS_SCREEN">
+                <app-registration-success-screen [title]="authText.successTitle" [message]="authText.successMessage">
+                </app-registration-success-screen>
+            </div>
+
+            <div class="auth-component__wrapper__security-tips-wrapper">
+                <div class="auth-component__wrapper__security-tips-wrapper__text" translate>
+                    <span (click)="showSecurityTips()">
+                        <img alt="security icon" src="{{ securityIcon }}">
+                        <span translate>tr_registrationComponent_securityTipsText</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="auth-component__wrapper__footer">
+            <div class="auth-component__wrapper__footer__wrapper">
+                <div class="footer-link">{{ adibWebsiteUrl | translate}}</div>
+                <div class="footer-link" translate>tr_registrationComponent_fraudSecurityText</div>
+                <div class="footer-link" translate>tr_common_termsAndConditions</div>
+            </div>
+        </div>
+    </div>
+    <div class="auth-component__security-tips">
+        <app-security-tips class="auth-comp-security-tips"></app-security-tips>
+    </div>
+</section>
+<div (resized)="onResized($event)">
+    <app-security-tips (closeButtonClick)="handleCloseButtonClick($event)"
+        [hidden]="activeComponent !== componentList.SECURITY_TIPS_COMP"></app-security-tips>
+</div>

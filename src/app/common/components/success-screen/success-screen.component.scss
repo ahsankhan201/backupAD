@@ -1,0 +1,130 @@
+@import "src/assets/styles/default";
+
+.success-screen-comp {
+  padding: 14px 16px 16px;
+  @include respond-to(screen-m-min) {
+    padding: 20px 38px 38px;
+  }
+  @include respond-to(screen-l-min) {
+    padding: 22px 41px 41px;
+  }
+  &__wrapper {
+    &__success-image {
+      max-width: 63px;
+      min-width: 63px;
+      height: 63px;
+      margin-right: 18px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &__text {
+      &__header {
+        @extend .ibd-medium-text;
+
+        color: $solid-blue;
+        font-family: $font-medium;
+        margin-bottom: 7px;
+      }
+      img {
+        height: 24px;
+        width: 28px;
+        padding-right: 4px;
+      }
+      &__description {
+        @extend .ibd-small-text;
+
+        font-family: $font-regular;
+        font-size: 14px;
+        line-height: 20px;
+        strong {
+          color: $solid-blue;
+          font-family: $font-medium;
+        }
+      }
+      .success-description-wrapper {
+        display: flex;
+      }
+    }
+    &__buttons {
+      width: 92%;
+      position: fixed;
+      bottom: 84px;
+      left: 16px;
+      .previous-btn {
+        width: 100%;
+        @include respond-to(screen-m-min) {
+          min-width: 156px;
+          width: auto;
+        }
+      }
+      .next-btn {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 16px;
+        @include respond-to(screen-m-min) {
+          margin-left: 16px;
+          margin-top: 0;
+          min-width: 156px;
+          width: auto;
+        }
+      }
+
+      @include respond-to(screen-m-min) {
+        position: static;
+        margin-top: 156px;
+        .next-btn {
+          width: auto;
+        }
+      }
+    }
+  }
+  &__title-wrapper {
+    .cta-back-btn {
+      font-size: 14px;
+      margin-bottom: 11px;
+      @include respond-to(screen-m-min) {
+        margin-bottom: 20px;
+      }
+      @include respond-to(screen-l-min) {
+        margin-bottom: 18px;
+      }
+    }
+    &__title {
+      color: $grey;
+      font-family: $font-regular;
+      font-size: 14px;
+      letter-spacing: 0.14px;
+      margin-bottom: 26px;
+      @include respond-to(screen-m-min) {
+        margin-bottom: 34px;
+      }
+      @include respond-to(screen-l-min) {
+        margin-bottom: 46px;
+      }
+    }
+  }
+}
+
+.success-screen-rtl {
+  padding: 14px 0px 16px 16px;
+  @include respond-to(screen-m-min) {
+    padding: 20px 0px 38px 38px;
+  }
+  @include respond-to(screen-l-min) {
+    padding: 22px 0px 41px 41px;
+  }
+  .success-screen-comp__wrapper {
+    &__success-image {
+      margin-left: 18px;
+      margin-right: 0px;
+    }
+    &__text {
+      img {
+        padding-left: 4px;
+        padding-right: 0px;
+      }
+    }
+  }
+}

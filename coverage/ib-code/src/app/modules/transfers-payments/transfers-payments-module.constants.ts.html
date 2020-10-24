@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/modules/transfers-payments/transfers-payments-module.constants.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/app/modules/transfers-payments</a> transfers-payments-module.constants.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>11/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>11/11</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const EDIT_PAYEE_DIALOG = {
+    title: 'tr_transfer_module_edit_payee',
+    message: 'tr_transfer_module_edit_nickname',
+    cancelText: 'tr_common_cancelText',
+    confirmText: 'tr_linkAccount_doneText'
+};
+&nbsp;
+export const DELETE_PAYEE_DIALOG_DATA = {
+    title: 'tr_transfer_module_delete_payee_confirm',
+    message: 'tr_transfer_module_delete_payee',
+    cancelText: 'tr_common_cancelText',
+    confirmText: 'tr_linkAccount_doneText',
+    showForm: false,
+};
+&nbsp;
+export const DELETE_PAYEE_SUCCESS_MESSAGE = {
+    prefix: 'tr_transfer_module_payee_text',
+    suffix: 'tr_transfer_module_delete_beneficiary',
+};
+&nbsp;
+export const BENEFICIARY_FAVORITE_MESSAGE = {
+    favorite: 'tr_transfer_module_fav_bene',
+};
+&nbsp;
+export const PAYEE_FAVORITE_MESSAGE = {
+    favorite: 'tr_transfer_module_fav_payee',
+};
+&nbsp;
+export const EDIT_PAYEE_SUCCESS_SNACKBAR = {
+    message: 'tr_transfer_module_payee_nickname'
+};
+&nbsp;
+export const DELETE_BENEFICIARY_DIALOG_DATA = {
+    title: 'tr_transfer_module_delete_bene_text',
+    message: 'tr_transfer_module_delete_bene_confirm',
+    cancelText: 'tr_common_cancelText',
+    confirmText: 'tr_transfer_module_delete_text',
+    showForm: false,
+};
+&nbsp;
+export const DELETE_BENEFICIARY_SUCCESS_MESSAGE = {
+    prefix: 'tr_moneyTransferComponent_beneficiaryText',
+    suffix: 'tr_transfer_module_delete_beneficiary',
+};
+&nbsp;
+export const PAYMENT_STEPPER_TEXT = {
+    transferFrom: 'tr_common_transferFromText',
+    transferDetails: 'tr_paymentComponent_transferDetails',
+    transferTo: 'tr_paymentComponent_transferToText',
+    confirm: 'tr_common_confirmText',
+    summary: 'tr_common_summary',
+    donateTo: 'tr_paymentComponent_donateTo',
+    transactionDetails: 'tr_paymentComponent_transactionDetails',
+};
+&nbsp;
+export const CANCEL_TRANSACTION_POPUP_TEXT = {
+    cancelTitle: 'tr_transactionPayments_cancelTransactionText',
+    noText: 'tr_transactionPayments_noText',
+    yesText: 'tr_transactionPayments_yesText',
+    cancelMessage: 'tr_transactionPayments_cancelMessageText'
+};
+&nbsp;
+export const QUICK_LINKS_INFO = [
+    {
+        link: '',
+        title: 'tr_common_moneyTransferText',
+        icon: '/assets/icons/ic.money-transfer@2x.svg',
+        action: 'MONEY_TRANSFER'
+    },
+    {
+        link: '',
+        title: 'tr_common_payBillsText',
+        icon: '/assets/icons/ic.payments@2x.svg',
+        action: 'PAYMENTS'
+    },
+    {
+        link: '',
+        title: 'tr_common_donateText',
+        icon: '/assets/icons/ic.donate@2x.svg',
+        action: 'DONATE'
+    }
+];
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

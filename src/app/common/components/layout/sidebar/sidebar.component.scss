@@ -1,0 +1,237 @@
+@import "src/assets/styles/default";
+.navbar.noBg {
+  background: $white;
+}
+
+.navbar.showBg {
+  cursor: pointer;
+  background: $grey;
+  width: 100%;
+  height: 100%;
+  @include respond-to(screen-m-min) {
+    background-color: $white;
+  }
+}
+
+.navbar.fixed-left {
+  &.nav-rtl-layout {
+    right: 0;
+    box-shadow: -1px 0px 0px 0px $very-light-gray;
+    .navbar-collapse {
+      direction: rtl;
+      margin-left: auto;
+      @include respond-to(screen-m-min) {
+        direction: unset;
+      }
+      .navbar-header {
+        padding-right: 20px;
+        .userimage {
+          margin-left: 12px;
+        }
+        .user {
+          display: flex;
+          flex-direction: column;
+          .welcome {
+            margin-left: auto;
+          }
+          .username {
+            display: flex;
+            padding-top: 5px;
+            img {
+              margin-right: 7px;
+            }
+          }
+        }
+      }
+      .navbar-nav {
+        padding: 0;
+        .nav-item {
+          padding-right: 35px;
+          @include respond-to(screen-m-min) {
+            padding-right: 0;
+          }
+          .nav-link {
+            margin-right: 24px;
+            @include respond-to(screen-m-min) {
+              margin-right: 0;
+            }
+          }
+          &.active {
+            border-left: 1.8px solid $solid-blue;
+            border-right: none;
+          }
+        }
+      }
+    }
+  }
+  position: fixed;
+  z-index: 11;
+  padding: 0;
+  @include respond-to(only-screen-sm-land) {
+    overflow: auto;
+  }
+  .navbar-toggler-icon {
+    height: auto;
+    width: auto;
+    margin-left: 8px;
+    margin-top: 8px;
+    outline: none;
+  }
+  .navbar-collapse {
+    flex-grow: 0;
+    background: $white;
+    flex-basis: 19em;
+    transition: none;
+    height: 100%;
+
+    background-image: url(/assets/images/BG_Phone_Potrait.png);
+    background-size: cover;
+    width: auto;
+    background-position: top;
+
+    @include respond-to(screen-m-min) {
+      background: none;
+      height: auto;
+      margin-top: 92px;
+    }
+    @include respond-to(only-screen-sm-land) {
+      height: auto;
+    }
+  }
+  .navbar-header {
+    min-height: 93px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    padding-top: 27px;
+    .userimage {
+      margin-left: 16px;
+    }
+    .user {
+      margin-left: 32px;
+      .welcome {
+        @extend .ibd-small-text;
+        font-size: 14px;
+        line-height: 15px;
+      }
+      .username {
+        font-family: $font-regular;
+        font-size: 12px;
+        color: $solid-blue;
+        display: flex;
+        position: relative;
+        img {
+          margin-left: 8px;
+        }
+      }
+    }
+    @include respond-to(screen-m-min) {
+      display: none;
+    }
+  }
+  .nav-item {
+    z-index: 10;
+    min-height: 92px;
+    cursor: pointer;
+    padding-left: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    outline: none;
+    @include respond-to(screen-s-min) {
+      min-height: 70px;
+      padding-left: 24px;
+    }
+    &:hover {
+      color: $new-solid-blue;
+      font-family: $font-regular;
+      .nav-link {
+        color: $new-solid-blue;
+        font-family: $font-regular;
+      }
+      .nav-icon {
+        display: none;
+      }
+      .nav-icon-active {
+        display: inline-flex;
+      }
+    }
+
+    &.active {
+      border-right: 1.8px solid $solid-blue;
+      .nav-icon {
+        display: none;
+      }
+      .nav-icon-active {
+        display: inline-flex;
+      }
+      .nav-link {
+        color: $new-solid-blue;
+        font-family: $font-regular;
+      }
+    }
+    .nav-link {
+      @extend .ibd-small-text;
+      color: $new-suva-grey;
+      font-family: $font-light;
+      letter-spacing: 0.2px;
+      margin-left: 16px;
+      pointer-events: none;
+      @include respond-to(screen-m-min) {
+        line-height: 16px;
+        margin-left: 0px;
+      }
+    }
+    .nav-icon {
+      min-height: 24px;
+      width: 24px;
+      pointer-events: none;
+      @include respond-to(screen-m-min) {
+        margin-top: 22px;
+        border-radius: 0px;
+      }
+    }
+    .nav-icon-active {
+      display: none;
+      min-height: 24px;
+      width: 24px;
+      pointer-events: none;
+      @include respond-to(screen-m-min) {
+        margin-top: 22px;
+        border-radius: 0px;
+      }
+    }
+    @include respond-to(screen-m-min) {
+      width: 92px;
+      padding-left: 0px;
+      display: block;
+    }
+  }
+  @include respond-to(screen-m-min) {
+    text-align: center;
+    align-items: flex-start;
+    box-shadow: inset -1px 0px 0px 0px $very-light-gray;
+    width: auto;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+@include respond-to(screen-m-min) {
+  .navbar.fixed-left .navbar-collapse .navbar-nav {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+}
+:host ::ng-deep app-menu-option {
+  .settings-icon {
+    display: none;
+  }
+  .triangle-icon {
+    display: block;
+    position: absolute;
+    padding: 8px;
+  }
+}

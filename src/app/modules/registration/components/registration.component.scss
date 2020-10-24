@@ -1,0 +1,207 @@
+@import "src/assets/styles/default";
+
+.ibd-registration {
+  height: 100%;
+  display: flex;
+  &__wrapper {
+    min-width: 360px;
+    max-width: 1440px;
+    width: 100%;
+    position: relative;
+    @include respond-to(screen-land) {
+      min-width: unset;
+      width: 100%;
+    }
+    @include respond-to(screen-l-min) {
+      width: 51%;
+    }
+    &__body {
+      position: absolute;
+      top: 56px;
+      width: 100%;
+      padding: 16px;
+      line-height: normal;
+      @include respond-to(screen-land) {
+        padding: 18px 80px 20px 80px;
+        width: 100%;
+      }
+      @include respond-to(screen-m-min) {
+        padding: 32px 47px 64px 47px;
+        top: 92px;
+      }
+      @include respond-to(screen-l-min) {
+        padding: 24px 60px 30px 60px;
+      }
+      @include respond-to(screen-xl-min) {
+        padding: 32px 132px 64px 116px;
+      }
+      &__registration {
+        margin: 0 auto;
+        @include respond-to(screen-xl-min) {
+          max-width: 485px;
+        }
+        .title {
+          color: $button-gray;
+          font-size: 16px;
+          text-align: center;
+          font-family: $font-regular;
+          @include respond-to(screen-m-min) {
+            font-size: 20px;
+          }
+        }
+        .sub-title {
+          color: $grey;
+          font-size: 12px;
+          font-family: $font-light;
+          font-weight: 300;
+          text-align: center;
+          margin-top: 10px;
+          @include respond-to(screen-m-min) {
+            font-size: 14px;
+          }
+          span {
+            display: inline-block;
+            line-height: 18px;
+          }
+        }
+        .ibd-registration__step-wrapper {
+          margin-top: 14px;
+          @include respond-to(screen-m-min) {
+            margin-top: 32px;
+          }
+        }
+      }
+      &__success-screen {
+        min-height: 540px;
+        @include respond-to(screen-m-min) {
+          min-height: 330px;
+        }
+      }
+    }
+    &__footer {
+      position: absolute;
+      bottom: 16px;
+      min-width: 328px;
+      width: calc(100% - 32px);
+      @include respond-to(screen-land) {
+        position: static;
+        margin: 32px auto;
+        bottom: unset;
+        width: 425px;
+      }
+      @include respond-to(screen-m-min) {
+        position: absolute;
+        bottom: 64px;
+        width: calc(100% - 84px);
+      }
+      @include respond-to(screen-l-min) {
+        bottom: 32px;
+        width: calc(100% - 120px);
+      }
+      @include respond-to(screen-xl-min) {
+        bottom: 64px;
+        width: calc(100% - 248px);
+      }
+      &__wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        .footer-link {
+          cursor: pointer;
+          color: $cerulean-blue;
+          font-size: 12px;
+          font-family: $font-regular;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+  &__security-tips {
+    display: none;
+    @include respond-to(screen-l-min) {
+      display: block;
+      min-width: 500px;
+      width: 49%;
+      float: right;
+    }
+  }
+  &.registration-rtl-layout {
+    direction: rtl;
+  }
+}
+
+:host ::ng-deep .ibd-registration__wrapper__header-com {
+  .ibd-header-common__wrapper {
+    min-width: 360px;
+    width: 100%;
+    @include respond-to(screen-m-min) {
+      max-width: unset;
+      width: 100%;
+    }
+    @include respond-to(screen-l-min) {
+      width: 51%;
+    }
+  }
+}
+
+:host ::ng-deep mat-horizontal-stepper {
+  .mat-horizontal-stepper-header {
+    padding: 0;
+    &:first-child {
+      padding: 0;
+    }
+  }
+  .mat-horizontal-content-container {
+    @include respond-to(screen-land) {
+      min-height: 345px;
+    }
+    @include respond-to(screen-m-min) {
+      min-height: 700px;
+    }
+    @include respond-to(screen-l-min) {
+      min-height: 469px;
+    }
+    @include respond-to(screen-xl-min) {
+      min-height: 666px;
+    }
+    overflow: hidden;
+    padding: 14px 0 0 0;
+    @include respond-to(screen-land) {
+      padding: 10px 0 0 0;
+    }
+  }
+  .ibd-registration__step-wrapper__title {
+    color: $grey;
+    font-family: $font-regular;
+    font-size: 16px;
+    margin-bottom: 22px;
+  }
+}
+
+:host ::ng-deep .registration-rtl-layout app-input-generic {
+  .input-title {
+    text-align: right;
+  }
+
+  .pin-input-wrapper input,
+  .card-input-wrapper input {
+    direction: ltr;
+  }
+
+  .card-input-wrapper input {
+    @include respond-to(screen-m-min) {
+      letter-spacing: 22px !important;
+    }
+    @include respond-to(screen-l-min) {
+      letter-spacing: 8px !important;
+    }
+    @include respond-to(screen-xl-min) {
+      letter-spacing: 14px !important;
+    }
+  }
+  .mat-form-field-infix {
+    text-align: right;
+    direction: ltr;
+  }
+}

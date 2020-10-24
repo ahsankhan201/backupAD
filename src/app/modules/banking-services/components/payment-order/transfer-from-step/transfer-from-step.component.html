@@ -1,0 +1,20 @@
+<section class="ibd-payorder-transfer-from col-12 padding-lrn" >
+    <div class="ibd-payorder-transfer-from__wrapper">
+        <div class="ibd-payorder-transfer-from__wrapper__body">
+            <app-account-checkbox 
+            [checkBoxAccountsList]="transferFromAccountList"
+            componentName="paymentOrderTransferFromAccountCheckBox" 
+            (selectedAccountOption)="handleSelectedAccount($event)">
+        </app-account-checkbox>
+        <div class="alert-message" *ngIf="showAlertMessage">
+            {{accountAlertText | translate}}
+        </div>
+        </div>
+        <div class="ibd-payorder-transfer-from__wrapper__buttons">
+            <button class="btn cancel-btn" type="button" (click)="handleCancelButtonClick()"
+                translate>tr_common_cancelTransactionText</button>
+            <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+            <button matStepperNext class="btn next-btn" type="button" [disabled]="!enableNextBtn" translate>tr_common_nextText</button>
+        </div>
+    </div>
+</section>

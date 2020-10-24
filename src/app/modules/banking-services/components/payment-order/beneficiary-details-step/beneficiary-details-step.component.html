@@ -1,0 +1,68 @@
+<section class="ibd-payorder-beneficiary-details col-12 padding-lrn">
+    <div class="ibd-payorder-beneficiary-details__wrapper">
+        <form [formGroup]="beneficiaryDetailsFormGroup" autocomplete="off"
+            class="ibd-payorder-beneficiary-details__wrapper__form">
+            <div class="ibd-payorder-beneficiary-details__wrapper__body">
+                <!-- Beneficiary Name -->
+                <div class="row margin-lrn form-wrapper mat-form-field-right">
+                    <mat-form-field>
+                        <mat-label translate>tr_common_beneNameText</mat-label>
+                        <input autocomplete="off" matInput formControlName="beneficiaryName" type="text"
+                            maxlength="{{beneficiaryNameMaxlength}}" #beneficiaryName appAlphaNumeric>
+                        <mat-hint align="end">{{beneficiaryName.value.length}}/{{beneficiaryNameMaxlength}}</mat-hint>
+                        <mat-error>
+                            <app-show-form-errors [control]="beneficiaryDetailsFormGroup.get('beneficiaryName')"
+                                label="tr_common_beneNameText">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!-- Purpose of Transfer -->
+                <div class="row margin-lrn form-wrapper">
+                    <mat-form-field class="full-width">
+                        <mat-label translate>tr_common_purposeOfTransferText </mat-label>
+                        <input type="text" matInput formControlName="purposeOfTransfer"
+                            [matAutocomplete]="transferPurpose">
+                        <mat-error>
+                            <app-show-form-errors [control]="beneficiaryDetailsFormGroup.get('purposeOfTransfer')"
+                                label="tr_common_purposeOfTransferText">
+                            </app-show-form-errors>
+                        </mat-error>
+                        <mat-autocomplete #transferPurpose="matAutocomplete" autoActiveFirstOption>
+                            <mat-option
+                                *ngFor="let item of purposeOfTransferList | filterText:beneficiaryDetailsFormGroup.controls['purposeOfTransfer'].value:'purposeOfTransferEn'"
+                                [value]="item.purposeOfTransferEn" id="{{item.stpTypeCode}}">
+                                {{item.purposeOfTransferEn}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+
+                </div>
+                <!-- Collect From -->
+                <div class="row margin-lrn form-wrapper">
+                    <mat-form-field class="full-width">
+                        <mat-label translate>tr_common_collectFromText</mat-label>
+                        <input type="text" matInput formControlName="collectFrom" [matAutocomplete]="collectFrom">
+                        <mat-error>
+                            <app-show-form-errors [control]="beneficiaryDetailsFormGroup.get('collectFrom')"
+                                label="tr_common_collectFromText">
+                            </app-show-form-errors>
+                        </mat-error>
+                        <mat-autocomplete #collectFrom="matAutocomplete" autoActiveFirstOption>
+                            <mat-option *ngFor="let item of collectFromList" value="{{item.description | translate}}"
+                                id="{{item.code}}" translate>
+                                {{item.description}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="ibd-payorder-beneficiary-details__wrapper__buttons">
+                <button class="btn cancel-btn" type="button" (click)="handleCancelButtonClick()"
+                    translate>tr_common_cancelText</button>
+                <button class="btn next-btn" type="button" [disabled]="!beneficiaryDetailsFormGroup.valid"
+                    (click)="handleNextButtonClick()" translate>tr_common_nextText</button>
+            </div>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,54 @@
+<ng-container *ngIf="control && control.hasError('required')">
+    {{label | translate}} {{ errorMessage.isRequired}}
+</ng-container>
+<ng-container *ngIf="control && control.hasError('minlength')"> {{label | translate}} {{ errorMessage.mustBe }}
+    {{ control.errors.minlength.requiredLength }} {{ errorMessage.charactersLong}}</ng-container>
+<ng-container *ngIf="control && control.hasError('maxlength')"> {{label | translate}} {{ errorMessage.cannotExceed }}
+    {{ control.errors.maxlength.requiredLength }} {{ errorMessage.characters}}</ng-container>
+<ng-container *ngIf="control && control.hasError('email') && !control.hasError('required')"> {{ label | translate }}
+    {{ errorMessage.notValidEmail }}</ng-container>
+<ng-container *ngIf="control && control.hasError('mobile')">
+    {{ label | translate }} {{ errorMessage.notValidMobile}}
+</ng-container>
+<ng-container *ngIf="control && control.hasError('pattern')"> {{ errorMessage.specialCharactersNotAllowed }}
+</ng-container>
+<ng-container *ngIf="control && control.hasError('mustMatch')"> {{ label | translate }} {{ errorMessage.mustMatch }}</ng-container>
+<ng-container *ngIf="control && control.hasError('isValidMobile')"> {{ control.errors.message }}</ng-container>
+<ng-container *ngIf="control && control.hasError('isTaken')"> {{ control.errors.message }}</ng-container>
+<ng-container *ngIf="control && control.hasError('min')"> {{ label | translate }} <span translate>tr_common_morethanText</span> {{ control.errors.min.message }}</ng-container>
+<ng-container *ngIf="control && control.hasError('max')"> {{ label | translate }} <span translate>tr_common_lessthanText</span> {{ control.errors.max.message }}</ng-container>
+<ng-container *ngIf="control && control.hasError('minAmount')">{{ control.errors.minAmount.message | translate}}
+</ng-container>
+<ng-container *ngIf="control && control.hasError('notValidAmount')">
+    {{ control.errors.notValidAmount.message | translate}}</ng-container>
+<ng-container *ngIf="control && control.hasError('restrictWord')">
+    {{errorMessage.keyword }} {{ control.errors.restrictWord.message }} {{errorMessage.notAllowedWord  | translate}}
+</ng-container>
+<ng-container *ngIf="control && control.hasError('openAccountMinError')">
+    <span translate>tr_openAccountComponent_minimumAmountErrorText</span>
+    {{ control.errors.openAccountMinError.message}}
+</ng-container>
+<ng-container *ngIf="control && control.hasError('openAccountBalanceError')">
+    <span translate> tr_openAccountComponent_inSufficientBalErrorText</span>
+</ng-container>
+<ng-container *ngIf="control && control.hasError('isCustomError')">{{ control.errors.message }}</ng-container>
+<ng-container *ngIf="control && control.hasError('userNameVarCharError')">
+    <span translate>
+        {{ control.errors.userNameVarCharError.message}}
+    </span>
+</ng-container>
+<ng-container *ngIf="control && control.hasError('confirmValidatorError')">
+    <span translate>
+        {{ control.errors.confirmValidatorError.message}}
+    </span>
+</ng-container>
+<ng-container *ngIf="control && control.hasError('inValidPassword')">
+    <span translate>
+        {{ control.errors.inValidPassword.message}}
+    </span>
+</ng-container>
+<ng-container *ngIf="control && control.hasError('userNameExist')">
+    <span translate>
+        {{ control.errors.userNameExist.message}}
+    </span>
+</ng-container>

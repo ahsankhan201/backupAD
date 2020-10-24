@@ -1,0 +1,101 @@
+<div class="banking-services-details"
+    [ngClass]="(selectedLang === arabicLanguageText) ? 'banking-services-details-rtl': ''">
+    <div class="banking-services-details__container">
+        <div class="banking-services-details__container__header">
+            <div class="cta-back-btn" (click)="onBackButtonClick()" translate>tr_navControl_backText</div>
+            <div class="title">{{componentTitle | translate}}</div>
+            <div *ngIf="selectedService==='BANK_CERTIFICATE_REQUEST'" class="certificate-type">
+                {{accountServiceRequestDetails.certificateType}}</div>
+        </div>
+        <div class="banking-services-details__container__body"
+            *ngIf="selectedService==='BANK_CERTIFICATE_REQUEST' || selectedService==='CHEQUE_BOOK_REQUEST'">
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="accountServiceRequestDetails.certificateLanguage && selectedService==='BANK_CERTIFICATE_REQUEST'">
+                <div class="label" translate>tr_common_languageText</div>
+                <div class="value">{{accountServiceRequestDetails.certificateLanguage}}</div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="accountServiceRequestDetails.accountNumber && selectedService==='CHEQUE_BOOK_REQUEST'">
+                <div class="label" translate>tr_common_accountText</div>
+                <div class="value">{{accountServiceRequestDetails.accountNumber}}</div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="accountServiceRequestDetails.deliveryOption && selectedService==='CHEQUE_BOOK_REQUEST'">
+                <div class="label" translate>tr_chequeBookComponent_deliveryOption</div>
+                <div class="value">{{accountServiceRequestDetails.deliveryOption}}</div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="accountServiceRequestDetails.branchName">
+                <div class="label" translate>tr_common_collectFromText</div>
+                <div class="value">{{accountServiceRequestDetails.branchName}}</div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="selectedService==='CHEQUE_BOOK_REQUEST'">
+                <div class="label" translate>tr_chequeBookComponent_leavePerBook</div>
+                <div class="value">{{leavesPerBook}}</div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="accountServiceRequestDetails.charges">
+                <div class="label" translate>tr_common_feeText</div>
+                <div class="value">{{accountServiceRequestDetails.charges}} {{feeCurrencyCode}}</div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="accountServiceRequestDetails.createdAt">
+                <div class="label" translate>tr_bankingServiceComponent_dateRequestedText</div>
+                <div class="value">{{accountServiceRequestDetails.createdAt | date: 'dd MMM yyyy'}}</div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="accountServiceRequestDetails.status">
+                <div class="label" translate>tr_common_statusText</div>
+                <div class="value">{{accountServiceRequestDetails.status}}</div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="accountServiceRequestDetails.requestId">
+                <div class="label" translate>tr_common_referenceNumberText</div>
+                <div class="value">{{accountServiceRequestDetails.requestId}}</div>
+            </div>
+        </div>
+        <div class="banking-services-details__container__body"
+            *ngIf="selectedService==='PAYMENT_ORDER_REQUEST' || selectedService==='DEMAND_DRAFT_REQUEST'">
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="paymentServiceRequestDetails.beneficiaryName">
+                <div class="label" translate>tr_common_beneNameText</div>
+                <div class="value">{{paymentServiceRequestDetails.beneficiaryName}}</div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="paymentServiceRequestDetails.purpose">
+                <div class="label" translate>tr_common_purposeOfTransferText</div>
+                <div class="value">{{paymentServiceRequestDetails.purpose}}</div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="paymentServiceRequestDetails.collectFrom">
+                <div class="label" translate>tr_common_collectFromText</div>
+                <div class="value">{{paymentServiceRequestDetails.collectFrom}}</div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="paymentServiceRequestDetails.sourceAccountNumber">
+                <div class="label" translate>tr_common_transferFromText</div>
+                <div class="value">{{paymentServiceRequestDetails.sourceAccountNumber}}</div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="paymentServiceRequestDetails.amount && paymentServiceRequestDetails.currency">
+                <div class="label" translate>tr_common_amountText</div>
+                <div class="value">{{paymentServiceRequestDetails.amount}} {{paymentServiceRequestDetails.currency}}
+                </div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="paymentServiceRequestDetails.createdAt">
+                <div class="label" translate>tr_bankingServiceComponent_dateRequestedText</div>
+                <div class="value">{{paymentServiceRequestDetails.createdAt | date: 'dd MMM yyyy'}}</div>
+            </div>
+            <div class="banking-services-details__container__body__detail-row"
+                *ngIf="paymentServiceRequestDetails.status">
+                <div class="label" translate>tr_common_statusText</div>
+                <div class="value">{{paymentServiceRequestDetails.status}}</div>
+            </div>
+        </div>
+        <div class="banking-services-details__container__footer">
+            <div class="vat-text" translate>tr_common_vatText</div>
+        </div>
+    </div>
+</div>

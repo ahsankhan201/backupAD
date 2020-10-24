@@ -1,0 +1,100 @@
+<section class="money-transfer-details-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'transfer-details-rtl': ''">
+    <div class="money-transfer-details-comp__wrapper" *ngIf="!showInternationalTransferForm">
+        <div class="money-transfer-details-comp__wrapper__available-funds" *ngIf="transferDetails?.availableAmount">
+            <span class="text" translate>{{transferDetails.avaialableText}}</span>
+            <div class="amount">
+                <span class="amount__digit">
+                    {{transferDetails.availableAmount | numberFormat}}</span>.<span
+                    class="amount__decimal">{{transferDetails.availableAmount | getDecimalValue}}</span>
+                <span class="amount__currency">
+                    {{transferDetails.currencyCode}}
+                </span>
+            </div>
+        </div>
+        <div *ngIf="isTransferToAdibCard" class="money-transfer-details-comp__wrapper__payment-options">
+            <app-checkbox-generic [optionsList]="selectPaymentAmountsList" componentName="selectionPaymentAmount"
+                [disabledOption]="disablePayMinimumAmt?'MINIMUM':''"
+                (selectedOptionValue)="selectedPaymentAmount($event)" customClassName="active-blue"
+                class="payment-amount-generic-checkbox">
+            </app-checkbox-generic>
+        </div>
+        <div *ngIf="isTransferToAdibCard" class="money-transfer-details-comp__wrapper__outstanding">
+            <span class="text" translate> tr_paymentComponent_outStandingBalanceText </span> : <span
+                class="amount">{{outStandingBalance | numberFormat}}</span>
+            <span class="decimal">.{{outStandingBalance | getDecimalValue}}
+                {{transferDetailsScreenText.aedCurrencyCode}}</span>
+        </div>
+        <div class="text mb-2 formText" *ngIf="showCrossCurrencyFields" translate>
+            tr_moneyTransferComponent_crossCurrencyFormTitleText</div>
+        <form [formGroup]="moneyTransferGroup" class="payee-account-form-comp__form">
+            <div class="row margin-lrn" *ngIf="showCrossCurrencyFields">
+                <mat-form-field class="col-md-4 padding-lrn local-amount">
+                    <mat-label translate>{{debitAccountCurrency}}</mat-label>
+                    <input autocomplete="off" matInput numbersOnly decimals="3" formControlName="debitAmount"
+                        (input)="calcCurrencyConversion($event.target.value)" (focusout)="validateCrossCurrencyAmount()"
+                        appInputWithComma>
+                    <mat-error>
+                        <app-show-form-errors [control]="moneyTransferGroup.get('debitAmount')" label="Amount">
+                        </app-show-form-errors>
+                    </mat-error>
+                    <span> {{debitAccountCurrency}} 1.00 </span>
+                </mat-form-field>
+                <div class="col-md-4 padding-lrn exchange-rate-wrapper">
+                    <span> {{debitAccountCurrency}} 1.00 </span>
+                    <span class="exchange-rate-wrapper__beneficiary">
+                        <img alt="exchange rate" src="/assets/icons/exchange_rate_web@2x.svg" class="web" />
+                        {{creditAccountCurrency}} {{transferRate}}</span>
+                    <img alt="exchange rate mobile" src="/assets/icons/exchange_rate_mobile@2x.svg" class="mobile" />
+                </div>
+                <mat-form-field class="col-md-4 padding-lrn external-amount">
+                    <mat-label translate>{{creditAccountCurrency}}</mat-label>
+                    <input matInput autocomplete="off" formControlName="creditAmount"
+                        (focusout)="validateCrossCurrencyAmount()" numbersOnly decimals="3"
+                        (input)="calcCurrencyConversion($event.target.value, 'External')" appInputWithComma>
+                    <mat-error>
+                        <app-show-form-errors [control]="moneyTransferGroup.get('creditAmount')" label="Amount">
+                        </app-show-form-errors>
+                    </mat-error>
+                    <span> {{creditAccountCurrency}} {{transferRate}}</span>
+                </mat-form-field>
+            </div>
+            <mat-form-field *ngIf="!showCrossCurrencyFields">
+                <mat-label translate>tr_common_amountText</mat-label>
+                <input autocomplete="off" matInput formControlName="amount" numbersOnly decimals="3"
+                    maxlength="{{ AMOUNT_LENGTH }}" [readonly]="!amountEditable" (focusout)="validateAmount()" matInput
+                    appInputWithComma>
+                <mat-error>
+                    <app-show-form-errors [control]="moneyTransferGroup.get('amount')" label="Amount">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label translate>tr_paymentComponent_memoText</mat-label>
+                <input autocomplete="off" matInput formControlName="memo" type="text" maxlength="{{memoMaxlength}}"
+                    #memo appAlphaNumeric>
+                <mat-hint align="end">{{memo.value.length}}/{{memoMaxlength}}
+                    {{ transferDetailsScreenText.formOptionalText | translate}}</mat-hint>
+                <mat-error>
+                    <app-show-form-errors [control]="moneyTransferGroup.get('memo')" label="Memo">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+        </form>
+        <div class="bottom-text" *ngIf="showCrossCurrencyFields">
+            <strong translate>tr_common_noteText</strong>:
+            <span translate>tr_moneyTransferComponent_crossCurrencyText</span>
+        </div>
+        <div class="money-transfer-details-comp__wrapper__buttons">
+            <button class="btn cancel-btn" type="button" (click)="cancelTransaction(true)"
+                translate>tr_common_cancelTransactionText</button>
+            <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+            <button matStepperNext class="btn next-btn" type="button" [disabled]="!moneyTransferGroup.valid"
+                (click)="setMoneyTransferSummary()" translate>tr_common_nextText</button>
+        </div>
+    </div>
+    <div class="money-transfer-details-comp__wrapper">
+        <app-international-transfer *ngIf="showInternationalTransferForm"> </app-international-transfer>
+    </div>
+</section>

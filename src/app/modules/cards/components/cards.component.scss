@@ -1,0 +1,84 @@
+@import "src/assets/styles/default";
+
+.cards-comp {
+  position: absolute;
+  top: 56px;
+  height: auto;
+  width: 100%;
+  @include respond-to(screen-m-min) {
+    width: calc(100% - 92px);
+    top: 92px;
+    left: 92px;
+  }
+  &__wrapper {
+    &__container {
+      max-width: 100%;
+      &__header {
+        display: none;
+        @include respond-to(screen-m-min) {
+          display: block;
+        }
+      }
+      &__body-wrapper {
+        app-debit-card-details {
+          width: 100%;
+        }
+        &__body {
+          background-color: transparent;
+          &__component-container {
+            padding-left: 0px;
+            @include respond-to(screen-m-min) {
+              padding-left: 24px;
+            }
+            @include respond-to(screen-l-min) {
+              padding-left: 40px;
+            }
+          }
+        }
+      }
+      .payments-body,
+      .transfers-body {
+        padding: 16px;
+        @include respond-to(screen-m-min) {
+          padding: 16px 24px 0 38px;
+        }
+        @include respond-to(screen-xl-min) {
+          padding: 20px 24px 0 41px;
+        }
+      }
+    }
+  }
+  &.cards-rtl-layout {
+    direction: rtl;
+    @include respond-to(screen-m-min) {
+      width: calc(100% - 92px);
+      height: auto;
+      top: 92px;
+      right: 92px;
+      left: unset;
+    }
+    .payments-body,
+    .transfers-body {
+      @include respond-to(screen-m-min) {
+        padding: 16px 38px 0 24px;
+      }
+      @include respond-to(screen-xl-min) {
+        padding: 20px 41px 0 24px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .quick-links-wrapper {
+  .quick-links {
+    &__item {
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
+app-cover-limit {
+  width: 100%;
+}

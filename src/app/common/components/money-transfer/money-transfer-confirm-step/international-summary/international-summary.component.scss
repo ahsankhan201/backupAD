@@ -1,0 +1,113 @@
+@import "src/assets/styles/default";
+
+.international-transfer-summary-comp {
+  min-height: 385px;
+  position: relative;
+  &__wrapper {
+    .summary-two-column {
+      @include respond-to(screen-m-min) {
+        display: flex;
+        .summary-label-group {
+          width: 50%;
+        }
+      }
+    }
+    .summary-label-group {
+      &__label {
+        font-family: $font-light;
+        font-size: 12px;
+        color: $grey;
+        padding: 16px 0 4px 0;
+      }
+      &__value {
+        font-family: $font-regular;
+        font-size: 16px;
+        color: $solid-blue;
+        .currency {
+          font-family: $font-light;
+          font-size: 12px;
+          color: $grey;
+          display: inline-block;
+          padding-left: 5px;
+        }
+      }
+    }
+    .bottom-text {
+      font-size: 12px;
+      font-family: $font-light;
+      color: $grey;
+      padding-top: 30px;
+      line-height: 18px;
+      strong {
+        color: $solid-blue;
+        font-family: $font-medium;
+      }
+      .bank-fees-text {
+        display: block;
+      }
+    }
+    &__buttons {
+      width: 100%;
+      position: static;
+      bottom: 16px;
+      padding-top: 40px;
+      button {
+        width: 100%;
+        margin-top: 16px;
+        @include respond-to(screen-m-min) {
+          width: 184px;
+          min-width: 184px;
+          margin-top: 0;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        display: flex;
+        .next-btn,
+        .previous-btn {
+          margin-left: 27px;
+        }
+      }
+    }
+  }
+  &__success-screen {
+    position: relative;
+    .receipt-btn {
+      top: 55%;
+      left: 85px;
+      position: absolute;
+      @include respond-to(screen-m-min) {
+        top: 28%;
+      }
+    }
+    .next-btn {
+      margin-top: 32px;
+      @include respond-to(screen-m-min) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.intl-confirm-transfer-rtl {
+  text-align: right;
+  text-align: -webkit-right;
+  .receipt-btn {
+    left: auto;
+  }
+  .international-transfer-summary-comp__wrapper__buttons {
+    .next-btn,
+    .previous-btn {
+      @include respond-to(screen-m-min) {
+        margin-left: 0px;
+        margin-right: 27px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .transfer-success-component {
+  .success-screen-comp {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

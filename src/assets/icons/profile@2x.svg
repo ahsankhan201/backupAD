@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="24px" viewBox="0 0 25 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0CB47C01-C772-4A61-98C1-629C82533DD4@2.00x</title>
+    <g id="Phone---Menu" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Phone-Port---Menu" transform="translate(-188.000000, -83.000000)" fill-rule="nonzero">
+            <g id="PopUp/Profile" transform="translate(16.000000, 71.000000)">
+                <g id="ic.MyProfile" transform="translate(172.000000, 12.000000)">
+                    <rect id="ViewBox" x="0" y="0" width="24" height="24"></rect>
+                    <path d="M7.2,4.28571429 C8.97520098,4.28571429 10.4142857,5.72479902 10.4142857,7.5 C10.4142857,9.27520098 8.97520098,10.7142857 7.2,10.7142857 C5.42479902,10.7142857 3.98571429,9.27520098 3.98571429,7.5 C3.98571429,5.72479902 5.42479902,4.28571429 7.2,4.28571429 M7.2,3 C4.71471863,3 2.7,5.01471863 2.7,7.5 C2.7,9.98528137 4.71471863,12 7.2,12 C9.68528137,12 11.7,9.98528137 11.7,7.5 C11.7,5.01471863 9.68528137,3 7.2,3 Z" id="Icon-Shape" fill="#969696"></path>
+                    <path d="M14.4,21 L12.96,21 L12.96,18.3 C12.96,15.8147186 11.3482251,13.8 9.36,13.8 L5.04,13.8 C3.0517749,13.8 1.44,15.8147186 1.44,18.3 L1.44,21 L0,21 L0,18.3 C0,14.8206061 2.25648486,12 5.04,12 L9.36,12 C12.1435151,12 14.4,14.8206061 14.4,18.3 L14.4,21 Z" id="Icon-Path" fill="#969696"></path>
+                    <polygon id="Icon-Path" fill="#00A0E6" points="15.3 3 24.3 3 24.3 4.8 15.3 4.8"></polygon>
+                    <polygon id="Icon-Path" fill="#00A0E6" points="15.3 6.6 24.3 6.6 24.3 8.4 15.3 8.4"></polygon>
+                    <polygon id="Icon-Path" fill="#00A0E6" points="15.3 10.2 21.6 10.2 21.6 12 15.3 12"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

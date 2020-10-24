@@ -1,0 +1,52 @@
+@import "src/assets/styles/default";
+
+.payee-account-form-comp {
+  min-height: 420px;
+  @include respond-to(screen-m-min) {
+    min-height: auto;
+  }
+  &__form {
+    &__wrapper {
+      @include respond-to(screen-m-min) {
+        margin-bottom: 63px;
+      }
+      @include respond-to(screen-l-min) {
+        margin-bottom: 65px;
+      }
+    }
+    &__buttons {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      z-index: 10;
+      .next-btn {
+        margin-left: 16px;
+        @include respond-to(screen-m-min) {
+          margin-left: 27px;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        position: inherit;
+      }
+    }
+  }
+}
+
+.payee-form-rtl {
+  .payee-account-form-comp__form__wrapper {
+    mat-form-field {
+      text-align: right;
+      text-align: -webkit-right;
+    }
+  }
+  .payee-account-form-comp__form__buttons {
+    display: flex;
+    .next-btn {
+      margin-left: 0px;
+      margin-right: 16px;
+      @include respond-to(screen-m-min) {
+        margin-right: 27px;
+      }
+    }
+  }
+}

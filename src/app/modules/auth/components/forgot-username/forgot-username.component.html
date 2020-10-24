@@ -1,0 +1,38 @@
+<div class="forgot-password" *ngIf="title" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'forgot-user-rtl-layout': ''">
+    <div class="title" >{{ title | translate}}</div>
+    <div class="sub-title" translate>tr_forgot_username_text</div>
+    <div class="row step-wrapper margin-lrn">
+        <mat-horizontal-stepper linear #usernameStepper (selectionChange)="stepIndexChanged($event)">
+            <ng-template matStepperIcon="edit">
+                <mat-icon></mat-icon>
+            </ng-template>
+            <mat-step label="{{stepperText.cardDetails | translate}}">
+                <app-cardnumber-atm-step [alertMessage]="alertMessage" [loginLink]="false" [resetInputValue]="resetInputValue"
+                    (nextData)="handleCardNumberStepResponse($event)" (cancelData)="handleCancelButtonClick($event)">
+                </app-cardnumber-atm-step>
+            </mat-step>
+            <mat-step label="{{stepperText.otp | translate}}">
+                <!-- otp step component -->
+                <app-forgot-otp-step (usernameResponse)="forgetUsernameResponse($event)"></app-forgot-otp-step>
+            </mat-step>
+            <mat-step translate label="{{stepperText.forgotUsernameStepperText | translate}}">
+                <!-- choose username step component -->
+                <div class="forget-username-success" *ngIf="enableSuccessComponent">
+                    <div *ngIf="userEmailId">
+                        <div class="forget-username-success__title">{{ authConst.forgotUsernameSuccessMessage | translate }}</div>
+                        <div class="forget-username-success__title">
+                            <span> {{ userEmailId }} </span>{{ authConst.forgotUsernameSuccessMessageEnd | translate }}
+                        </div>
+                        <div class="forget-username-success__sub-title">{{ authConst.forgotUsernameSuccessNote | translate }}</div>
+                    </div>
+                    <div *ngIf="!userEmailId">
+                        <div class="forget-username-success__title" translate>tr_forgot_username_success_messages_no_emailId</div>
+                    </div>
+                    <div class="success-button">
+                        <button class="btn next-btn" (click)="handleLoginRedirect()" translate>tr_common_loginText</button>
+                    </div>
+                </div>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</div>

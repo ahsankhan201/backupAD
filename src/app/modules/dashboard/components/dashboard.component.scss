@@ -1,0 +1,88 @@
+@import "src/assets/styles/default";
+
+.ibd-dashboard-comp {
+  position: absolute;
+  top: 56px;
+  height: auto;
+  width: 100%;
+  @include respond-to(screen-m-min) {
+    width: calc(100% - 92px);
+    top: 92px;
+    left: 92px;
+  }
+  &__wrapper {
+    &__container {
+      max-width: 100%;
+      &__header {
+        display: none;
+        @include respond-to(screen-m-min) {
+          display: block;
+        }
+      }
+      &__body-wrapper {
+        &__body {
+          background-color: transparent;
+          &__component-container {
+            padding-left: 0px;
+            @include respond-to(screen-m-min) {
+              padding-left: 24px;
+            }
+            @include respond-to(screen-l-min) {
+              padding-left: 40px;
+            }
+          }
+        }
+        .payments-body {
+          padding: 16px;
+          @include respond-to(screen-m-min) {
+            padding: 16px 24px 0 38px;
+          }
+          @include respond-to(screen-xl-min) {
+            padding: 20px 24px 0 41px;
+          }
+        }
+      }
+    }
+  }
+
+  &.dashboard-rtl-layout {
+    direction: rtl;
+    @include respond-to(screen-m-min) {
+      width: calc(100% - 92px);
+      top: 92px;
+      right: 92px;
+      left: unset;
+    }
+    .ibd-dashboard-comp__wrapper__container__body-wrapper__body__component-container {
+      @include respond-to(screen-m-min) {
+        padding-left: 0;
+        padding-right: 24px;
+      }
+      @include respond-to(screen-l-min) {
+        padding-right: 40px;
+      }
+    }
+    .payments-body {
+      @include respond-to(screen-m-min) {
+        padding: 16px 38px 0 24px;
+      }
+      @include respond-to(screen-xl-min) {
+        padding: 20px 41px 0 24px;
+      }
+    }
+  }
+}
+
+// remove the border right and bottom for 2 items template
+:host ::ng-deep .quick-links-wrapper {
+  .quick-links {
+    &__item {
+      &:nth-child(2n + 2) {
+        border-right: none;
+      }
+      &:nth-child(2n + 1) {
+        border-bottom: none;
+      }
+    }
+  }
+}

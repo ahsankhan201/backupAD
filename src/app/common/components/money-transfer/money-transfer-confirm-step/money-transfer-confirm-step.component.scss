@@ -1,0 +1,96 @@
+@import "src/assets/styles/default";
+
+.confirm-transfer-comp {
+  min-height: 385px;
+  position: relative;
+  &__wrapper {
+    .summary-label-group {
+      margin-bottom: 16px;
+      &__label {
+        color: $grey;
+        font-family: $font-light;
+        font-size: 12px;
+      }
+      &__value {
+        .text,
+        .number {
+          color: rgb(26, 40, 88);
+          font-family: $font-light;
+          font-size: 16px;
+        }
+        .number {
+          font-family: $font-regular;
+          .currency {
+            color: $suva-grey;
+            font-family: $font-medium;
+            font-size: 12px;
+            line-height: normal;
+          }
+        }
+      }
+    }
+
+    &__buttons {
+      width: 100%;
+      position: static;
+      bottom: 16px;
+      button {
+        width: 100%;
+        margin-top: 16px;
+        @include respond-to(screen-m-min) {
+          width: 184px;
+          min-width: 184px;
+          margin-top: 0;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        display: flex;
+        .next-btn,
+        .previous-btn {
+          margin-left: 27px;
+        }
+      }
+    }
+  }
+  &__success-screen {
+    position: relative;
+    .receipt-btn {
+      top: 55%;
+      left: 85px;
+      position: absolute;
+      @include respond-to(screen-m-min) {
+        top: 28%;
+      }
+    }
+    .next-btn {
+      margin-top: 32px;
+      @include respond-to(screen-m-min) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.confirm-transfer-rtl {
+  text-align: right;
+  text-align: -webkit-right;
+  .receipt-btn {
+    left: auto;
+  }
+  .confirm-transfer-comp__wrapper__buttons {
+    .next-btn,
+    .previous-btn {
+      @include respond-to(screen-m-min) {
+        margin-left: 0px;
+        margin-right: 27px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .transfer-success-component {
+  .success-screen-comp {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/modules/common-app.module.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/app/common/modules</a> common-app.module.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>4/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>3/4</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { NgModule, ModuleWithProviders } from '@angular/core';
+import { CommonModule, DatePipe } from '@angular/common';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { CountdownModule } from 'ngx-countdown';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { LottieAnimationViewModule } from 'ng-lottie';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+&nbsp;
+// declaring modules
+import { SharedDirectiveModule } from './shared-directives-module';
+import { MaterialModule } from './material.module';
+&nbsp;
+// declaring services
+import { HttpInterceptorService } from '../services/interceptors/http-interceptor.service';
+import { AuthGuardService } from '../services/auth/auth-gurd.service';
+import { LogoutService } from 'src/app/modules/logout/services/logout.service';
+&nbsp;
+// declaring components
+import { QuickLinksComponent } from '../components/quick-links/quick-links.component';
+import { MarketingBannerComponent } from '../components/marketing-banner/marketing-banner.component';
+import { CheckboxWithImageComponent } from '../components/checkbox-with-image/checkbox-with-image.component';
+import { CheckboxGenericComponent } from '../components/checkbox-generic/checkbox-generic.component';
+import { ShowErrorComponent } from '../components/show-form-errors/show-form-errors.component';
+import { OTPComponent } from '../components/otp/otp.component';
+import { SuccessScreenComponent } from '../components/success-screen/success-screen.component';
+import { DialogComponent } from '../components/dialog/dialog.component';
+import { MenuOptionComponent } from '../components/menu-option/menu-option.component';
+import { TransactionGridComponent } from '../components/transaction-grid/transaction-grid.component';
+import { InfiniteScrollComponent } from '../components/inifnite-scroll/infinite-scroll.component';
+import { ConfirmPayeeComponent } from 'src/app/modules/payee/components/confirm-payee/confirm-payee.component';
+import { PaymentsComponent } from '../components/payments/payments.component';
+import { TransferFromStepComponent } from '../components/payments/transfer-from-step/transfer-from-step.component';
+import { AccountCheckBoxComponent } from '../components/account-checkbox/account-checkbox.component';
+import { CheckboxPayeeComponent } from '../components/checkbox-payee/checkbox-payee.component';
+import { TransferDetailsComponent } from '../components/payments/transfer-details/transfer-details.component';
+import { TransferToStepComponent } from '../components/payments/transfer-to-step/transfer-to-step.component';
+import { ConfirmPaymentComponent } from '../components/payments/confirm-payment/confirm-payment.component';
+import { CheckboxCardComponent } from '../components/checkbox-card/checkbox-card.component';
+import { CheckboxGenericCharityComponent } from '../components/checkbox-generic-charity/checkbox-generic-charity.component';
+import {
+  InternationalTransferFormComponent
+} from '../components/money-transfer/money-transfer-details-step/international-transfer-form/international-transfer-form.component';
+import { MoneyTransferComponent } from '../components/money-transfer/money-transfer.component';
+import {
+  MoneyTransferConfirmStepComponent
+} from '../components/money-transfer/money-transfer-confirm-step/money-transfer-confirm-step.component';
+import { MoneyTransferToStepComponent } from '../components/money-transfer/money-transfer-to-step/money-transfer-to-step.component';
+import { MoneyTransferFromStepComponent } from '../components/money-transfer/money-transfer-from-step/money-transfer-from-step.component';
+import {
+  MoneyTransferDetailsStepComponent
+} from '../components/money-transfer/money-transfer-details-step/money-transfer-details-step.component';
+import { CheckboxBeneficiaryComponent } from '../components/checkbox-beneficiary/checkbox-beneficiary.component';
+import {
+  InternationalTransferSummaryComponent
+} from '../components/money-transfer/money-transfer-confirm-step/international-summary/international-summary.component';
+import { ProductCardComponent } from '../components/product-card/product-card.component';
+import { CardCategoriesComponent } from '../components/card-categories/card-categories.component';
+import { CardSubCategoriesComponent } from '../components/card-sub-categories/card-sub-categories.component';
+import { SavingsAccountComponent } from '../components/open-account/savings-account/savings-account.component';
+import { SavingsSummaryAccountComponent } from '../components/open-account/savings-account/savings-summary/savings-summary.component';
+import { OpenAccountComponent } from '../components/open-account/open-account.component';
+import {
+  InvestmentDepositAccountComponent
+} from '../components/open-account/investment-deposit-account/investment-deposit-account.component';
+import { GhinaSavingsAccountComponent } from '../components/open-account/ghina-savings-account/ghina-savings-account.component';
+import { GhinaSummaryComponent } from '../components/open-account/ghina-savings-account/ghina-summary/ghina-summary.component';
+&nbsp;
+import {
+  OpenAccountSummaryComponent
+} from '../components/open-account/investment-deposit-account/open-account-summary/open-account-summary.component';
+import { TermsAndConditionComponent } from '../components/terms-and-condition/terms-and-condition.component';
+import { InputGenericComponent } from '../components/input-generic/input-generic.component';
+import { AlertMessageComponent } from '../components/alert-message/alert-message.component';
+import { SecurityTipsComponent } from '../components/security-tips/security-tips.component';
+import { RecaptchaComponent } from '../components/recaptcha/recaptcha.component';
+import { RegistrationSuccessScreenComponent } from '../components/auth/registration-success-screen/registration-success-screen.component';
+import { CardnumberAtmStepComponent } from '../components/auth/cardnumber-atm-step/cardnumber-atm-step.component';
+import { SetPasswordStepComponent } from '../components/auth/set-password-step/set-password-step.component';
+import { CheckboxWithAccountComponent } from '../components/checkbox-with-account/checkbox-with-account.component';
+&nbsp;
+@NgModule({
+  declarations: [
+    QuickLinksComponent,
+    MarketingBannerComponent,
+    OTPComponent,
+    SuccessScreenComponent,
+    CheckboxWithImageComponent,
+    CheckboxGenericComponent,
+    ShowErrorComponent,
+    OTPComponent,
+    DialogComponent,
+    MenuOptionComponent,
+    TransactionGridComponent,
+    InfiniteScrollComponent,
+    AccountCheckBoxComponent,
+    CheckboxPayeeComponent,
+    ConfirmPayeeComponent,
+    PaymentsComponent,
+    AccountCheckBoxComponent,
+    TransferDetailsComponent,
+    TransferToStepComponent,
+    TransferFromStepComponent,
+    ConfirmPaymentComponent,
+    CheckboxCardComponent,
+    CheckboxGenericCharityComponent,
+    InternationalTransferFormComponent,
+    CheckboxBeneficiaryComponent,
+    MoneyTransferComponent,
+    MoneyTransferConfirmStepComponent,
+    MoneyTransferToStepComponent,
+    MoneyTransferFromStepComponent,
+    MoneyTransferDetailsStepComponent,
+    CheckboxBeneficiaryComponent,
+    InternationalTransferSummaryComponent,
+    InternationalTransferSummaryComponent,
+    ProductCardComponent,
+    CardCategoriesComponent,
+    CardSubCategoriesComponent,
+    SavingsAccountComponent,
+    SavingsSummaryAccountComponent,
+    OpenAccountComponent,
+    InvestmentDepositAccountComponent,
+    OpenAccountSummaryComponent,
+    TermsAndConditionComponent,
+    GhinaSavingsAccountComponent,
+    GhinaSummaryComponent,
+    InputGenericComponent,
+    SecurityTipsComponent,
+    RecaptchaComponent,
+    AlertMessageComponent,
+    SecurityTipsComponent,
+    RegistrationSuccessScreenComponent,
+    CardnumberAtmStepComponent,
+    SetPasswordStepComponent,
+    CheckboxWithAccountComponent
+  ],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MaterialModule,
+    FormsModule,
+    CountdownModule,
+    ReactiveFormsModule,
+    SharedDirectiveModule,
+    TranslateModule,
+    LottieAnimationViewModule,
+    CarouselModule
+  ],
+&nbsp;
+  exports: [
+    QuickLinksComponent,
+    MarketingBannerComponent,
+    OTPComponent,
+    SuccessScreenComponent,
+    CheckboxWithImageComponent,
+    CheckboxGenericComponent,
+    ShowErrorComponent,
+    OTPComponent,
+    DialogComponent,
+    MenuOptionComponent,
+    TransactionGridComponent,
+    InfiniteScrollComponent,
+    AccountCheckBoxComponent,
+    CheckboxPayeeComponent,
+    ConfirmPayeeComponent,
+    PaymentsComponent,
+    AccountCheckBoxComponent,
+    TransferFromStepComponent,
+    TransferToStepComponent,
+    TransferDetailsComponent,
+    ConfirmPaymentComponent,
+    CheckboxCardComponent,
+    CheckboxGenericCharityComponent,
+    InternationalTransferFormComponent,
+    MoneyTransferComponent,
+    MoneyTransferConfirmStepComponent,
+    MoneyTransferToStepComponent,
+    MoneyTransferFromStepComponent,
+    MoneyTransferDetailsStepComponent,
+    CheckboxBeneficiaryComponent,
+    InternationalTransferSummaryComponent,
+    InternationalTransferSummaryComponent,
+    ProductCardComponent,
+    CardCategoriesComponent,
+    CardSubCategoriesComponent,
+    SavingsAccountComponent,
+    SavingsSummaryAccountComponent,
+    OpenAccountComponent,
+    InvestmentDepositAccountComponent,
+    OpenAccountSummaryComponent,
+    TermsAndConditionComponent,
+    InputGenericComponent,
+    SecurityTipsComponent,
+    RecaptchaComponent,
+    AlertMessageComponent,
+    SecurityTipsComponent,
+    RegistrationSuccessScreenComponent,
+    CardnumberAtmStepComponent,
+    SetPasswordStepComponent,
+    CheckboxWithAccountComponent,
+    LottieAnimationViewModule
+  ],
+  entryComponents: [
+    DialogComponent
+  ],
+&nbsp;
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
+    AuthGuardService, DatePipe, LogoutService
+  ]
+})
+export class CommonAppModule {
+<span class="fstat-no" title="function not covered" >  static forRoot(): ModuleWithProviders {</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      ngModule: CommonAppModule,
+      providers: []
+    };
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

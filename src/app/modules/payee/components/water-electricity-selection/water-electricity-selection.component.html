@@ -1,0 +1,16 @@
+<section class="water-electricity-selection-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'water-electricity-payee-rtl': ''">
+    <div class="water-electricity-selection-comp__provider">
+        <app-checkbox-with-image [cardOptionsList]="providersList" [componentName]="'waterElectricitySelection'"
+            (selectedCardValue)="onSelectProduct($event)" class="water-electricity-selection-card"
+            [ngClass]="(selectedLanguage === arabicLanguageText) ? 'water-electricity-card-rtl': ''"
+            [emitSelectedEleID]="true">
+        </app-checkbox-with-image>
+    </div>
+
+    <div class="water-electricity-selection-comp__buttons">
+        <button matStepperPrevious class="btn previous-btn" type="button" translate>tr_common_previousText</button>
+        <button matStepperNext class="btn next-btn" type="button" [disabled]="!enableNextBtn"
+            translate>tr_common_nextText</button>
+    </div>
+</section>

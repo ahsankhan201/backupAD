@@ -1,0 +1,36 @@
+<section class="payee-comp margin-lrn col-12 padding-lrn" *ngIf="!showPayBill"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'add-payee-rtl-layout': ''">
+    <div class="row payee-comp__link-wrapper margin-lrn" routerLink="/transfers-payments">
+        <span class="payee-comp__link-wrapper__back" translate>tr_navControl_backText</span>
+    </div>
+    <div class="row payee-comp__text-wrapper margin-lrn" translate>tr_common_addPayeeText</div>
+    <div class="row payee-comp__step-wrapper margin-lrn">
+        <mat-horizontal-stepper linear #stepper (selectionChange)="stepIndexChanged(stepper,$event)"
+            [ngClass]="(selectedLanguage === arabicLanguageText) ? 'mat-horizontal-stepper-rtl': ''">
+            <ng-template matStepperIcon="edit">
+                <mat-icon></mat-icon>
+            </ng-template>
+            <mat-step label="{{stepperText.TYPE | translate}}">
+                <app-payee-selection></app-payee-selection>
+            </mat-step>
+            <mat-step label="{{stepperText.SERVICE_PROVIDER | translate}}">
+                <app-service-provider></app-service-provider>
+            </mat-step>
+            <mat-step label="{{stepperText.ACCOUNT | translate}}">
+                <app-payee-account-form></app-payee-account-form>
+            </mat-step>
+            <mat-step label="{{stepperText.CONFIRM | translate}}">
+                <app-confirm-payee></app-confirm-payee>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</section>
+
+<!-- Payments component code -->
+<section class="payee-comp payment margin-lrn col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'add-payee-rtl-layout': ''" *ngIf="showPayBill">
+    <app-payments [showTransferFromStep]="'true'" [showTransferToStep]="'true'"
+        [parentComponentTitle]="parentComponentTitle" [selectedComponentTitle]="selectedComponentTitle"
+        (completeTransactionEvent)="changePaymentsView()">
+    </app-payments>
+</section>

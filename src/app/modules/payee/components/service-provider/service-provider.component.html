@@ -1,0 +1,7 @@
+<section class="service-provider-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'service-provider-rtl': ''">
+    <div class="service-provider-comp__header col-12 padding-lrn" translate>tr_addPayee_selectProviderText</div>
+    <app-rta-selection *ngIf="showRTAView"></app-rta-selection>
+    <app-telecom-selection *ngIf="showTelecomView"></app-telecom-selection>
+    <app-water-electricity-selection *ngIf="showWaterAndElectricity"></app-water-electricity-selection>
+</section>

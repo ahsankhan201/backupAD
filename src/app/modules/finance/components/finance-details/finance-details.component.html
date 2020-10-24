@@ -1,0 +1,59 @@
+<div class="ibd-finance-details-com"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'finance-details-rtl-layout': ''">
+    <div class="ibd-finance-details-com__header padding-lrn">
+        <div class="ibd-finance-details-com__header__back" (click)="onBackButtonClicked()" translate>
+            tr_navControl_backText</div>
+        <div class="ibd-finance-details-com__header__title" translate>tr_financeComponent_financeAccount</div>
+    </div>
+    <div class="ibd-finance-details-com__details">
+        <div class="ibd-finance-details-com__details__wrapper">
+            <div class="ibd-finance-details-com__details__wrapper__outstading padding-lrn">
+                <div class="ibd-finance-details-com__details__wrapper__outstading__title" translate>
+                    tr_financeComponent_outstandingAmount</div>
+                <div class="ibd-finance-details-com__details__wrapper__outstading__balance">
+                    <span> {{ financeDetails.outstandingBalance | numberFormat }}</span>.<span
+                        class="ibd-finance-details-com__details__wrapper__outstading__balance__decimal">{{ financeDetails.outstandingBalance | getDecimalValue }}</span>
+                    <span class="ibd-finance-details-com__details__wrapper__outstading__balance__currency">
+                        {{ financeDetails.currencyCode }}</span>
+                </div>
+            </div>
+            <div class="ibd-finance-details-com__details__wrapper__details-list padding-lrn">
+                <div class="ibd-finance-details-com__details__wrapper__details-list__item"
+                    *ngIf="financeDetails.accountNumber">
+                    <div class="account-label " translate>tr_common_accountNumberText</div>
+                    <div class="account-value font-medium-weight">{{ financeDetails.accountNumber }}</div>
+                </div>
+                <div class="ibd-finance-details-com__details__wrapper__details-list__item"
+                    *ngIf="financeDetails.agreementNumber">
+                    <div class="account-label" translate>tr_financeComponent_agreementNumber</div>
+                    <div class="account-value">{{ financeDetails.agreementNumber }}</div>
+                </div>
+                <div class="ibd-finance-details-com__details__wrapper__details-list__item"
+                    *ngIf="financeDetails.dateMaturity">
+                    <div class="account-label" translate>tr_financeComponent_maturityDate</div>
+                    <div class="account-value font-medium-weight">{{ financeDetails.dateMaturity | date: 'dd/MM/yyyy'}}
+                    </div>
+                </div>
+                <div class="ibd-finance-details-com__details__wrapper__details-list__item"
+                    *ngIf="financeDetails.murabhaAmount">
+                    <div class="account-label" translate>tr_financeComponent_murabhaAmount</div>
+                    <div class="account-value">{{ financeDetails.murabhaAmount }} {{ financeDetails.currencyCode }}
+                    </div>
+                </div>
+                <div class="ibd-finance-details-com__details__wrapper__details-list__item"
+                    *ngIf="financeDetails.installmentAmount">
+                    <div class="account-label" translate>tr_financeComponent_installmentAmount</div>
+                    <div class="account-value">{{ financeDetails.installmentAmount }} {{ financeDetails.currencyCode }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ibd-finance-details-com__transactions">
+        <app-transaction-grid [transactionHeaderList]="transactionHeaderList"
+            [transactionHistoryAPIURL]="transactionHistoryAPIURL"
+            [transactionGridComponentName]="transactionGridComponentName"
+            class="ibd-finance-details-com__transactions__comp">
+        </app-transaction-grid>
+    </div>
+</div>

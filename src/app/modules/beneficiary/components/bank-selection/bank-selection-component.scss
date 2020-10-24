@@ -1,0 +1,173 @@
+@import "src/assets/styles/default";
+
+.bank-selection-comp {
+  min-height: 370px;
+  &__wrapper {
+    &__title {
+      @extend .ibd-small-text;
+
+      font-family: $font-regular;
+      font-size: 14px;
+      color: $suva-grey;
+      padding-bottom: 16px;
+    }
+    &__dropdowns {
+      padding-top: 24px;
+      mat-form-field {
+        width: 100%;
+        @include respond-to(screen-m-min) {
+          width: 50%;
+          &:first-child {
+            padding-right: 67px;
+          }
+          &:last-child {
+            width: 100%;
+          }
+        }
+        @include respond-to(screen-l-min) {
+          width: 100%;
+          &:first-child {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+    &__buttons {
+      width: 100%;
+      position: fixed;
+      bottom: 84px;
+      z-index: 10;
+      .next-btn {
+        margin-left: 16px;
+        @include respond-to(screen-m-min) {
+          margin-left: 27px;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        position: absolute;
+        bottom: 20px;
+      }
+    }
+    &__banks {
+      padding-bottom: 16px;
+    }
+  }
+  form {
+    mat-form-field:first-child {
+      &.mat-form-field-should-float {
+        margin-top: 16px;
+      }
+    }
+  }
+  @include respond-to(screen-m-min) {
+    position: relative;
+    min-height: 405px;
+  }
+}
+
+.bank-selection-rtl-layout {
+  .bank-selection-comp__wrapper {
+    &__title {
+      display: flex;
+    }
+    &__dropdowns {
+      mat-form-field {
+        @include respond-to(screen-m-min) {
+          &:first-child {
+            padding-left: 67px;
+            padding-right: 0px;
+          }
+        }
+        @include respond-to(screen-l-min) {
+          &:first-child {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+    &__buttons {
+      display: flex;
+      .next-btn {
+        margin-right: 16px;
+        margin-left: 0px;
+        @include respond-to(screen-m-min) {
+          margin-right: 27px;
+        }
+      }
+    }
+  }
+}
+
+.mat-auto-complete input {
+  cursor: pointer;
+}
+
+:host ::ng-deep .bank-selection-card {
+  .checkbox-with-image-comp {
+    display: flex;
+    &__wrapper {
+      max-width: 156px;
+      min-width: 156px;
+      margin-right: 16px;
+      &:last-child {
+        margin-right: 0;
+      }
+      @include respond-to(screen-m-min) {
+        max-width: 213px;
+        min-width: 213px;
+        margin-right: 27px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .bank-card-rtl {
+  .checkbox-with-image-comp {
+    &__wrapper {
+      margin-right: 0px;
+      margin-left: 16px;
+      &:last-child {
+        margin-left: 0;
+        margin-right: 0px;
+      }
+      @include respond-to(screen-m-min) {
+        margin-left: 27px;
+        margin-right: 0px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .bank-country-selection-card {
+  .checkbox-with-image-comp {
+    display: flex;
+    flex-wrap: wrap;
+    &__container {
+      margin-right: 16px;
+      &:last-child {
+        margin-right: 0;
+      }
+      &__wrapper {
+        max-width: inherit;
+        min-width: 90px;
+        margin-top: 24px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .country-card-rtl {
+  .checkbox-with-image-comp {
+    &__container {
+      margin-right: 0px;
+      margin-left: 16px;
+      &:last-child {
+        margin-left: 0;
+      }
+      &__wrapper {
+        padding-left: 10px;
+      }
+    }
+  }
+}

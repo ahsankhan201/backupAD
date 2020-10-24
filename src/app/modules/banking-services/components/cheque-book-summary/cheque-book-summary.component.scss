@@ -1,0 +1,99 @@
+@import "src/assets/styles/default";
+.cheque-book-summary-comp {
+  @include respond-to(screen-l-min) {
+    max-width: 530px;
+  }
+  .title {
+    color: $grey;
+    font-family: $font-regular;
+    font-size: 16px;
+  }
+  &__wrapper {
+    &__title {
+      margin-top: 16px;
+      color: $button-gray;
+      font-family: $font-regular;
+      font-size: 16px;
+      margin: 38px 0 22px 0;
+      @include respond-to(screen-m-min) {
+        margin-top: 60px;
+      }
+    }
+    &__container {
+      .label {
+        color: $grey;
+        font-size: 12px;
+        font-family: $font-light;
+        margin-bottom: 4px;
+      }
+      .value {
+        color: $solid-blue;
+        font-size: 16px;
+        font-family: $font-regular;
+      }
+      margin-bottom: 16px;
+    }
+    &__taxText {
+      color: $button-gray;
+      font-size: 12px;
+      font-family: $font-light;
+      margin: 8px 0 26px 0;
+    }
+  }
+  .button-wrapper {
+    margin-top: 16px;
+    button {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    @include respond-to(screen-m-min) {
+      display: flex;
+      button {
+        margin-right: 38px;
+        min-width: 165px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    @include respond-to(screen-l-min) {
+      button {
+        min-width: 213px;
+      }
+    }
+  }
+  .success-screen-btn {
+    width: calc(100% - 81px);
+    float: right;
+    margin-top: 24px;
+    @include respond-to(screen-m-min) {
+      width: max-content;
+      float: unset;
+      margin-left: 81px;
+    }
+  }
+}
+
+:host ::ng-deep .chequebook-success-component {
+  .success-screen-comp {
+    padding: 0;
+    margin-top: 64px;
+    @include respond-to(screen-m-min) {
+      margin-top: 82px;
+    }
+    .success-screen-comp__wrapper__buttons {
+      margin-top: 0;
+    }
+  }
+}
+
+.cheque-book-summary-comp-rtl {
+  @include respond-to(screen-m-min) {
+    .button-wrapper {
+      button {
+        margin-right: 0px;
+        margin-left: 38px;
+      }
+    }
+  }
+}

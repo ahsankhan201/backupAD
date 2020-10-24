@@ -1,0 +1,79 @@
+<div class="bank-selection-comp" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'bank-selection-rtl-layout': ''"
+    (clickOutside)="checkDrownOptinExist($event)" appDocumentClick>
+    <div class="bank-selection-comp__wrapper">
+        <div class="bank-selection-comp__wrapper__title" translate>tr_addBene_selectBankText</div>
+        <div class="bank-selection-comp__wrapper__banks">
+            <app-checkbox-with-image *ngIf="showBankSelection" [cardOptionsList]="bankSelectionList"
+                [componentName]="'bankSelection'" (selectedCardValue)="selectedBank($event)" class="bank-selection-card"
+                [ngClass]="(selectedLanguage === arabicLanguageText) ? 'bank-card-rtl': ''" [titleColor]="'blue'">
+            </app-checkbox-with-image>
+        </div>
+        <div class="bank-selection-comp__wrapper__adib-international" *ngIf="showAdibInternationalBanksView">
+            <app-checkbox-generic [optionsList]="adibInternationalCountriesListWithKeys"
+                [componentName]="'bankCountrySelection'"
+                (selectedOptionValue)="selectedAdibInternationalCountry($event)" class="bank-country-selection-card"
+                [ngClass]="(selectedLanguage === arabicLanguageText) ? 'country-card-rtl': ''"
+                [emitSelectedEleID]="true">
+            </app-checkbox-generic>
+        </div>
+        <!-- Country, Bank and Branch dropdowns -->
+        <form [formGroup]="bankSelectionGroup">
+
+            <mat-form-field *ngIf="showInternationalBanksView" class="mat-auto-complete">
+                <mat-label translate>tr_addBene_selectCountryText</mat-label>
+                <input type="text" matInput formControlName="selectedCountry" [matAutocomplete]="autoCountries">
+                <mat-error>
+                    <app-show-form-errors [control]="bankSelectionGroup.get('selectedCountry')" label="Country">
+                    </app-show-form-errors>
+                </mat-error>
+                <mat-autocomplete #autoCountries="matAutocomplete" (optionSelected)="onCountryChange($event)"
+                    autoActiveFirstOption>
+                    <mat-option
+                        *ngFor="let item of countriesList | filterText:bankSelectionGroup.controls['selectedCountry'].value:'countryName'"
+                        [value]="item.countryName" id="{{item.countryISOCode}}">
+                        {{item.countryName}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="showInternationalBanksView || showUaeOtherBankView" class="mat-auto-complete">
+                <mat-label translate>tr_common_bankNameText</mat-label>
+                <input type="text" matInput formControlName="selectedBank" [matAutocomplete]="autoBank">
+                <mat-error>
+                    <app-show-form-errors [control]="bankSelectionGroup.get('selectedBank')" label="Bank Name">
+                    </app-show-form-errors>
+                </mat-error>
+                <mat-autocomplete #autoBank="matAutocomplete" autoActiveFirstOption
+                    (optionSelected)="onBankChange($event)">
+                    <mat-option
+                        *ngFor="let item of banksList | filterText:bankSelectionGroup.controls['selectedBank'].value:'bankName'"
+                        [value]="item.bankName" id="{{item.swiftBIC}}">
+                        {{item.bankName}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="showInternationalBanksView || showUaeOtherBankView" class="mat-auto-complete">
+                <mat-label translate>tr_common_branchText</mat-label>
+                <input type="text" matInput formControlName="selectedBranch" [matAutocomplete]="autoBranch">
+                <mat-error>
+                    <app-show-form-errors [control]="bankSelectionGroup.get('selectedBranch')" label="Branch">
+                    </app-show-form-errors>
+                </mat-error>
+                <mat-autocomplete #autoBranch="matAutocomplete" autoActiveFirstOption
+                    (optionSelected)="onBankBranchChange($event)">
+                    <mat-option
+                        *ngFor="let item of bankBranchesList | filterText:bankSelectionGroup.controls['selectedBranch'].value:'addressLine1'"
+                        [value]="item.address.addressLine1" id="{{item.institutionId}}">
+                        {{item.address.addressLine1}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </form>
+        <div class="bank-selection-comp__wrapper__buttons">
+            <button matStepperPrevious class="btn previous-btn" type="button" translate>tr_common_previousText</button>
+            <button matStepperNext class="btn next-btn" type="button"
+                [disabled]="!enableNextBtn || !bankSelectionGroup.valid" translate>tr_common_nextText</button>
+        </div>
+    </div>
+</div>

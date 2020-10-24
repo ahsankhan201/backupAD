@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/directives/numbers-only.directive.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/app/common/directives</a> numbers-only.directive.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">45% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>9/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">38.89% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/18</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">43x</span>
+<span class="cline-any cline-yes">43x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { PATTERN_NUMERIC, PATTERN_NUMERIC_WITH_DECIMAL, PATTERN_NUMERIC_WITH_DOT } from '../global-constants';
+import { SharedService } from '../services/shared.service';
+&nbsp;
+@Directive({
+  // tslint:disable-next-line: directive-selector
+  selector: 'input[numbersOnly]'
+})
+export class NumberDirective {
+  @Input() decimals = 0;
+  @Input() allowDot = false; // allow number with dot/decimal point only for DU-TV account number
+&nbsp;
+  pattern = new RegExp(PATTERN_NUMERIC);
+  constructor(private el: ElementRef, private sharedService: SharedService) { }
+&nbsp;
+  @HostListener('keypress', ['$event']) <span class="fstat-no" title="function not covered" >onInputChange(</span>event) {
+&nbsp;
+    let current: string = <span class="cstat-no" title="statement not covered" >String.fromCharCode(event.which);</span>
+<span class="cstat-no" title="statement not covered" >    current = this.el.nativeElement.value;</span>
+<span class="cstat-no" title="statement not covered" >    current = this.sharedService.removeCommaFromString(current); </span>// remove commas
+<span class="cstat-no" title="statement not covered" >    if (this.decimals &gt; 0 || this.allowDot) {</span>
+<span class="cstat-no" title="statement not covered" >      this.pattern = (this.allowDot) ? new RegExp(PATTERN_NUMERIC_WITH_DOT) : new RegExp(PATTERN_NUMERIC_WITH_DECIMAL);</span>
+      const position = <span class="cstat-no" title="statement not covered" >current.length;</span>
+      const next: string = <span class="cstat-no" title="statement not covered" >[current.slice(0, position), event.key === 'Decimal' ? '.' : event.key, current.slice(position)].join('');</span>
+<span class="cstat-no" title="statement not covered" >      if (next &amp;&amp; !String(next).match(this.pattern)) {</span>
+<span class="cstat-no" title="statement not covered" >        event.preventDefault();</span>
+      }
+    } else {
+<span class="cstat-no" title="statement not covered" >      if (!this.pattern.test(current)) {</span>
+<span class="cstat-no" title="statement not covered" >        event.preventDefault();</span>
+      }
+    }
+  }
+}
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

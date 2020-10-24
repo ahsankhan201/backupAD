@@ -1,0 +1,31 @@
+<div class="ibd-card-details">
+    <div class="ibd-card-details__alert">
+        <app-alert-message *ngIf="alertMessage" [message]="alertMessage"></app-alert-message>
+    </div>
+    <div class="ibd-card-details__form">
+        <app-input-generic componentTitle="tr_registrationComponent_enterCardNumberText" [maxlength]="4"
+            [resetInputValue]="resetInputValue" (outputData)="handleCardNumber($event)" class="cardNumber"
+            type="cardNumber"></app-input-generic>
+        <app-input-generic [resetInputValue]="resetInputValue" inputType='password'
+            componentTitle="tr_registrationComponent_atmPinText" class="atmPin"
+            (outputData)="handleAtmPinNumber($event)" [maxlength]="1" type="atmPin"></app-input-generic>
+    </div>
+    <div class="ibd-card-details__button__wrapper">
+        <button [disabled]="isNextButtonEnabled()" (click)="validateCardandPinDetails($event)" translate
+            class="ibd-card-details__button btn next-btn" translate>tr_common_nextText</button>
+    </div>
+    <div class="ibd-card-details__login__wrapper">
+        <div class="ibd-card-details__login__wrapper__text">
+            <label translate>tr_registrationComponent_alreadyRegisteredText</label>
+            <span translate (click)="handleCancelButtonClick()">tr_common_loginText</span>
+        </div>
+    </div>
+    <div class="ibd-card-details__security-tips-wrapper">
+        <div class="ibd-card-details__security-tips-wrapper__text" translate>
+            <span (click)="handleSecurityTipClick()">
+                <img alt="security icon" src="{{ securityIcon }}">
+                <span translate>tr_registrationComponent_securityTipsText</span>
+            </span>
+        </div>
+    </div>
+</div>

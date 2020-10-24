@@ -1,0 +1,82 @@
+@import "src/assets/styles/default";
+
+.money-transfer-from-comp {
+  min-height: 385px;
+  position: relative;
+  &__wrapper {
+    &__buttons {
+      width: 100%;
+      position: static;
+      margin-bottom: 16px;
+      margin-top: 18px;
+      button {
+        width: 100%;
+        margin-top: 16px;
+        @include respond-to(screen-m-min) {
+          width: 184px;
+          min-width: 184px;
+          margin-top: 0;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        position: static;
+        display: flex;
+        .next-btn,
+        .previous-btn {
+          margin-left: 27px;
+        }
+      }
+    }
+    .alert-message {
+      max-width: 578px;
+      @include respond-to(screen-m-min) {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+.transfer-from-rtl {
+  .alert-message {
+    display: flex;
+    width: min-content;
+  }
+  .money-transfer-from-comp__wrapper__buttons {
+    .next-btn {
+      @include respond-to(screen-m-min) {
+        margin-left: 0px;
+        margin-right: 27px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .money-transfer-from-generic-checkbox {
+  .checkbox-with-image-comp {
+    display: flex;
+    flex-wrap: wrap;
+    &__container {
+      margin-right: 27px;
+      &__wrapper {
+        padding-right: 16px;
+        margin: 0 0 24px 0;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .transfer-from-checkbox-rtl {
+  .checkbox-with-image-comp {
+    &__container {
+      margin-right: 0px;
+      margin-left: 27px;
+      &__wrapper {
+        padding-right: 0px;
+        padding-left: 16px;
+        &__input {
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}

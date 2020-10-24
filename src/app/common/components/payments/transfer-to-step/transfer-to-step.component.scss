@@ -1,0 +1,231 @@
+@import "src/assets/styles/default";
+
+.transfer-to-comp {
+  min-height: 380px;
+  position: relative;
+  &__wrapper {
+    &__donation {
+      &__title {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        color: $suva-grey;
+        font-size: 16px;
+        font-family: $font-regular;
+      }
+    }
+    &__buttons {
+      width: 100%;
+      position: static;
+      bottom: 16px;
+      button {
+        width: 100%;
+        margin-top: 16px;
+        @include respond-to(screen-m-min) {
+          width: 184px;
+          min-width: 184px;
+          margin-top: 0;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        display: flex;
+        .next-btn,
+        .previous-btn {
+          margin-left: 27px;
+        }
+      }
+    }
+    &__payee-controls {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 28px;
+      &__search {
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+        width: 100%;
+        margin-bottom: 23px;
+        @include respond-to(screen-m-min) {
+          width: 333px;
+          margin-bottom: 0;
+        }
+        input {
+          font-size: 12px;
+          font-family: $font-regular;
+          background: $light-white;
+          border-radius: 16px;
+          border: 1px solid $table-gray;
+          width: 100%;
+          float: right;
+          height: 36px;
+          padding-left: 16px;
+          outline: none;
+        }
+        ::placeholder {
+          /* For Chrome and other browsers */
+          color: $step-gray;
+        }
+
+        ::-webkit-input-placeholder {
+          /* Edge */
+          color: $step-gray;
+        }
+
+        :-ms-input-placeholder {
+          /* Internet Explorer 10-11 */
+          color: $step-gray;
+        }
+        .search-icon {
+          border-radius: 0px 16px 16px 0px;
+          border: 1px solid $table-gray;
+          display: inline-block;
+          position: absolute;
+          content: " ";
+          background-image: url("/assets/icons/search-gray@2x.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          height: 36px;
+          padding: 10px 14px;
+          cursor: pointer;
+          pointer-events: none;
+        }
+      }
+      &__button-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .add-btn {
+          outline: none;
+          cursor: pointer;
+          background: $white;
+          border-radius: 8px;
+          margin-right: 10px;
+          color: $cerulean-blue;
+          border: 1px solid #e6e6e6;
+          min-width: 93px;
+          position: relative;
+          padding-left: 20px;
+          height: 28px;
+          align-items: center;
+          justify-content: center;
+          display: flex;
+          img {
+            position: absolute;
+            left: 9px;
+            top: 9px;
+            height: 8px;
+            width: 8px;
+          }
+          @include respond-to(screen-m-min) {
+            margin-left: 27px;
+          }
+        }
+        span,
+        strong {
+          font-family: $font-regular;
+          color: $grey;
+          font-size: 12px;
+        }
+        strong {
+          font-family: $font-medium;
+          color: $solid-blue;
+        }
+      }
+
+      @include respond-to(screen-m-min) {
+        flex-direction: row;
+      }
+    }
+    .alert-message {
+      max-width: 578px;
+      @include respond-to(screen-m-min) {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+.transfer-to-rtl {
+  .alert-message {
+    display: flex;
+    width: min-content;
+  }
+  .transfer-to-comp__wrapper__payee-controls {
+    &__search {
+      input {
+        padding-left: 0px;
+        padding-right: 16px;
+      }
+      .search-icon {
+        border-radius: 0px;
+        border: none;
+        border-right: 1px solid $table-gray;
+      }
+    }
+    &__button-wrapper {
+      .add-btn {
+        margin-right: 0px;
+        margin-left: 10px;
+        padding-right: 20px;
+        padding-left: 10px;
+        img {
+          right: 9px;
+        }
+        @include respond-to(screen-m-min) {
+          margin-left: 27px;
+          margin-right: 27px;
+        }
+      }
+    }
+  }
+  .transfer-to-comp__wrapper__buttons {
+    .next-btn,
+    .previous-btn {
+      @include respond-to(screen-m-min) {
+        margin-left: 0px;
+        margin-right: 27px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .transfer-to-generic-checkbox {
+  .checkbox-with-image-comp {
+    display: flex;
+    flex-wrap: wrap;
+    &__container {
+      margin-right: 27px;
+      &__wrapper {
+        padding-right: 16px;
+        margin: 0 0 24px 0;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .transfer-to-checkbox-rtl {
+  .checkbox-with-image-comp {
+    &__container {
+      margin-right: 0px;
+      margin-left: 27px;
+      &__wrapper {
+        padding-right: 0px;
+        padding-left: 16px;
+        &__input {
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep .charity-checkbox-rtl {
+  .checkbox-with-image-comp {
+    &__container {
+      margin-right: 0px;
+      margin-left: 27px;
+      &__wrapper {
+        padding-left: 12px;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<section class="payee-selection-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'payee-type-rtl': ''">
+    <div class="payee-selection-comp__wrapper">
+        <div class="payee-selection-comp__wrapper__title" translate>tr_addPayee_selectPayeeText</div>
+        <div class="payee-selection-comp__wrapper__provider">
+            <app-checkbox-with-image [cardOptionsList]="payeeSelectionList" [componentName]="'payeeSelection'"
+                (selectedCardValue)="selectedPayee($event)" class="payee-selection-card"></app-checkbox-with-image>
+        </div>
+        <div class="payee-selection-comp__wrapper__buttons">
+            <button matStepperNext class="btn next-btn" type="button"
+                [disabled]="!enableNextBtn" translate>tr_common_nextText</button>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,205 @@
+@import 'src/assets/styles/default';
+
+.covercard-limit-com {
+    padding: 14px 16px 24px 16px;
+    @include respond-to(screen-m-min) {
+      padding: 23px 16px 24px 38px;
+    }
+    @include respond-to(screen-xl-min) {
+      padding: 17px 16px 24px 41px;
+    }
+    &__header {
+        line-height: normal;
+        padding-bottom: 16px;
+        @include respond-to(screen-xl-min) {
+          padding-bottom: 19px;
+
+        }
+        &__back {
+          @extend .ibd-font-regular-cerulean;
+          font-size: 14px;
+          position: relative;
+          cursor: pointer;
+          padding-left: 12px;
+          &:before {
+            border: solid $cerulean-blue;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 3px;
+            content: " ";
+            position: absolute;
+            left: 1px;
+            top: 4px;
+            transform: rotate(135deg);
+            -webkit-transform: rotate(135deg);
+          }
+        }
+        &__title {
+          @extend .ibd-font-regular-cerulean;
+          margin-top: 12px;
+          color: $suva-grey;
+          font-size: 14px;
+          @include respond-to(screen-m-min) {
+            margin-top: 20px;
+            font-size: 16px;
+          }
+        }
+      }
+      &__details {
+        width: 328px;
+        flex-grow: 100;
+        margin-top: 16px;
+        @include respond-to(screen-m-min) {
+          width: 557px;
+        }
+        @include respond-to(screen-land) {
+          width: 453px;
+        }
+        @include respond-to(screen-xl-min) {
+          width: 453px;
+          margin-top: 30px;
+        }
+        &__item {
+          margin-top: 16px;
+          padding: 7px 20px 7px 16px;
+          background: $bar-gray;
+          border-radius: 16px;
+          display: flex;
+          justify-content: space-between;
+          @extend .ibd-font-regular-cerulean;
+          min-height: 30px;
+          @include respond-to(screen-m-min) {
+            min-height: 32px;
+            padding: 9px 20px 7px 16px;
+          }
+          @include respond-to(screen-l-min) {
+            min-height: 32px;
+            margin-top: 16px;
+          }
+          @include respond-to(screen-xl-min) {
+            min-height: 32px;
+          }
+          &__label {
+            color: $grey;
+            font-family: $font-light;
+            font-weight: 300;
+            font-size: 13px;
+          }
+          &__value {
+            color: #2e3a80;
+            font-size: 13px;
+            font-family: $font-regular;
+            font-weight: normal;
+            text-align: right;
+          }
+          .font-medium-weight {
+            color: #263372;
+            font-family: $font-medium;
+            font-size: 13px;
+            font-weight: 500;
+          }
+          &:first-child {
+            @include respond-to(screen-m-min) {
+              margin-top: unset;
+            }
+          }
+        }
+        &__amount{
+            margin-top: 24px;
+        }
+        &__range-slider{
+            margin-top: 36px;
+        }
+      }
+      &__buttons{
+            min-width: 328px;
+            max-width: 328px;
+            position: fixed;
+            bottom: 24px;
+          .next-btn {
+            width: 100%;
+          }
+          @include respond-to(screen-m-min) {
+            position: static;
+            margin-top: 48px;
+            min-width: 213px;
+            max-width: 213px;
+          }
+        }
+        &__otp{
+          @include respond-to(screen-xl-min) {
+            margin-top: 12px;
+          }
+        }
+}
+
+input mat-input-element {
+  color: $solid-blue;
+  font-family: $font-regular;
+  font-size: 16px;
+}
+mat-slider {
+  width: 100%;
+}
+.text-left{
+  position: absolute;
+  display: block;
+  left: 0;
+  cursor: default;
+}
+.text-right{
+  position: absolute;
+  display: block;
+  right: 0;
+  cursor: default;
+}
+.range-min-max-value {
+  color: $tablegary-text;
+  font-family:  $font-regular;
+  font-size: 13px;
+  position: relative;
+  top: -20px;
+}
+:host ::ng-deep .range-slider.mat-slider:not(.mat-slider-disabled).cdk-focused .mat-slider-thumb-label{
+  border-radius: 4px;
+  background: #5a5a5a;
+  color: $white;
+  text-align: center;
+}
+
+:host ::ng-deep .range-slider.mat-slider-horizontal.cdk-focused {
+  .mat-slider-thumb-label-text {
+    transform: none;
+  }
+  .mat-slider-thumb-label ::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #5a5a5a transparent transparent transparent;
+  }
+
+  .mat-slider-thumb-label {
+    transform: none;
+    right: -67px;
+    top: -44px;
+    border-radius: 4px;
+    background: #5a5a5a;
+    padding: 4px 8px;
+    width: 135px;
+  }
+}
+
+:host ::ng-deep .range-slider.mat-slider:not(.mat-slider-disabled).cdk-focused.mat-slider-thumb-label-showing .mat-slider-thumb{
+  transform: none;
+}
+
+:host ::ng-deep .cover-limit-success-screen {
+  .success-screen-comp__wrapper__success-image img{
+    width: unset;
+    height: unset;
+  }
+}

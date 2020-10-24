@@ -1,0 +1,106 @@
+@import "src/assets/styles/default";
+
+form {
+    width: 100%;
+}
+input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid $secondary-gray;
+    min-width: 35px;
+    padding: 5px 1px;
+    border-radius: 0;
+    box-shadow: none;
+    &:focus {
+        border-bottom: 1px solid $cerulean-blue;
+    }
+}
+
+.pin-component {
+    text-align: center;
+    input {
+        text-align: center;
+    }
+    .pin-input-wrapper  {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .pin-input-wrapper :not(:first-child) { 
+        margin-left: 3%;
+    }
+}
+
+.card-component {
+    text-align: left;
+    .card-input-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .card-input-wrapper input {
+        letter-spacing: 8px;
+        @include respond-to(screen-land) {
+            letter-spacing: 16px;
+            &:focus {
+             letter-spacing: 13px;
+            }
+        }
+        @include respond-to(screen-m-min) {
+            letter-spacing: 28px;
+            &:focus {
+                letter-spacing: 25px;
+            }
+        }
+        @include respond-to(screen-l-min) {
+            letter-spacing: 10px;
+            &:focus {
+                letter-spacing:  9px;
+            }
+        }
+        @include respond-to(screen-xl-min) {
+            letter-spacing: 19px;
+            &:focus {
+                letter-spacing: 15px;
+            }
+        }
+        text-align: left;
+    }
+    .card-input-wrapper :not(:first-child) { 
+        margin-left: 3%;
+    }
+}
+
+.input-title {
+    line-height: normal;
+    margin-bottom: 6px;
+    @include respond-to(screen-land) {
+        margin-bottom: 1px;
+    }
+    @extend .ibd-font-regular-cerulean;
+    text-align: left;
+}
+
+
+.otp-component {
+    text-align: center;
+    input {
+        text-align: center;
+        @include respond-to(screen-m-min) {
+            max-width: 82px;
+        }
+        @include respond-to(screen-xl-min) {
+            max-width: 60px;
+        }
+
+        }
+    .otp-input-wrapper  {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .otp-input-wrapper :not(:first-child) { 
+        margin-left: 3%;
+    }
+}
+.mat-card-hint-text {
+    color: $secondary-gray;
+  }

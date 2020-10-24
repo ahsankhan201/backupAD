@@ -1,0 +1,53 @@
+@import "src/assets/styles/default";
+
+.step-three-comp {
+  &__wrapper {
+    &__title {
+      @extend .ibd-small-text;
+      font-family: $font-regular;
+      font-size: 14px;
+      color: $suva-grey;
+    }
+  }
+}
+
+:host ::ng-deep .step-three-addby {
+  .checkbox-with-image-comp {
+    display: flex;
+    flex-wrap: wrap;
+    &__container {
+      margin-right: 16px;
+      &:last-child {
+        margin-right: 0;
+      }
+      &__wrapper {
+        margin-top: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  }
+}
+
+.uae-other-beneficiary-rtl {
+  .step-three-comp__wrapper {
+    &__title {
+      display: flex;
+    }
+  }
+}
+
+:host ::ng-deep .add-by-checkbox-rtl {
+  .checkbox-with-image-comp {
+    &__container {
+      margin-right: 0px;
+      margin-left: 16px;
+      &:last-child {
+        margin-left: 0;
+      }
+      &__wrapper {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}

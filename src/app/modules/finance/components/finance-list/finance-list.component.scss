@@ -1,0 +1,416 @@
+@import "src/assets/styles/default";
+
+.ibd-finance-list {
+  padding-top: 16px;
+  @include respond-to(screen-xl-min) {
+    padding: 24px 0px 0px;
+  }
+  &__btn-wrapper {
+    &__title {
+      @extend .ibd-small-text;
+
+      font-size: 14px;
+      font-family: $font-regular;
+      float: left;
+      @include respond-to(screen-m-min) {
+        padding-left: 10px;
+      }
+      @include respond-to(screen-xl-min) {
+        padding-left: unset;
+      }
+    }
+  }
+  &__wrapper {
+    display: flex;
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    align-items: center;
+    @include respond-to(screen-l-min) {
+      padding: 10px 10px 20px 0px;
+    }
+    @include respond-to(screen-xl-min) {
+      padding-top: 12px;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    // mozilla browser
+    overflow: -moz-scrollbars-none;
+
+    // IE and Edge browser suppert
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &__no-beneficiary {
+      background: $white;
+      border-radius: 16px;
+      border: 1px solid $bright-gray;
+      display: flex;
+      align-items: center;
+      padding: 10px 10px 10px 10px;
+      margin-top: 60px;
+      width: 328px;
+      @include respond-to(screen-land) {
+        margin-top: 0px;
+        margin-right: 68px;
+      }
+      @include respond-to(screen-m-min) {
+        width: 328px;
+        margin-right: 30px;
+        margin-top: 30px;
+      }
+      @include respond-to(screen-l-min) {
+        height: 47px;
+        width: 475px;
+        margin-right: 145px;
+        margin-top: 10px;
+      }
+      @include respond-to(screen-xl-min) {
+        margin-right: 250px;
+      }
+      .icon {
+        line-height: 1;
+        @include respond-to(screen-m-min) {
+          height: 17px;
+          width: 17px;
+        }
+        height: 32px;
+        width: 32px;
+        margin: 0px 12px 0px 18px;
+      }
+      .message {
+        color: $active-blue;
+        font-family: $font-light;
+        font-weight: 300;
+        letter-spacing: 0px;
+        font-size: 13px;
+        line-height: 18px;
+      }
+    }
+    &__card {
+      min-width: 283px;
+      max-width: 283px;
+      height: 162px;
+      background: $white;
+      box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 12px 16px 10px 17px;
+      margin-right: 27px;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      line-height: normal;
+      border: 1px solid $very-light-gray;
+      @include respond-to(screen-m-min) {
+        margin-right: 24px;
+      }
+      @include respond-to(screen-xl-min) {
+        height: 179px;
+        max-width: 313px;
+        min-width: 313px;
+        padding: 14px 16px;
+        margin-right: 37px;
+      }
+      &:first-child {
+        margin-left: 7px;
+        @include respond-to(screen-m-min) {
+          margin-left: 10px;
+        }
+        @include respond-to(screen-xl-min) {
+          margin-left: none;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        transition: all 0.5s;
+        background: $cerulean-blue;
+        border-radius: 8px;
+        border: 2px dotted #03b2ff;
+        box-shadow: 0px 2px 30px 0px rgba(2, 178, 255, 0.12), 0px 16px 32px 0px rgba(0, 0, 0, 0.2);
+        div,
+        span {
+          color: $white;
+          &::after {
+            border-color: #53caff;
+          }
+        }
+        @include respond-to(screen-xl-min) {
+          transform: scale(1.06, 1.11);
+        }
+      }
+      &__header {
+        &__title {
+          color: $solid-blue;
+          @extend .ibd-font-regular-cerulean;
+          font-size: 14px;
+        }
+        &__account {
+          margin-top: 2px;
+          @extend .ibd-font-regular-12-grey;
+          @include respond-to(screen-xl-min) {
+            margin-top: 4px;
+          }
+        }
+      }
+      &__body {
+        margin-top: 12px;
+        @include respond-to(screen-xl-min) {
+          margin-top: 15px;
+        }
+        &__name {
+          @extend .ibd-font-regular-12-grey;
+        }
+        &__desription {
+          margin-top: 2px;
+          color: $solid-blue;
+          font-size: 16px;
+          font-family: $font-regular;
+          font-weight: normal;
+          letter-spacing: 0px;
+        }
+      }
+      &__footer {
+        margin-top: 12px;
+        @include respond-to(screen-xl-min) {
+          margin-top: 16px;
+        }
+        &__fund {
+          @extend .ibd-medium-text;
+          color: $solid-blue;
+          font-family: $font-regular;
+          &::after {
+            content: " ";
+            border: solid 1px $grey;
+            display: block;
+            width: 25px;
+            margin-top: 6px;
+            opacity: 0.2;
+            @include respond-to(screen-m-min) {
+              width: 30px;
+            }
+          }
+
+          &__currency,
+          &__decimal {
+            @extend .ibd-small-text;
+
+            font-family: $font-regular;
+            color: $suva-grey;
+          }
+
+          @include respond-to(screen-m-min) {
+            margin-top: 4px;
+            line-height: 1;
+            font-size: 18px;
+          }
+        }
+        &__title {
+          color: $grey;
+          font-size: 12px;
+          font-family: $font-light;
+          font-weight: 300;
+          letter-spacing: 0px;
+        }
+        &__balace {
+          color: $solid-blue;
+          font-size: 18px;
+          font-family: $font-regular;
+          font-weight: normal;
+          letter-spacing: 0px;
+        }
+      }
+    }
+    .showads {
+      display: none;
+      @include respond-to(screen-m-min) {
+        display: block;
+      }
+      @include respond-to(screen-land) {
+        display: block;
+      }
+    }
+    &__ads {
+      margin-left: 10px;
+      &__container {
+        height: 162px;
+        width: 174px;
+        background: $white;
+        border: 1px solid $light-grey;
+        border-radius: 16px;
+        padding: 11px 0px 14px 14px;
+        margin-top: 10px;
+        margin-right: 16px;
+
+        @include respond-to(screen-m-min) {
+          height: 180px;
+          width: 193px;
+        }
+
+        @include respond-to(screen-l-min) {
+          height: 162px;
+          width: 174px;
+        }
+
+        @include respond-to(screen-xl-min) {
+          width: 193px;
+          height: 180px;
+          border: 1px solid $light-grey;
+          border-radius: 16px;
+          padding: 14px 16px;
+        }
+      }
+      &__title {
+        margin-top: 5px;
+        color: $solid-blue;
+        font-size: 20px;
+        font-family: $font-regular;
+        font-weight: normal;
+        letter-spacing: 0px;
+        line-height: 24px;
+        @include respond-to(screen-xl-min) {
+          margin-top: 10px;
+        }
+      }
+      &__subTitle {
+        @extend .ibd-small-text;
+
+        padding-top: 6px;
+        line-height: normal;
+      }
+      &__image {
+        @include respond-to(screen-xl-min) {
+          height: 30px;
+          width: 40px;
+        }
+        object-fit: cover;
+      }
+      &__ctaLink {
+        @extend .cta-link-btn;
+        padding-top: 15px;
+        @include respond-to(screen-xl-min) {
+          padding-top: 19px;
+        }
+        line-height: normal;
+        &:before {
+          width: 30px;
+          bottom: -11px;
+          opacity: 0.2;
+        }
+        &:after {
+          bottom: 3px;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &__navigation-wrapper {
+    text-align: center;
+    &__btn {
+      &:first-child {
+        margin-right: 8px;
+      }
+      height: 25px;
+      width: 25px;
+      background-color: $grey;
+      border-radius: 50%;
+      opacity: 0.3;
+      outline: none;
+      border: none;
+      line-height: 21px;
+      &:active,
+      &:focus {
+        border: none;
+      }
+
+      img {
+        margin-bottom: 2px;
+      }
+      &__next {
+        margin-left: 2px;
+      }
+      &__prev {
+        margin-right: 2px;
+      }
+      &:disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__marketing-banner {
+    @include respond-to(screen-m-min) {
+      padding-right: 67px;
+    }
+    @include respond-to(screen-m-min) {
+      margin-top: 18px;
+    }
+    @include respond-to(screen-xl-min) {
+      margin-top: unset;
+    }
+    &__row {
+      padding-right: 16px;
+      @include respond-to(screen-xl-min) {
+        max-width: 933px;
+      }
+    }
+  }
+
+  &.finance-list-rtl-layout {
+    direction: rtl;
+    .ibd-finance-list {
+      &__wrapper{
+        @include respond-to(screen-l-min) {
+          padding: 10px 0px 20px 10px;
+        }
+        &__card {
+          text-align: right;
+          margin-right: 10px;
+          &__footer {
+            margin-top: 10px;
+          }
+          &__footer__fund {
+            direction: ltr;
+            &::after {
+              margin-left: auto;
+            }
+          }
+        }
+        &__no-beneficiary {
+          text-align: right;
+          @include respond-to(screen-m-min) {
+            margin-right: unset;
+          }
+        }
+      }
+      &__btn-wrapper {
+        display: flex;
+        @include respond-to(screen-l-min) {
+          margin-right: 37px;
+        }
+        @include respond-to(screen-l-min) {
+          margin-right: unset;
+        }
+      }
+    }
+  }
+  &__marketing-banner {
+    @include respond-to(screen-m-min) {
+      padding-right: unset;
+    }
+    &__row {
+      padding-right: unset;
+    }
+  }
+}

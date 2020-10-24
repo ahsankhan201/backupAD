@@ -1,0 +1,90 @@
+<div class="ghina-account-comp" [ngClass]="(selectedLang === arabicLanguageText) ? 'ghina-account-comp-rtl': ''">
+    <div class="ghina-account-comp__currency-wrapper" *ngIf="!showSummaryScreen">
+        <div class="ghina-account-comp__currency-wrapper__title" translate>
+            tr_common_currencyText
+        </div>
+        <app-checkbox-generic [optionsList]="currencyList" [componentName]="'openSavingsAccountCurrency'"
+            (selectedOptionValue)="selectedCurrency($event)" class="currency-list" customClassName="active-blue">
+        </app-checkbox-generic>
+    </div>
+
+    <form [formGroup]="openAccountFormGroup" class="ghina-account-comp__form" *ngIf="!showSummaryScreen">
+        <div class="ghina-account-comp__form__title" translate>
+            tr_openAccountComponent_depositDetailsText
+        </div>
+        <div class="row margin-lrn ghina-account-comp__form__wrapper"
+            [ngClass]="(selectedLang === arabicLanguageText) ? 'ghina-account-comp-form-wrapper-rtl': ''">
+            <mat-form-field class="col-md-6 padding-lrn">
+                <mat-label translate>tr_openAccountComponent_depositAmountText</mat-label>
+                <input autocomplete="off" type="text" matInput formControlName="depositAmount" numbersOnly decimals="3"
+                    (blur)="validateAmount()" appInputWithComma>
+                <mat-hint align="end" *ngIf="targetAccountCurrency">
+                    <span translate>tr_openAccountComponent_minimumAmountText</span> {{minimumAmountForOpeningAccount }}
+                    {{ targetAccountCurrency}}
+                </mat-hint>
+                <mat-error>
+                    <app-show-form-errors [control]="openAccountFormGroup.get('depositAmount')"
+                        label="tr_openAccountComponent_depositAmountText">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-md-6 padding-lrn">
+                <mat-label translate>tr_openAccountComponent_transferFromAccountText</mat-label>
+                <input type="text" matInput formControlName="transferFromAccount"
+                    [matAutocomplete]="transferFromAccount">
+                <mat-hint align="end"
+                    *ngIf="sourceAccountCurrency && targetAccountCurrency && (sourceAccountCurrency !== targetAccountCurrency)">
+                    <span translate>tr_openAccountComponent_exchangeRateText</span> 1 {{sourceAccountCurrency }} =
+                    {{transferRateForView}} {{targetAccountCurrency}}
+                </mat-hint>
+                <mat-error>
+                    <app-show-form-errors [control]="openAccountFormGroup.get('transferFromAccount')"
+                        label="tr_openAccountComponent_transferFromAccountText">
+                    </app-show-form-errors>
+                </mat-error>
+                <mat-autocomplete #transferFromAccount="matAutocomplete"
+                    (optionSelected)="accountSelectionChange($event.option.id)" autoActiveFirstOption>
+                    <mat-option
+                        *ngFor="let item of accountList | filterText:openAccountFormGroup.controls['transferFromAccount'].value:'accountValueForDropDown'"
+                        value="{{item.currencyCode}} {{item.accountNameForDropDown | translate}} {{item.accountNumber}}"
+                        id="{{item.accountNumber}}" translate>
+                        {{item.currencyCode}} {{item.accountNameForDropDown | translate}} {{item.accountNumber}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+        <div class="ghina-account-comp__form__title" translate>
+            tr_openAccountComponent_personalDetailsText
+        </div>
+        <div class="row margin-lrn ghina-account-comp__form__wrapper"
+            [ngClass]="(selectedLang === arabicLanguageText) ? 'ghina-account-comp-form-wrapper-rtl': ''">
+            <mat-form-field class="col-md-6 padding-lrn">
+                <mat-label translate>tr_common_mobileNumberText</mat-label>
+                <input autocomplete="off" type="tel" matInput formControlName="mobileNumber" inputmode="numeric"
+                    pattern="[0-9]*" numbersOnly maxlength="mobileNumberLength">
+                <mat-error>
+                    <app-show-form-errors [control]="openAccountFormGroup.get('mobileNumber')"
+                        label="tr_common_mobileNumberText">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-md-6 padding-lrn">
+                <mat-label translate>tr_productsComponent_emailIdText</mat-label>
+                <input autocomplete="off" type="email" matInput formControlName="emailId">
+                <mat-error>
+                    <app-show-form-errors [control]="openAccountFormGroup.get('emailId')"
+                        label="tr_productsComponent_emailIdText">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="ghina-account-comp__form__buttons">
+            <button class="btn cancel-btn" type="button" (click)="cancelOpeningAccountProcess()"
+                translate>tr_common_cancelText</button>
+            <button class="next-btn" (click)="showSummaryDetails()"
+                [disabled]="!openAccountFormGroup.valid || !enableNextBtn" translate>tr_common_nextText</button>
+        </div>
+    </form>
+    <app-ghina-summary *ngIf="showSummaryScreen" (showOpenAccountFormComponent)="showAccountFormComponent($event)">
+    </app-ghina-summary>
+</div>

@@ -1,0 +1,113 @@
+<section class="international-transfer-summary-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'intl-confirm-transfer-rtl': ''">
+    <div class="international-transfer-summary-comp__wrapper" *ngIf="!showSuccessScreen && summaryDetails">
+        <div class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_common_transferFromText</div>
+            <div class="summary-label-group__value">
+                <span class="number">
+                    {{summaryDetails.debitCurrency}} - {{summaryDetails.accountDescription | translate}}
+                    {{summaryDetails.debitAccountNumber?summaryDetails.debitAccountNumber:'-'}}</span>
+            </div>
+        </div>
+        <div class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_moneyTransferConfirmComponent_transferToText</div>
+            <div class="summary-label-group__value">
+                <span class="number">
+                    {{summaryDetails.beneficiaryName?summaryDetails.beneficiaryName:'-'}}
+                    {{summaryDetails.creditAccountNumber?summaryDetails.creditAccountNumber:'-'}}</span>
+                <div class="number" translate>
+                    tr_common_currencyText <span>: {{summaryDetails.creditCurrency}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="summary-two-column">
+            <div class="summary-label-group">
+                <div class="summary-label-group__label" translate>tr_common_amountText</div>
+                <div class="summary-label-group__value">
+                    <span
+                        class="number">{{summaryDetails.creditAmount | numberFormat}}.{{summaryDetails.creditAmount | getDecimalValue}}</span>
+                    <span class="currency">{{summaryDetails.creditCurrency}}</span>
+                </div>
+            </div>
+            <div class="summary-label-group" *ngIf="!isSameCurrencyTransaction">
+                <div class="summary-label-group__label" translate>tr_moneyTransferConfirmComponent_totalAmountText</div>
+                <div class="summary-label-group__value">
+                    <span
+                        class="number">{{summaryDetails.totalAmount | numberFormat}}.{{summaryDetails.totalAmount | getDecimalValue}}</span>
+                    <span class="currency">{{summaryDetails.debitCurrency}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="summary-two-column">
+            <div class="summary-label-group">
+                <div class="summary-label-group__label" translate>
+                    tr_common_purposeOfTransferText
+                </div>
+                <div class="summary-label-group__value">
+                    <span
+                        class="number">{{summaryDetails.purposeOfTransfer?summaryDetails.purposeOfTransfer:'-'}}</span>
+                </div>
+            </div>
+            <div class="summary-label-group">
+                <div class="summary-label-group__label" translate>
+                    tr_moneyTransferConfirmComponent_aditionalRemittanceText</div>
+                <div class="summary-label-group__value">
+                    <span
+                        class="number">{{summaryDetails.additionalDetails?summaryDetails.additionalDetails:'-'}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="summary-two-column">
+            <div class="summary-label-group">
+                <div class="summary-label-group__label" translate>tr_moneyTransferConfirmComponent_memoText</div>
+                <div class="summary-label-group__value">
+                    <span class="number">{{summaryDetails.memo?summaryDetails.memo:'-'}}</span>
+                </div>
+            </div>
+            <div class="summary-label-group" *ngIf="!isSameCurrencyTransaction">
+                <div class="summary-label-group__label" translate>
+                    tr_moneyTransferConfirmComponent_exchangeRateText
+                </div>
+                <div class="summary-label-group__value">
+                    <span class="debit-currency">
+                        {{summaryDetails.debitCurrency}} 1 =
+                    </span>
+                    <span class="number">
+                        {{summaryDetails.creditCurrency}}
+                        {{summaryDetails.exchangeRate}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="summary-two-column">
+            <div class="summary-label-group" *ngIf="!isBeneficiaryWithinUae">
+                <div class="summary-label-group__label" translate>tr_common_feeText</div>
+                <div class="summary-label-group__value">
+                    <span class="number">{{summaryDetails.fee | numberFormat}}.{{summaryDetails.fee | getDecimalValue}}
+                    </span>
+                    <span class="currency" *ngIf="summaryDetails.fee">{{summaryDetails.debitCurrency}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-text" *ngIf="!isBeneficiaryWithinUae">
+            <strong translate>tr_common_noteText</strong>:
+            <span translate>tr_common_vatText</span>.
+            <span class="bank-fees-text" translate>tr_moneyTransferConfirmComponent_bankFeesText</span>
+        </div>
+        <div class="international-transfer-summary-comp__wrapper__buttons">
+            <button class="btn cancel-btn" type="button" (click)="moveToParentComponent(true)"
+                translate>tr_common_cancelTransactionText</button>
+            <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+            <button matStepperNext class="btn next-btn" type="button" (click)="makeTransferRequest()"
+                [disabled]="disableTransferButton">{{ payAmountButtonLabel | translate }}</button>
+        </div>
+    </div>
+
+    <div class="international-transfer-summary-comp__success-screen" *ngIf="showSuccessScreen">
+        <app-success-screen [paymentReferenceNumber]="referenceNumberForSuccessScreen"
+            [componentName]="'internationalTransfer'" class="transfer-success-component">
+        </app-success-screen>
+        <div class="receipt-btn" (click)="generateTransferReceipt()" translate>tr_transferReceipt_viewReceiptText</div>
+        <button translate class="next-btn" (click)="moveToParentComponent(false)">{{summaryBtnText}}</button>
+    </div>
+</section>

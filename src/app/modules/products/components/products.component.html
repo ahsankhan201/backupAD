@@ -1,0 +1,56 @@
+<section class="products-comp" [ngClass]="(selectedLang === arabicLanguageText) ? 'products-comp-rtl': ''"
+    *ngIf="!showOpenAccount">
+    <div class="products-comp__wrapper">
+        <div class="products-comp__wrapper__container padding-lrn margin-lrn">
+            <div class="products-comp__wrapper__container__body-wrapper row no-gutters">
+                <div class="col-12 padding-lrn products-comp__wrapper__container__body-wrapper__body">
+                    <div translate class="title productComp" *ngIf="showProductTab"> tr_productsComponent_productsText
+                    </div>
+                    <div class="category-wrapper">
+                        <app-checkbox-generic [optionsList]="productsCategoryList" [componentName]="'productCategory'"
+                            (selectedOptionValue)="selectedProductCategory($event)" class="product-category-checkbox"
+                            customClassName="active-blue" [preSelectedOption]="preSelectedCategory"
+                            [ngClass]="(selectedLang === arabicLanguageText) ? 'products-checkbox-rtl': ''"
+                            *ngIf="showProductTab">
+                        </app-checkbox-generic>
+
+                        <div class="product-sub-category-wrapper">
+                            <div *ngIf="selectedCategory==='product_1'" class="product-sub-category">
+                                <app-account-product *ngIf="selectedCategory==='product_1'"
+                                    [catalogList]="accountCatalog" (showOpenAccount)="handleShowOpenAccount($event)"
+                                    (showProductCardTab)="showProductCardTab($event)">
+                                </app-account-product>
+                            </div>
+                            <div *ngIf="selectedCategory==='product_4'" class="product-sub-category">
+                                <app-finance-products *ngIf="selectedCategory==='product_4'"
+                                    [catalogList]="financeCatalog" (showProductCardTab)="showProductCardTab($event)">
+                                </app-finance-products>
+                            </div>
+                            <div *ngIf="selectedCategory==='product_2'" class="product-sub-category">
+                                <app-card-products *ngIf="selectedCategory==='product_2'"
+                                    [cardCategories]="cardsCategoriesList" [cardsCatalog]="cardsCatalogList"
+                                    (showProductCardTab)="showProductCardTab($event)"></app-card-products>
+                            </div>
+                            <div *ngIf="selectedCategory==='product_6'" class="product-sub-category">
+                                <app-investment-products *ngIf="selectedCategory==='product_6'"
+                                    [catalogList]="investmentCatalog" (showProductCardTab)="showProductCardTab($event)">
+                                </app-investment-products>
+                            </div>
+                            <div *ngIf="selectedCategory==='product_5'" class="product-sub-category">
+                                <app-takaful-products *ngIf="selectedCategory==='product_5'"
+                                    [catalogList]="takafulCatalog" (showProductCardTab)="showProductCardTab($event)">
+                                </app-takaful-products>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Open Account Component -->
+<app-open-account (backButtonClick)="handleOpenAccountBackButton($event)" *ngIf="showOpenAccount"
+    [selectedAccountType]="selectedOpenAccountType">
+</app-open-account>
+<!-- Open Account Component -->
+<router-outlet></router-outlet>

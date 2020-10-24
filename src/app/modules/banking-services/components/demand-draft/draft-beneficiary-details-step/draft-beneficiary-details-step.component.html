@@ -1,0 +1,102 @@
+<section class="ibd-demand-draft-beneficiary-details col-12 padding-lrn"
+    [ngClass]="(selectedLang === arabicLanguageText) ? 'ibd-demand-draft-beneficiary-details-rtl': ''">
+    <div class="ibd-demand-draft-beneficiary-details__wrapper">
+        <form [formGroup]="draftFormGroup" autocomplete="off"
+            class="ibd-demand-draft-beneficiary-details__wrapper__form">
+            <div class="ibd-demand-draft-beneficiary-details__wrapper__body">
+                <!-- Beneficiary Name -->
+                <div class="row margin-lrn form-wrapper mat-form-field-right">
+                    <mat-form-field>
+                        <mat-label translate>tr_common_beneNameText</mat-label>
+                        <input autocomplete="off" matInput formControlName="beneficiaryName" type="text"
+                            maxlength="{{beneficiaryNameMaxlength}}" #beneficiaryName appAlphaNumeric>
+                        <mat-hint align="end">{{beneficiaryName.value.length}}/{{beneficiaryNameMaxlength}}</mat-hint>
+                        <mat-error>
+                            <app-show-form-errors [control]="draftFormGroup.get('beneficiaryName')"
+                                label="tr_common_beneNameText">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!-- Country -->
+                <div class="row margin-lrn form-wrapper">
+                    <mat-form-field class="full-width">
+                        <mat-label translate>tr_demandDraft_countryText </mat-label>
+                        <input type="text" matInput formControlName="selectedCountry" [matAutocomplete]="autoCountries">
+                        <mat-error>
+                            <app-show-form-errors [control]="draftFormGroup.get('selectedCountry')"
+                                label="tr_profileComponent_countryText">
+                            </app-show-form-errors>
+                        </mat-error>
+                        <mat-autocomplete #autoCountries="matAutocomplete" (optionSelected)="onCountryChange($event)"
+                            autoActiveFirstOption>
+                            <mat-option
+                                *ngFor="let item of countriesList | filterText:draftFormGroup.controls['selectedCountry'].value:'countryName'"
+                                [value]="item.countryName" id="{{item.countryISOCode}}">
+                                {{item.countryName}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+                <!-- Currency List Component Code -->
+                <div class="conuntry-selection" *ngIf="currencyList?.length">
+                    <div class="row margin-lrn form-wrapper">
+                        <div class="account-form-comp__form__row__currency form-group col-12 padding-lrn">
+
+                            <mat-label class="currency-label" translate>tr_common_currencyText</mat-label>
+                            <app-checkbox-generic [optionsList]="currencyList" [componentName]="'accountFormCurrency'"
+                                class="account-currency-list" (selectedOptionValue)="selectedCurrency($event)">
+                            </app-checkbox-generic>
+                        </div>
+                    </div>
+
+                    <!-- Purpose of Transfer -->
+                    <div class="row margin-lrn form-wrapper">
+                        <mat-form-field class="full-width">
+                            <mat-label translate>tr_common_purposeOfTransferText </mat-label>
+                            <input type="text" matInput formControlName="purposeOfTransfer"
+                                [matAutocomplete]="transferPurpose">
+                            <mat-error>
+                                <app-show-form-errors [control]="draftFormGroup.get('purposeOfTransfer')"
+                                    label="tr_common_purposeOfTransferText">
+                                </app-show-form-errors>
+                            </mat-error>
+                            <mat-autocomplete #transferPurpose="matAutocomplete" autoActiveFirstOption>
+                                <mat-option
+                                    *ngFor="let item of purposeOfTransferList | filterText:draftFormGroup.controls['purposeOfTransfer'].value:'purposeOfTransferEn'"
+                                    [value]="item.purposeOfTransferEn" id="{{item.stpTypeCode}}">
+                                    {{item.purposeOfTransferEn}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+                    <!-- Collect From -->
+                    <div class="row margin-lrn form-wrapper">
+                        <mat-form-field class="full-width">
+                            <mat-label translate>tr_common_collectFromText</mat-label>
+                            <input type="text" matInput formControlName="collectFrom" [matAutocomplete]="collectFrom">
+                            <mat-error>
+                                <app-show-form-errors [control]="draftFormGroup.get('collectFrom')"
+                                    label="tr_common_collectFromText">
+                                </app-show-form-errors>
+                            </mat-error>
+                            <mat-autocomplete #collectFrom="matAutocomplete" autoActiveFirstOption>
+                                <mat-option
+                                    *ngFor="let item of collectFromList | filterText:draftFormGroup.controls['collectFrom'].value:'bankName'"
+                                    value="{{item.bankName | translate}}" id="{{item.swiftBIC}}" translate>
+                                    {{item.bankName}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="ibd-demand-draft-beneficiary-details__wrapper__buttons">
+                <button class="btn cancel-btn" type="button" (click)="handleCancelButtonClick()"
+                    translate>tr_common_cancelText</button>
+                <button class="btn next-btn" type="button" [disabled]="!draftFormGroup.valid"
+                    (click)="handleNextButtonClick()" translate>tr_common_nextText</button>
+            </div>
+        </form>
+    </div>
+</section>

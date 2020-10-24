@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>B7163CAE-7893-4369-B515-63AC37033AF1@2.00x</title>
+    <g id="First-Time-Landing-Message" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="First-Time-Landing-Message-1.0.0.2" transform="translate(-145.000000, -240.000000)" fill-rule="nonzero">
+            <g id="Info-Message" transform="translate(133.000000, 228.000000)">
+                <g id="ic.Error" transform="translate(12.000000, 12.000000)">
+                    <rect id="ViewBox" x="0" y="0" width="24" height="24"></rect>
+                    <path d="M12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 Z M11.9881358,21 C15.5371467,21 18.7556511,18.9168791 20.2092609,15.6792181 C21.6628706,12.441557 21.0808814,8.65222091 18.7226681,6 L6,18.7226387 C7.6480574,20.1923344 9.77994672,21.0031148 11.9881358,21 Z M12.0139165,3 C8.46494354,3 5.24625392,5.08247733 3.79183183,8.31980804 C2.33740975,11.5571387 2.91799769,15.3466319 5.27493328,18 L18,5.27466346 C16.3519802,3.80654102 14.2210076,2.99679204 12.0139165,3 Z" id="Icon-Shape" fill="#FA0000"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

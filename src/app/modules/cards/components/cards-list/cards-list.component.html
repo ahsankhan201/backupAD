@@ -1,0 +1,146 @@
+<div class="row cards-list margin-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'cards-list-rtl-layout': ''">
+    <div class="col-sm-12 cards-list__text-wrapper padding-lrn">
+        <span translate class="cards-list__text-wrapper__title">tr_common_cardsText</span>
+    </div>
+    <div class="col-sm-12 cards-list__card-wrapper padding-lrn" #scrollContainer (scroll)="moveScroll(undefined)">
+        <div class="cards-list__card-wrapper__no-cards padding-lrn" *ngIf="showNoCardsMessage">
+            <div class="cards-list__card-wrapper__no-cards-container d-flex">
+                <div class="icon"><img alt="Cards info" src="{{CARDS_MASTER_DATA.CARDS_INFO_ICON}}" /></div>
+                <div translate class="message">tr_cards_noCardsText</div>
+            </div>
+        </div>
+        <div *ngFor="let debitCard of debitCardData; let i = index">
+            <div class="cards-list__card-wrapper__debit-card"
+                [ngClass]="(debitCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS)?'hover':'noHover'"
+                *ngIf="debitCard.cardStatus === CARDS_MASTER_DATA.FREEZE_CARD_STATUS || debitCard.cardStatus === CARDS_MASTER_DATA.NEW_CARD_STATUS || debitCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS || debitCard.cardStatus === CARDS_MASTER_DATA.FREZ_CARD_STATUS">
+                <span *ngIf="debitCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS" class="menu-options">
+                    <app-menu-option [menuOptions]="debitCardMenuOptions" (clickedItem)="itemClickHandler($event)"
+                        [item]="debitCard" class="cards-menu">
+                    </app-menu-option>
+                </span>
+                <div *ngIf="debitCard.cardStatus === CARDS_MASTER_DATA.NEW_CARD_STATUS" translate
+                    class="cards-list__card-wrapper__activate-card" (click)="activateCard(debitCard)">
+                    tr_cards_activateCardText</div>
+                <div *ngIf="debitCard.cardStatus === CARDS_MASTER_DATA.FREEZE_CARD_STATUS || debitCard.cardStatus === CARDS_MASTER_DATA.FREZ_CARD_STATUS"
+                    translate class="cards-list__card-wrapper__activate-card" (click)="handleUnFreeze(debitCard)">
+                    tr_cards_unfreezeCardText</div>
+                <div [ngClass]="(debitCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS)?'active':'inactive'"
+                    (click)="viewDebitCardDetails(debitCard)">
+                    <div class="cards-list__card-wrapper__debit-card__header row margin-lrn">
+                        <img alt="cards status" class="cards-list__card-wrapper__debit-card__header__card-icon"
+                            [ngClass]="(debitCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS)?'active':'inactive'"
+                            src="{{ CARDS_MASTER_DATA.DEBIT_CARD_IMAGE }}" />
+                        <div translate class="cards-list__card-wrapper__debit-card__header__card-type"
+                            [ngClass]="(debitCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS)?'active':'inactive'">
+                            tr_cards_debitCardText</div>
+                        <img alt="card icon" *ngIf="debitCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS"
+                            class="cards-list__card-wrapper__debit-card__header__card-link-icon"
+                            src="{{ CARDS_MASTER_DATA.CARD_LINK_ICON }}" />
+                        <div *ngIf="debitCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS"
+                            class="cards-list__card-wrapper__debit-card__header__account-type">
+                            {{ debitCard.accountType }}</div>
+                    </div>
+                    <div class="cards-list__card-wrapper__debit-card__body">
+                        <div class="cards-list__card-wrapper__debit-card__body__name">
+                            {{ debitCard.cardHolderName }}</div>
+                        <div class="cards-list__card-wrapper__debit-card__body__card-number">
+                            {{ debitCard.cardNumber | formatMaskCardNumber }}</div>
+                    </div>
+                    <div class="cards-list__card-wrapper__debit-card__footer">
+                        <div class="cards-list__card-wrapper__debit-card__footer__title">
+                            {{CARDS_MASTER_DATA.AVAILABLE_BALANCE | translate}}</div>
+                        <div class="cards-list__card-wrapper__debit-card__footer__fund">
+                            <span
+                                [ngClass]="(debitCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS)?'active':'inactive'">{{ debitCard.availableBalance | numberFormat}}</span>.<span
+                                class="cards-list__card-wrapper__debit-card__footer__fund__decimal">{{ debitCard.availableBalance | getDecimalValue}}</span>
+                            <span class="cards-list__card-wrapper__debit-card__footer__fund__currency">
+                                {{ debitCard.currencyCode }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngFor="let coverCard of coverCardData; let i = index">
+            <div class="cards-list__card-wrapper__cover-card"
+                [ngClass]="(coverCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS)?'hover':'noHover'"
+                *ngIf="coverCard.cardStatus === CARDS_MASTER_DATA.FREEZE_CARD_STATUS || coverCard.cardStatus === CARDS_MASTER_DATA.NEW_CARD_STATUS || coverCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS || coverCard.cardStatus === CARDS_MASTER_DATA.FREZ_CARD_STATUS">
+                <span *ngIf="coverCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS" class="menu-options">
+                    <app-menu-option [menuOptions]="coverCardMenuOptions" (clickedItem)="itemClickHandler($event)"
+                        [item]="coverCard" class="cards-menu">
+                    </app-menu-option>
+                </span>
+                <div *ngIf="coverCard.cardStatus === CARDS_MASTER_DATA.NEW_CARD_STATUS" translate
+                    class="cards-list__card-wrapper__activate-card">
+                    tr_cards_activateCardText</div>
+                <div *ngIf="coverCard.cardStatus === CARDS_MASTER_DATA.FREEZE_CARD_STATUS || coverCard.cardStatus === CARDS_MASTER_DATA.FREZ_CARD_STATUS"
+                    translate class="cards-list__card-wrapper__activate-card" (click)="handleUnFreeze(coverCard)">
+                    tr_cards_unfreezeCardText</div>
+                <div [ngClass]="(coverCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS)?'active':'inactive'"
+                    (click)="viewCoverCardDetails(coverCard)">
+                    <div class="cards-list__card-wrapper__cover-card__header row margin-lrn">
+                        <img alt="card image" class="cards-list__card-wrapper__cover-card__header__card-icon"
+                            [ngClass]="(coverCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS)?'active':'inactive'"
+                            src="{{ coverCard.cardImage }}" />
+                        <div class="cards-list__card-wrapper__cover-card__header__card">
+                            <div class="cards-list__card-wrapper__cover-card__header__card__card-type">
+                                {{CARDS_MASTER_DATA.COVER_CARD | translate}}</div>
+                            <div class="cards-list__card-wrapper__cover-card__header__card__card-description"
+                                [ngClass]="(coverCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS)?'active':'inactive'">
+                                {{ coverCard.productDescription }}</div>
+                        </div>
+                    </div>
+                    <div class="cards-list__card-wrapper__cover-card__body">
+                        <div class="cards-list__card-wrapper__cover-card__body__name">{{ coverCard.customerName }}</div>
+                        <div class="cards-list__card-wrapper__cover-card__body__card-number">
+                            {{ coverCard.cardNumber | formatMaskCardNumber }}</div>
+                    </div>
+                    <div class="cards-list__card-wrapper__cover-card__footer row margin-lrn">
+                        <div class="cards-list__card-wrapper__cover-card__footer__limit col-6 padding-lrn">
+                            <div class="cards-list__card-wrapper__cover-card__footer__limit__title">
+                                {{CARDS_MASTER_DATA.AVAILABLE_BALANCE | translate}}</div>
+                            <div class="cards-list__card-wrapper__cover-card__footer__limit__fund">
+                                <span
+                                    [ngClass]="(coverCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS)?'active':'inactive'">{{ coverCard.creditAvailable | numberFormat }}</span>.<span
+                                    class="cards-list__card-wrapper__cover-card__footer__limit__fund__decimal">{{ coverCard.creditAvailable | getDecimalValue }}</span>
+                                <span class="cards-list__card-wrapper__cover-card__footer__limit__fund__currency">
+                                    {{ coverCard.currencyCode }}</span>
+                            </div>
+                        </div>
+                        <div class="cards-list__card-wrapper__cover-card__footer__balance col-6 padding-lrn">
+                            <div class="cards-list__card-wrapper__cover-card__footer__balance__title">
+                                {{CARDS_MASTER_DATA.OUTSTANDING_BALANCE | translate}}</div>
+                            <div class="cards-list__card-wrapper__cover-card__footer__balance__fund">
+                                <span
+                                    [ngClass]="(coverCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS)?'active':'inactive'">{{ coverCard.dueBalance | numberFormat }}</span>.<span
+                                    class="cards-list__card-wrapper__cover-card__footer__balance__fund__decimal">{{ coverCard.dueBalance | getDecimalValue }}</span>
+                                <span class="cards-list__card-wrapper__cover-card__footer__balance__fund__currency">
+                                    {{ coverCard.currencyCode }}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cards-list__card-wrapper__card-ads" [ngClass]="{showads: (showNoCardsMessage ? true: false)}">
+            <div class="cards-list__card-wrapper__card-ads__container">
+                <img alt="promotion icon" class="cards-list__card-wrapper__card-ads__image" src="{{iconsConst.promotionalCardIcon}}" />
+                <div class="cards-list__card-wrapper__card-ads__title">{{ promotionalCard.cardTitle }}</div>
+                <div class="cards-list__card-wrapper__card-ads__subTitle">{{ promotionalCard.getCardTitle }}</div>
+                <div translate class="cards-list__card-wrapper__card-ads__ctaLink">tr_common_applyNowText</div>
+            </div>
+        </div>
+    </div>
+    <div class="cards-list__navigation-wrapper col-sm-12 px-0" *ngIf="hideNavigationControls">
+        <button class="cards-list__navigation-wrapper__btn" [disabled]="disablePreviousBtn"
+            (click)="moveScroll('backward')">
+            <img class="cards-list__navigation-wrapper__btn__prev" src="{{CARDS_MASTER_DATA.PREV_ICON}}"
+                alt="Previous_Icon">
+        </button>
+        <button class="cards-list__navigation-wrapper__btn" [disabled]="disableNextBtn" (click)="moveScroll('forward')">
+            <img class="cards-list__navigation-wrapper__btn__next" src="{{CARDS_MASTER_DATA.NEXT_ICON}}"
+                alt="Next_Icon">
+        </button>
+    </div>
+</div>

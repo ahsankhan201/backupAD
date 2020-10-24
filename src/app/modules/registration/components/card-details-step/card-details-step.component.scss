@@ -1,0 +1,90 @@
+@import "src/assets/styles/default";
+
+.ibd-card-details {
+  @include respond-to(screen-land) {
+    padding: 0px 30px;
+  }
+  @include respond-to(screen-m-min) {
+    padding: 0px 20px;
+  }
+  @include respond-to(screen-l-min) {
+    padding: 8px 28px 0px;
+  }
+  @include respond-to(screen-xl-min) {
+    padding: 8px 16px;
+  }
+  &__alert {
+    margin-top: 16px;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__atmPin {
+      margin-top: 36px;
+    }
+  }
+  &__button__wrapper {
+    width: 100%;
+    position: static;
+    bottom: 16px;
+    margin-top: 28px;
+    @include respond-to(screen-m-min) {
+      margin-top: 36px;
+    }
+    @include respond-to(screen-xl-min) {
+      margin-top: 40px;
+    }
+    button {
+      width: 100%;
+      margin-top: 16px;
+    }
+  }
+
+  &__login__wrapper {
+    margin-top: 16px;
+    text-align: center;
+    @extend .ibd-font-regular-12-grey;
+    span {
+      cursor: pointer;
+      @extend .ibd-font-regular-cerulean;
+    }
+  }
+  &__security-tips-wrapper {
+    margin-top: 24px;
+    color: $cerulean-blue;
+    font-size: 12px;
+    font-family: $font-regular;
+    text-align: center;
+    @include respond-to(screen-m-min) {
+      margin-top: 32px;
+    }
+    @include respond-to(screen-l-min) {
+      display: none;
+    }
+    &__text {
+      cursor: pointer;
+    }
+    span {
+      margin-left: 8px;
+    }
+  }
+}
+
+:host ::ng-deep app-input-generic {
+  .card-component,
+  .pin-component {
+    margin-top: 24px;
+    @include respond-to(screen-land) {
+      margin-top: 24px;
+    }
+    @include respond-to(screen-xl-min) {
+      margin-top: 34px;
+    }
+    mat-form-field {
+      .mat-form-field-wrapper {
+        padding-bottom: unset;
+      }
+    }
+  }
+}

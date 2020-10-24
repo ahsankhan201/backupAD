@@ -1,0 +1,96 @@
+<section class="confirm-payment-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'confirm-payment-rtl': ''">
+    <div class="confirm-payment-comp__wrapper" *ngIf="!showSuccessScreen">
+        <div class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_common_transferFromText</div>
+            <div class="summary-label-group__value" *ngIf="paymentSummaryDetails.accountNumber">
+                <span class="text">{{paymentSummaryDetails.currencyCode}} -
+                    {{paymentSummaryDetails.accountTypeDescription | translate}}</span>:
+                <span
+                    class="number">{{paymentSummaryDetails.accountNumber?paymentSummaryDetails.accountNumber:'-'}}</span>
+            </div>
+            <div class="summary-label-group__value" *ngIf="paymentSummaryDetails.cardNumber">
+                <span class="text" translate>{{paymentSummaryDetails.cardDescription}}</span>:
+                <span class="number">{{paymentSummaryDetails.cardNumber | formatMaskCardNumber}}</span>
+            </div>
+        </div>
+        <div class="summary-label-group"
+            *ngIf="(!isPaymentToCoverCard) && (selectedPaymentType !== PAYMENT_TYPES.donate)">
+            <div class="summary-label-group__label" translate>tr_paymentComponent_transferToText</div>
+            <div class="summary-label-group__value">
+                <span class="text">{{paymentSummaryDetails.payeeName}}</span>:
+                <span
+                    class="number">{{paymentSummaryDetails.utilityServiceNumber?paymentSummaryDetails.utilityServiceNumber:'-'}}</span>
+            </div>
+        </div>
+        <div class="summary-label-group" *ngIf="selectedPaymentType === PAYMENT_TYPES.donate">
+            <div class="summary-label-group__label" translate>tr_paymentComponent_donatedToText</div>
+            <div class="summary-label-group__value">
+                <span class="text number">{{paymentSummaryDetails.donationTo}}</span>
+            </div>
+        </div>
+        <div class="summary-label-group" *ngIf="selectedPaymentType === PAYMENT_TYPES.donate">
+            <div class="summary-label-group__label" translate>tr_paymentComponent_donationAmountText</div>
+            <div class="summary-label-group__value">
+                <span
+                    class="number">{{ paymentSummaryDetails.amount | numberFormat}}.{{paymentSummaryDetails.amount | getDecimalValue }}</span>
+                <span class="summary-label-group__label">
+                    {{ paymentSummaryDetails.amount? paymentSummaryDetails.currencyCode : '' }}</span>
+            </div>
+        </div>
+
+        <div *ngIf="(isPaymentToCoverCard) && (selectedPaymentType !== PAYMENT_TYPES.donate)"
+            class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_paymentComponent_paidToText</div>
+            <div class="summary-label-group__value">
+                <span class="text">{{paymentSummaryDetails.cardDescription}}</span>:
+                <span class="number">{{paymentSummaryDetails.payToCardNumber | formatMaskCardNumber}}</span>
+            </div>
+            <div class="summary-label-group__value">
+                <span class="text" translate>tr_common_currencyText</span>:
+                <span class="number">{{paymentSummaryDetails.cardCurrencyCode }}</span>
+            </div>
+            <div class="summary-label-group__value">
+                <span class="text" translate>tr_cards_outstandingBalanceText</span>:
+                <span class="number">{{paymentSummaryDetails.outstandingAmount }}</span>
+            </div>
+        </div>
+        <div *ngIf="(!isPaymentToCoverCard) && (selectedPaymentType !== PAYMENT_TYPES.donate)">
+            <div class="summary-label-group" *ngIf="paymentSummaryDetails.outstandingAmount">
+                <div class="summary-label-group__label" translate>tr_paymentComponent_outStandingBalanceText</div>
+                <div class="summary-label-group__value">
+                    <span class="number">{{paymentSummaryDetails.outstandingAmount}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="summary-label-group" *ngIf="selectedPaymentType !== PAYMENT_TYPES.donate">
+            <div class="summary-label-group__label" translate>tr_common_amountText</div>
+            <div class="summary-label-group__value">
+                <span
+                    class="number">{{paymentSummaryDetails.amount | numberFormat}}.{{paymentSummaryDetails.amount | getDecimalValue}}
+                    <span class="currency">{{paymentSummaryDetails.currencyCode}}</span></span>
+            </div>
+        </div>
+        <div class="summary-label-group">
+            <div class="summary-label-group__label" translate>tr_paymentComponent_memoText</div>
+            <div class="summary-label-group__value">
+                <span class="number">{{paymentSummaryDetails.memo?paymentSummaryDetails.memo:'-'}}</span>
+            </div>
+        </div>
+        <div class="confirm-payment-comp__wrapper__buttons">
+            <button class="btn cancel-btn" type="button" (click)="moveToParentComponent(true)"
+                translate>tr_common_cancelTransactionText</button>
+            <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+            <button matStepperNext class="btn next-btn" type="button" (click)="sendPaymentRequest()"
+                [disabled]="disableConfirmBtn">{{ payAmountButtonLabel | translate }}</button>
+        </div>
+    </div>
+    <div class="confirm-payment-comp__success-screen" *ngIf="showSuccessScreen">
+        <app-success-screen [paymentReferenceNumber]="referenceNumberForSuccessScreen"
+            [componentName]="successComponentName" class="payments-success-component">
+        </app-success-screen>
+        <div class="receipt-btn" (click)="generatePaymentReceipt()" translate>tr_transferReceipt_viewReceiptText</div>
+        <button translate class="next-btn"
+            (click)="moveToParentComponent(false)">{{confirmScreenRoutingButtonText}}</button>
+    </div>
+</section>

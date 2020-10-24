@@ -1,0 +1,104 @@
+<section class="bank-certificate-comp"
+    [ngClass]="(selectedLang === arabicLanguageText) ? 'bank-certificate-comp-rtl': ''">
+    <div class="bank-certificate-comp__wrapper" *ngIf="!showSummaryScreen">
+        <div class="col-sm-12 padding-lrn title" translate>tr_bankCertificateComponent_requestBankCertificate</div>
+        <form [formGroup]="bankCertificateFormGroup" class="bank-certificate-comp__wrapper__form">
+            <mat-form-field class="col-md-12 padding-lrn floating-field">
+                <mat-label translate>tr_common_selectAccounText</mat-label>
+                <input type="text" matInput formControlName="selectedAccount" [matAutocomplete]="selectedAccount">
+                <mat-error>
+                    <app-show-form-errors [control]="bankCertificateFormGroup.get('selectedAccount')"
+                        label="tr_common_accountNumberText">
+                    </app-show-form-errors>
+                </mat-error>
+                <mat-autocomplete #selectedAccount="matAutocomplete"
+                    (optionSelected)="accountSelectionChange($event.option.id)" autoActiveFirstOption>
+                    <mat-option
+                        *ngFor="let item of accountsList | filterText:bankCertificateFormGroup.controls['selectedAccount'].value:'accountValueForDropDown'"
+                        value="{{item.currencyCode}} {{item.accountNameForDropDown | translate}} {{item.accountNumber}}"
+                        id="{{item.accountNumber}}" translate>
+                        {{item.currencyCode}} {{item.accountNameForDropDown | translate}} {{item.accountNumber}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field class="col-md-12 padding-lrn select-dir">
+                <mat-label translate>tr_bankCertificateComponent_selectCertificateType</mat-label>
+                <mat-select formControlName="selectedCertificate">
+                    <mat-option *ngFor="let item of bankCertificatesList" [value]="item.value" [id]="item.id">
+                        {{item.value}}
+                    </mat-option>
+                </mat-select>
+                <mat-error>
+                    <app-show-form-errors [control]=" bankCertificateFormGroup.get('selectedCertificate')"
+                        label="tr_bankCertificateComponent_certificateType">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-md-12 padding-lrn select-dir">
+                <mat-label translate>tr_bankCertificateComponent_selectLanguage</mat-label>
+                <mat-select formControlName="certificateLanguage">
+                    <mat-option *ngFor="let item of languagesList" [value]="item.value" [id]="item.id">
+                        {{item.value}}
+                    </mat-option>
+                </mat-select>
+                <mat-error>
+                    <app-show-form-errors [control]="bankCertificateFormGroup.get('certificateLanguage')"
+                        label="tr_common_languageText">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-md-12 padding-lrn mat-form-field-right">
+                <mat-label translate>tr_bankCertificateComponent_addressTo</mat-label>
+                <input #address autocomplete="off" type="text" matInput formControlName="addressTo"
+                    maxlength="{{ADDRESS_TO_MAXLENGTH}}" appAlphaNumeric>
+                <mat-hint align="end">{{address.value.length}} / {{ADDRESS_TO_MAXLENGTH}}</mat-hint>
+                <mat-error>
+                    <app-show-form-errors [control]="bankCertificateFormGroup.get('addressTo')"
+                        label="tr_bankCertificateComponent_addressTo">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+
+            <div class="select-branch">
+                <span class="title" translate>tr_common_collectFromText</span>
+                <app-checkbox-generic [optionsList]="bankBranchTypes" [preSelectedOption]='preSelectedBranchOption'
+                    [componentName]="'bankCertificateBranchName'" (selectedOptionValue)="getSelectedBranchTypes($event)"
+                    class="bank-branch-types" customClassName="active-blue"
+                    [ngClass]="(selectedLang === arabicLanguageText) ? 'bank-branch-types-rtl': ''"
+                    [emitSelectedEleID]="'true'">
+                </app-checkbox-generic>
+            </div>
+
+            <mat-form-field class="col-md-12 padding-lrn" *ngIf="selectedBranchType==='OTHER_BRANCH'">
+                <mat-label translate>tr_bankCertificateComponent_selectBranch</mat-label>
+                <input type="text" matInput formControlName="selectedBranch" [matAutocomplete]="selectedBranch">
+                <mat-error>
+                    <app-show-form-errors [control]="bankCertificateFormGroup.get('selectedBranch')"
+                        label="tr_common_branchText">
+                    </app-show-form-errors>
+                </mat-error>
+                <mat-autocomplete #selectedBranch="matAutocomplete"
+                    (optionSelected)="branchSelectionChanges($event.option.id)">
+                    <mat-option
+                        *ngFor="let item of branchesList | filterText:bankCertificateFormGroup.controls['selectedBranch'].value:'area'"
+                        [value]="item.area" id="{{item.area}}">
+                        {{item.area}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </form>
+
+        <div class="button-wrapper">
+            <button class="cancel-btn" (click)="cancelRequest()" translate>tr_common_cancelText</button>
+            <button class="next-btn" (click)="showSummaryScreenComp()"
+                [disabled]="!bankCertificateFormGroup.valid || !enableNextBtn" translate>tr_common_nextText</button>
+        </div>
+    </div>
+    <!-- bank certificate summary section code starts here -->
+    <div class="bank-certificate-comp__wrapper__summary" *ngIf="showSummaryScreen">
+        <app-bank-certificate-summary (showBankCertificateForm)="toggleSummaryScreen()"></app-bank-certificate-summary>
+    </div>
+</section>

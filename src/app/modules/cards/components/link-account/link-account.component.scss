@@ -1,0 +1,153 @@
+@import "src/assets/styles/default";
+
+.link-account-component {
+  min-height: 420px;
+  position: relative;
+  &__wrapper {
+    &__title-wrapper {
+      padding-top: 9px;
+      @include respond-to(screen-m-min) {
+        padding-top: 16px;
+      }
+      &__title {
+        display: block;
+        font-family: $font-regular;
+        font-size: 14px;
+        color: $grey;
+        margin-bottom: 8px;
+        line-height: normal;
+      }
+      &__description {
+        display: block;
+        font-family: $font-light;
+        font-size: 12px;
+        line-height: 18px;
+        color: $grey;
+        margin-bottom: 37px;
+        min-height: 32px;
+        & > span:first-child {
+          color: $dark-red;
+        }
+        strong {
+          font-family: $font-medium;
+          color: $solid-blue;
+        }
+        @include respond-to(screen-m-min) {
+          margin-bottom: 30px;
+        }
+        @include respond-to(screen-l-min) {
+          margin-bottom: 44px;
+        }
+      }
+    }
+    padding: 14px 16px 16px;
+    @include respond-to(screen-m-min) {
+      padding: 20px 69px 27px 38px;
+      max-width: 100%;
+    }
+    @include respond-to(screen-l-min) {
+      padding: 22px 69px 27px 41px;
+      max-width: 100%;
+    }
+    &__text {
+      @extend .ibd-small-text;
+
+      font-family: $font-regular;
+      color: $suva-grey;
+      font-size: 16px;
+      margin-bottom: 16px;
+      display: block;
+      @include respond-to(screen-m-min) {
+        margin-bottom: 24px;
+      }
+    }
+    &__accounts {
+      margin-bottom: 62px;
+      @include respond-to(screen-m-min) {
+        margin-bottom: unset;
+      }
+    }
+  }
+  &__buttons {
+    width: 100%;
+    position: absolute;
+    bottom: 8px;
+    padding: 16px;
+    z-index: 10;
+    .next-btn {
+      margin-left: 16px;
+      width: calc(50% - 9px);
+      @include respond-to(screen-m-min) {
+        margin-left: 27px;
+        width: 47%;
+      }
+    }
+    .previous-btn {
+      width: calc(50% - 9px);
+      @include respond-to(screen-m-min) {
+        width: 48%;
+      }
+    }
+    @include respond-to(screen-m-min) {
+      position: inherit;
+      max-width: 600px;
+      margin-top: 21px;
+      padding: 0 0 0 38px;
+    }
+    @include respond-to(screen-l-min) {
+      padding: 0 0 0 41px;
+      .previous-btn,
+      .next-btn {
+        width: 25%;
+      }
+    }
+  }
+  &__success-buttons {
+    padding-left: 16px;
+    @include respond-to(screen-m-min) {
+      padding-left: 38px;
+    }
+  }
+}
+:host ::ng-deep .link-account-cards {
+  .checkbox-with-account-comp {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    @include respond-to(screen-m-min) {
+      flex-direction: row;
+    }
+    &__container {
+      margin-bottom: 16px;
+      @include respond-to(screen-m-min) {
+        flex: 0 0 17em;
+        margin-bottom: 27px;
+        margin-right: 25px;
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+      @include respond-to(screen-l-min) {
+        flex: 0 0 20.8em;
+        &:nth-child(2n) {
+          margin-right: 25px;
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep .link-account-success {
+  .success-screen-comp {
+    padding-top: 26px;
+    @include respond-to(screen-m-min) {
+      padding: 38px;
+    }
+  }
+  .success-screen-comp__wrapper__buttons {
+    margin-top: 0;
+  }
+  .success-screen-comp__wrapper {
+    margin-top: 60px;
+  }
+}

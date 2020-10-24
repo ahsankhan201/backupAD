@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/modules/beneficiary/components/bank-selection/bank-selection-component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">All files</a> / <a href="index.html">src/app/modules/beneficiary/components/bank-selection</a> bank-selection-component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">32.33% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>43/133</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/43</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">42.86% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>9/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">31.5% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>40/127</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import {
+  BENEFICIARY_BANKS, COUNTRY_CODE_UAE,
+  BANK_SELECTION_SCREEN_TEXT, COUNTRY_ISO_CODE
+} from '../../beneficiary-module.constants';
+import { Subscription } from 'rxjs';
+import { BeneficiaryService } from '../../services/beneficiary.service';
+import { DOMAINS, COUNTRY_NAME_UAE, ARABIC_LANG_TEXT } from '../../../../common/global-constants';
+import { BENEFICIARY_ENDPOINTS } from 'src/app/common/api-endpoints';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SharedService } from 'src/app/common/services/shared.service';
+import { CheckBoxEmittedObj } from 'src/app/common/models/payee.model';
+&nbsp;
+@Component({
+  selector: 'app-bank-selection',
+  templateUrl: './bank-selection-component.html',
+  styleUrls: ['./bank-selection-component.scss']
+})
+export class BankSelectionComponent implements OnInit, OnDestroy {
+  subscription$ = new Subscription();
+  bankSelectionList: any = BENEFICIARY_BANKS;
+  adibInternationalCountriesListWithKeys: any;
+  showAdibInternationalBanksView = false;
+  showInternationalBanksView = false;
+  bankSelectionGroup: FormGroup;
+  countriesList: any;
+  banksList: any;
+  bankBranchesList: any;
+  showUaeAdibView = false;
+  showUaeOtherBankView = false;
+  enableNextBtn: boolean;
+  bankSelectionScreenText = BANK_SELECTION_SCREEN_TEXT;
+  selectedCountry: string;
+  showBankSelection = false;
+  selectedLanguage: string;
+  arabicLanguageText = ARABIC_LANG_TEXT;
+&nbsp;
+  constructor(
+    private beneficiaryService: BeneficiaryService,
+    private formBuilder: FormBuilder,
+    private sharedService: SharedService,
+    private changeDetectRef: ChangeDetectorRef,
+    private translateService: TranslateService) { }
+&nbsp;
+  ngOnInit() {
+    this.setComponentIntialInfo();
+    this.getSelectedLanguage();
+  }
+&nbsp;
+  /**
+   * @methodName setComponentIntialInfo
+   * @parameter none
+   * @description used to set the component initial information
+   * @return none
+   */
+  setComponentIntialInfo(): void {
+    this.bankSelectionGroup = this.formBuilder.group({
+      selectedCountry: [''],
+      selectedBank: [''],
+      selectedBranch: [''],
+    });
+    this.handleRegionSubscription();
+  }
+&nbsp;
+  /**
+   * @methodName selectedBank
+   * @param bank&lt;String&gt;
+   * @description Used to get the selected bank information
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  selectedBank(</span>bank: string): void {
+<span class="cstat-no" title="statement not covered" >    this.beneficiaryService.setBank(bank);</span>
+    const region = <span class="cstat-no" title="statement not covered" >this.beneficiaryService.getRegion();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (region === BANK_SELECTION_SCREEN_TEXT.uae &amp;&amp; bank === BANK_SELECTION_SCREEN_TEXT.adib) {</span>
+<span class="cstat-no" title="statement not covered" >      this.showUaeOtherBankView = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.showInternationalBanksView = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.enableNextBtn = true;</span>
+<span class="cstat-no" title="statement not covered" >      this.bankSelectionGroup = this.formBuilder.group({});</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (region === BANK_SELECTION_SCREEN_TEXT.uae &amp;&amp; bank === BANK_SELECTION_SCREEN_TEXT.otherBanks) {</span>
+      // tslint:disable-next-line: no-unused-expression
+<span class="cstat-no" title="statement not covered" >      this.bankSelectionGroup.get('selectedCountry') ? this.bankSelectionGroup.get('selectedCountry').patchValue(COUNTRY_CODE_UAE) : null;</span>
+<span class="cstat-no" title="statement not covered" >      this.beneficiaryService.selectedBenCountryDetails = { countryISOCode: COUNTRY_CODE_UAE, value: COUNTRY_NAME_UAE };</span>
+<span class="cstat-no" title="statement not covered" >      this.getBanksList(COUNTRY_CODE_UAE, true);</span>
+<span class="cstat-no" title="statement not covered" >      this.beneficiaryService.internationalBenPayLoadObj.beneficiaryBankCountry = COUNTRY_CODE_UAE;</span>
+<span class="cstat-no" title="statement not covered" >      this.showInternationalBanksView = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.showUaeOtherBankView = true;</span>
+<span class="cstat-no" title="statement not covered" >      this.bankSelectionGroup = this.formBuilder.group({</span>
+        selectedBank: ['', Validators.required],
+        selectedBranch: ['', Validators.required],
+      });
+<span class="cstat-no" title="statement not covered" >      this.enableNextBtn = true;</span>
+<span class="cstat-no" title="statement not covered" >      this.getCountriesList();</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (bank === BANK_SELECTION_SCREEN_TEXT.otherBanks &amp;&amp; region === BANK_SELECTION_SCREEN_TEXT.international) {</span>
+<span class="cstat-no" title="statement not covered" >      this.showAdibInternationalBanksView = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.showInternationalBanksView = true;</span>
+<span class="cstat-no" title="statement not covered" >      this.bankSelectionGroup = this.formBuilder.group({</span>
+        selectedCountry: ['', Validators.required],
+        selectedBank: ['', Validators.required],
+        selectedBranch: ['', Validators.required]
+      });
+<span class="cstat-no" title="statement not covered" >      this.enableNextBtn = true;</span>
+<span class="cstat-no" title="statement not covered" >      this.getCountriesList();</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (region === BANK_SELECTION_SCREEN_TEXT.international &amp;&amp; bank === BANK_SELECTION_SCREEN_TEXT.adib) {</span>
+<span class="cstat-no" title="statement not covered" >      this.beneficiaryService.internationalBenPayLoadObj.beneficiaryBankName = bank;</span>
+<span class="cstat-no" title="statement not covered" >      this.showAdibInternationalBanksView = true;</span>
+<span class="cstat-no" title="statement not covered" >      this.showInternationalBanksView = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.getCountriesList();</span>
+<span class="cstat-no" title="statement not covered" >      this.bankSelectionGroup = this.formBuilder.group({});</span>
+<span class="cstat-no" title="statement not covered" >      this.enableNextBtn = false;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName getCountriesList
+   * @parameters none
+   * @description Used to get the countries list
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  getCountriesList(): void {</span></span>
+    const COUNTRY_LIST_API = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false)</span>
+      + BENEFICIARY_ENDPOINTS.GET_COUNTRIES_LIST;
+<span class="cstat-no" title="statement not covered" >    this.subscription$.add(this.beneficiaryService.fetchCountriesList(COUNTRY_LIST_API).subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      response = JSON.parse(response.toString());</span>
+<span class="cstat-no" title="statement not covered" >      this.beneficiaryService.countriesList = response ? response.allCountryList : undefined;</span>
+<span class="cstat-no" title="statement not covered" >      this.countriesList = response ?</span>
+        this.sharedService.sliceElementFromList(response.allCountryList, COUNTRY_ISO_CODE, COUNTRY_CODE_UAE) : undefined;
+<span class="cstat-no" title="statement not covered" >      this.adibInternationalCountriesListWithKeys = this.beneficiaryService.fetchAdibInternationalCountriesWithKeys(this.countriesList);</span>
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName onCountryChange
+   * @parameters event
+   * @description Used to handle the country change selection
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  onCountryChange(</span>event: any): void {
+<span class="cstat-no" title="statement not covered" >    this.banksList = [];</span>
+<span class="cstat-no" title="statement not covered" >    this.bankBranchesList = [];</span>
+<span class="cstat-no" title="statement not covered" >    this.resetFormFields();</span>
+<span class="cstat-no" title="statement not covered" >    this.getBanksList(event.option.id);</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedCountry = event.option.value;</span>
+<span class="cstat-no" title="statement not covered" >    this.beneficiaryService.internationalBenPayLoadObj.beneficiaryBankCountry = event.option.id;</span>
+<span class="cstat-no" title="statement not covered" >    this.beneficiaryService.selectedBenCountryDetails = { countryISOCode: event.option.id, value: event.option.value };</span>
+<span class="cstat-no" title="statement not covered" >    this.beneficiaryService.setSelectedCountry(event.option.id);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getBanksList
+   * @parameters countryCode
+   * @description Used to get the banks list
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  getBanksList(</span>countryCode, <span class="cstat-no" title="statement not covered" >status = false)</span>: void {</span>
+    const PARAMS = <span class="cstat-no" title="statement not covered" >`/${countryCode}?${BENEFICIARY_ENDPOINTS.IS_ADIB_UAE_BANK_EXCLUDED}=${status}`;</span>
+    const BANKS_LIST_API = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false) +</span>
+      BENEFICIARY_ENDPOINTS.GET_BANKS_LIST + PARAMS;
+<span class="cstat-no" title="statement not covered" >    this.beneficiaryService.fetchBanksList(BANKS_LIST_API).subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      response = JSON.parse(response.toString());</span>
+<span class="cstat-no" title="statement not covered" >      this.banksList = response &amp;&amp; response.bankDetailList ? response.bankDetailList : [];</span>
+    });
+  }
+&nbsp;
+  /**
+   * @methodName onBankChange
+   * @parameters event
+   * @description Used to handle the bank change selection
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  onBankChange(</span>event: any): void {
+<span class="cstat-no" title="statement not covered" >    this.beneficiaryService.internationalBenPayLoadObj.beneficiaryBankName = event.option.value;</span>
+<span class="cstat-no" title="statement not covered" >    this.beneficiaryService.internationalBenPayLoadObj.swiftCode = event.option.id;</span>
+<span class="cstat-no" title="statement not covered" >    this.getBranchesList(event.option.value);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getBranchesList
+   * @parameters bankName
+   * @description Used to get the branches list
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  getBranchesList(</span>bankName: string): void {
+<span class="cstat-no" title="statement not covered" >    this.bankBranchesList = this.beneficiaryService.getBranchesList(this.banksList, bankName);</span>
+  }
+&nbsp;
+  /**
+   * @methodName resetFormFields
+   * @parameters none
+   * @description Used to reset the form
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  resetFormFields(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.bankSelectionGroup.get(BANK_SELECTION_SCREEN_TEXT.selectedBank).reset();</span>
+<span class="cstat-no" title="statement not covered" >    this.bankSelectionGroup.get(BANK_SELECTION_SCREEN_TEXT.selectedBranch).reset();</span>
+  }
+&nbsp;
+  /**
+   * @methodName onBankBranchChange
+   * @parameters event
+   * @description Used to check the value on bank branch change
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  onBankBranchChange(</span>event: any): void {
+<span class="cstat-no" title="statement not covered" >    this.beneficiaryService.internationalBenPayLoadObj.beneficiaryBankAddress = event.option.value;</span>
+  }
+&nbsp;
+  /**
+   * @methodName selectedAdibInternationalCountry
+   * @param country&lt;CheckBoxEmittedObj&gt;
+   * @description Used to get the selected adib international country information
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  selectedAdibInternationalCountry(</span>country: CheckBoxEmittedObj): void {
+<span class="cstat-no" title="statement not covered" >    this.enableNextBtn = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.beneficiaryService.setSelectedCountry(country.id);</span>
+<span class="cstat-no" title="statement not covered" >    this.beneficiaryService.internationalBenPayLoadObj.beneficiaryBankCountry = country.id;</span>
+<span class="cstat-no" title="statement not covered" >    this.beneficiaryService.internationalBenPayLoadObj.beneficiaryBankAddress =</span>
+      this.beneficiaryService.fetchCountryName(country.id, this.countriesList);
+<span class="cstat-no" title="statement not covered" >    this.beneficiaryService.internationalBenPayLoadObj.swiftCode = this.beneficiaryService.fetchSwiftCode(country.id, this.countriesList);</span>
+<span class="cstat-no" title="statement not covered" >    this.beneficiaryService.selectedBenCountryDetails = { countryISOCode: country.id, value: country.value };</span>
+  }
+&nbsp;
+  /**
+   * @methodName checkDrownOptinExist
+   * @parameters KeyoardEvent
+   * @description Used to clear the dropdown text if it's not present in the dropdown
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  checkDrownOptinExist(</span>event: any): void {
+    // tslint:disable-next-line: max-line-length
+<span class="cstat-no" title="statement not covered" >    if (!event.target.classList.contains(BANK_SELECTION_SCREEN_TEXT.matOptionClass) &amp;&amp; this.beneficiaryService.getBank() === BANK_SELECTION_SCREEN_TEXT.otherBanks) {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.beneficiaryService.selectedBenCountryDetails &amp;&amp; this.bankSelectionGroup.get(BANK_SELECTION_SCREEN_TEXT.selectedCountry) &amp;&amp;</span>
+        this.bankSelectionGroup.get(BANK_SELECTION_SCREEN_TEXT.selectedCountry).value !== this.selectedCountry) {
+<span class="cstat-no" title="statement not covered" >        this.bankSelectionGroup.get(BANK_SELECTION_SCREEN_TEXT.selectedCountry).setValue('');</span>
+<span class="cstat-no" title="statement not covered" >        this.bankSelectionGroup.get(BANK_SELECTION_SCREEN_TEXT.selectedBank).setValue('');</span>
+<span class="cstat-no" title="statement not covered" >        this.bankSelectionGroup.get(BANK_SELECTION_SCREEN_TEXT.selectedBranch).setValue('');</span>
+<span class="cstat-no" title="statement not covered" >        this.banksList = [];</span>
+<span class="cstat-no" title="statement not covered" >        this.bankBranchesList = [];</span>
+      }
+      // tslint:disable-next-line: max-line-length
+<span class="cstat-no" title="statement not covered" >      if (this.bankSelectionGroup.get(BANK_SELECTION_SCREEN_TEXT.selectedBank).value !== this.beneficiaryService.selectedInternationalBankName) {</span>
+<span class="cstat-no" title="statement not covered" >        this.bankSelectionGroup.get(BANK_SELECTION_SCREEN_TEXT.selectedBank).setValue('');</span>
+<span class="cstat-no" title="statement not covered" >        this.bankSelectionGroup.get(BANK_SELECTION_SCREEN_TEXT.selectedBranch).setValue('');</span>
+      }
+      // tslint:disable-next-line: max-line-length
+<span class="cstat-no" title="statement not covered" >      if (this.bankSelectionGroup.get(BANK_SELECTION_SCREEN_TEXT.selectedBranch).value !== this.beneficiaryService.internationalBenPayLoadObj.beneficiaryBankAddress) {</span>
+<span class="cstat-no" title="statement not covered" >        this.bankSelectionGroup.get(BANK_SELECTION_SCREEN_TEXT.selectedBranch).setValue('');</span>
+      }
+    }
+  }
+&nbsp;
+  /**
+   * @methodName handleRegionSubscription
+   * @parameters none
+   * @description Used to clear all preselected options if change in region selection
+   * @return none
+   */
+  handleRegionSubscription(): void {
+    this.subscription$.add(this.beneficiaryService.selectedRegion.subscribe(response =&gt; {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (response) {
+<span class="cstat-no" title="statement not covered" >        this.showBankSelection = false;</span>
+<span class="cstat-no" title="statement not covered" >        this.changeDetectRef.detectChanges();</span>
+<span class="cstat-no" title="statement not covered" >        this.showAdibInternationalBanksView = false;</span>
+<span class="cstat-no" title="statement not covered" >        this.showInternationalBanksView = false;</span>
+<span class="cstat-no" title="statement not covered" >        this.showUaeOtherBankView = false;</span>
+<span class="cstat-no" title="statement not covered" >        this.countriesList = [];</span>
+<span class="cstat-no" title="statement not covered" >        this.banksList = [];</span>
+<span class="cstat-no" title="statement not covered" >        this.bankBranchesList = [];</span>
+<span class="cstat-no" title="statement not covered" >        this.adibInternationalCountriesListWithKeys = [];</span>
+<span class="cstat-no" title="statement not covered" >        this.showBankSelection = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.changeDetectRef.detectChanges();</span>
+<span class="cstat-no" title="statement not covered" >        this.beneficiaryService.selectedRegion.next(undefined);</span>
+<span class="cstat-no" title="statement not covered" >        this.enableNextBtn = false;</span>
+      }
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedLanguage
+   * @parameter none
+   * @description Used to set selected language EN | AR
+   * @return none
+   */
+  getSelectedLanguage(): void {
+    this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) =&gt; {
+      this.selectedLanguage = selectedLanguage;
+    });
+  }
+&nbsp;
+  ngOnDestroy() {
+    this.subscription$.unsubscribe();
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

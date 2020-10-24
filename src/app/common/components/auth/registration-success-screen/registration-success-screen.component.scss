@@ -1,0 +1,89 @@
+@import "src/assets/styles/default";
+
+.ibd-registration-success-screen {
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        line-height: normal;
+        text-align: center;
+        width: 100%;
+        @include respond-to(screen-land) {
+            padding: 0px 30px;
+        }
+        @include respond-to(screen-m-min) {
+            padding: 0px 20px;
+        }
+        @include respond-to(screen-l-min) {
+            padding: 0px 29px;
+        }
+        @include respond-to(screen-xl-min) {
+            padding: 0px 16px;
+        }
+        .success-logo {
+            margin-top: 8px;
+            @include respond-to(screen-land) {
+                margin-top: unset
+            }
+            @include respond-to(screen-m-min) {
+                margin-top: unset;
+            }
+        }
+        .success-welcome-text{
+            margin-top: 16px;
+            color: $solid-blue;
+            font-size: 20px;
+            font-family: $font-regular;
+            font-weight: normal;
+            
+        }
+        .success-title {
+            margin-top: 4px;
+            color: $solid-blue;
+            font-size: 16px;
+            font-family: $font-light;
+            @include respond-to(screen-m-min) {
+                font-size: 18px;
+            }
+        }
+        .success-sub-title {
+            margin-top: 8px;
+            color: $button-gray;
+            font-size: 12px;
+            font-family: $font-light;
+            line-height: 20px;
+            @include respond-to(screen-m-min) {
+                font-size: 14px;
+            }
+            @include respond-to(screen-l-min) {
+                line-height: 22px;
+            }
+        }
+        .success-button {
+            margin-top: 24px;
+            width: 100%;
+            @include respond-to(screen-xl-min) {
+                margin-top: 32px;
+            }
+            button{
+                width: 100%;
+            }
+        }
+        .security-tips-wrapper {
+            margin-top: 24px;
+            color: $cerulean-blue;
+            font-size: 12px;
+            font-family: $font-regular;
+            @include respond-to(screen-m-min) {
+                margin-top: 32px;
+            }
+            @include respond-to(screen-l-min) {
+                display: none;
+            }
+            span {
+                margin-left: 8px;
+            }
+        }
+    }
+}

@@ -1,0 +1,115 @@
+<span class="transaction-grid-comp__title" translate
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'transction-grid-rtl-layout': ''">tr_transactionGrid_transactionText</span>
+<div class="transaction-grid-comp"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'transction-grid-rtl-layout': ''">
+    <div class="transaction-grid-comp__wrapper">
+        <div class="transaction-grid-comp__wrapper__filter-wrapper">
+            <div class="transaction-grid-comp__wrapper__search">
+                <input [(ngModel)]="searchText" appAlphaNumeric
+                    placeholder="{{transactionTranslationText.tr_transactionGrid_searchText | translate}}"
+                    (input)="!searchText.length && resetTransactionGrid()" #searchKeyWord>
+                <span class="search-icon" [ngClass]="(searchKeyWord.value)?'active':''"
+                    (click)="getTansactionHistory(true)"></span>
+            </div>
+            <div class="transaction-grid-comp__wrapper__filter-wrapper__filter">
+                <div class="transaction-grid-comp__wrapper__pending ibd-check-box"
+                    *ngIf="transactionGridComponentName==='Credit' || transactionGridComponentName==='Pending'">
+                    <input type="checkbox" id="forPending" name="pending"
+                        (change)="filterPendingTransactions($event)" />
+                    <label for="forPending"></label>
+                    <span translate> tr_transactionGrid_viewPendingText </span>
+                </div>
+            </div>
+        </div>
+        <div class="transaction-grid-comp__wrapper__header">
+            <div class="transaction-grid-comp__wrapper__header__label"
+                *ngFor="let header of transactionHeaderList.transactionGridWebHeaders">
+                {{header.headerText | translate}}
+            </div>
+        </div>
+        <app-infinite-scroll (scrolled)="updateGridOnScroll()" *ngIf="modifiedTransactionHistoryList?.length">
+            <div class="transaction-grid-comp__wrapper__table-body">
+                <div class="transaction-grid-comp__wrapper__table-body__rows"
+                    *ngFor="let historyRow of modifiedTransactionHistoryList">
+                    <div class="transaction-grid-comp__wrapper__table-body__rows__year">
+                        <span translate>tr_common_yearText</span> {{historyRow.year}}</div>
+                    <div class="transaction-grid-comp__wrapper__table-body__rows__web"
+                        *ngFor="let transactionRow of historyRow.transactionHistory">
+                        <div class="transaction-grid-comp__wrapper__table-body__rows__web__row">
+                            <div class="transaction-grid-comp__wrapper__table-body__rows__web__row__label">
+                                <button class="hide-content" (click)="handleContentToggle(taggleContainer,toggleButton)"
+                                    #toggleButton></button>
+                                <span class="date">{{transactionRow.dateEffective | date: 'dd MMM'}}</span>,
+                                <span class="time">{{transactionRow.dateEffective | date: 'HH:mm'}}</span>
+                                <span class="pending" *ngIf="transactionRow.transactionType==='PT'"
+                                    translate>tr_transactionGrid_pendingText</span>
+                            </div>
+                            <ng-template #toggleContent>
+                                <div class="transaction-grid-comp__wrapper__table-body__rows__web__row__tab-headers">
+                                    <div
+                                        class="transaction-grid-comp__wrapper__table-body__rows__web__row__tab-headers__list">
+                                        <div class="mobile-header"
+                                            *ngFor="let header of transactionHeaderList.transactionGridMobileHeaders">
+                                            {{header.headerText | translate}}
+                                        </div>
+                                    </div>
+                                    <div class="transaction-grid-comp__mobile_body">
+                                        <div
+                                            class="transaction-grid-comp__wrapper__table-body__rows__web__row__tab-headers__label transaction-text">
+                                            {{transactionRow.esbReferenceNo?transactionRow.esbReferenceNo:'—'}}</div>
+                                        <div
+                                            class="transaction-grid-comp__wrapper__table-body__rows__web__row__tab-headers__label memo-text">
+                                            {{transactionRow.optionalMemo?transactionRow.optionalMemo:'—'}}</div>
+                                        <div
+                                            class="transaction-grid-comp__wrapper__table-body__rows__web__row__tab-headers__label description-text">
+                                            {{transactionRow.description?transactionRow.description:'—'}}
+                                        </div>
+                                    </div>
+                                    <div class="transaction-grid-comp__only_mobile_body">
+                                        <div class="mobile-header" translate>
+                                            {{transactionHeaderList?.transactionGridMobileHeaders[transactionHeaderList?.transactionGridMobileHeaders?.length-1].headerText}}
+                                        </div>
+                                        <div class="mobile-headers__label">
+                                            {{transactionRow.description?transactionRow.description:'—'}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <!-- showing the template for web and mobile -->
+                            <div class="web-container">
+                                <ng-container *ngTemplateOutlet="toggleContent">
+                                </ng-container>
+                            </div>
+                            <div class="transaction-grid-comp__wrapper__table-body__rows__web__row__label">
+                                <span class="credit" *ngIf="transactionRow.debitOrCreditCode==='CR'"> + </span>
+                                <span class="debit" *ngIf="transactionRow.debitOrCreditCode==='DB'"> </span>
+                                <span class="amount"> {{transactionRow.transactionAmount | numberFormat}}</span>
+                                <span class="decimal-value">.{{transactionRow.transactionAmount | getDecimalValue}}
+                                    {{transactionRow.currencyCode}}</span>
+                                <app-menu-option [item]="transactionRow" [menuOptions]="menuOptions"
+                                    (clickedItem)="menuClickHandler($event)"></app-menu-option>
+                            </div>
+                        </div>
+
+                        <!-- toggle content code starts from here -->
+                        <div class="toggle-container" #taggleContainer>
+                            <ng-container *ngTemplateOutlet="toggleContent">
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </app-infinite-scroll>
+        <!--  No transactions text container -->
+        <div class="transaction-grid-comp__wrapper__no-transactions">
+            <span *ngIf="!modifiedTransactionHistoryList?.length && !loadSearchedTransactions && isTransactionsLoaded">
+                <span *ngIf="transactionGridComponentName!=='Pending'"
+                    translate>tr_transactionGrid_noTransactionText</span>
+                <span *ngIf="transactionGridComponentName==='Pending'"
+                    translate>tr_transactionGrid_noPendingTransactionText</span>
+            </span>
+            <span *ngIf="!modifiedTransactionHistoryList?.length && loadSearchedTransactions && isTransactionsLoaded"
+                translate>tr_transactionGrid_noSearchTransactionText</span>
+        </div>
+    </div>
+</div>

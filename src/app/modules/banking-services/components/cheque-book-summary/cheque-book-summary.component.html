@@ -1,0 +1,45 @@
+<section class="cheque-book-summary-comp"
+    [ngClass]="(selectedLang === arabicLanguageText) ? 'cheque-book-summary-comp-rtl': ''">
+    <div class="col-sm-12 padding-lrn title" translate>tr_chequeBookComponent_requestChequeBook</div>
+    <div class="cheque-book-summary-comp__wrapper" *ngIf="!showSuccessScreen">
+        <div class="cheque-book-summary-comp__wrapper__title" translate>
+            tr_common_verifyDetailsText
+        </div>
+        <div class="cheque-book-summary-comp__wrapper__container">
+            <div class="label" translate>tr_common_accountText</div>
+            <div class="value">{{summaryDetails.accountNumber}}</div>
+        </div>
+        <div class="cheque-book-summary-comp__wrapper__container">
+            <div class="label" translate>tr_chequeBookComponent_deliveryOption</div>
+            <div class="value">{{deliveryOption}}</div>
+        </div>
+        <div class="cheque-book-summary-comp__wrapper__container">
+            <div class="label" translate>tr_common_mobileNumberText</div>
+            <div class="value">{{summaryDetails.mobileNumber}}</div>
+        </div>
+        <div class="cheque-book-summary-comp__wrapper__container">
+            <div class="label" translate>tr_chequeBookComponent_leavePerBook</div>
+            <div class="value">{{leavesPerBook}}</div>
+        </div>
+        <div class="cheque-book-summary-comp__wrapper__container">
+            <div class="label" translate>tr_common_feeText</div>
+            <div class="value"> {{feeCurrencyCode}} {{summaryDetails.standardCharges}}</div>
+        </div>
+        <div class="cheque-book-summary-comp__wrapper__taxText" translate>tr_common_vatText</div>
+    </div>
+    <div class="button-wrapper" *ngIf="!showSuccessScreen">
+        <button class="cancel-btn" (click)="showChequeBookDashboard()" translate>tr_common_cancelText</button>
+        <button class="previous-btn" (click)="showPreviousScreen()" translate>tr_common_previousText</button>
+        <button class="next-btn" (click)="makeChequeBookRequest()" [disabled]="disableSubmitBtn"
+            translate>tr_common_confirmText</button>
+    </div>
+
+    <div *ngIf="showSuccessScreen">
+        <app-success-screen [paymentReferenceNumber]="referenceNumberForSuccessScreen"
+            [componentName]="'bankCertificate'" class="chequebook-success-component">
+        </app-success-screen>
+        <button translate class="next-btn success-screen-btn" (click)="showChequeBookDashboard()">
+            tr_chequeBookComponent_chequeBookDashboard
+        </button>
+    </div>
+</section>

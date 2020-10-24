@@ -1,0 +1,97 @@
+@import "src/assets/styles/default";
+
+.ibd-payment-order-confirmation {
+    display: flex;
+    width: 100%;
+    &__wrapper {
+        min-height: 430px;
+        @include respond-to(screen-m-min) {
+            min-height: unset;
+        }
+        &__title {
+            @extend .idb-font-family;
+            font-size: 16px;
+            color: $suva-grey;
+            margin-top: 27px;
+          }
+        .summary-label-group {
+            margin: 16px 0px;
+            &__label {
+                color: $grey;
+                font-family: $font-light;
+                font-size: 12px;
+            }
+            &__value {
+                font-weight: 300;
+                letter-spacing: 0px;
+                @extend .idb-font-family;
+                color: $solid-blue;
+                .text,
+                .number {
+                    font-family: $font-light;
+                    font-size: 16px;
+                }
+                .number {
+                    font-family: $font-regular;
+                }
+                .currency {
+                    color: $suva-grey;
+                    font-family: $font-medium;
+                    font-size: 12px;
+                    line-height: normal;
+                }
+            }
+        }
+        .summary-buttons {
+            width: 100%;
+            position: static;
+            bottom: 16px;
+            button {
+              width: 100%;
+              margin-top: 16px;
+              @include respond-to(screen-m-min) {
+                width: 184px;
+                min-width: 184px;
+                margin-top: 0;
+              }
+            }
+            @include respond-to(screen-m-min) {
+              display: flex;
+              .next-btn,
+              .previous-btn {
+                margin-left: 27px;
+              }
+            }
+          }
+    }
+    &__success-screen {
+        width: 100%;
+        margin-top: 20px;
+        @include respond-to(screen-m-min) {
+          margin-top: 30px;
+        }
+        .success-screen-btn {
+            width: 92%;
+            position: fixed;
+            bottom: 20px;
+            z-index: 10;
+            @include respond-to(screen-m-min) {
+              position: static;
+              margin-top: 32px;
+              width: auto;
+            }
+          }
+        @include respond-to(screen-l-min) {
+            margin-top: 27px;
+        }
+    }
+}
+
+:host ::ng-deep app-success-screen {
+  .success-screen-comp {
+    padding: 0px;
+    .success-screen-comp__wrapper__buttons {
+      display: none;
+    }
+  }
+}

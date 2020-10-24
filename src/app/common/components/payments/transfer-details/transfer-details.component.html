@@ -1,0 +1,62 @@
+<section class="transfer-details-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'transfer-details-rtl': ''">
+    <div class="transfer-details-comp__wrapper">
+        <div class="transfer-details-comp__wrapper__available-funds" *ngIf="transferDetails?.availableAmount">
+            <span class="text" translate>{{transferDetails.avaialableText}}</span>
+            <div class="amount">
+                <span class="amount__digit">
+                    {{transferDetails.availableAmount | numberFormat}}</span>.<span
+                    class="amount__decimal">{{transferDetails.availableAmount | getDecimalValue}}</span>
+                <span class="amount__currency">
+                    {{transferDetails.currencyCode}}
+                </span>
+            </div>
+        </div>
+        <div *ngIf="isPaymentToCoverCard" class="transfer-details-comp__wrapper__payment-options">
+            <app-checkbox-generic [optionsList]="selectPaymentAmountsList" componentName="selectionPaymentAmount"
+                [disabledOption]="disablePayMinimumAmt?'MINIMUM':''"
+                (selectedOptionValue)="selectedPaymentAmount($event)" customClassName="active-blue"
+                class="payment-amount-generic-checkbox">
+            </app-checkbox-generic>
+        </div>
+        <div class="transfer-details-comp__wrapper__outstanding" *ngIf="outStandingBalance || outStandingBalance=='0'">
+            <span class="text" translate> tr_paymentComponent_outStandingBalanceText </span> : <span
+                class="amount">{{outStandingBalance | numberFormat}}</span>
+            <span class="decimal">.{{outStandingBalance | getDecimalValue}}
+                {{transferDetailsScreenText.aedCurrencyCode}}</span>
+        </div>
+        <form [formGroup]="paymentTransferGroup" class="payee-account-form-comp__form">
+            <mat-form-field>
+                <mat-label translate>tr_common_amountText</mat-label>
+                <input matInput formControlName="amount" numbersOnly decimals="3" maxlength="{{ AMOUNT_LENGTH }}"
+                    [readonly]="!amountEditable" (focusout)="validateAmount()" appInputWithComma>
+                <mat-error>
+                    <app-show-form-errors [control]="paymentTransferGroup.get('amount')" label="Amount">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label translate>tr_paymentComponent_memoText</mat-label>
+                <input matInput formControlName="memo" type="text" maxlength="{{memoMaxlength}}" #memo appAlphaNumeric>
+                <mat-hint align="end">{{memo.value.length}}/{{memoMaxlength}}
+                    {{ transferDetailsScreenText.formOptionalText | translate}}</mat-hint>
+                <mat-error>
+                    <app-show-form-errors [control]="paymentTransferGroup.get('memo')" label="Memo">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+        </form>
+        <div class="alert-message" *ngIf="showOutStandingBalError" translate>
+            tr_paymentComponent_outStandingBalNillText
+        </div>
+        <div class="transfer-details-comp__wrapper__buttons">
+            <button class="btn cancel-btn" type="button" (click)="cancelTransaction(true)"
+                translate>tr_common_cancelTransactionText</button>
+            <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+            <button matStepperNext class="btn next-btn" type="button"
+                [disabled]="!paymentTransferGroup.valid || showOutStandingBalError" (click)="setPaymentSummaryDetails()"
+                translate>tr_common_nextText</button>
+        </div>
+    </div>
+</section>

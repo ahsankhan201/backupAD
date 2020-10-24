@@ -1,0 +1,65 @@
+<div class="takaful-products-comp" [ngClass]="(selectedLang === arabicLanguageText) ? 'takaful-products-comp-rtl': ''">
+    <app-product-card (selectedCardOption)="getSelectedProductInfo($event)" [productCardsList]="catalogList"
+        *ngIf="showComponentName==='PRODUCT_LIST'">
+    </app-product-card>
+
+    <div class="takaful-products-comp__form-container">
+        <div class="top-section" *ngIf="showComponentName==='ENQUIRY_FORM'">
+            <div class="cta-back-btn" (click)="showtakafulsTab()" translate>tr_navControl_backText</div>
+            <div class="title">{{productTitle}}</div>
+        </div>
+        <form [formGroup]="takafulEnquiryFormGroup" *ngIf="showComponentName==='ENQUIRY_FORM'"
+            class="takaful-enquiry-form">
+            <div class="row margin-lrn form-wrapper">
+                <mat-form-field class="col-lg-6 padding-lrn mobile-field">
+                    <mat-label translate>tr_common_mobileNumberText</mat-label>
+                    <input type="tel" matInput formControlName="mobileNumber" inputmode="numeric" pattern="[0-9]*"
+                        numbersOnly maxlength="{{MOBILE_NUMBER_LENGTH}}" minlength="{{MOBILE_NUMBER_MIN_LENGTH}}"
+                        autocomplete="off">
+                    <mat-error>
+                        <app-show-form-errors [control]="takafulEnquiryFormGroup.get('mobileNumber')"
+                            label="Mobile Number">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-lg-6 padding-lrn email-field">
+                    <mat-label translate>tr_productsComponent_emailIdText</mat-label>
+                    <input type="email" matInput formControlName="emailId" autocomplete="off">
+                    <mat-error>
+                        <app-show-form-errors [control]="takafulEnquiryFormGroup.get('emailId')" label="Email Id">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <span class="title" translate>tr_productsComponent_contactModeText</span>
+            <app-checkbox-generic [optionsList]="takafulEquiryModes" [componentName]="'takafulEnquiryContactMode'"
+                (selectedOptionValue)="getSelectedContactMode($event)" class="enquiry-contact-mode"
+                [ngClass]="(selectedLang === arabicLanguageText) ? 'enquiry-contact-mode-rtl': ''"
+                customClassName="active-blue" [emitSelectedEleID]="'true'">
+            </app-checkbox-generic>
+            <div class="contact-timings" *ngIf="showContactTimings">
+                <span class="title" translate>tr_productsComponent_contactTimeText</span>
+                <app-checkbox-generic [optionsList]="takafulEquiryTimings" [componentName]="'takafulEnquiryContactTime'"
+                    (selectedOptionValue)="getSelectedTimings($event)" class="enquiry-contact-mode"
+                    [ngClass]="(selectedLang === arabicLanguageText) ? 'enquiry-contact-mode-rtl': ''"
+                    customClassName="active-blue" [emitSelectedEleID]="'true'">
+                </app-checkbox-generic>
+            </div>
+            <div class="button-wrapper">
+                <button class="next-btn" (click)="registerProductEnquiry()"
+                    [disabled]="!takafulEnquiryFormGroup.valid || !enableNextBtn"
+                    translate>tr_common_submitText</button>
+                <span translate>tr_productsComponent_termsANDCondotionsText</span>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="showComponentName==='SUCCESS_SCREEN'"
+        [ngClass]="(selectedLang === arabicLanguageText) ? 'takaful-products-comp-success-rtl': ''">
+        <div class="products-comp__success-title" translate>tr_paymentComponent_takafulText</div>
+        <app-success-screen [componentName]="'productEnquiry'" [productEnquired]="typeOfProductEnquired"
+            class="enquiry-success-comp">
+        </app-success-screen>
+        <button translate class="next-btn enquiry-success-screen-btn"
+            (click)="showtakafulsTab()">tr_productsComponent_productsDashBoardText</button>
+    </div>
+</div>

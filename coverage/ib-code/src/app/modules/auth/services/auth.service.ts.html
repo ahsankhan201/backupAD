@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/modules/auth/services/auth.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/modules/auth/services</a> auth.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.82% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>45/119</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">13.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">38.94% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>44/113</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { HttpParams } from '@angular/common/http';
+&nbsp;
+import { HttpHeaderService } from 'src/app/common/services/http-headers/http-header.service';
+import { APISyncService } from 'src/app/common/services/sync.service';
+import { SharedService } from 'src/app/common/services/shared.service';
+import { DialogService } from 'src/app/common/services/dialog.service';
+&nbsp;
+import { environment } from 'src/environments/environment';
+import { COMPONENT_LIST, UNKNOWN_DEVICE_TEXT, NONE_TEXT, AUTH_DIALOG_CLASS } from '../auth-module.constants';
+import { NEW_USER_REG_CIAM_PAYLOAD, NO_WHITESPACE_REGEX, HIDE_OVERFLOW_CLASS } from '../../../common/global-constants';
+import { BrowserRegistrationDetails } from 'src/app/common/models/registration.model';
+import { VerifyUsernamePayload, ForgetUsernamePayload } from 'src/app/common/models/password.model';
+import { CiamForgetUsername } from 'src/app/common/models/ciam.model';
+import { Dialog } from 'src/app/common/models/dialog.model';
+&nbsp;
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService implements OnDestroy {
+  subscription$ = new Subscription();
+  password: string;
+  confirmPassword: string;
+  cardNumber: string;
+  pinNumber: string;
+  securityTipClickStatus$ = new BehaviorSubject&lt;boolean&gt;(false);
+  securityTipClickStatus = this.securityTipClickStatus$.asObservable();
+  showComponent$ = new BehaviorSubject&lt;string&gt;(COMPONENT_LIST.LOGIN);
+  forgotPassword$ = new BehaviorSubject(undefined);
+  forgotPassword = this.forgotPassword$.asObservable();
+  otpResponse$ = new BehaviorSubject(undefined);
+  otpResponse = this.otpResponse$.asObservable();
+  usernameApiResponse$ = new BehaviorSubject(undefined);
+  usernameApiResponse = this.usernameApiResponse$.asObservable();
+  forgetComponentName: string;
+  forgotUsername$ = new BehaviorSubject(undefined);
+  forgotUsername = this.forgotUsername$.asObservable();
+  isUserBlocked$ = new BehaviorSubject(undefined);
+  isUserBlocked = this.isUserBlocked$.asObservable();
+  isUserBlockedStatus: boolean;
+  userEmailId: string;
+  clearInputFieldValues$ = new BehaviorSubject(undefined);
+  clearInputFieldValues = this.clearInputFieldValues$.asObservable();
+  constructor(
+    private apiService: APISyncService,
+    private httpHeaderService: HttpHeaderService,
+    private sharedService: SharedService,
+    private dialogService: DialogService) { }
+&nbsp;
+  /**
+   * @methodName updateSecurityTipsClick
+   * @description used to update BehaviorSubject this.setSecurityTipClick$ on security tips click
+   * @parameters status&lt;boolean&gt;
+   * @return none
+   */
+&nbsp;
+  updateSecurityTipsClick(status: boolean): void {
+    this.securityTipClickStatus$.next(status);
+  }
+&nbsp;
+  /**
+   * @methodName checkValidCardDetails
+   * @description validates the customer details by card and pin
+   * @parameter void
+   * @return Observable&lt;any&gt;
+   */
+<span class="fstat-no" title="function not covered" >  checkValidCardDetails(<span class="cstat-no" title="statement not covered" ></span>displaceSession: boolean = false)</span>: Observable&lt;any&gt; {
+    // Assigning generateCiamValidateCardHeaders  method to generate custom header
+<span class="cstat-no" title="statement not covered" >    this.httpHeaderService.customHeaderFunction = this.httpHeaderService.generateCiamValidateCardHeaders;</span>
+    const payloadObj = <span class="cstat-no" title="statement not covered" >new HttpParams().set('grant_type', environment.CIAM.GRANT_TYPE)</span>
+      .set('client_id', environment.CIAM.CLIENT_ID)
+      .set('username', this.cardNumber)
+      .set('password', this.pinNumber)
+      .set('mode', environment.CIAM.MODE_CARD_NUM_PIN);
+    let CIAM_URL = <span class="cstat-no" title="statement not covered" >environment.API_CONNECT_URL + environment.ADIB + environment.CIAM.ENDPOINTS.VALIDATE_CARD_PIN;</span>
+<span class="cstat-no" title="statement not covered" >    CIAM_URL = this.sharedService.handleDisplaceSession(CIAM_URL, displaceSession);</span>
+<span class="cstat-no" title="statement not covered" >    return this.apiService.post(encodeURI(CIAM_URL), payloadObj, 'json');</span>
+  }
+&nbsp;
+  /**
+   * @methodName forgotPasswordOtpCall
+   * @description initiate the forgot password/ unlockusername flow
+   * @parameter void
+   * @return void
+   */
+<span class="fstat-no" title="function not covered" >  forgotPasswordOtpCall(): Observable&lt;any&gt; {</span>
+    const payloadObj = <span class="cstat-no" title="statement not covered" >NEW_USER_REG_CIAM_PAYLOAD;</span>
+    const END_POINT = <span class="cstat-no" title="statement not covered" >(this.isUserBlockedStatus) ? environment.CIAM.ENDPOINTS.UNLOCK_USERNAME :</span>
+      environment.CIAM.ENDPOINTS.FORGET_PASSWORD; // default endpointis for forget password
+    const CIAM_URL = <span class="cstat-no" title="statement not covered" >environment.API_CONNECT_URL + environment.ADIB + END_POINT;</span>
+    // Assigning generateCiamOTPHeaders  method to generate custom header
+<span class="cstat-no" title="statement not covered" >    this.httpHeaderService.customHeaderFunction = this.httpHeaderService.generateCiamOTPHeaders;</span>
+<span class="cstat-no" title="statement not covered" >    return this.apiService.post(encodeURI(CIAM_URL), payloadObj, 'text', undefined, true)</span>
+      .pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res.body ? JSON.parse(res.body) : res)</span>);</span>
+  }
+&nbsp;
+  /**
+   * @methodName setPassword
+   * @description initiate the new username for registration
+   * @parameter void
+   * @return Observable&lt;any&gt;
+   */
+<span class="fstat-no" title="function not covered" >  setPassword(): Observable&lt;any&gt; {</span>
+    const payloadObj = <span class="cstat-no" title="statement not covered" >{ newPassword: this.password, newPasswordConfirm: this.confirmPassword };</span>
+    let stateId: string;
+<span class="cstat-no" title="statement not covered" >    if (this.isUserBlockedStatus) {</span>
+      // unlock username flow
+<span class="cstat-no" title="statement not covered" >      this.subscription$.add(this.otpResponse.subscribe(<span class="fstat-no" title="function not covered" >response =&gt; { <span class="cstat-no" title="statement not covered" >stateId = response.location; </span>}));</span></span>
+    } else {
+      // unlock username flow with verify username step
+<span class="cstat-no" title="statement not covered" >      this.subscription$.add(this.usernameApiResponse.subscribe(<span class="fstat-no" title="function not covered" >response =&gt; { <span class="cstat-no" title="statement not covered" >stateId = response.location; </span>}));</span></span>
+    }
+    const CIAM_URL = <span class="cstat-no" title="statement not covered" >environment.API_CONNECT_URL + environment.ADIB + stateId;</span>
+&nbsp;
+    // Assigning generateCIAMUsernameHeaders method to generate custom header for creating Username
+<span class="cstat-no" title="statement not covered" >    this.httpHeaderService.customHeaderFunction = this.httpHeaderService.generateCIAMUsernameHeaders;</span>
+<span class="cstat-no" title="statement not covered" >    return this.apiService.put(encodeURI(CIAM_URL), payloadObj)</span>
+      .pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res.body ? JSON.parse(res.body) : res)</span>);</span>
+  }
+&nbsp;
+  /**
+   * @methodName postLoginDetails
+   * @description used to get the access token from server
+   * @parameters url&lt;string&gt;,reqPayLoad&lt;any&gt;
+   * @return Observable&lt;any&gt;
+   */
+<span class="fstat-no" title="function not covered" >  postLoginDetails(</span>url: string, reqPayLoad: any): Observable&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.apiService.post(url, reqPayLoad, 'json');</span>
+  }
+&nbsp;
+  /**
+   * @methodName getDeviceRegistrationSession
+   * @description used to fetch device session from server
+   * @parameters url&lt;string&gt;,reqPayLoad&lt;any&gt;
+   * @return Observable&lt;any&gt;
+   */
+<span class="fstat-no" title="function not covered" >  getDeviceRegistrationSession(</span>url: string, reqPayLoad: any): Observable&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.apiService.post(url, reqPayLoad);</span>
+  }
+&nbsp;
+  /**
+   * @methodName registerDeviceInfo
+   * @description used to register the device
+   * @parameters url&lt;string&gt;,reqPayLoad&lt;any&gt;
+   * @return Observable&lt;any&gt;
+   */
+<span class="fstat-no" title="function not covered" >  registerDeviceInfo(</span>url: string, reqPayLoad: BrowserRegistrationDetails): Observable&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.apiService.post(url, reqPayLoad, 'text', undefined, true);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getBrowserPlugins
+   * @description to get the plugin names which are installed in browser
+   * @parameters none
+   * @return string
+   */
+<span class="fstat-no" title="function not covered" >  getBrowserPlugins(): string {</span>
+    let plugins = <span class="cstat-no" title="statement not covered" >'';</span>
+<span class="cstat-no" title="statement not covered" >    Array.from(navigator.plugins).forEach(<span class="fstat-no" title="function not covered" >(</span>plugin, index) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      plugins += index !== navigator.plugins.length - 1 ? `${plugin.name},` : plugin.name;</span>
+    });
+    // if plugins not found return 'none'
+<span class="cstat-no" title="statement not covered" >    return plugins ? plugins : NONE_TEXT;</span>
+  }
+&nbsp;
+  /**
+   * @methodName getDeviceName
+   * @description to get the device name
+   * @parameters none
+   * @return string
+   */
+<span class="fstat-no" title="function not covered" >  getDeviceName(): string {</span>
+    let deviceName = <span class="cstat-no" title="statement not covered" >UNKNOWN_DEVICE_TEXT;</span>
+    // @ts-ignore
+    const client = <span class="cstat-no" title="statement not covered" >new ClientJS();</span>
+    const deviceInfo = <span class="cstat-no" title="statement not covered" >client.getBrowserData();</span>
+<span class="cstat-no" title="statement not covered" >    if (Object.keys(deviceInfo).length) {</span>
+      // collecting device model/vendor name
+<span class="cstat-no" title="statement not covered" >      if (deviceInfo.device &amp;&amp; Object.keys(deviceInfo.device).length &amp;&amp; (deviceInfo.device.model || deviceInfo.device.vendor)) {</span>
+<span class="cstat-no" title="statement not covered" >        deviceName = deviceInfo.device.model &amp;&amp; deviceInfo.device.model.length &gt; 1 ? deviceInfo.device.model : deviceInfo.device.vendor;</span>
+      }
+      // collecting device OS name and version
+<span class="cstat-no" title="statement not covered" >      if (deviceInfo.os &amp;&amp; Object.keys(deviceInfo.os).length &amp;&amp; deviceInfo.os.name) {</span>
+<span class="cstat-no" title="statement not covered" >        deviceName = deviceName !== UNKNOWN_DEVICE_TEXT ? `${deviceName}_${deviceInfo.os.name}_${deviceInfo.os.version}` :</span>
+          `${deviceInfo.os.name} _${deviceInfo.os.version} `;
+      }
+      // collecting device browser name
+<span class="cstat-no" title="statement not covered" >      if (client.getBrowser()) {</span>
+<span class="cstat-no" title="statement not covered" >        deviceName = `${deviceName}_${deviceInfo.browser.name}`;</span>
+      }
+    }
+<span class="cstat-no" title="statement not covered" >    return deviceName.replace(NO_WHITESPACE_REGEX, '');</span>
+  }
+&nbsp;
+  /**
+   * @methodName forgotUsernameVerify
+   * @description initiate the forgot username flow
+   * @parameter void
+   * @return Observable&lt;any&gt;
+   */
+<span class="fstat-no" title="function not covered" >  forgotUsernameVerify(): Observable&lt;any&gt; {</span>
+    const payloadObj = <span class="cstat-no" title="statement not covered" >NEW_USER_REG_CIAM_PAYLOAD;</span>
+    const END_POINT = <span class="cstat-no" title="statement not covered" >environment.CIAM.ENDPOINTS.FORGET_USERNAME;</span> // default endpointis for forget username
+    const CIAM_URL = <span class="cstat-no" title="statement not covered" >environment.API_CONNECT_URL + environment.ADIB + END_POINT;</span>
+    // Assigning generateCiamOTPHeaders  method to generate custom header
+<span class="cstat-no" title="statement not covered" >    this.httpHeaderService.customHeaderFunction = this.httpHeaderService.generateCiamOTPHeaders;</span>
+<span class="cstat-no" title="statement not covered" >    return this.apiService.post(encodeURI(CIAM_URL), payloadObj)</span>
+      .pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res.body ? JSON.parse(res.body) : res)</span>);</span>
+  }
+&nbsp;
+  /**
+   * @methodName setUsername
+   * @description call CIAM API to reset username
+   * @parameter void
+   * @return Observable&lt;CiamForgetUsername&gt;
+   */
+<span class="fstat-no" title="function not covered" >  setUsername(): Observable&lt;CiamForgetUsername&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.sharedService.userEmailId) {</span>
+      const payloadObj = <span class="cstat-no" title="statement not covered" >{} as ForgetUsernamePayload;</span>
+<span class="cstat-no" title="statement not covered" >      payloadObj.email = [] as string[];</span>
+<span class="cstat-no" title="statement not covered" >      payloadObj.email.push(this.sharedService.userEmailId);</span>
+      let otpLocation = <span class="cstat-no" title="statement not covered" >'';</span>
+<span class="cstat-no" title="statement not covered" >      this.otpResponse.subscribe(<span class="fstat-no" title="function not covered" >response =&gt; { <span class="cstat-no" title="statement not covered" >otpLocation = response.location; </span>});</span></span>
+      const CIAM_URL = <span class="cstat-no" title="statement not covered" >environment.API_CONNECT_URL + environment.ADIB + otpLocation;</span>
+&nbsp;
+      // Assigning forgetUsernameHeaders method to generate custom header for creating Username
+<span class="cstat-no" title="statement not covered" >      this.httpHeaderService.customHeaderFunction = this.httpHeaderService.forgetUsernameHeaders;</span>
+<span class="cstat-no" title="statement not covered" >      return this.apiService.put(encodeURI(CIAM_URL), payloadObj)</span>
+        .pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res.body ? JSON.parse(res.body) : res)</span>);</span>
+    }
+  }
+  /**
+   * @methodName setUsername
+   * @description call CIAM API to reset username
+   * @parameter void
+   * @return Observable&lt;any&gt;
+   */
+<span class="fstat-no" title="function not covered" >  refreshAccessToken(): Observable&lt;any&gt; {</span>
+    const LOGIN_URL = <span class="cstat-no" title="statement not covered" >`${environment.API_CONNECT_URL}${environment.ADIB}${environment.CIAM.ENDPOINTS.LOGIN}`;</span>
+    const requestPayLoad = <span class="cstat-no" title="statement not covered" >this.generateRefreshTokenPayLoad();</span>
+<span class="cstat-no" title="statement not covered" >    return this.apiService.post(encodeURI(LOGIN_URL), requestPayLoad, 'json')</span>
+      .pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res.body ? res.body : res)</span>);</span>
+  }
+&nbsp;
+  /**
+   * @methodName generateLoginPayLoad
+   * @parameter none
+   * @description used to genreate the login request payload
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  generateRefreshTokenPayLoad(): HttpParams {</span>
+<span class="cstat-no" title="statement not covered" >    this.httpHeaderService.customHeaderFunction = this.httpHeaderService.refershTokenHeaders;</span>
+<span class="cstat-no" title="statement not covered" >    return new HttpParams().set('grant_type', environment.CIAM.REFRESH_TOKEN_GRANT_TYPE)</span>
+      .set('client_id', environment.CIAM.CLIENT_ID)
+      .set('refresh_token', this.sharedService.refreshToken);
+  }
+&nbsp;
+  /**
+   * @methodName verifyUsername
+   * @description verify Username for forget password step
+   * @parameter void
+   * @return Observable&lt;any&gt;
+   */
+<span class="fstat-no" title="function not covered" >  verifyUsername(</span>username: string): Observable&lt;CiamForgetUsername&gt; {
+<span class="cstat-no" title="statement not covered" >    if (username) {</span>
+      const payloadObj: VerifyUsernamePayload = <span class="cstat-no" title="statement not covered" >{ checkusername: username };</span>
+      let otpLocation = <span class="cstat-no" title="statement not covered" >'';</span>
+<span class="cstat-no" title="statement not covered" >      this.subscription$.add(this.otpResponse.subscribe(<span class="fstat-no" title="function not covered" >response =&gt; { <span class="cstat-no" title="statement not covered" >otpLocation = response.location; </span>}));</span></span>
+      const CIAM_URL = <span class="cstat-no" title="statement not covered" >environment.API_CONNECT_URL + environment.ADIB + otpLocation;</span>
+&nbsp;
+      // Assigning generateCIAMUsernameHeaders method to generate custom header for creating Username
+<span class="cstat-no" title="statement not covered" >      this.httpHeaderService.customHeaderFunction = this.httpHeaderService.generateCIAMUsernameHeaders;</span>
+<span class="cstat-no" title="statement not covered" >      return this.apiService.put(encodeURI(CIAM_URL), payloadObj)</span>
+        .pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res.body ? JSON.parse(res.body) : res)</span>);</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName openRegistraionConfirmModal
+   * @parameter none
+   * @description used to open registered device component in modal
+   * @return none
+   */
+  openRegistraionConfirmModal(): void {
+    const OPTIONS = {} as Dialog;
+    OPTIONS.isRegistarationConfirmDialog = true;
+    OPTIONS.dialogClassName = AUTH_DIALOG_CLASS;
+    this.dialogService.open(OPTIONS);
+    this.dialogService.confirmed().subscribe(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      document.querySelector('body').classList.remove(HIDE_OVERFLOW_CLASS);</span>
+    });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ngOnDestroy() {</span>
+<span class="cstat-no" title="statement not covered" >    this.subscription$.unsubscribe();</span>
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<div class="security-tips">
+    <div class="security-tips__header">
+        <span translate (click)="handleCloseAction()">tr_common_closeText<img alt="close icon" src="{{closeIcon}}"></span>
+    </div>
+    <div class="security-tips__body">
+        <carousel [interval]="SECURITY_TIPS_CONSTANTS.SLIDE_INTERVAL" [noPause]="false">
+            <slide>
+                <lottie-animation-view [options]="securityTipsAnimation">
+                </lottie-animation-view>
+            </slide>
+            <slide>
+                <lottie-animation-view [options]="doMoreAnimation">
+                </lottie-animation-view>
+            </slide>
+            <slide>
+                <lottie-animation-view [options]="doYouKnowAnimation">
+                </lottie-animation-view>
+            </slide>
+        </carousel>
+    </div>
+    <div class="security-tips__footer">
+        <div class="security-tips__footer__app-store">
+            <div class="security-tips__footer__app-store__qr-code"><img alt = "Apple Store QR" src="{{SECURITY_TIPS_CONSTANTS.APP_STORE_QR}}">
+            </div>
+            <div class="security-tips__footer__app-store__app-link" (click)="openDownloadAppTab(APP_STORE_LINK)"><img
+                alt = "Apple Store" src="{{SECURITY_TIPS_CONSTANTS.APP_STORE_LINK}}"></div>
+        </div>
+        <div class="security-tips__footer__text">
+            <div class="security-tips__footer__text__download" translate>tr_registrationComponent_downloadText</div>
+            <div class="security-tips__footer__text__app" translate>tr_registrationComponent_appText</div>
+        </div>
+        <div class="security-tips__footer__google-play">
+            <div class="security-tips__footer__google-play__qr-code"><img alt = "Google Play QR"
+                    src="{{SECURITY_TIPS_CONSTANTS.GOOGLE_PLAY_QR}}">
+            </div>
+            <div class="security-tips__footer__google-play__app-link" (click)="openDownloadAppTab(GOOGLE_PLAY_LINK)">
+                <img alt = "Google Play" src="{{SECURITY_TIPS_CONSTANTS.GOOGLE_PLAY_LINK}}"></div>
+        </div>
+    </div>
+</div>

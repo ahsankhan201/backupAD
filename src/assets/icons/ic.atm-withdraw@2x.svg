@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>4DCF9E78-BA2F-4ECA-BDFD-12B411CA0160@2x</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-1.0.0.0" transform="translate(-486.000000, -189.000000)">
+            <g id="Quick-Links" transform="translate(486.000000, 40.000000)">
+                <g id="ADIB-ATM-Withdrawl-Accounts" transform="translate(0.000000, 149.000000)">
+                    <rect id="Bond" stroke="#979797" opacity="0" x="0.5" y="0.5" width="23" height="23"></rect>
+                    <path d="M23,0.5 L23.5,14.5 L0.5,14.5 L0.5,1 L23,0.5 Z" id="Rectangle" stroke="#1E3A68"></path>
+                    <path d="M23.5,14.5 L23.5,23 L1,23.5 L0.5,14.5 L23.5,14.5 Z" id="Rectangle" stroke="#1E3A68"></path>
+                    <path d="M6.88432,9.28726 L4.13492,9.28726 L3.51743,11 L2.625,11 L5.13101,4.4375 L5.88822,4.4375 L8.39874,11 L7.51082,11 L6.88432,9.28726 Z M4.39633,8.57512 L6.6274,8.57512 L5.50962,5.50571 L4.39633,8.57512 Z M13.2305,5.14964 L11.1211,5.14964 L11.1211,11 L10.2602,11 L10.2602,5.14964 L8.15535,5.14964 L8.15535,4.4375 L13.2305,4.4375 L13.2305,5.14964 Z M15.3218,4.4375 L17.4672,9.79207 L19.6127,4.4375 L20.735,4.4375 L20.735,11 L19.8696,11 L19.8696,8.44441 L19.9507,5.686 L17.7963,11 L17.1337,11 L14.9838,5.69952 L15.0694,8.44441 L15.0694,11 L14.204,11 L14.204,4.4375 L15.3218,4.4375 Z" id="Shape" fill="#1E3A68" fill-rule="nonzero"></path>
+                    <path d="M6.5,16.5 C6.76940361,16.5 7.00922876,16.6311859 7.18437476,16.8313544 C7.38209075,17.0573174 7.5,17.3706203 7.5,17.7143 L7.5,17.7143 L7.5,20.2857 C7.5,20.6293797 7.38209075,20.9426826 7.18437476,21.1686456 C7.00922876,21.3688141 6.76940361,21.5 6.5,21.5 L6.5,21.5 L3.5,21.5 C3.23059639,21.5 2.99077124,21.3688141 2.81562524,21.1686456 C2.61790925,20.9426826 2.5,20.6293797 2.5,20.2857 L2.5,20.2857 L2.5,17.7143 C2.5,17.3706203 2.61790925,17.0573174 2.81562524,16.8313544 C2.99077124,16.6311859 3.23059639,16.5 3.5,16.5 L3.5,16.5 Z" id="Path" stroke="#1E326E" fill-opacity="0.6" fill="#00A0E6"></path>
+                    <line x1="11.5" y1="17.5" x2="13.5" y2="17.5" id="Path" stroke="#1E3A68" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="11.5" y1="19" x2="13.5" y2="19" id="Path" stroke="#1E3A68" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="11.5" y1="20.5" x2="13.5" y2="20.5" id="Path" stroke="#1E3A68" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="15" y1="17.5" x2="17" y2="17.5" id="Path" stroke="#1E3A68" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="15" y1="19" x2="17" y2="19" id="Path" stroke="#1E3A68" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="15" y1="20.5" x2="17" y2="20.5" id="Path" stroke="#1E3A68" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="18.5" y1="17.5" x2="20.5" y2="17.5" id="Path" stroke="#1E3A68" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="18.5" y1="19" x2="20.5" y2="19" id="Path" stroke="#1E3A68" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="18.5" y1="20.5" x2="20.5" y2="20.5" id="Path" stroke="#1E3A68" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

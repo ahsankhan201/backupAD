@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/components/layout/header-dashboard/header-dashboard.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">All files</a> / <a href="index.html">src/app/common/components/layout/header-dashboard</a> header-dashboard.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">68.33% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>41/60</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">61.54% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>38/57</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, OnDestroy, AfterContentChecked } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+&nbsp;
+import { UserService } from 'src/app/common/services/user.service';
+import { SharedService } from 'src/app/common/services/shared.service';
+import { LogoutService } from 'src/app/modules/logout/services/logout.service';
+&nbsp;
+import {
+  HEADER_INFO, HEADER_CONST, TRANSLATION_DATA, LOCALE,
+  PAYMENT_SCREEN_TEXT, ARABIC_LANG_TEXT, LOGOUT_DROPDOWN, PROFILE_MENU_DATA
+} from '../../../global-constants';
+import { User } from 'src/app/common/models/user.model';
+import { MenuOption, MenuOptionItem } from 'src/app/common/models/menu-option.model';
+import { Router } from '@angular/router';
+&nbsp;
+@Component({
+  selector: 'app-header-dashboard',
+  templateUrl: './header-dashboard.component.html',
+  styleUrls: ['./header-dashboard.component.scss']
+})
+export class HeaderDashboardComponent implements OnInit, OnDestroy {
+&nbsp;
+  userData: User;
+  totalAvailableFundsText: any;
+  allLanguages = TRANSLATION_DATA.LANGUAGES;
+  isHiddenText: string;
+  logo: string;
+  userImage: string;
+  welcomeText: string;
+  totalAvailableFunds: string;
+  currencyCode = PAYMENT_SCREEN_TEXT.aedCurrencyCode;
+  availableFundsHiddenText: string;
+  showAvailableFunds = true;
+  selectedLanguage: string;
+  arabicLanguageText = ARABIC_LANG_TEXT;
+  subscription$ = new Subscription();
+  logoutDropDownList: MenuOptionItem[] = LOGOUT_DROPDOWN;
+  customerName: string;
+&nbsp;
+  constructor(
+    private router: Router,
+    private translateService: TranslateService,
+    private userService: UserService,
+    private sharedService: SharedService,
+    private logoutService: LogoutService) { }
+&nbsp;
+  ngOnInit() {
+    this.setHeaderConstantData();
+    this.loadUserData();
+    this.getSelectedLanguage();
+    this.sharedService.isSessionExpired = false;
+    this.logoutService.getUserIdleTime();
+  }
+&nbsp;
+  /**
+   * @methodName loadUserData
+   * @description used to load userData from userService
+   * @parameters none
+   * @return none
+   */
+&nbsp;
+  loadUserData(): void {
+    this.subscription$.add(this.sharedService.customerDetailsSubject.subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      this.customerName = response;</span>
+    }));
+    this.subscription$.add(this.sharedService.networth.subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      this.totalAvailableFunds = response;</span>
+    }));
+    this.sharedService.setLanguageInfo(this.translateService.currentLang);
+  }
+&nbsp;
+  /**
+   * @methodName setHeaderConstantData
+   * @description used to get header config data
+   * @parameters none
+   * @return none
+   */
+&nbsp;
+  setHeaderConstantData(): void {
+    // to set from CONST
+    this.isHiddenText = HEADER_INFO.hideText;
+    this.logo = HEADER_INFO.logo;
+    this.userImage = HEADER_INFO.userImage;
+    // to set from HEADER_CONST
+    this.welcomeText = HEADER_CONST.welcomeText;
+    this.totalAvailableFundsText = HEADER_CONST.totalAvailableFundsText;
+    this.availableFundsHiddenText = HEADER_CONST.availableFundsHiddenValue;
+  }
+&nbsp;
+  /**
+   * @methodName changeFundsStatus
+   * @description used to change hide/show for total available funds
+   * @parameters none
+   * @return none
+   */
+&nbsp;
+<span class="fstat-no" title="function not covered" >  changeFundsStatus(</span>event: MouseEvent): void {
+<span class="cstat-no" title="statement not covered" >    if (event.target &amp;&amp; event.target['checked']) {</span>
+<span class="cstat-no" title="statement not covered" >      this.isHiddenText = HEADER_INFO.showText;</span>
+<span class="cstat-no" title="statement not covered" >      this.showAvailableFunds = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.userService.changeValue(true);</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.isHiddenText = HEADER_INFO.hideText;</span>
+<span class="cstat-no" title="statement not covered" >      this.showAvailableFunds = true;</span>
+<span class="cstat-no" title="statement not covered" >      this.userService.changeValue(false);</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName localStorage
+   * @description swtiching between locale languages
+   * @parameters lang: string
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  switchLang(</span>lang: string) {
+<span class="cstat-no" title="statement not covered" >    localStorage.setItem(LOCALE, lang);</span>
+<span class="cstat-no" title="statement not covered" >    this.translateService.use(lang);</span>
+<span class="cstat-no" title="statement not covered" >    lang === ARABIC_LANG_TEXT ? document.querySelector('body').classList.add(HEADER_CONST.rtlBodyClassName) :</span>
+      document.querySelector('body').classList.remove(HEADER_CONST.rtlBodyClassName);
+<span class="cstat-no" title="statement not covered" >    this.sharedService.setLanguageInfo(lang);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedLanguage
+   * @parameter none
+   * @description Used to set selected language EN | AR
+   * @return none
+   */
+  getSelectedLanguage(): void {
+    this.subscription$.add(this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) =&gt; {
+      this.selectedLanguage = selectedLanguage;
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName menuClickHandler
+   * @description used to recieve clicked menu option and logout from the application
+   * @parameters selectedMenuItem&lt;string&gt;
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  menuClickHandler(</span>selectedMenuItem: MenuOption): void {
+<span class="cstat-no" title="statement not covered" >    if (selectedMenuItem.actionType === PROFILE_MENU_DATA.logout) {</span>
+<span class="cstat-no" title="statement not covered" >      this.logoutService.logoutUser();</span>
+    } else <span class="cstat-no" title="statement not covered" >if (selectedMenuItem.actionType === PROFILE_MENU_DATA.changePassword) {</span>
+<span class="cstat-no" title="statement not covered" >      this.router.navigateByUrl(PROFILE_MENU_DATA.changePasswordRoute);</span>
+    } else <span class="cstat-no" title="statement not covered" >if (selectedMenuItem.actionType === PROFILE_MENU_DATA.myProfile) {</span>
+<span class="cstat-no" title="statement not covered" >      this.router.navigateByUrl(PROFILE_MENU_DATA.profileRoute);</span>
+    }
+  }
+&nbsp;
+  ngOnDestroy() {
+    this.subscription$.unsubscribe();
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+@Library('global_libraries@master') _
+node('DTS-Microservices'){
+  gitlabCommitStatus('OCPbuild'){  
+	stage('checkout'){
+		checkout scm
+	}
+	stage('Sonar'){
+	    sh "npm install -D typescript"
+	    sonarQube{
+            project_key = "IB"
+            project_name = "Internet-Banking"
+            build_breaker = "false"
+            project_env = "SIT"
+        }
+    }
+    stage ('Fortify'){
+        fortifySSC{
+            SERVICE_APP_NAME = "Internet-Banking"
+            APP_RELEASE_VERSION = "4.0.0"
+        }
+    }
+	stage('ocp'){  
+	    ocpBuild{
+	        APPLICATION_NAMESPASE = "internet-banking-sit"
+	        APPLICATION_NAME  = "internet-banking"
+	        deploy = "false"
+	        build_tool = "npm"
+	    }
+	    ocpBuild{
+	        APPLICATION_NAMESPASE = "internet-banking-sit"
+	        APPLICATION_NAME  = "internet-banking-nginx"
+	        DEPLOY_APPLICATION_NAME = "internet-banking"
+	        deploy = "true"
+	        build_tool = "npm"
+	        docker_build = "true"
+	    }
+	}
+  }
+}

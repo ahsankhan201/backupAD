@@ -1,0 +1,95 @@
+@import "src/assets/styles/default";
+
+.ghina-account-summary-comp {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 457px;
+  &__section {
+    &__title {
+      @extend .idb-font-family;
+      font-size: 16px;
+      color: $suva-grey;
+    }
+    &__wrapper {
+      margin-top: 16px;
+      &__title {
+        @extend .ibd-font-regular-12-grey;
+        margin-bottom: 4px;
+      }
+      &__value {
+        @extend .idb-font-family;
+        color: $solid-blue;
+      }
+    }
+  }
+  @include respond-to(screen-m-min) {
+    position: relative;
+  }
+  &__buttons {
+    width: 100%;
+    position: fixed;
+    bottom: 20px;
+    z-index: 10;
+    button {
+      width: 45%;
+      @include respond-to(screen-m-min) {
+        width: auto;
+      }
+    }
+    .next-btn {
+      margin-left: 16px;
+      @include respond-to(screen-m-min) {
+        margin-left: 27px;
+      }
+    }
+    @include respond-to(screen-m-min) {
+      position: absolute;
+      bottom: 0px;
+    }
+  }
+  .success-screen-btn {
+    width: 92%;
+    position: fixed;
+    bottom: 20px;
+    z-index: 10;
+    @include respond-to(screen-m-min) {
+      position: static;
+      margin-top: 32px;
+      width: auto;
+    }
+  }
+}
+
+:host ::ng-deep .open-account-success {
+  .success-screen-comp {
+    padding: 0;
+  }
+  .success-screen-comp__wrapper__buttons {
+    margin-top: 0;
+  }
+}
+
+.banking-service {
+  margin: 32px 0px 0px;
+}
+
+.ghina-service {
+  margin: 16px 0px 69px 0px;
+}
+
+.ghina-account-summary-comp-rtl {
+  direction: rtl;
+  .next-btn {
+    margin-right: 16px;
+    margin-left: 0px;
+    @include respond-to(screen-m-min) {
+      margin-right: 27px;
+      margin-left: 0px;
+    }
+  }
+  .summary-terms-and-conditions__tick {
+    margin-right: 0px;
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,64 @@
+<div class="covercard-limit-com">
+    <div class="covercard-limit-com__header padding-lrn">
+        <div class="covercard-limit-com__header__back" (click)="onBackButtonClicked()">{{ NAV_CONTROLS.BACK }}</div>
+        <div class="covercard-limit-com__header__title" translate >tr_cards_changeCoveredCardLimitText</div>
+    </div>
+        <div class="covercard-limit-com__details padding-lrn" *ngIf="showComponent=='CoverLimitComponent'">
+        <div class="covercard-limit-com__details__item">
+            <div class="covercard-limit-com__details__item__label" translate>tr_cards_cardNumberText</div>
+            <div class="covercard-limit-com__details__item__value font-medium-weight">
+                {{ cardNumber | formatMaskCardNumber }}</div>
+        </div>
+        <div class="covercard-limit-com__details__item">
+            <div class="covercard-limit-com__details__item__label" translate>tr_cards_currentCoverLimitText</div>
+            <div class="covercard-limit-com__details__item__value">
+                {{ currentCoverLimit | numberFormat}} {{ selectedCoverCardData?.currencyCode }}</div>
+        </div>
+        <div class="covercard-limit-com__details__amount">
+            <form [formGroup]="coverCardLimitForm">
+            <mat-form-field>
+                <mat-label translate>tr_common_amountText</mat-label>
+                <input matInput 
+                [min]="minCoverLimit"
+                [max]="currentCoverLimit" 
+                autocomplete="off"
+                numbersOnly 
+                formControlName="newCoverLimit"
+                [(ngModel)]="newCoverLimit"
+                >
+                <mat-error><app-show-form-errors [control]="coverCardLimitForm?.get('newCoverLimit')" label="tr_common_amountText"></app-show-form-errors></mat-error>
+            </mat-form-field>
+            </form>
+        </div>
+        <div class="covercard-limit-com__details__range-slider">
+            <mat-slider
+            class="range-slider"
+            [max]="currentCoverLimit"
+            [min]="minCoverLimit"
+            [displayWith]="formatRangeSliderLabel"
+            thumbLabel
+            [(ngModel)]="newCoverLimit">
+        </mat-slider>
+        <div class="range-min-max-value">
+            <span class="text-left">{{ minCoverLimit | numberFormat }}</span><span class="text-right">{{ currentCoverLimit | numberFormat }}</span>
+        </div>
+        </div>
+        <div class="covercard-limit-com__buttons">
+            <button class="btn next-btn" (click)="handleConfirmWithOTP()" [disabled]="!coverCardLimitForm.valid" type="button" translate>tr_cards_confirmWithOtpText</button>
+        </div>
+    </div>
+    <div class="covercard-limit-com__otp padding-lrn" *ngIf="showComponent=='OTPComponent'">
+        <app-otp *ngIf="location" [location]='location' [masking]=true
+        (response)="getOTPResponse($event)" (resendOTPRequired)="resendOTPRequired($event)"></app-otp>
+    </div>
+    <div class="covercard-limit-com__success-screen" *ngIf="showComponent=='SuccessScreenComponent'">
+        <app-success-screen class="cover-limit-success-screen" 
+            [showAlertIcon]='false'
+            [componentName]="'changeCoverLimit'"
+            (backButtonClicked)="handleSuccessScreenBackButtonClick($event)">
+        </app-success-screen>
+        <button translate class="next-btn success-screen-btn" (click)="onBackButtonClicked()">
+            tr_cards_changeCoveredsuccessButtonLabel
+        </button>
+    </div>
+</div>

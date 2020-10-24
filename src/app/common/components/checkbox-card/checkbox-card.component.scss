@@ -1,0 +1,265 @@
+@import "src/assets/styles/default";
+
+.cards-checkbox-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &__cover-card {
+      cursor: pointer;
+      background: $white;
+      border-radius: 16px;
+      border: 1px solid $account-card-border;
+      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02);
+      height: 165px;
+      min-width: 327px;
+      width: 100%;
+      margin-bottom: 16px;
+      @include respond-to(screen-m-min) {
+        margin-right: 24px;
+        margin-bottom: 24px;
+        min-width: 295px;
+        width: auto;
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+      @include respond-to(screen-l-min) {
+        min-width: 295px;
+        margin-right: 24px;
+        &:nth-child(2n) {
+          margin-right: 24px;
+        }
+      }
+      @include respond-to(screen-xl-min) {
+        min-width: 333px;
+        height: 180px;
+        margin-right: 27px;
+        &:nth-child(2n) {
+          margin-right: 27px;
+        }
+      }
+      &__wrapper {
+        &__header {
+          &__card-icon {
+            height: 31.66px;
+            width: 50.62px;
+            margin-top: 13px;
+            margin-left: 13px;
+            @include respond-to(screen-xl-min) {
+              height: 35px;
+              width: 56px;
+            }
+          }
+          &__card {
+            margin-left: 9px;
+            &__card-type {
+              color: $grey;
+              @extend .ibd-font-regular-cerulean;
+              margin-top: 12px;
+              @include respond-to(screen-xl-min) {
+                margin-top: 12px;
+              }
+            }
+            &__card-description {
+              @extend .ibd-font-regular-cerulean;
+              color: $solid-blue;
+              font-size: 16px;
+              margin-top: -3px;
+              width: 190px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+        &__body {
+          margin-top: 6px;
+          margin-left: 13px;
+          &__name {
+            @extend .ibd-font-regular-cerulean;
+            color: $grey;
+            max-height: 14px;
+          }
+          &__card-number {
+            @extend .ibd-font-regular-cerulean;
+            color: $grey;
+            font-size: 16px;
+            max-height: 19px;
+          }
+          @include respond-to(screen-xl-min) {
+            margin-top: 9px;
+          }
+        }
+        &__footer {
+          &__limit {
+            margin-top: 11px;
+            padding-left: 13px;
+            @include respond-to(screen-xl-min) {
+              margin-top: 16px;
+            }
+            &__fund {
+              @extend .ibd-font-regular-cerulean;
+              color: $solid-blue;
+              font-size: 16px;
+              &::after {
+                content: " ";
+                border: solid 1px $grey;
+                display: block;
+                width: 25px;
+                margin-top: 4px;
+                opacity: 0.2;
+              }
+
+              &__currency,
+              &__decimal {
+                @extend .ibd-font-regular-cerulean;
+                color: $suva-grey;
+              }
+            }
+            &__title {
+              @extend .ibd-small-text;
+              color: $grey;
+            }
+          }
+          &__balance {
+            margin-top: 11px;
+            padding-left: 13px;
+            @include respond-to(screen-xl-min) {
+              margin-top: 16px;
+              padding-left: 20px;
+            }
+            &__fund {
+              @extend .ibd-font-regular-cerulean;
+              color: $solid-blue;
+              font-size: 16px;
+
+              &__currency,
+              &__decimal {
+                @extend .ibd-font-regular-cerulean;
+                color: $suva-grey;
+              }
+            }
+            &__title {
+              @extend .ibd-small-text;
+              color: $grey;
+            }
+          }
+        }
+        &__input {
+          position: absolute;
+          margin-left: 273px;
+          margin-top: 10px;
+          label {
+            height: 24px;
+            width: 24px;
+            &::after {
+              top: 7px;
+              left: 7px;
+              height: 5px;
+              width: 9px;
+            }
+          }
+          @include respond-to(screen-m-min) {
+            margin-left: 243px;
+          }
+          @include respond-to(screen-xl-min) {
+            margin-left: 278px;
+          }
+        }
+      }
+      &.active {
+        border: 1px solid $blue-border;
+        box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.02);
+        background: $light-blue;
+        .ibd-check-box {
+          label {
+            background: $light-blue;
+          }
+        }
+      }
+    }
+  }
+}
+
+.card-checkbox-rtl {
+  .cards-checkbox-list__container {
+    &__cover-card {
+      text-align: right;
+      text-align: -webkit-right;
+      margin-right: 0px;
+      @include respond-to(screen-m-min) {
+        margin-left: 24px;
+        &:nth-child(2n) {
+          margin-left: 0;
+        }
+      }
+      @include respond-to(screen-l-min) {
+        margin-left: 24px;
+        &:nth-child(2n) {
+          margin-left: 24px;
+        }
+      }
+      @include respond-to(screen-xl-min) {
+        margin-left: 27px;
+        &:nth-child(2n) {
+          margin-left: 27px;
+        }
+      }
+      &__wrapper {
+        &__header {
+          &__card-icon {
+            margin-left: 0px;
+            margin-right: 13px;
+          }
+          &__card {
+            margin-left: 0px;
+            margin-right: 9px;
+          }
+        }
+        &__body {
+          margin-left: 0px;
+          margin-right: 13px;
+        }
+        &__footer {
+          &__limit {
+            direction: ltr;
+            padding-left: 0px;
+            padding-right: 13px;
+            &__fund {
+              &::after {
+                margin-left: auto;
+              }
+            }
+          }
+          &__balance {
+            direction: ltr;
+            padding-left: 0px;
+            padding-right: 13px;
+            @include respond-to(screen-xl-min) {
+              padding-right: 20px;
+            }
+          }
+        }
+        &__input {
+          margin-left: 0px;
+          margin-right: 283px;
+          label {
+            &::after {
+              right: 7px;
+            }
+          }
+          @include respond-to(screen-m-min) {
+            margin-right: 253px;
+          }
+          @include respond-to(screen-xl-min) {
+            margin-right: 288px;
+          }
+        }
+      }
+    }
+  }
+}

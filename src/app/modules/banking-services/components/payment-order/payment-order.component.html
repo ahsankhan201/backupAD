@@ -1,0 +1,22 @@
+<section class="ibd-payment-order" [ngClass]="(selectedLang === arabicLanguageText) ? 'ibd-payment-order-rtl': ''">
+    <div class="ibd-payment-order__title" translate>tr_paymentOrder_stepperTitle</div>
+    <div class="row ibd-payment-order__step-wrapper margin-lrn">
+        <mat-horizontal-stepper linear #stepper (selectionChange)="stepIndexChanged(stepper,$event)">
+            <ng-template matStepperIcon="edit">
+                <mat-icon></mat-icon>
+            </ng-template>
+            <mat-step label="{{stepperText.beneficiaryDetails | translate}}">
+                <app-payment-order-beneficiary-details-step></app-payment-order-beneficiary-details-step>
+            </mat-step>
+            <mat-step label="{{stepperText.transferFrom | translate}}">
+                <app-payment-order-transfer-from-step></app-payment-order-transfer-from-step>
+            </mat-step>
+            <mat-step label="{{stepperText.transactionDetails | translate}}">
+                <app-payment-order-transaction-details-step></app-payment-order-transaction-details-step>
+            </mat-step>
+            <mat-step translate label="{{stepperText.confirmation | translate}}">
+                <app-payment-order-confirmation-step></app-payment-order-confirmation-step>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</section>

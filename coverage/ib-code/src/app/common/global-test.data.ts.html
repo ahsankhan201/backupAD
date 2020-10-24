@@ -1,0 +1,1499 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/global-test.data.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/app/common</a> global-test.data.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>30/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>30/30</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const CARD_NUMBER_PIPE_DATA = {
+    mockCardNumber: '1220122012201220'
+};
+&nbsp;
+export const EXPIRY_DATE_PIPE_DATA = {
+    mockExpirtDateValue: '1220'
+};
+export const NUMBER_FORMAT_TEST_DATA = {
+    number: '78654',
+    formattedNumber: '78,654'
+};
+&nbsp;
+export const TRANSACTION_GRID_HEADERS = {
+    transactionGridWebHeaders: [{ headerText: 'Date,Time', className: 'date' },
+    { headerText: 'Transaction ID', className: 'transactionId' },
+    { headerText: 'Memo', className: 'memo' },
+    { headerText: 'Description', className: 'description' },
+    { headerText: 'Amount', className: 'amount' }],
+    transactionGridMobileHeaders: [
+        { headerText: 'Transaction ID', className: 'transactionId' },
+        { headerText: 'Memo', className: 'memo' },
+        { headerText: 'Description', className: 'description' }]
+};
+&nbsp;
+export const TRANSACTION_HISTORY_API_URL = 'https://localhost:4200/src/assets/json/credit_tx_history.json';
+&nbsp;
+export const CREDIT_CARD_TX_HISTORY = {
+    cardHistory: {
+        cardBalance: { dueDate: null, outStandingAuthorizationBalance: null },
+        cardTransaction: [
+            {
+                transactionDate: '2020-02-24',
+                transactionTime: '00:00:00',
+                transactionAmount: '10',
+                transactionCurrency: 'AED',
+                description: 'PerfTest-AADC-0000860612  ',
+                merchantName: null,
+                location: null,
+                transactionType: 'PT',
+                debitCredit: 'DB',
+                postingAmount: '-10',
+                postingCurrency: 'AED'
+            }
+        ]
+    },
+    debitCardTransactions: null,
+    moreRecords: true
+};
+&nbsp;
+&nbsp;
+export const CREDIT_CARD_TX_MODIFIED_HISTORY = [{
+    year: '2020',
+    transactionHistory: [
+        {
+            transactionAmount: '6.000000',
+            currencyCode: 'AED',
+            transactionCode: '152',
+            transactionCodeDescription: 'Withdrawal-MOBN - Card Payment from 28310254 to *866',
+            debitOrCreditCode: 'DB',
+            dateEffective: '2020-03-17T00:00:00.000',
+            description: 'MOBN - Card Payment from 28310254 to *866',
+            optionalMemo: '530P8ED302500A48',
+            transactionType: 'NT',
+            ptId: '1112716696',
+            esbReferenceNo: '530P8ED302500A48'
+        }
+    ]
+}];
+&nbsp;
+export const FINANCE_TX_HISTORY = {
+    accountNumber: '79042743',
+    financeHistory: [
+        {
+            transactionAmount: '526.470000',
+            debitCredit: 'CR',
+            transactionCode: '300',
+            transactionCodeDescription: 'Payment - Auto Split',
+            dateTransaction: '2019-12-31T00:00:00.000',
+            dateEffective: '2019-12-31T00:00:00.000',
+            balance: '42398.300000',
+            description: 'Payment - Installment - 79042743',
+            accountApplicationType: 'IL',
+            employee: '0',
+            currency: 'AED'
+        }
+    ],
+    moreRecords: false
+};
+&nbsp;
+export const DEBIT_TX_HISTORY = {
+    accountNumber: '79042743',
+    debitCardTransactions: [
+        {
+            transactionDate: '2020-02-20',
+            transactionTime: '00:00:00',
+            debitAccountNumber: '28310195',
+            transactionAmount: '550.00',
+            transactionLocation: 'ACQUIRER NAME CITY NAME US',
+            transactionCurrency: 'AED',
+            description: 'Cash withdrawal',
+            transactionReferenceNumber: '670407:002707001248'
+        }
+    ],
+    moreRecords: false
+};
+&nbsp;
+export const ACCOUNT_TX_HISTORY = {
+    accountNumber: '79042743',
+    accountHistory: [
+        {
+            transactionAmount: '526.470000',
+            debitCredit: 'CR',
+            transactionCode: '300',
+            transactionCodeDescription: 'Payment - Auto Split',
+            dateTransaction: '2019-12-31T00:00:00.000',
+            dateEffective: '2019-12-31T00:00:00.000',
+            balance: '42398.300000',
+            description: 'Payment - Installment - 79042743',
+            accountApplicationType: 'IL',
+            employee: '0',
+            currency: 'AED'
+        }
+    ],
+    moreRecords: false
+};
+&nbsp;
+export const PENDING_TX_HISTORY = {
+    transactionList: [
+        {
+            transactionAmount: '6786.00',
+            transactionCurrency: 'AED',
+            merchantName: 'ADIB BANK',
+            date: '2020-03-17T00:00:00.000',
+            location: 'MOBN - Card Payment from 28310254 to *866',
+            transactionType: 'PT'
+        }
+    ],
+};
+&nbsp;
+// Filter Text Pipe Test Data
+export const COUNTRY_LIST_MOCK_DATA = [
+    {
+        id: 1,
+        countryISOCode: 'DZA',
+        countryName: 'Algeria',
+        isIBANRequired: null,
+        isPriority: 'N',
+        countryCallingCode: '213',
+        alternateNames: 'Algeria',
+        adibPresence: 'No',
+        swiftCode: null
+    },
+    {
+        id: 1,
+        countryISOCode: 'AZA',
+        countryName: 'American Soma',
+        isIBANRequired: null,
+        isPriority: 'N',
+        countryCallingCode: '214',
+        alternateNames: 'American Soma',
+        adibPresence: 'No',
+        swiftCode: null
+    }];
+&nbsp;
+export const OTP_RESPONSE_OBJ = {
+    success: true,
+    message: 'Successfully updated'
+};
+&nbsp;
+export const CUSTOMER_DETAILS_DATA = {
+    customerName: 'FIRSTNAME 1234',
+    name: {
+        firstName: 'firstName',
+        lastName: '',
+        thirdName: '',
+        fourthName: '',
+        nickName: '',
+        fullName: 'fullName',
+    }
+};
+&nbsp;
+&nbsp;
+export const CUSTOMER_DETAILS_PAYLOAD = {
+    customerNumber: '123454',
+    isSupplimentaryCard: false,
+};
+&nbsp;
+export const ACCOUNT_CHECKBOX_LIST = [{
+    accountNumber: '123213',
+    accountTypeDescription: 'Savings Account',
+    balanceAvailable: '123221.34',
+    isDefaultAccount: true,
+    currencyCode: 'AED',
+    accountType: 'SAV'
+}];
+&nbsp;
+export const DEBIT_CARD_CHECKBOX_LIST = [{
+    cardExpiryDate: '0523',
+    cardHolderName: '',
+    cardNumber: '4258931908004937',
+    cardStatus: 'ACTIVE',
+    primaryAccountNumber: '28311030',
+    availableBalance: '19999952',
+    currencyCode: 'AED',
+    accountType: 'SAV',
+    accountDesc: 'AED - Savings Account'
+}];
+&nbsp;
+export const COVER_CARD_CHECKBOX_LIST = [{
+    cardNumber: '4258931908004937',
+    cardStatus: 'ACTIVE',
+    coverAmount: '678',
+    currencyCode: 'AED',
+    customerName: 'Mr test',
+    dueBalance: '432',
+    expiryDate: '0523',
+    lastStmtDate: '01/02/2020',
+    minimumDueBalance: '12321',
+    outStandingAmount: '989',
+    paymentDueDate: '01/02/2020',
+    primaryCardFlag: 'P',
+    productDescription: 'Darhoom Card',
+    lastStmtBalance: '10000',
+    creditAvailable: '1000'
+}];
+&nbsp;
+export const PAYEE_CHECKBOX_DATA = [{
+    nickName: 'Sewa Kiran',
+    nickNameArabic: null,
+    pin: '',
+    utilityProviderId: 'SEWA',
+    utilityProviderProductId: 'ALL',
+    utilityServiceNumber: '3552699239',
+    isInquiryRequired: 'YES',
+    payeeID: '18',
+    customerPayeeID: '750000000000263978',
+    payeeType: 'Electricity and Water',
+    payeeCategory: null,
+    isFavourite: 'N',
+    payeeSubCategory: null
+}];
+&nbsp;
+export const CHECKBOX_DONATION_VALUE = [{
+    title: 'TEST',
+    data: [{ id: 'TEST1', title: 'TEST TITLE' }]
+}];
+&nbsp;
+export const BENEFICIARY_CHECKBOX_DATA = [{
+    nickName: 'CHARITY Test',
+    nickNameArabic: null,
+    pin: '',
+    utilityProviderId: 'CHARITY',
+    utilityProviderProductId: 'B',
+    utilityServiceNumber: '+97167895567',
+    isInquiryRequired: 'NO',
+    payeeID: '51',
+    customerPayeeID: '750000000000263990',
+    payeeType: null,
+    payeeCategory: null,
+    isFavourite: 'N',
+    payeeSubCategory: null
+}];
+&nbsp;
+export const GENERIC_CHECKBOX_DATA = [
+    { value: 'ADIB Egypt', id: 'adib_egypt' },
+    { value: 'ADIB Qatar', id: 'adib_qatar' }];
+&nbsp;
+export const PRODUCT_CARD_DATA = [{
+    enquiryCTAText: 'Apply Now',
+    productId: '1',
+    productNameEnglish: 'Banoon Account',
+    productNameArabic: 'الحساب الجاري',
+    imageUrlEnglish: 'http://www.adib.ae/en/SiteAssets/GenY/pc/curr-acc.jpg',
+    imageUrlArabic: 'http://www.adib.ae/en/SiteAssets/GenY/pc/curr-acc.jpg',
+    shortDescriptionEnglish: 'ADIB Current Account offers you the flexibility to sign cheques.',
+    shortDescriptionArabic: 'يمنحك الحساب الجاري من ADIB - مصرف أبوظبي الإسلامي مرونة ملائمة فيما يخصّ إصدار الشيكات والسحب النقدي ',
+    receivingEmail: 'esbuser@devdc.adib.local',
+    footNoteEn: 'Terms &amp; Conditions Apply',
+    footNoteAr: 'تطبق الشروط والأحكام',
+    isActive: true,
+    productSubCategoryResponses: {
+        subCategoryId: '1',
+        subCategoryNameArabic: 'sample name',
+        subCategoryNameEnglish: 'sample name in arabic',
+    }
+}];
+&nbsp;
+export const CONTACT_MODES = [{
+    id: 'Mobile',
+    title: 'Mobile',
+    value: 'Mobile'
+}, {
+    id: 'Email',
+    title: 'Email',
+    value: 'Email'
+}];
+&nbsp;
+export const CONTACT_TIMINGS = [{
+    id: '9AM - 12PM',
+    title: '9AM - 12PM',
+    value: '9AM - 12PM'
+}, {
+    id: '1PM - 5PM',
+    title: '1PM - 5PM',
+    value: '1PM - 5PM'
+}];
+export const CUSTOMER_DETAILS = {
+    returnStatus: {
+        returnCode: '0000',
+        returnCodeDesc: 'Success'
+    },
+    returnStatusProvider: {
+        returnCodeProvider: '0000',
+        returnCodeDescProvider: 'Success'
+    },
+    customerStatus: null,
+    customerType: 'NonPersonal',
+    customerClass: '350',
+    name: {
+        firstName: null,
+        lastName: null,
+        identification: '1',
+        tin: null,
+        nickName: null,
+        fullName: 'Phoenix',
+        emboseName: null,
+        thirdName: null,
+        fourthName: null,
+        dob: null,
+        maidenMotherName: null,
+        initials: null,
+        contactInfo: ''
+    },
+    nameLatin: {
+        firstName: 'AutoFNamee8pphd',
+        lastName: 'AutoLNamee8pphd',
+        identification: null,
+        tin: null,
+        nickName: null,
+        fullName: null,
+        emboseName: null,
+        thirdName: null,
+        fourthName: null,
+        dob: null,
+        maidenMotherName: null,
+        initials: null,
+        contactInfo: ''
+    },
+    nameArabic: {
+        firstName: null,
+        lastName: null,
+        identification: null,
+        tin: null,
+        nickName: null,
+        fullName: null,
+        emboseName: null,
+        thirdName: null,
+        fourthName: null,
+        dob: null,
+        maidenMotherName: null,
+        initials: null,
+        contactInfo: ''
+    },
+    gender: 'M',
+    dateOfBirth: null,
+    language: '',
+    branchId: '1',
+    branchName: 'Al Najda St Branch فرع شارع النجده',
+    isVIP: '',
+    sicCode: '0',
+    contactInfo: '',
+    customerIdentifications: [
+        {
+            id: '16',
+            type: 'Trade Licence',
+            number: '1231236',
+            issueDate: null,
+            expiryDate: null,
+            issueCountry: null
+        }
+    ],
+    customerAddress: [
+        {
+            addressType: 'Primary',
+            phone: null,
+            phoneOffice: '568903423',
+            phoneHome: null,
+            mobile: null,
+            fax: null,
+            email: 'busstest@test.com',
+            fullAddress: null,
+            addressLine1: null,
+            addressLine2: null,
+            addressLine3: null,
+            streetNum: '',
+            streetName: null,
+            boxNumber: null,
+            city: null,
+            postalCode: null,
+            state: null,
+            country: 'AE'
+        }
+    ]
+};
+&nbsp;
+export const ACCOUNTS_SUMMARY_DATA = [{
+    accountNumber: '69696986896',
+    accountDesc: 'AED - Savings',
+    branchName: 'Al Najda St Branch فرع شارع النجده',
+    certificateLanguage: 'EN',
+    certificateType: 'LIABILITY',
+    channelId: '98698689',
+    charges: 99,
+    createdAt: '2020-03-17T00:00:00.000',
+    customerId: 'A B C',
+    customerName: 'A B C',
+    deliveryOption: 'To Home',
+    reason: 'No',
+    requestId: 98798,
+    requestType: 'DD',
+    status: 'NEW',
+    updatedAt: '2020-03-17T00:00:00.000'
+}];
+&nbsp;
+export const PAYMENTS_SUMMARY_DATA = [{
+    amount: 100,
+    beneficiaryName: 'MR ABC',
+    channelId: '8798',
+    collectFrom: 'Al Najda',
+    createdAt: '2020-03-17T00:00:00.000',
+    currency: 'AED',
+    customerId: 'A B C',
+    customerName: 'A B C',
+    purpose: 'Required',
+    reason: 'NO',
+    requestId: 8998789,
+    requestType: 'PO',
+    sourceAccountNumber: '8987893',
+    status: 'NEW',
+    updatedAt: '2020-03-17T00:00:00.000'
+}];
+&nbsp;
+export const ACCOUNTS_DETAILS_DATA = {
+    accountNumber: '69696986896',
+    accountDesc: 'AED - Savings',
+    branchName: 'Al Najda St Branch فرع شارع النجده',
+    certificateLanguage: 'EN',
+    certificateType: 'LIABILITY',
+    channelId: '98698689',
+    charges: 99,
+    createdAt: '2020-03-17T00:00:00.000',
+    customerId: 'A B C',
+    customerName: 'A B C',
+    deliveryOption: 'To Home',
+    reason: 'No',
+    requestId: 98798,
+    requestType: 'DD',
+    status: 'NEW',
+    updatedAt: '2020-03-17T00:00:00.000'
+};
+&nbsp;
+export const PAYMENTS_DETAILS_DATA = {
+    amount: 100,
+    beneficiaryName: 'MR ABC',
+    channelId: '8798',
+    collectFrom: 'Al Najda',
+    createdAt: '2020-03-17T00:00:00.000',
+    currency: 'AED',
+    customerId: 'A B C',
+    customerName: 'A B C',
+    purpose: 'Required',
+    reason: 'NO',
+    requestId: 8998789,
+    requestType: 'PO',
+    sourceAccountNumber: '8987893',
+    status: 'NEW',
+    updatedAt: '2020-03-17T00:00:00.000'
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

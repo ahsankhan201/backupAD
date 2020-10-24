@@ -1,0 +1,1019 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/components/payments/confirm-payment/confirm-payment.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">All files</a> / <a href="index.html">src/app/common/components/payments/confirm-payment</a> confirm-payment.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">31.91% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>45/141</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">8.51% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">34.62% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>9/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">32.31% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>42/130</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+&nbsp;
+import { SharedService } from 'src/app/common/services/shared.service';
+import { PaymentService } from 'src/app/common/services/payment/payment.service';
+&nbsp;
+import { PaymentSummaryDetailsModel } from 'src/app/common/models/payment.model';
+import { Subscription } from 'rxjs';
+import {
+  DOMAINS, PAYMENT_TYPES, HTTP_STATUS_CODE,
+  PAYMENT_SUCCESS_SCREEN_TEXT, TRANSFER_RECEIPT_LABELS,
+  PAYMENT_RECEIPT_LABELS, PAYMENT_RECEIPT_COPY_TRANSLATION_KEYS, ARABIC_LANG_TEXT
+} from 'src/app/common/global-constants';
+import { UTILITY_PAYMENT_ENDPOINTS } from 'src/app/common/api-endpoints';
+import { AccountlistService } from 'src/app/modules/dashboard/services/accountlist.service';
+import { CardsService } from 'src/app/modules/cards/services/cards.service';
+import { ReceiptModel, ListOfReceiptFields } from 'src/app/common/models/global.model';
+import { Dialog } from 'src/app/common/models/dialog.model';
+import { DialogService } from 'src/app/common/services/dialog.service';
+import { PAYEE_SELECTION_MASTER_DATA } from 'src/app/modules/payee/payee-module.constants';
+&nbsp;
+@Component({
+  selector: 'app-confirm-payment',
+  templateUrl: './confirm-payment.component.html',
+  styleUrls: ['./confirm-payment.component.scss']
+})
+export class ConfirmPaymentComponent implements OnInit, OnDestroy {
+  @Input() isPaymentToCoverCard: boolean;
+  showSuccessScreen: boolean;
+  referenceNumberForSuccessScreen: string;
+  paymentSummaryDetails = {} as PaymentSummaryDetailsModel;
+  confirmScreenRoutingButtonText: string;
+  subscription$ = new Subscription();
+  paymentType: string;
+  selectedPaymentType: string;
+  PAYMENT_TYPES = PAYMENT_TYPES;
+  successComponentName: string;
+  payAmountButtonLabel = PAYMENT_SUCCESS_SCREEN_TEXT.defaultPayAmountButtonText;
+  disableConfirmBtn: boolean;
+  paymentReceipt = {} as ReceiptModel;
+  transctionTimeStamp: string;
+  amountSendToTextForCopy: string;
+  amountSendToValueForCopy: string;
+  fromAccountTextForCopy: string;
+  fromAccountValueForCopy: string;
+  paymentAmountToTextForCopy: string;
+  selectedLanguage: string;
+  arabicLanguageText = ARABIC_LANG_TEXT;
+  constructor(
+    private sharedService: SharedService,
+    private paymentService: PaymentService,
+    private accountListService: AccountlistService,
+    private cardsService: CardsService,
+    private dialogService: DialogService,
+    private translateService: TranslateService) {
+  }
+&nbsp;
+  ngOnInit() {
+    this.getSelectedLanguage();
+    this.getSummaryDetails();
+    this.setComponentName();
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedLanguage
+   * @parameter none
+   * @description Used to set selected language EN | AR
+   * @return none
+   */
+  getSelectedLanguage(): void {
+    this.subscription$.add(this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) =&gt; {
+      this.selectedLanguage = selectedLanguage;
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName getSummaryDetails
+   * @parameter none
+   * @description used to get the summaty details
+   * @return none
+   */
+  getSummaryDetails(): void {
+    this.subscription$.add(this.paymentService.getPaymentSummaryDetails().subscribe(response =&gt; {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (response) {
+<span class="cstat-no" title="statement not covered" >        this.paymentSummaryDetails = response;</span>
+<span class="cstat-no" title="statement not covered" >        this.confirmScreenRoutingButtonText = this.paymentService.confirmScreenRoutingButtonText;</span>
+      }
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName setComponentName
+   * @parameter none
+   * @description used to set component name for success screen
+   * @return none
+   */
+  setComponentName(): void {
+    this.selectedPaymentType = (this.paymentService.selectedPaymentType) ? <span class="branch-0 cbranch-no" title="branch not covered" >this.paymentService.selectedPaymentType </span>: undefined;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.isPaymentToCoverCard) {
+<span class="cstat-no" title="statement not covered" >      this.successComponentName = PAYMENT_SUCCESS_SCREEN_TEXT.COVER_CARD_PAYMENT;</span>
+    } else <span class="missing-if-branch" title="if path not taken" >I</span>if (this.selectedPaymentType === PAYMENT_TYPES.donate) {
+<span class="cstat-no" title="statement not covered" >      this.successComponentName = PAYMENT_SUCCESS_SCREEN_TEXT.DONATION_PAYMENT;</span>
+<span class="cstat-no" title="statement not covered" >      this.payAmountButtonLabel = PAYMENT_SUCCESS_SCREEN_TEXT.donationPayAmountButtonText;</span>
+    } else {
+      this.successComponentName = PAYMENT_SUCCESS_SCREEN_TEXT.PAYMENT;
+    }
+  }
+&nbsp;
+  /**
+   * @methodName sendPaymentRequest
+   * @parameter none
+   * @description used to make the payment request to server
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  sendPaymentRequest(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.showSuccessScreen = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.disableConfirmBtn = true;</span>
+<span class="cstat-no" title="statement not covered" >    if (this.paymentService.selectedPaymentType === PAYMENT_TYPES.utilityPayment</span>
+      || this.paymentService.selectedPaymentType === PAYMENT_TYPES.donate) {
+<span class="cstat-no" title="statement not covered" >      this.sendUtilityPaymentRequest();</span>
+    } else <span class="cstat-no" title="statement not covered" >if (this.paymentService.selectedPaymentType === PAYMENT_TYPES.ccPayment) {</span>
+<span class="cstat-no" title="statement not covered" >      this.sendCoverCardPaymentRequest();</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName sendUtilityPaymentRequest
+   * @parameter none
+   * @description used to make the utility payment request to server
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  sendUtilityPaymentRequest(): void {</span></span>
+    const PAYMENT_END_POINT = <span class="cstat-no" title="statement not covered" >`${this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false)}${UTILITY_PAYMENT_ENDPOINTS.PAYMENT}`;</span>
+<span class="cstat-no" title="statement not covered" >    this.paymentService.sendPaymentRequest(PAYMENT_END_POINT, this.paymentService.setUtilityPaymentPayLoad()).subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (response.status === HTTP_STATUS_CODE.CREATED) {</span>
+<span class="cstat-no" title="statement not covered" >        this.transctionTimeStamp = new Date().toString();</span>
+<span class="cstat-no" title="statement not covered" >        this.setReferenceNumber(response.headers.get(PAYMENT_SUCCESS_SCREEN_TEXT.REF_NO_LOCATION).toString());</span>
+<span class="cstat-no" title="statement not covered" >        this.showSuccessScreen = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.updateAccountAndCards();</span>
+      }
+    });
+  }
+&nbsp;
+  /**
+   * @methodName sendCoverCardPaymentRequest
+   * @parameter none
+   * @description used to make the cover card payment request to server
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  sendCoverCardPaymentRequest(): void {</span></span>
+    const COVER_CARD_PAYMENT_END_POINT =
+<span class="cstat-no" title="statement not covered" >      `${this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false)}${UTILITY_PAYMENT_ENDPOINTS.COVER_CARD_PAYMENT}`;</span>
+<span class="cstat-no" title="statement not covered" >    this.paymentService.sendPaymentRequest(COVER_CARD_PAYMENT_END_POINT, this.paymentService.setCoverCardPaymentPayLoad())</span>
+      .subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {
+<span class="cstat-no" title="statement not covered" >        if (response.status === HTTP_STATUS_CODE.CREATED) {</span>
+<span class="cstat-no" title="statement not covered" >          this.transctionTimeStamp = new Date().toString();</span>
+<span class="cstat-no" title="statement not covered" >          this.setReferenceNumber(response.headers.get(PAYMENT_SUCCESS_SCREEN_TEXT.REF_NO_LOCATION).toString());</span>
+<span class="cstat-no" title="statement not covered" >          this.showSuccessScreen = true;</span>
+<span class="cstat-no" title="statement not covered" >          this.updateAccountAndCards();</span>
+        }
+      });
+  }
+&nbsp;
+  /**
+   * @methodName updateAccountAndCards
+   * @parameter none
+   * @description used to update the accounts and cards list
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  updateAccountAndCards(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.paymentService.isPayeeSelectedForPayment = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.paymentService.isCoverCardSelectedForPayment = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.sharedService.setAccontsCardsList().subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      this.sharedService.accountsCardsList = JSON.parse(response.toString());</span>
+<span class="cstat-no" title="statement not covered" >      this.updateAccountDetailsData();</span>
+<span class="cstat-no" title="statement not covered" >      this.sharedService.getAllCardsList();</span>
+<span class="cstat-no" title="statement not covered" >      this.updateCoverCardDetailsData();</span>
+    });
+  }
+&nbsp;
+  /**
+   * @methodName moveToParentComponent
+   * @parameter showCancelPopUp&lt;boolean&gt;
+   * @description used to route to the parent screen
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  moveToParentComponent(</span>showCancelPopUp: boolean): void {
+<span class="cstat-no" title="statement not covered" >    this.sharedService.setCancelTransactionInfo(showCancelPopUp, true);</span>
+  }
+&nbsp;
+  /**
+   * @methodName setReferenceNumber
+   * @parameter responseHeaderLocationValue&lt;string&gt;
+   * @description used to set reference number in success screen
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setReferenceNumber(</span>responseHeaderLocationValue: string): void {
+<span class="cstat-no" title="statement not covered" >    this.referenceNumberForSuccessScreen = this.sharedService.getReferenceNumber(responseHeaderLocationValue);</span>
+  }
+&nbsp;
+  /**
+   * @methodName updateAccountDetailsData
+   * @parameter none
+   * @description used to update accountDetailData after the response from setAccontsCardsList()
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  updateAccountDetailsData(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (this.paymentService.selectedAccountForPayment &amp;&amp; this.sharedService.accountsCardsList) {</span>
+      const SELECTED_ACCOUNT = <span class="cstat-no" title="statement not covered" >this.sharedService.accountsCardsList.accountsList.find(<span class="fstat-no" title="function not covered" >account =&gt; <span class="cstat-no" title="statement not covered" >account.accountNumber</span></span></span>
+        === this.paymentService.selectedAccountForPayment.accountNumber);
+<span class="cstat-no" title="statement not covered" >      this.accountListService.accountDetailData = SELECTED_ACCOUNT;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName updateCoverCardDetailsData
+   * @parameter none
+   * @description used to update CoverCardDetailsData after the response from setAccontsCardsList()
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  updateCoverCardDetailsData(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (this.paymentService.selectedCoverCardObj &amp;&amp; this.sharedService.coverCardData) {</span>
+      const SELECTED_COVER_CARD = <span class="cstat-no" title="statement not covered" >this.sharedService.coverCardData.find(<span class="fstat-no" title="function not covered" >coverCard =&gt; <span class="cstat-no" title="statement not covered" >coverCard.cardNumber</span></span></span>
+        === this.paymentService.selectedCoverCardObj.cardNumber);
+<span class="cstat-no" title="statement not covered" >      this.cardsService.setSelectedCoverCard(SELECTED_COVER_CARD);</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName generatePaymentReceipt
+   * @parameter none
+   * @description used to generate the payment receipt
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  generatePaymentReceipt(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.paymentReceipt.currency = this.paymentSummaryDetails.currencyCode;</span>
+    let receiptObject = <span class="cstat-no" title="statement not covered" >{} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    this.paymentReceipt.listOfFields = [] as ListOfReceiptFields[];</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = TRANSFER_RECEIPT_LABELS.statusText;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = TRANSFER_RECEIPT_LABELS.successfulText;</span>
+<span class="cstat-no" title="statement not covered" >    this.paymentReceipt.listOfFields.push(receiptObject);</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = TRANSFER_RECEIPT_LABELS.referenceNumberText;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.referenceNumberForSuccessScreen;</span>
+<span class="cstat-no" title="statement not covered" >    this.paymentReceipt.listOfFields.push(receiptObject);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = PAYMENT_RECEIPT_LABELS.paymentDateText;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.transctionTimeStamp;</span>
+<span class="cstat-no" title="statement not covered" >    this.paymentReceipt.listOfFields.push(receiptObject);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = this.paymentSummaryDetails.utilityServiceNumber ?</span>
+      PAYMENT_RECEIPT_LABELS.paymentAmountText : PAYMENT_RECEIPT_LABELS.donationAmountText;
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.paymentSummaryDetails.amount;</span>
+<span class="cstat-no" title="statement not covered" >    this.paymentAmountToTextForCopy = receiptObject.name;</span>
+<span class="cstat-no" title="statement not covered" >    this.paymentReceipt.listOfFields.push(receiptObject);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = this.paymentSummaryDetails.utilityServiceNumber ?</span>
+      PAYMENT_RECEIPT_LABELS.utilityProviderText : PAYMENT_RECEIPT_LABELS.donationTypeText;
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.paymentSummaryDetails.utilityServiceNumber ?</span>
+      this.paymentService.selectedPayeeObj.utilityProviderId : this.paymentService.selectedPayeeObj.payeeType;
+<span class="cstat-no" title="statement not covered" >    this.paymentReceipt.listOfFields.push(receiptObject);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = this.paymentSummaryDetails.utilityServiceNumber ?</span>
+      PAYMENT_RECEIPT_LABELS.serviceProviderNumberText : PAYMENT_RECEIPT_LABELS.donatedToText;
+<span class="cstat-no" title="statement not covered" >    if (this.paymentService.selectedPayeeObj &amp;&amp; this.paymentService.selectedPayeeObj.payeeType &amp;&amp;</span>
+      this.paymentService.selectedPayeeObj.payeeType === PAYEE_SELECTION_MASTER_DATA.TELECOM_TEXT) {
+<span class="cstat-no" title="statement not covered" >      receiptObject.name = PAYMENT_RECEIPT_LABELS.phoneNumberText;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.paymentSummaryDetails.utilityServiceNumber ?</span>
+      this.paymentSummaryDetails.utilityServiceNumber : this.paymentService.selectedPayeeObj.payeeCategory;
+<span class="cstat-no" title="statement not covered" >    this.amountSendToTextForCopy = receiptObject.name;</span>
+<span class="cstat-no" title="statement not covered" >    this.amountSendToValueForCopy = receiptObject.value;</span>
+<span class="cstat-no" title="statement not covered" >    this.paymentReceipt.listOfFields.push(receiptObject);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.name = this.paymentSummaryDetails.accountNumber ?</span>
+      TRANSFER_RECEIPT_LABELS.fromAccountNumberText : PAYMENT_RECEIPT_LABELS.cardNumberText;
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.paymentSummaryDetails.accountNumber ?</span>
+      this.paymentSummaryDetails.accountNumber : this.paymentSummaryDetails.cardNumber;
+<span class="cstat-no" title="statement not covered" >    this.fromAccountTextForCopy = receiptObject.name;</span>
+<span class="cstat-no" title="statement not covered" >    this.fromAccountValueForCopy = receiptObject.value;</span>
+<span class="cstat-no" title="statement not covered" >    this.paymentReceipt.listOfFields.push(receiptObject);</span>
+<span class="cstat-no" title="statement not covered" >    this.openReceiptModal();</span>
+  }
+&nbsp;
+  /**
+   * @methodName openReceiptModal
+   * @parameter none
+   * @description used to open the transfer recipt in modal
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  openReceiptModal(): void {</span></span>
+    const OPTIONS = <span class="cstat-no" title="statement not covered" >{} as Dialog;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.isReceiptDialog = true;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.receiptDetails = this.paymentReceipt;</span>
+<span class="cstat-no" title="statement not covered" >    OPTIONS.dialogClassName = 'receipt-dialog';</span>
+<span class="cstat-no" title="statement not covered" >    this.dialogService.open(OPTIONS);</span>
+<span class="cstat-no" title="statement not covered" >    this.dialogService.confirmed().subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (response) {</span>
+<span class="cstat-no" title="statement not covered" >        this.subscription$.add(this.translateService.get(PAYMENT_RECEIPT_COPY_TRANSLATION_KEYS).subscribe(<span class="fstat-no" title="function not covered" >translatedInfo =&gt; {</span></span>
+          const copyInformation = `${<span class="cstat-no" title="statement not covered" >translatedInfo[TRANSFER_RECEIPT_LABELS.referenceNumberText]} : ${this.referenceNumberForSuccessScreen}</span>
+            ${translatedInfo[this.fromAccountTextForCopy]} : ${this.fromAccountValueForCopy}
+            ${translatedInfo[this.paymentAmountToTextForCopy]} : ${this.paymentSummaryDetails.amount}
+            ${translatedInfo[this.amountSendToTextForCopy]} : ${this.amountSendToValueForCopy}`;
+<span class="cstat-no" title="statement not covered" >          this.sharedService.notifyCopyData(this.sharedService.copyToClipboard(copyInformation));</span>
+        }));
+      }
+    });
+  }
+&nbsp;
+  ngOnDestroy() {
+    this.subscription$.unsubscribe();
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

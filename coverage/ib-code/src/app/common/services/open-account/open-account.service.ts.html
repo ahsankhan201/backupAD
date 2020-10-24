@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/services/open-account/open-account.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/common/services/open-account</a> open-account.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">34.15% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>28/82</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">21.43% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>3/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">32.5% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>26/80</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+&nbsp;
+import {
+  ACCOUNT_ALLOWED_TYPE_LIST, INTERNATIONAL_TRANSFER_TEXT, TIME_DEPOSIT_ACCOUNT_DURATION_MONTH, OPEN_GHINA_ACCOUNT_TEXT,
+  ACCOUNTS_ALLOWED_IN_DROPDOWN_FOR_OPEN_ACCOUNT, OPEN_SAVINGS_ACCOUNT_TEXT, ACCOUNT_ALLOWED_STATUS_LIST
+} from '../../global-constants';
+import { APISyncService } from '../sync.service';
+import { SharedService } from '../shared.service';
+import {
+  SavingsAccountSummaryModel, OpenAccountRequestPayLoad, DebitAccount, TimeDepositDetail, TransferTo
+} from '../../models/open-account.model';
+import { TimeDepositAccountRequestPayLoad, TimeDepositAccountSummary } from '../../models/open-account.model';
+import { AccountsList } from '../../models/global.model';
+import { ExchangeRateResponsePayLoad } from '../../models/money-transfer.model';
+&nbsp;
+@Injectable({
+  providedIn: 'root'
+})
+export class OpenAccountService {
+  savingsAccountSummaryDetails = {} as SavingsAccountSummaryModel;
+  selectedSourceAccount = {} as AccountsList;
+  exchangeRateResponse = {} as ExchangeRateResponsePayLoad;
+  openAccountReqPayLoad = {} as OpenAccountRequestPayLoad;
+  openAccountSelectedCard: string;
+  openAccountSelectedFrom: string;
+  selectedMaturityAccount = {} as AccountsList;
+  selectedProfitCreditAccount = {} as AccountsList;
+  timeDepositDebitAmount = {} as DebitAccount;
+  timeDepositPayload = {} as TimeDepositAccountRequestPayLoad;
+  timeDepositSummaryDetails = {} as TimeDepositAccountSummary;
+  selectedMaturityTransferTo = {} as TransferTo;
+  selectedProfitCreditTransferTo = {} as TransferTo;
+  isBankSeviceTermsAgreed = false;
+  ghinaSeviceTermsAgreed = false;
+  constructor(private httpService: APISyncService, private sharedService: SharedService) { }
+&nbsp;
+  /**
+   * @methodName generateAccountSelectBoxObj
+   * @param &lt;none&gt;
+   * @description used to generate the account list for transfer from dropdown
+   * @return AccountsList[]
+   */
+  generateAccountSelectBoxObj(): AccountsList[] {
+    const formattedAccountList = [] as AccountsList[];
+    const clonedAccountList = this.sharedService.accountsList &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.sharedService.accountsList.length </span>?
+<span class="branch-0 cbranch-no" title="branch not covered" >      this.sharedService.clone(this.sharedService.accountsList) </span>: [];
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (clonedAccountList.length) {
+<span class="cstat-no" title="statement not covered" >      clonedAccountList.forEach(<span class="fstat-no" title="function not covered" >element =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (ACCOUNTS_ALLOWED_IN_DROPDOWN_FOR_OPEN_ACCOUNT.includes(element.accountType) &amp;&amp;</span>
+          ACCOUNT_ALLOWED_STATUS_LIST.includes(element.status)) {
+<span class="cstat-no" title="statement not covered" >          element[OPEN_SAVINGS_ACCOUNT_TEXT.ACCOUNT_VALUE_FOR_DROPDOWN] =</span>
+            `${element.currencyCode}  ${ACCOUNT_ALLOWED_TYPE_LIST[element.accountType]} ${element.accountNumber}`;
+<span class="cstat-no" title="statement not covered" >          element[OPEN_SAVINGS_ACCOUNT_TEXT.ACCOUNT_NAME_FOR_DROPDOWN] = ACCOUNT_ALLOWED_TYPE_LIST[element.accountType];</span>
+<span class="cstat-no" title="statement not covered" >          formattedAccountList.push(element);</span>
+        }
+      });
+    }
+    return formattedAccountList;
+  }
+  /**
+   * @methodName generateOpenAccountReqPayLoad
+   * @parameter none
+   * @description used to generate the request payload
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  generateOpenAccountReqPayLoad(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.emailId = this.savingsAccountSummaryDetails.emailId;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.accountType = OPEN_SAVINGS_ACCOUNT_TEXT.SAVINGS_ACCOUNT_TYPE;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.accountTitle = OPEN_SAVINGS_ACCOUNT_TEXT.SAVINGS_ACCOUNT_TITLE;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.accountTypeCurrency = this.savingsAccountSummaryDetails.targetAccountCurency;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.creditAmount = this.savingsAccountSummaryDetails.depositAmount;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.creditCurrencyCode = this.savingsAccountSummaryDetails.targetAccountCurency;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.creditRates = this.exchangeRateResponse.creditRates;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.customerNumber = this.selectedSourceAccount.customerNumber;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.debitAccount = {} as DebitAccount;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.debitAccount.currencyCode = this.selectedSourceAccount.currencyCode;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.debitAccount.accountNumber = this.selectedSourceAccount.accountNumber;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.debitAccount.amount = this.savingsAccountSummaryDetails.debitAmount;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.debitRates = this.exchangeRateResponse.debitRates;</span>
+  }
+  /**
+   * @methodName createNewAccount
+   * @parameter url&lt;string&gt;, payLoad&lt;OpenAccountRequestPayLoad&gt;
+   * @description used to send the open account request payload to server
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  createNewAccount(</span>url: string, payLoad: OpenAccountRequestPayLoad | TimeDepositAccountRequestPayLoad): Observable&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.httpService.post(url, payLoad);</span>
+  }
+&nbsp;
+  /**
+   * @methodName generateOpenGhinaAccountReqPayLoad
+   * @parameter none
+   * @description used to generate the request payload
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  generateOpenGhinaAccountReqPayLoad(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.emailId = this.savingsAccountSummaryDetails.emailId;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.accountType = OPEN_GHINA_ACCOUNT_TEXT.SAVINGS_ACCOUNT_TYPE;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.accountTitle = OPEN_GHINA_ACCOUNT_TEXT.SAVINGS_ACCOUNT_TITLE;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.accountTypeCurrency = this.savingsAccountSummaryDetails.targetAccountCurency;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.creditAmount = this.savingsAccountSummaryDetails.depositAmount;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.creditCurrencyCode = this.savingsAccountSummaryDetails.targetAccountCurency;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.creditRates = this.exchangeRateResponse.creditRates;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.customerNumber = this.selectedSourceAccount.customerNumber;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.debitAccount = {} as DebitAccount;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.debitAccount.currencyCode = this.selectedSourceAccount.currencyCode;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.debitAccount.accountNumber = this.selectedSourceAccount.accountNumber;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.debitAccount.amount = this.savingsAccountSummaryDetails.debitAmount;</span>
+<span class="cstat-no" title="statement not covered" >    this.openAccountReqPayLoad.debitRates = this.exchangeRateResponse.debitRates;</span>
+  }
+&nbsp;
+  /** @methodName getDebitAmount
+   * @parameter none
+   * @description used to calculate the debit amount
+   * @return string
+   */
+<span class="fstat-no" title="function not covered" >  getDebitAmount(</span>amount: number, transferRateForCalculation: number): string {
+<span class="cstat-no" title="statement not covered" >    if (amount &amp;&amp; transferRateForCalculation) {</span>
+<span class="cstat-no" title="statement not covered" >      return this.sharedService.trimNumberWithoutRounding((Number(amount) / Number(transferRateForCalculation)),</span>
+        INTERNATIONAL_TRANSFER_TEXT.FIXED_AMOUNT_DECIMAL);
+    }
+  }
+  /**
+   * @methodName generateTimeDepositPayload
+   * @parameter none
+   * @description used to generate time deposit account request payload
+   * @return string
+   */
+<span class="fstat-no" title="function not covered" >  generateTimeDepositPayload(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload = {} as TimeDepositAccountRequestPayLoad;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.accountType = OPEN_SAVINGS_ACCOUNT_TEXT.TIME_DEPOSIT_ACCOUNT_TYPE;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.accountTitle = OPEN_SAVINGS_ACCOUNT_TEXT.TIME_DEPOSIT_ACCOUNT_TITLE;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.accountTypeCurrency = this.timeDepositSummaryDetails.accountCurrency;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.creditAmount = this.timeDepositSummaryDetails.depositAmount;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.creditRates = this.exchangeRateResponse.creditRates;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.customerNumber = this.selectedSourceAccount.customerNumber;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.debitRates = this.exchangeRateResponse.debitRates;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.customerType = OPEN_SAVINGS_ACCOUNT_TEXT.TIME_DEPOSIT_ACCOUNT_CUTOMERTYPE;</span>
+    // adding timeDepositDebitAmount object to timeDepositPayload payload
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.debitAccount = this.timeDepositDebitAmount;</span>
+    // creating TimeDepositDetail payload
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.timeDepositDetail = {} as TimeDepositDetail;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.timeDepositDetail.accountTypeIntMaturity = this.selectedMaturityAccount.accountType;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.timeDepositDetail.interestInternalaccount = this.selectedProfitCreditAccount.accountNumber;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.timeDepositDetail.interestPaymentMethod = this.selectedProfitCreditTransferTo.id;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.timeDepositDetail.interestInternalaccountType = this.selectedProfitCreditAccount.accountType;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.timeDepositDetail.accountTerm = Number(this.timeDepositSummaryDetails.accountDuration);</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.timeDepositDetail.accountPeriod = TIME_DEPOSIT_ACCOUNT_DURATION_MONTH;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.timeDepositDetail.depositAmount = this.timeDepositSummaryDetails.depositAmount;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.timeDepositDetail.accountNumberMaturity = this.selectedMaturityAccount.accountNumber;</span>
+<span class="cstat-no" title="statement not covered" >    this.timeDepositPayload.timeDepositDetail.maturityMethod = this.selectedMaturityTransferTo.id;</span>
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

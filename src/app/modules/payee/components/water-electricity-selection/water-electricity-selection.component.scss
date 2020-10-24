@@ -1,0 +1,90 @@
+@import "src/assets/styles/default";
+
+.water-electricity-selection-comp {
+  &__provider {
+    @include respond-to(screen-m-min) {
+      margin-bottom: 63px;
+    }
+    @include respond-to(screen-l-min) {
+      margin-bottom: 65px;
+    }
+  }
+  &__buttons {
+    width: 100%;
+    position: static;
+    z-index: 10;
+    margin-top: 32px;
+    .next-btn {
+      margin-left: 16px;
+      @include respond-to(screen-m-min) {
+        margin-left: 27px;
+      }
+    }
+    @include respond-to(screen-m-min) {
+      position: static;
+      width: 100%;
+    }
+  }
+}
+
+.water-electricity-payee-rtl {
+  .water-electricity-selection-comp__buttons {
+    display: flex;
+    .next-btn {
+      margin-left: 0px;
+      margin-right: 16px;
+      @include respond-to(screen-m-min) {
+        margin-right: 27px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .water-electricity-selection-card {
+  .checkbox-with-image-comp {
+    display: block;
+
+    @include respond-to(screen-land) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    @include respond-to(screen-m-min) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    @include respond-to(screen-m-min) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &__wrapper {
+      margin-right: 1rem;
+      @include respond-to(screen-land) {
+        flex: 0 50%;
+        flex-basis: 18em;
+      }
+      @include respond-to(screen-m-min) {
+        flex: 0 50%;
+        flex-basis: 17em;
+      }
+      height: 56px;
+      margin-top: 16px;
+      padding: 10px 12px;
+      &__img {
+        height: 32px;
+        width: 32px;
+      }
+      &__title {
+        color: $cerulean-blue;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .water-electricity-card-rtl {
+  .checkbox-with-image-comp {
+    &__wrapper {
+      margin-right: 0;
+      margin-left: 1rem;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+<div class="link-account-component" *ngIf="!showSuccessScreen">
+    <div class="link-account-component__wrapper">
+        <div class="link-account-component__wrapper__title-wrapper">
+            <span class="link-account-component__wrapper__title-wrapper__title"
+                translate>tr_linkAccount_linkAccountText</span>
+            <span class="link-account-component__wrapper__title-wrapper__description"><span
+                    translate>tr_common_noteText</span>:
+                <span translate="">tr_linkAccount_currentlyLinkText</span><strong>
+                    {{linkedAccount}}
+                </strong>
+                <span translate> tr_linkAccount_primaryAccountText</span>.</span>
+        </div>
+        <span class="link-account-component__wrapper__text" translate>
+            tr_linkAccount_selectText</span>
+        <div class="link-account-component__wrapper__accounts">
+            <app-checkbox-with-account [accountsList]="accountsList" componentName="linkDebitCard" inputType="checkbox"
+                [selectedValue]="linkedAccount" class="link-account-cards"
+                (selectedOptionValue)="selectedAccount($event)"></app-checkbox-with-account>
+        </div>
+    </div>
+    <div class="link-account-component__buttons">
+        <button class="btn previous-btn" type="button" (click)="linkAccountCancelBtnClick()"
+            translate>tr_common_cancelText</button>
+        <button class="btn next-btn" type="button" (click)="changeDebitCardLinkAccount()" [disabled]="!enableDoneBtn"
+            translate>tr_linkAccount_doneText</button>
+    </div>
+</div>
+<div class="link-account-component" *ngIf="showSuccessScreen">
+    <app-success-screen showPayeeSuccessScreen="false" componentName="linkAccount"
+        [linkAccountDetails]="successScreenDetails" class="link-account-success">
+    </app-success-screen>
+    <div class="link-account-component__success-buttons">
+        <button class="btn next-btn" type="button" (click)="goToCardDetails()" translate>
+            tr_linkAccount_cardDetailsPageText
+        </button>
+    </div>
+</div>

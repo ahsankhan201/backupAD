@@ -1,0 +1,8 @@
+<img alt = "setting icon" class="settings-icon" src="{{iconsConst.settingIcon}}" [matMenuTriggerFor]="menu" />
+<img alt = "triangle icon" class="triangle-icon" src="/assets/icons/Triangle@2x.svg" [matMenuTriggerFor]="menu" (click)="setDropDownStyles()"/>
+<mat-menu #menu="matMenu" class="option-menu">
+    <button class="menu-button" *ngFor="let option of menuOptions" mat-menu-item
+        (click)="clickHandler(option.action)">{{option.label | translate}}
+        <img class="mat-memu-img" *ngIf="option.icon" src="{{option.icon}}" alt="{{option.label}}" />
+    </button>
+</mat-menu>

@@ -1,0 +1,82 @@
+<div class="row transfers-payments-list no-gutters"
+    [ngClass]="[showAll ? 'show-all-cards' : '', selectedLanguage === arabicLanguageText ? 'payee-list-rtl-layout': '']">
+    <div class="col-sm-12 btn-wrapper" [ngClass]="{'search-box-container' : showAll}">
+        <span class="title" *ngIf="!showAll" translate>tr_payeeList_favPayeeText</span>
+        <span class="title" *ngIf="showAll" translate>tr_payeeList_allPayeeText</span>
+        <div class="search-box-wrapper">
+            <input type="text" [(ngModel)]="searchText" appAlphaNumeric (input)="onSearchChange($event.target.value)"
+                placeholder="Search" *ngIf="showAll">
+            <button class="btn view-all view-all-btn" *ngIf="showViewAllLink" (click)="showAllPayee()"
+                translate>tr_common_viewAllText</button>
+
+            <button class="btn" routerLink="{{payeeRoutingURL}}" translate>{{labelConst.addPayee | translate}} <img
+                    alt="add icon" src="{{iconsConst.addIcon}}"></button>
+        </div>
+    </div>
+    <div class="col-sm-12 card-wrapper" [ngClass]="{'show-all-cards' : showAll}" #payeeScrollContainer
+        (scroll)="moveScroll(undefined)">
+        <div class="card" *ngFor="let item of formatedPayeeList">
+            <!-- card html starts here -->
+            <div class="payee-container">
+                <div class="row no-gutters">
+                    <div class="col-12">
+                        <div class="payee-logo" (click)="moveToPaymentView(item)"><img alt="payees"
+                                [src]="iconsConst.PAYEES[item.utilityProviderId] ? iconsConst.PAYEES[item.utilityProviderId] : iconsConst.defaultIcon" />
+                        </div>
+                        <div class="title detail-wrapper" (click)="moveToPaymentView(item)">
+                            <div class="title">{{item.nickName}}</div>
+                            <div class="company-name">{{item.utilityProviderId}}</div>
+                            <div class="account-number"> {{item.utilityServiceNumber}} </div>
+                        </div>
+                        <div class="icon-wrapper">
+                            <div class="icons">
+                                <span class="favorite" (click)="markFavorite(item.isFavourite,item.customerPayeeID)">
+                                    <span class="status-icon {{item.isFavourite}}"></span>
+                                </span>
+                                <span class="setting">
+                                    <app-menu-option [item]="item" [menuOptions]="menuOptions"
+                                        (clickedItem)="menuClickHandler($event)" class="payee-setting-menu">
+                                    </app-menu-option>
+                                </span>
+                            </div>
+                            <div class="detail-icon">
+                                <img alt="detail icon" src="{{iconsConst.detailIcon}}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 padding-lrn"
+            *ngIf="!formatedPayeeList || (formatedPayeeList && !formatedPayeeList?.length)">
+            <div class="no-payee-wrapper" *ngIf="!showAll">
+                <span class="icon"><img alt="info icon" src="{{iconsConst.infoIcon}}" /> </span>
+                <span class="message" translate> tr_payeeList_noPayeeFoundText </span>
+            </div>
+            <!-- no search criteria text container -->
+            <div class="no-payee-wrapper" *ngIf="showAll">
+                <span class="icon"><img alt="info icon" src="{{iconsConst.infoIcon}}" /> </span>
+                <span class="message" translate> tr_payeeList_noPayeeSearchFoundText </span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Navigation controller code starts here -->
+    <div class="transfers-payments-list__navigation-wrapper col-sm-12" *ngIf="hideNavigationControlls"
+        #payeeScrollContainer>
+        <button class="transfers-payments-list__navigation-wrapper__btn" [disabled]="disablePreviousBtn"
+            (click)="moveScroll('backward')">
+            <img class="transfers-payments-list__navigation-wrapper__btn__prev" src="{{iconsConst.prevIcon}}"
+                alt="Previous_Icon">
+        </button>
+        <button class="transfers-payments-list__navigation-wrapper__btn" [disabled]="disableNextBtn"
+            (click)="moveScroll('forward')">
+            <img class="transfers-payments-list__navigation-wrapper__btn__next" src="{{iconsConst.nextIcon}}"
+                alt="Next_Icon">
+        </button>
+        <span class="view-all" *ngIf="showViewAllLink" (click)="showAllPayee()" translate>tr_common_viewAllText</span>
+    </div>
+</div>

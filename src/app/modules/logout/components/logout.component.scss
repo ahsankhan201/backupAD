@@ -1,0 +1,316 @@
+@import "src/assets/styles/default";
+
+.logout-component {
+  height: 100vh;
+  min-height: 620px;
+  display: flex;
+  position: relative;
+  @include respond-to(screen-m-min) {
+    min-height: 720px;
+  }
+  &__wrapper {
+    min-width: 360px;
+    max-width: 1440px;
+    position: relative;
+    width: 100%;
+    @include respond-to(screen-l-min) {
+      width: 51%;
+      img {
+        display: none;
+      }
+    }
+    &__body {
+      position: absolute;
+      top: 56px;
+      width: 100%;
+      padding: 16px;
+      line-height: normal;
+      text-align: center;
+      left: 50%;
+      transform: translate(-50%);
+      height: calc(100% - 56px);
+      @include respond-to(screen-m-min) {
+        padding: 20px 68px 16px 66px;
+        top: 82px;
+        height: calc(100% - 82px);
+      }
+      @include respond-to(screen-l-min) {
+        padding: 108px 90px 0px 87px;
+      }
+      @include respond-to(screen-xl-min) {
+        padding: 108px 147px 16px 133px;
+      }
+      &__wrapper {
+        .sub,
+        .link-title {
+          font-family: $font-light;
+          font-size: 16px;
+          color: $tabledark-blue;
+          margin-bottom: 16px;
+          line-height: 20px;
+        }
+        .title {
+          font-size: 22px;
+          font-family: $font-regular;
+          color: $solid-blue;
+          margin-bottom: 32px;
+        }
+        &__link-title {
+          font-size: 14px;
+          margin-bottom: 16px;
+        }
+      }
+      button {
+        width: 100%;
+        @include respond-to(screen-m-min) {
+          width: 80%;
+        }
+        @include respond-to(screen-l-min) {
+          width: 100%;
+        }
+      }
+      &__footer {
+        position: absolute;
+        bottom: 16px;
+        min-width: 340px;
+        width: calc(100% - 32px);
+        @include respond-to(screen-m-min) {
+          bottom: 32px;
+          width: calc(100% - 134px);
+        }
+        @include respond-to(screen-l-min) {
+          width: calc(100% - 177px);
+        }
+        @include respond-to(screen-xl-min) {
+          bottom: 64px;
+          width: calc(100% - 280px);
+        }
+        &__wrapper {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          .footer-link {
+            cursor: pointer;
+            color: $cerulean-blue;
+            font-size: 12px;
+            font-family: $font-regular;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+    img {
+      height: 105px;
+      width: 150px;
+      margin: 19px auto 19px auto;
+      @include respond-to(screen-m-min) {
+        height: 150px;
+        width: 195px;
+      }
+    }
+  }
+
+  &__security-tips {
+    display: none;
+    width: auto;
+    background-position: center;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 99;
+    position: relative;
+    @include respond-to(screen-l-min) {
+      display: flex;
+      width: 49%;
+      float: right;
+      animation: none;
+      background-image: url("/assets/images/security-tips/bg-tab-land.png");
+      box-shadow: -15px 0px 30px 0px rgba(0, 0, 0, 0.12);
+      height: 100%;
+    }
+    @include respond-to(screen-xl-min) {
+      min-width: 707px;
+      background-image: url("/assets/images/security-tips/bg-web.png");
+    }
+    img {
+      display: block;
+      position: absolute;
+      top: 30%;
+      margin-left: auto;
+      width: 100;
+      left: 50%;
+      transform: translate(-50%);
+    }
+  }
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 72px;
+    justify-content: center;
+    width: 100%;
+    z-index: 999;
+    @include respond-to(screen-m-min) {
+      bottom: 92px;
+    }
+    @include respond-to(screen-l-min) {
+      bottom: 24px;
+      right: 0;
+      width: 49%;
+    }
+    @include respond-to(screen-xl-min) {
+      bottom: 64px;
+    }
+    &__app-store {
+      &__qr-code {
+        margin-bottom: 12px;
+        text-align: center;
+        @include respond-to(screen-l-min) {
+          margin-bottom: 14px;
+        }
+        @include respond-to(screen-xl-min) {
+          margin-bottom: 16px;
+        }
+        img {
+          height: 50px;
+          width: 50px;
+          @include respond-to(screen-m-min) {
+            height: 70px;
+            width: 70px;
+          }
+          @include respond-to(screen-l-min) {
+            height: 60px;
+            width: 60px;
+          }
+          @include respond-to(screen-xl-min) {
+            height: 70px;
+            width: 70px;
+          }
+        }
+      }
+      &__app-link {
+        cursor: pointer;
+        img {
+          height: 26px;
+          width: 87px;
+          @include respond-to(screen-m-min) {
+            height: 30px;
+            width: 100px;
+          }
+          @include respond-to(screen-l-min) {
+            height: 26px;
+            width: 87px;
+          }
+          @include respond-to(screen-xl-min) {
+            height: 30px;
+            width: 100px;
+          }
+        }
+      }
+    }
+    &__text {
+      margin-left: 6px;
+      margin-right: 6px;
+      text-align: center;
+      @include respond-to(screen-m-min) {
+        margin-left: 11px;
+        margin-right: 11px;
+      }
+      @include respond-to(screen-l-min) {
+        margin-left: 17px;
+        margin-right: 17px;
+      }
+      @include respond-to(screen-xl-min) {
+        margin-left: 11px;
+        margin-right: 11px;
+      }
+      &__download {
+        @extend .ibd-small-text;
+        font-size: 14px;
+        color: $tabledark-blue;
+        @include respond-to(screen-m-min) {
+          font-size: 16px;
+        }
+        @include respond-to(screen-l-min) {
+          font-size: 14px;
+          color: $very-light-gray;
+        }
+        @include respond-to(screen-xl-min) {
+          font-size: 16px;
+        }
+      }
+      &__app {
+        @extend .ibd-font-regular-12-grey;
+        color: $tabledark-blue;
+        font-size: 16px;
+        @include respond-to(screen-m-min) {
+          font-size: 20px;
+          font-weight: 500;
+        }
+        @include respond-to(screen-l-min) {
+          font-size: 18px;
+          font-weight: normal;
+          margin-top: 5px;
+          color: $very-light-gray;
+        }
+        @include respond-to(screen-xl-min) {
+          font-size: 20px;
+          font-weight: 500;
+          margin-top: 6px;
+        }
+      }
+    }
+    &__google-play {
+      &__qr-code {
+        margin-bottom: 12px;
+        text-align: center;
+        @include respond-to(screen-l-min) {
+          margin-bottom: 14px;
+        }
+        @include respond-to(screen-xl-min) {
+          margin-bottom: 16px;
+        }
+        img {
+          height: 50px;
+          width: 50px;
+          @include respond-to(screen-m-min) {
+            height: 70px;
+            width: 70px;
+          }
+        }
+      }
+      &__app-link {
+        cursor: pointer;
+        img {
+          height: 26px;
+          width: 87px;
+          @include respond-to(screen-m-min) {
+            height: 30px;
+            width: 100px;
+          }
+          @include respond-to(screen-l-min) {
+            height: 26px;
+            width: 87px;
+          }
+          @include respond-to(screen-xl-min) {
+            height: 30px;
+            width: 100px;
+          }
+        }
+      }
+    }
+  }
+  &.logout-rtl-layout {
+    direction: rtl;
+  }
+}
+
+:host ::ng-deep .logout-component-header {
+  .ibd-header-common__wrapper {
+    min-width: 360px;
+    width: 100%;
+    @include respond-to(screen-l-min) {
+      width: 51%;
+    }
+  }
+}

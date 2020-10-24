@@ -1,0 +1,72 @@
+<div class="banking-services-dashboard" *ngIf="accountsServiceSummaryData.length > 0"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'banking-services-dashboard-rtl': ''">
+    <div class="banking-services-dashboard__container" *ngFor="let accountSummary of accountsServiceSummaryData"
+        (click)="getSelectedRequestId(accountSummary.requestId)">
+        <div class="banking-services-dashboard__container__wrapper">
+            <div class="banking-services-dashboard__container__wrapper__header">
+                <span class="banking-services-dashboard__container__wrapper__header__text">
+                    {{accountSummary.accountDesc}}
+                </span>
+                <span class="banking-services-dashboard__container__wrapper__header__value">
+                    {{accountSummary.accountNumber}}
+                </span>
+            </div>
+            <div class="banking-services-dashboard__container__wrapper__body">
+                <span class="banking-services-dashboard__container__wrapper__body__text"
+                    *ngIf="selectedService==='BANK_CERTIFICATE_REQUEST'">
+                    {{accountSummary.certificateType}}
+                </span>
+                <span class="banking-services-dashboard__container__wrapper__body__value">
+                    <span class="label">{{BANKING_SERVICE_LABELS.DATE_REQUESTED | translate}}</span>
+                    <span class="value">{{accountSummary.createdAt | date: 'dd/MM/yyyy'}}</span>
+                </span>
+            </div>
+            <div class="banking-services-dashboard__container__wrapper__status">
+                <span class="banking-services-dashboard__container__wrapper__status__value">
+                    {{accountSummary.status}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="banking-services-dashboard"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'banking-services-dashboard-rtl': ''"
+    *ngIf="paymentsServiceSummaryData.length > 0">
+    <div class="banking-services-dashboard__container" *ngFor="let paymentSummary of paymentsServiceSummaryData"
+        (click)="getSelectedRequestId(paymentSummary.requestId)">
+        <div class="banking-services-dashboard__container__wrapper">
+            <div class="banking-services-dashboard__container__wrapper__header">
+                <span class="banking-services-dashboard__container__wrapper__header__text">
+                    {{BANKING_SERVICE_LABELS.BENE_NAME | translate}}
+                </span>
+                <span class="banking-services-dashboard__container__wrapper__header__value">
+                    {{paymentSummary.beneficiaryName}}
+                </span>
+            </div>
+            <div class="banking-services-dashboard__container__wrapper__amount">
+                <span class="banking-services-dashboard__container__wrapper__amount__text"
+                    *ngIf="selectedService==='PAYMENT_ORDER_REQUEST'">
+                    {{BANKING_SERVICE_LABELS.PAYMENT_ORDER_AMT | translate}}
+                </span>
+                <span class="banking-services-dashboard__container__wrapper__amount__text"
+                    *ngIf="selectedService==='DEMAND_DRAFT_REQUEST'">
+                    {{BANKING_SERVICE_LABELS.DEMAND_ORDER_AMT | translate}}
+                </span>
+                <span class="banking-services-dashboard__container__wrapper__amount__value">
+                    <span class="banking-services-dashboard__container__wrapper__amount__value__digit">
+                        {{paymentSummary.amount | numberFormat}}</span>.<span
+                        class="banking-services-dashboard__container__wrapper__amount__value__decimal">{{paymentSummary.amount | getDecimalValue}}</span>
+                    <span class="banking-services-dashboard__container__wrapper__amount__value__currency">
+                        {{paymentSummary.currency}}
+                    </span>
+                </span>
+            </div>
+            <div class="banking-services-dashboard__container__wrapper__status">
+                <span class="banking-services-dashboard__container__wrapper__status__value">
+                    {{paymentSummary.status}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

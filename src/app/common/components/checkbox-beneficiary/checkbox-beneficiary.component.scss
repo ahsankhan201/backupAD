@@ -1,0 +1,227 @@
+@import "src/assets/styles/default";
+.beneficiary-checkbox-comp {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .card {
+      cursor: pointer;
+      margin-bottom: 16px;
+      border-radius: 16px;
+      border: 1px solid $account-card-border;
+      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02);
+      min-width: 327px;
+      height: 120px;
+      width: 100%;
+      @include respond-to(screen-m-min) {
+        width: 333px;
+        margin-right: 24px;
+        margin-bottom: 24px;
+        &:last-child,
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+      @include respond-to(screen-l-min) {
+        margin-right: 24px;
+        &:nth-child(2n) {
+          margin-right: 24px;
+        }
+      }
+      @include respond-to(screen-xl-min) {
+        margin-right: 27px;
+        &:nth-child(2n) {
+          margin-right: 27px;
+        }
+      }
+      .beneficiary-container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 14px 12px 14px 16px;
+        .detail-wrapper {
+          line-height: normal;
+          flex: 1;
+          .title {
+            color: $active-blue;
+            font-family: $font-medium;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            span {
+              margin-right: 4px;
+            }
+          }
+          .beneficiary-details {
+            margin-top: 6px;
+          }
+          .company-name {
+            margin-top: 6px;
+            color: $grey;
+            font-family: $font-regular;
+            font-size: 11px;
+            font-weight: normal;
+          }
+          .account-number {
+            @extend .ibd-small-text;
+            color: $solid-blue;
+            font-size: 14px;
+            font-family: $font-regular;
+            padding-top: 5px;
+            &::after {
+              content: " ";
+              border: solid 1px $cerulean-blue;
+              display: block;
+              width: 25px;
+              margin-top: 6px;
+              @include respond-to(screen-m-min) {
+                width: 30px;
+              }
+            }
+          }
+        }
+        .icon-wrapper {
+          width: 24px;
+          margin-left: auto;
+          .icons {
+            text-align: center;
+            .favorite {
+              display: inline-flex;
+              height: 14px;
+              width: 14px;
+              cursor: pointer;
+              .status-icon {
+                width: 14px;
+                height: 14px;
+                background-repeat: no-repeat;
+              }
+              .not-favourite {
+                background-image: url(/assets/icons/mdi-light-star@2x.svg);
+              }
+              .favourite {
+                background-image: url(/assets/icons/mdi-fill-star@2x.svg);
+              }
+              img {
+                vertical-align: inherit;
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .setting {
+              height: 24px;
+              width: 24px;
+              text-align: right;
+              cursor: pointer;
+            }
+          }
+          .detail-icon {
+            text-align: center;
+            label {
+              height: 24px;
+              width: 24px;
+              &::after {
+                top: 7px;
+                left: 7px;
+                height: 5px;
+                width: 9px;
+              }
+            }
+          }
+        }
+        &.inactive-beneficiary {
+          pointer-events: none;
+          .detail-wrapper {
+            .title,
+            .account-number {
+              color: $grey;
+            }
+            .account-number {
+              &::after {
+                border: 1px solid $grey;
+              }
+            }
+          }
+        }
+      }
+      &.active {
+        border: 1px solid $blue-border;
+        box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.02);
+        background: $light-blue;
+        .ibd-check-box {
+          label {
+            background: $light-blue;
+          }
+        }
+      }
+    }
+  }
+}
+
+.bene-checkbox-rtl {
+  .beneficiary-checkbox-comp__container {
+    .card {
+      margin-right: 0px;
+      @include respond-to(screen-m-min) {
+        margin-left: 24px;
+        &:last-child,
+        &:nth-child(2n) {
+          margin-left: 0;
+        }
+      }
+      @include respond-to(screen-l-min) {
+        margin-left: 24px;
+        &:nth-child(2n) {
+          margin-left: 24px;
+        }
+      }
+      @include respond-to(screen-xl-min) {
+        margin-left: 27px;
+        &:nth-child(2n) {
+          margin-left: 27px;
+        }
+      }
+      .beneficiary-container {
+        text-align: right;
+        text-align: -webkit-right;
+        padding: 14px 16px 14px 12px;
+        .detail-wrapper {
+          .title {
+            span {
+              margin-right: 0px;
+              margin-left: 4px;
+            }
+          }
+        }
+        .icon-wrapper {
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}
+
+.account-label {
+  @extend .ibd-small-text;
+  color: $grey;
+  font-family: $font-light;
+  font-size: 11px;
+  font-weight: 300;
+  height: 13px;
+  letter-spacing: 0px;
+  margin-top: 6px;
+  @include respond-to(screen-m-min) {
+    font-size: 13px;
+  }
+}
+
+.bank-name {
+  color: $suva-grey;
+  font-family: $font-regular;
+  font-size: 11px;
+  font-weight: normal;
+  height: 13px;
+  letter-spacing: 0px;
+  overflow: hidden;
+}

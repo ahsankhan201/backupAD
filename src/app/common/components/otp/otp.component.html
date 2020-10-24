@@ -1,0 +1,30 @@
+<div class="otp-message-comp" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'otp-form-rtl': ''">
+    <div class="otp-message-comp__wrapper">
+        <span class="otp-message-comp__wrapper__title">{{messageText | translate}}</span>
+        <app-alert-message class="error-text" *ngIf="alertMessage" [message]="alertMessage"></app-alert-message>
+        <div class="otp-message-comp__wrapper__inputs">
+            <label class="otp-message-comp__wrapper__inputs__title" translate>tr_common_otpText</label>
+            <app-input-generic [maxlength]="1" type="otp" class="atmPin"
+                [count]="otpNumberlength" [value]="otp" [resetInputValue]="resetInputValue"
+                (outputData)="handleOtpNumber($event)" inputType='password'></app-input-generic>
+            <div class="otp-message-comp__wrapper__inputs__resend">
+                <countdown #countDownTimer (event)='otpTimer($event)' [config]="otpConfig"></countdown>
+                <button type="button" [disabled]="!enableResendOTPButton" (click)='resendOTP()' class="btn"
+                    translate>tr_common_resetOtp</button>
+            </div>
+        </div>
+        <div class="otp-message-comp__wrapper__recatcha" *ngIf="enableRecaptcha && showRecaptcha">
+            <app-recaptcha *ngIf="showRecaptcha" (response)="handleRecaptchaResponse($event)" [resetInputValue]="resetInputValue"></app-recaptcha>
+        </div>
+        <div class="otp-message-comp__wrapper__buttons" *ngIf="enableSubmitButton">
+            <button type="button" (click)='verifyOTPwithRecaptcha(true)' class="btn next-btn"  [disabled]="!enableNextBtn"
+                translate>tr_common_submitText</button>
+        </div>
+        <div class="otp-message-comp__wrapper__nextButtons" *ngIf="!enableSubmitButton">
+            <button class="btn cancel-btn" type="button" (click)="handleCancelButton()"
+                translate>tr_common_cancelText</button>
+            <button class="btn next-btn" type="button" [disabled]="!enableNextBtn" (click)="verifyOTPwithRecaptcha()"
+                translate>tr_common_nextText</button>
+        </div>
+    </div>
+</div>

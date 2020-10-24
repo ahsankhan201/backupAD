@@ -1,0 +1,73 @@
+<div class="login-component" *ngIf="!loginFromNewDevice"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'login-rtl-layout': ''">
+    <div class="title" translate>tr_loginComponent_welcomeText</div>
+    <div class="sub-title" translate>tr_loginComponent_userNamePWDText</div>
+    <div class="login-component__title" translate>tr_common_loginText</div>
+    <div class="login-component__info-wrapper" translate #informationContainer *ngIf="!showInfoContainer">
+        <div class="error-text" translate>tr_loginComponent_userNamePWDErrorText</div>
+        <div translate>tr_loginComponent_informationText</div>
+        <div class="note-text">
+            <span class="note" translate>tr_common_noteText</span>:
+            <span translate>tr_loginComponent_infoCredentialText</span>
+        </div>
+        <span class="registration-link" routerLink="/registration"
+            translate>tr_loginComponent_registrationNowText</span>
+    </div>
+    <div class="login-component__info-wrapper error-container" translate #informationContainer
+        *ngIf="showInfoContainer">
+        <div class="error-text" translate>tr_loginComponent_userNamePWDErrorText</div>
+    </div>
+    <div class="row login-component__wrapper margin-lrn">
+        <form [formGroup]="loginFormGroup" class="login-component__wrapper__form" autocomplete="off">
+            <div class="row margin-lrn login-component__wrapper__form__wrapper">
+                <mat-form-field class="padding-lrn">
+                    <mat-label translate>tr_registrationComponent_usernameStepperText</mat-label>
+                    <input type="text" matInput formControlName="userName" autocomplete="off">
+                    <div class="mat-form-field-subscript-wrapper mat-form-field-hint-wrapper">
+                        <mat-hint align="end" class="hint-text"
+                            (click)="showForgetComponent(componentList.FORGET_USERNAME)">
+                            <span translate>tr_loginComponent_forgotUserNameText</span></mat-hint>
+                    </div>
+                    <mat-error>
+                        <app-show-form-errors [control]="loginFormGroup.get('userName')"
+                            label="tr_registrationComponent_usernameStepperText">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="padding-lrn password-field">
+                    <mat-label translate>tr_registrationComponent_passwordStepperText</mat-label>
+                    <input type="password" matInput formControlName="password" autocomplete="off">
+                    <div class="mat-form-field-subscript-wrapper mat-form-field-hint-wrapper">
+                        <mat-hint align="end" (click)="showForgetComponent(componentList.FORGET_PASSWORD)">
+                            <span translate>tr_loginComponent_forgotPasswordText</span>
+                        </mat-hint>
+                    </div>
+                    <mat-error>
+                        <app-show-form-errors [control]="loginFormGroup.get('password')"
+                            label="tr_registrationComponent_passwordStepperText">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="login-component__wrapper__recatcha" *ngIf="enableRecaptcha">
+                <app-recaptcha (response)="handleRecaptchaResponse($event)"></app-recaptcha>
+            </div>
+            <div class="login-component__wrapper__form__buttons">
+                <button class="next-btn" (click)="loginUser()" [disabled]="!loginFormGroup.valid"
+                    translate>tr_common_loginText</button>
+            </div>
+        </form>
+        <div class="login-component__wrapper__signup">
+            <span translate>tr_loginComponent_notRegisteredYetText</span>
+            <span class="link" routerLink="/registration" translate>tr_registrationComponent_signUpText</span>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="loginFromNewDevice" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'login-rtl-layout': ''">
+    <div class="login-component-otp-title" translate>tr_loginComponent_otpTitleText</div>
+    <app-otp (response)="getOTPResponse($event)" (resendOTPRequired)="resendOTPRequired($event)"
+        [enableRecaptcha]="true" class="otp-component" [enableSubmitButton]="false" [location]='location' [masking]=true
+        (cancelButtonClick)="handleOtpCancelButtonClick($event)">
+    </app-otp>
+</div>

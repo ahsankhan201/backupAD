@@ -1,0 +1,11 @@
+<div class="ibd-registration-otp-step" *ngIf="location">
+    <app-otp *ngIf="location" (resendOTPRequired)="resendOTPRequired($event)" (response)="getOTPResponse($event)" [enableRecaptcha]="true" (cancelButtonClick)="handleOtpCancelButtonClick($event)" class="ibd-registration-otp-step__otp-comp" [enableSubmitButton]="false" [location]='location' [masking]=true ></app-otp>
+    <div class="ibd-registration-otp-step__security-tips-wrapper">
+        <div class="ibd-registration-otp-step__security-tips-wrapper__text" translate >
+            <span (click)="handleSecurityTipClick()">
+                <img alt="security icon" src="{{ securityIcon }}">    
+                <span translate>tr_registrationComponent_securityTipsText</span> 
+            </span>
+        </div>
+    </div>  
+</div>

@@ -1,0 +1,46 @@
+<div class="beneficiary-checkbox-comp" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'bene-checkbox-rtl': ''">
+  <div class="beneficiary-checkbox-comp__container">
+    <div class="card" *ngFor="let item of checkBoxBeneficiaryList; let index = index"
+      [ngClass]="((item.beneAccNo + '' + item.utilityServiceNumber)===selectedValue)? 'active':''">
+      <div class="beneficiary-container" (click)="handleChange(item,checkBoxName)"
+        [ngClass]="(item.status === 'INACTIVE') ? 'inactive-beneficiary': ''">
+        <div class="detail-wrapper">
+          <div class="title">
+            <span class="verify">
+              <img alt="verify icon" src="{{item.status === 'INACTIVE'? iconsConst.inActiveBen: iconsConst.verifyIcon}}" />
+            </span>
+            <span class="nickname">{{item.nickName}}</span>
+          </div>
+          <div class="beneficiary-details" *ngIf="item.beneExtAccType === accountTypes.MOBILE">
+            <div class="bank-name" translate>tr_common_adibText</div>
+            <div class="account-label" translate>tr_common_mobileNumberText</div>
+          </div>
+          <div class="beneficiary-details" *ngIf="item.beneExtAccType !== accountTypes.MOBILE">
+            <div class="bank-name">{{item.beneBankName}}<span *ngIf="item.beneBankCountryName">({{item.beneBankCountryName}})</span></div>
+            <div class="account-label">
+              <span *ngIf="!item.iban && item.beneExtAccType === 'Account'" translate>tr_common_accountNumberText</span>
+              <span *ngIf="item.iban && item.beneExtAccType === 'Account'" translate>tr_common_ibanNumberText</span>
+              <span *ngIf="item.beneExtAccType !== 'Account'" translate>tr_common_cardNumberText</span>
+            </div>
+          </div>
+          <div class="account-number" *ngIf="item.beneAccNo"> {{item.beneAccNo}}</div>
+        </div>
+        <div class="icon-wrapper">
+          <div class="icons">
+            <span class="favorite">
+              <span class="status-icon" [ngClass]="item.isFavourite ==='Y' ? 'favourite' : 'not-favourite'"></span>
+            </span>
+          </div>
+          <div class="detail-icon">
+            <div class="ibd-check-box">
+              <input type="radio" id="{{item.beneAccNo}}" value="{{item.beneAccNo + '' + item.utilityServiceNumber}}"
+                name="{{componentName}}" #checkBoxName
+                [checked]="(item.beneAccNo + '' + item.utilityServiceNumber)===selectedValue" />
+              <label for="{{item.beneAccNo}}"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

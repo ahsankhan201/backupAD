@@ -1,0 +1,144 @@
+@import "src/assets/styles/default";
+
+.beneficiary-comp {
+  background: $white;
+  height: auto;
+  position: absolute;
+  top: 56px;
+  z-index: 8;
+  background-color: transparent;
+  @include respond-to(screen-m-min) {
+    width: calc(100% - 92px);
+    top: 92px;
+    left: 92px;
+    margin-left: auto;
+  }
+
+  &__text-wrapper {
+    @extend .idb-font-family;
+    font-size: 14px;
+    letter-spacing: 0.16px;
+    @include respond-to(screen-m-min) {
+      font-size: 16px;
+    }
+  }
+  &__step-wrapper {
+    @include respond-to(screen-m-min) {
+      width: 83%;
+    }
+    @include respond-to(screen-l-min) {
+      width: 53%;
+    }
+    @include respond-to(screen-xl-min) {
+      width: 38%;
+    }
+  }
+  &__link-wrapper {
+    @extend .ibd-small-text--blue;
+
+    font-size: 14px;
+    font-family: $font-regular;
+    padding: 14px 20px 10px 16px;
+    margin-left: 16px;
+    display: inline-block;
+    outline: none;
+    &__back {
+      position: relative;
+      cursor: pointer;
+      &:before {
+        border: solid $cerulean-blue;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        content: " ";
+        position: absolute;
+        left: -11px;
+        top: 4px;
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+      }
+    }
+    @include respond-to(screen-m-min) {
+      margin-left: 38px;
+      padding: 16px 20px 16px 16px;
+    }
+  }
+  &__text-wrapper {
+    @extend .ibd-small-text;
+
+    padding: 0 16px 16px 16px;
+    font-size: 14px;
+    font-family: $font-regular;
+
+    @include respond-to(screen-m-min) {
+      padding-left: 39px;
+    }
+  }
+}
+
+.add-beneficiary-rtl-layout {
+  direction: rtl;
+  @include respond-to(screen-m-min) {
+    right: 92px;
+    left: unset;
+  }
+  .beneficiary-comp__link-wrapper {
+    display: flex;
+    margin-left: 0px;
+    @include respond-to(screen-m-min) {
+      margin-right: 25px;
+      padding: 16px 16px 16px 20px;
+    }
+    &__back {
+      &:before {
+        top: 7px;
+      }
+    }
+  }
+  .beneficiary-comp__text-wrapper {
+    @include respond-to(screen-m-min) {
+      padding-right: 39px;
+      padding-left: 0px;
+    }
+  }
+}
+
+:host ::ng-deep .mat-horizontal-stepper-header-container {
+  @include respond-to(screen-m-min) {
+    margin-left: 25px;
+  }
+  .mat-horizontal-stepper-header {
+    padding: 0;
+    &:last-child {
+      margin-right: 6px;
+    }
+  }
+}
+
+:host ::ng-deep mat-horizontal-stepper.mat-horizontal-stepper-rtl {
+  .mat-horizontal-stepper-header-container {
+    @include respond-to(screen-m-min) {
+      margin-right: 25px;
+      margin-left: 0px;
+    }
+    .mat-horizontal-stepper-header {
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+  }
+  .mat-horizontal-content-container {
+    @include respond-to(screen-m-min) {
+      padding: 33px 39px 32px 0px;
+    }
+  }
+}
+
+:host
+  ::ng-deep.beneficiary-comp__step-wrapper
+  .mat-horizontal-content-container {
+  padding-top: 26px;
+  @include respond-to(screen-m-min) {
+    padding-top: 38px;
+  }
+}

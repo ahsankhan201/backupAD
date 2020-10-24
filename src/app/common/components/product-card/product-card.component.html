@@ -1,0 +1,42 @@
+<div class="product-card-list">
+    <div class="product-card-list__wrapper" *ngIf="productCardsList && productCardsList.length > 0">
+        <div class="product-card-list__card" *ngFor="let card of productCardsList">
+            <div class="image-wrapper">
+                <img src="{{card.imageUrlEnglish}}" alt="image" />
+            </div>
+            <div class="product-card-list__card__text-wrapper">
+                <div *ngIf="(selectedLang=='en'); else cardAr">
+                    <div class="title">{{card.productNameEnglish}}</div>
+                    <div class="description" *ngIf="card.shortDescriptionEnglish">{{card.shortDescriptionEnglish}}</div>
+                </div>
+                <ng-template #cardAr>
+                    <div class="title">{{card.productNameArabic}}</div>
+                    <div class="description" *ngIf="card.shortDescriptionArabic">{{card.shortDescriptionArabic}}</div>
+                </ng-template>
+                <div class="bottom-buttons">
+                    <span class="cta-btn" (click)="emitSelectedOption(card,linkText.ctaViewMore)"
+                        translate>{{linkText.viewMore}}</span>
+                    <span class="cta-btn cta-link-btn float-right"
+                        (click)="emitSelectedOption(card,linkText.ctaApplyNow)" translate>{{card.enquiryCTAText}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-card-list__wrapper" *ngIf="openAccountCardsList && openAccountCardsList.length > 0">
+        <div class="product-card-list__card open-account-card" *ngFor="let accountList of openAccountCardsList">
+            <div class="image-wrapper">
+                <img [src]="accountList.imageUrl ? accountList.imageUrl : ICON_HOLDER" alt="image" />
+            </div>
+            <div class="product-card-list__card__text-wrapper">
+                <div>
+                    <div class="title" translate>{{accountList.title}}</div>
+                    <div class="description" translate>{{accountList.description}}</div>
+                </div>
+                <div class="bottom-buttons">
+                    <span class="cta-btn cta-link-btn float-left" (click)="emitOpenAccountSelectedCard(accountList)"
+                        translate>{{ openAccountCtaLinkLabel }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

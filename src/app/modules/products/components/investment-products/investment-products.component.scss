@@ -1,0 +1,113 @@
+@import "src/assets/styles/default";
+
+.account-products-comp {
+  &__form-container {
+    .title {
+      color: $suva-grey;
+      font-family: $font-regular;
+      font-size: 16px;
+    }
+    .top-section {
+      .title {
+        margin-bottom: 45px;
+      }
+    }
+    @include respond-to(screen-l-min) {
+      width: 460px;
+      mat-form-field {
+        max-width: 213px;
+      }
+      .full-width {
+        max-width: 100%;
+      }
+      .form-wrapper {
+        margin-bottom: 16px;
+      }
+      .email-field {
+        margin-left: 27px;
+      }
+    }
+    .button-wrapper {
+      margin-top: 21px;
+      span {
+        font-family: $font-regular;
+        font-size: 12px;
+        color: $grey;
+        margin-left: 27px;
+      }
+    }
+    .cta-back-btn {
+      margin-bottom: 18px;
+      &:before {
+        top: 3px;
+      }
+    }
+    form {
+      padding-top: 15px;
+    }
+  }
+  .enquiry-success-screen-btn {
+    width: 100%;
+    margin-top: 40px;
+    @include respond-to(screen-m-min) {
+      width: max-content;
+      margin-top: 0;
+    }
+  }
+}
+
+:host ::ng-deep .enquiry-contact-mode {
+  .checkbox-with-image-comp {
+    display: flex;
+    @include respond-to(screen-m-min) {
+      flex-wrap: wrap;
+    }
+    &__container {
+      margin-right: 27px;
+      &__wrapper {
+        padding-right: 16px;
+        margin: 24px 0 27px 0;
+      }
+    }
+  }
+}
+
+.account-products-comp-rtl {
+  direction: rtl;
+  left: 0px;
+  right: 92px;
+  .account-products-comp__form-container {
+    text-align: right;
+    .cta-back-btn {
+      margin-right: 12px;
+      &::before {
+        top: 8px;
+        left: 100%;
+        transform: rotate(-45deg);
+      }
+    }
+    @include respond-to(screen-l-min) {
+      .email-field {
+        margin-right: 27px;
+        margin-left: 0px;
+      }
+    }
+    .button-wrapper {
+      span {
+        margin-left: 0px;
+        margin-right: 27px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .enquiry-contact-mode-rtl {
+  .checkbox-with-image-comp {
+    &__container {
+      margin-right: 0px;
+    }
+  }
+}
+.account-products-comp-success-rtl {
+  text-align: right;
+}

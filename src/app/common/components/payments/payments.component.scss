@@ -1,0 +1,56 @@
+@import "src/assets/styles/default";
+.payments-comp {
+  &__title {
+    @extend .idb-font-family;
+
+    font-size: 16px;
+    font-family: $font-regular;
+    margin-bottom: 14px;
+    @include respond-to(screen-m-min) {
+      margin-bottom: 20px;
+    }
+  }
+  &__header {
+    font-family: $font-light;
+    color: $grey;
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+.pay-bills-rtl {
+  .payments-comp__header,
+  .payments-comp__title,
+  .payee-comp__step-wrapper__title {
+    display: flex;
+  }
+}
+
+:host ::ng-deep mat-horizontal-stepper {
+  .mat-horizontal-stepper-header-container {
+    @include respond-to(screen-m-min) {
+      max-width: 470px;
+    }
+  }
+  .mat-horizontal-stepper-header {
+    padding: 0;
+    &:first-child {
+      padding: 0;
+    }
+  }
+  .mat-horizontal-content-container {
+    padding: 28px 0 0 0;
+  }
+  .payee-comp__step-wrapper__title {
+    color: rgb(141, 141, 141);
+    font-family: $font-regular;
+    font-size: 16px;
+    margin-bottom: 22px;
+  }
+}
+
+:host ::ng-deep mat-horizontal-stepper.mat-horizontal-stepper-rtl {
+  .mat-horizontal-stepper-header-container {
+    margin-right: -4px;
+  }
+}

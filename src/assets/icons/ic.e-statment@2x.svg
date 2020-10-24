@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>9D842665-DACC-40EA-95E8-EDBE7D832087@2x</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-1.0.0.0" transform="translate(-486.000000, -125.000000)">
+            <g id="Quick-Links" transform="translate(486.000000, 40.000000)">
+                <g id="e-Statement" transform="translate(0.000000, 85.000000)">
+                    <rect id="Bond" stroke="#979797" opacity="0" x="0.5" y="0.5" width="23" height="23"></rect>
+                    <rect id="Rectangle" stroke="#1E326E" fill="#FFFFFF" fill-rule="nonzero" x="6.5" y="3.5" width="16" height="19" rx="0.5"></rect>
+                    <rect id="Rectangle" stroke="#1E326E" fill="#FFFFFF" fill-rule="nonzero" x="1.5" y="1.5" width="16" height="19" rx="0.5"></rect>
+                    <line x1="4.43945" y1="5.5" x2="14.4395" y2="5.5" id="Path" stroke="#1E326E" stroke-linecap="round"></line>
+                    <line x1="4.43945" y1="8.5" x2="14.4395" y2="8.5" id="Path" stroke="#1E326E" stroke-linecap="round"></line>
+                    <line x1="4.43945" y1="11.5" x2="14.4395" y2="11.5" id="Path" stroke="#1E326E" stroke-linecap="round"></line>
+                    <line x1="4.43945" y1="14.5" x2="14.4395" y2="14.5" id="Path" stroke="#1E326E" stroke-linecap="round"></line>
+                    <line x1="4.43945" y1="17.8761" x2="10.4395" y2="17.8761" id="Path" stroke="#00A0E6" stroke-linecap="round"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

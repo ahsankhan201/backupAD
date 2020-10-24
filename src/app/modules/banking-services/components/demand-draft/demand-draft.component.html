@@ -1,0 +1,22 @@
+<section class="ibd-demand-draft" [ngClass]="(selectedLang === arabicLanguageText) ? 'ibd-demand-draft-rtl': ''">
+    <div class="ibd-demand-draft__title" translate>tr_demandDraft_stepperTitle</div>
+    <div class="row ibd-demand-draft__step-wrapper margin-lrn">
+        <mat-horizontal-stepper linear #stepper (selectionChange)="stepIndexChanged(stepper,$event)">
+            <ng-template matStepperIcon="edit">
+                <mat-icon></mat-icon>
+            </ng-template>
+            <mat-step label="{{stepperText.beneficiaryDetails | translate}}">
+                <app-draft-beneficiary-details-step></app-draft-beneficiary-details-step>
+            </mat-step>
+            <mat-step label="{{stepperText.transferFrom | translate}}">
+                <app-draft-transfer-from-step></app-draft-transfer-from-step>
+            </mat-step>
+            <mat-step label="{{stepperText.transactionDetails | translate}}">
+                <app-draft-transaction-details-step></app-draft-transaction-details-step>
+            </mat-step>
+            <mat-step translate label="{{stepperText.confirmation | translate}}">
+                <app-draft-confirmation-step></app-draft-confirmation-step>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</section>

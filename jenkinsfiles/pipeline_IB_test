@@ -1,0 +1,7 @@
+//testing in progress
+@Library('global_libraries@feature-simplest')_
+node {
+    decider{
+    
+    }
+}

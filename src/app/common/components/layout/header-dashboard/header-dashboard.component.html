@@ -1,0 +1,53 @@
+<section class="ibd-header px-3" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'header-rtl-layout': ''">
+   <div class="ibd-header__wrapper container-fluid px-0 mx-0">
+      <div class="row">
+         <div class="ibd-header__wrapper__profile col-md-3 col-lg-3 col-xl-2">
+            <ul class="navbar-header ">
+               <div class="user">
+                  <div translate class="welcome">tr_HeaderDashboardComponent_welcomeText</div>
+                  <div class="username">{{ customerName ? customerName:'  '}}
+                     <app-menu-option [menuOptions]="logoutDropDownList" (clickedItem)="menuClickHandler($event)"
+                        [isLogoutDropdown]="'true'"></app-menu-option>
+                  </div>
+               </div>
+            </ul>
+         </div>
+         <div
+            class="ibd-header__wrapper__funds offset-sm-1 offset-md-0 col-sm-5 order-md-0  col-md-4 col-lg-3 col-xl-2">
+            <div class="d-flux header__funds__wrapper">
+               <span class="ibd-small-text">
+                  {{ isHiddenText | translate }} {{ totalAvailableFundsText | translate }}
+               </span>
+               <div class="custom-control d-inline-block custom-switch">
+                  <input type="checkbox" (click)="changeFundsStatus($event);" class="custom-control-input"
+                     id="availableFunds">
+                  <label class="custom-control-label" for="availableFunds"></label>
+               </div>
+               <div *ngIf="showAvailableFunds && totalAvailableFunds" class="ibd-header__wrapper__funds__amount">
+                  {{ totalAvailableFunds | numberFormat }}<small
+                     class="ibd-small-text-fund">.{{ totalAvailableFunds |  getDecimalValue }} </small>
+                  <small class="ibd-small-text-fund">{{ currencyCode }}</small>
+               </div>
+               <div *ngIf="!showAvailableFunds" class="ibd-header__wrapper__funds__amount-show">
+                  {{ availableFundsHiddenText }}</div>
+            </div>
+         </div>
+
+         <div class="ibd-header__wrapper__lang offset-2 offset-md-0 col-sm-2 col-md-1 col-lg-2  col-xl-1">
+            <p>
+               <span *ngFor="let eachLanguage of allLanguages">
+                  <a (click)="switchLang(eachLanguage.LANGUAGE_ISO_CODE)"
+                     class="ibd-header__wrapper__lang-eng card-link"
+                     [ngClass]="(selectedLanguage === eachLanguage.LANGUAGE_ISO_CODE) ? 'active': ''">
+                     {{ eachLanguage.LANGUAGE_TEXT }}
+                  </a>
+               </span>
+            </p>
+         </div>
+
+         <div class="ibd-header__wrapper__logo img-fluid col-6 col-sm-8 ml-md-auto col-lg-3  col-xl-2 text-right">
+            <img alt="Logo" src="{{ logo }}" class="ibd-navbar-comp__logo img-fluid d-inline-block align-top">
+         </div>
+      </div>
+   </div>
+</section>

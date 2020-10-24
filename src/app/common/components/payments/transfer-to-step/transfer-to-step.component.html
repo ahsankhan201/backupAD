@@ -1,0 +1,42 @@
+<section class="transfer-to-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'transfer-to-rtl': ''">
+    <div class="transfer-to-comp__wrapper">
+        <div class="transfer-to-comp__wrapper__donation" *ngIf="selectedPaymentType === paymentTypeDonation">
+            <app-checkbox-generic-charity (selectedOptionValue)="selectedTransferToDonationValue($event)"
+                customClassName="active-blue right-aligned-checkbox" [optionsList]="selectedPayeeList"
+                componentName="selectionToOption" class="transfer-to-generic-checkbox"
+                [ngClass]="(selectedLanguage === arabicLanguageText) ? 'charity-checkbox-rtl': ''">
+            </app-checkbox-generic-charity>
+        </div>
+        <div class="transfer-to-comp__wrapper__payee" *ngIf="selectedPaymentType !== paymentTypeDonation">
+            <app-checkbox-generic [optionsList]="transferToOptionList" [preSelectedOption]="'Payee'"
+                componentName="toTransferSelection" (selectedOptionValue)="selectedTransferToOption($event)"
+                customClassName="active-blue" class="transfer-to-generic-checkbox"
+                [ngClass]="(selectedLanguage === arabicLanguageText) ? 'transfer-to-checkbox-rtl': ''">
+            </app-checkbox-generic>
+            <div class="transfer-to-comp__wrapper__payee-controls">
+                <div class="transfer-to-comp__wrapper__payee-controls__search">
+                    <input [(ngModel)]="searchText" appAlphaNumeric
+                        placeholder="{{transferToScreenText.searchText | translate}}"
+                        (input)="onSearchChange($event.target.value)">
+                    <span class="search-icon"></span>
+                </div>
+                <div class="transfer-to-comp__wrapper__payee-controls__button-wrapper">
+                    <span class="add-btn" routerLink="/payee">{{transferToScreenText.addPayeeText | translate}}
+                        <img alt="add icon" src="/assets/icons/add-icon.svg">
+                    </span>
+                </div>
+            </div>
+            <app-checkbox-payee [checkBoxPayeeList]="payeeList" (selectedOptionValue)="selectedPayee($event)">
+            </app-checkbox-payee>
+        </div>
+
+        <div class="transfer-to-comp__wrapper__buttons">
+            <button class="btn cancel-btn" type="button" (click)="cancelTransaction(true)"
+                translate>tr_common_cancelTransactionText</button>
+            <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+            <button matStepperNext class="btn next-btn" type="button" (click)="moveToNextStep()"
+                [disabled]="!enableNextBtn" translate>tr_common_nextText</button>
+        </div>
+    </div>
+</section>

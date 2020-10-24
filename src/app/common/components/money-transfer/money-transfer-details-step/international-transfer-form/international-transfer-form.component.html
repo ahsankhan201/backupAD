@@ -1,0 +1,116 @@
+<section class="international-transfer-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'intl-transfer-details-rtl': ''">
+    <div class="international-transfer-comp__wrapper">
+        <div class="international-transfer-comp__wrapper__available-funds">
+            <span class="text" translate>tr_cards_availableBalanceText</span>
+            <div class="amount">
+                <span class="amount__digit">
+                    {{availableBalance | numberFormat}}</span>.<span
+                    class="amount__decimal">{{availableBalance | getDecimalValue}}</span>
+                <span class="amount__currency">
+                    {{selectedAccountCurrency}}
+                </span>
+            </div>
+        </div>
+        <form [formGroup]="internationalTransferFormGroup" class="payee-account-form-comp__form">
+            <div class="row margin-lrn" *ngIf="showCrossCurrencyFields">
+                <mat-form-field class="col-md-4 padding-lrn local-amount">
+                    <mat-label translate>tr_common_amountText</mat-label>
+                    <input autocomplete="off" matInput formControlName="localAmount" numbersOnly decimals="3"
+                        maxlength="{{ AMOUNT_LENGTH }}" (input)="calcCurrencyConversion($event.target.value)"
+                        (focusout)="validateAmount()" appInputWithComma>
+                    <mat-error>
+                        <app-show-form-errors [control]="internationalTransferFormGroup.get('localAmount')"
+                            label="Amount">
+                        </app-show-form-errors>
+                    </mat-error>
+                    <span> {{selectedAccountCurrency}} 1.00 </span>
+                </mat-form-field>
+                <div class="col-md-4 padding-lrn exchange-rate-wrapper">
+                    <span> {{selectedAccountCurrency}} 1.00 </span>
+                    <span class="exchange-rate-wrapper__beneficiary">
+                        <img alt="exchange rate web" src="/assets/icons/exchange_rate_web@2x.svg" class="web" />
+                        {{beneficiaryCurrency}} {{transferRate}}</span>
+                    <img alt="exchange rate mobile" src="/assets/icons/exchange_rate_mobile@2x.svg" class="mobile" />
+                </div>
+                <mat-form-field class="col-md-4 padding-lrn external-amount">
+                    <mat-label translate>tr_common_amountText</mat-label>
+                    <input autocomplete="off" matInput formControlName="internationalAmount" numbersOnly decimals="3"
+                        maxlength="{{ AMOUNT_LENGTH }}"
+                        (input)="calcCurrencyConversion($event.target.value, 'External')" appInputWithComma
+                        (focusout)="validateAmount()">
+                    <mat-error>
+                        <app-show-form-errors [control]="internationalTransferFormGroup.get('internationalAmount')"
+                            label="Amount">
+                        </app-show-form-errors>
+                    </mat-error>
+                    <span> {{beneficiaryCurrency}} {{transferRate}}</span>
+                </mat-form-field>
+            </div>
+            <mat-form-field *ngIf="!showCrossCurrencyFields">
+                <mat-label translate>tr_common_amountText</mat-label>
+                <input matInput formControlName="amount" numbersOnly decimals="3" maxlength="{{ AMOUNT_LENGTH }}"
+                    (focusout)="validateAmount()" appInputWithComma>
+                <mat-error>
+                    <app-show-form-errors [control]="internationalTransferFormGroup.get('amount')" label="Amount">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+            <div class="row margin-lrn">
+                <mat-form-field class="col-md-6 padding-lrn transfer-purpose">
+                    <mat-label translate>tr_common_purposeOfTransferText </mat-label>
+                    <input type="text" matInput formControlName="purposeOfTransfer" [matAutocomplete]="transferPurpose">
+                    <mat-error>
+                        <app-show-form-errors [control]="internationalTransferFormGroup.get('purposeOfTransfer')"
+                            label="Purpose of Transfer">
+                        </app-show-form-errors>
+                    </mat-error>
+                    <mat-autocomplete #transferPurpose="matAutocomplete"
+                        (optionSelected)="onPurposeOfTransferChange($event.option.id)" autoActiveFirstOption>
+                        <mat-option
+                            *ngFor="let item of transferPurposeList | filterText:internationalTransferFormGroup.controls['purposeOfTransfer'].value:'purposeOfTransferEn'"
+                            [value]="item.purposeOfTransferEn" id="{{item.stpTypeCode}}">
+                            {{item.purposeOfTransferEn}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+
+                <mat-form-field class="col-md-6 padding-lrn">
+                    <mat-label translate>tr_moneyTransferConfirmComponent_aditionalRemittanceText</mat-label>
+                    <input autocomplete="off" matInput formControlName="remittanceDetails" maxlength="{{memoMaxlength}}"
+                        #additionalDetails>
+                    <mat-hint align="end">{{additionalDetails.value.length}}/{{memoMaxlength}}
+                        {{ transferDetailsScreenText.formOptionalText | translate}}</mat-hint>
+                    <mat-error>
+                        <app-show-form-errors [control]="internationalTransferFormGroup.get('remittanceDetails')"
+                            label="Amount">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <mat-form-field>
+                <mat-label translate>tr_paymentComponent_memoText</mat-label>
+                <input matInput autocomplete="off" formControlName="memo" type="text" maxlength="{{memoMaxlength}}"
+                    #memo appAlphaNumeric>
+                <mat-hint align="end">{{memo.value.length}}/{{memoMaxlength}}
+                    {{ transferDetailsScreenText.formOptionalText | translate}}</mat-hint>
+                <mat-error>
+                    <app-show-form-errors [control]="internationalTransferFormGroup.get('memo')" label="Memo">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+        </form>
+        <div class="bottom-text" *ngIf="showCrossCurrencyNote">
+            <strong translate>tr_common_noteText</strong>:
+            <span translate>tr_moneyTransferComponent_crossCurrencyText</span>
+        </div>
+        <div class="international-transfer-comp__wrapper__buttons">
+            <button class="btn cancel-btn" type="button" (click)="cancelTransaction(true)"
+                translate>tr_common_cancelTransactionText</button>
+            <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+            <button matStepperNext class="btn next-btn" type="button" [disabled]="!internationalTransferFormGroup.valid"
+                (click)="setInternationalTransferSummaryDetails()" translate>tr_common_nextText</button>
+        </div>
+    </div>
+</section>

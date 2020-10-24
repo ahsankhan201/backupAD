@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>9D435C7A-9F1F-4BFE-B538-B83D227DFD43@2x</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-1.0.0.0" transform="translate(-796.000000, -119.000000)">
+            <g id="Accounts-Type" transform="translate(796.000000, 40.000000)">
+                <g id="Savings-Accounts" transform="translate(0.000000, 79.000000)">
+                    <rect id="Bond" stroke="#979797" opacity="0" x="0.5" y="0.5" width="43" height="43"></rect>
+                    <path d="M6,24 L8.80963872,24 L17.7359547,27.6778322 L23.9299472,27.6778322 C23.9299472,27.6778322 26.3926768,28.3217588 26.3926768,30.4580669 C26.3926768,32.594375 23.9299472,33.3478278 23.9299472,33.3478278 L17.7359547,33.3478278 L27.2334294,33.3478278 L39.0111258,30.8843337 C39.0111258,30.8843337 42,30.4580669 42,33.3478278 C42,36.2375886 40.3655682,36.4502744 40.3655682,36.4502744 C40.3655682,36.4502744 25.8189683,42 21.4097487,42 C17.0005291,42 8.80963872,38.3975727 8.80963872,38.3975727 L6,38.3975727" id="Path" stroke="#1E3A68"></path>
+                    <rect id="Rectangle" stroke="#1E3A68" fill-opacity="0.6" fill="#00A0E6" fill-rule="nonzero" x="2.5" y="20.5" width="3" height="21" rx="1.5"></rect>
+                    <path d="M25.9999519,7.5 C28.3434587,7.5 30.4681791,8.45359867 32.0071871,9.99259272 C33.5464592,11.5318508 34.5,13.6568772 34.5,15.9999663 C34.5,18.3430613 33.5464548,20.4681084 32.0071766,22.0073841 C30.4681698,23.5463885 28.3434538,24.5 25.9999519,24.5 C23.6564923,24.5 21.5317974,23.5463841 19.9928026,22.0073753 C18.4535414,20.4681001 17.5,18.3430568 17.5,15.9999663 C17.5,13.6568818 18.4535369,11.5318591 19.9927921,9.99260146 C21.5317881,8.45360304 23.6564874,7.5 25.9999519,7.5 Z" id="Path" stroke="#1E3A68"></path>
+                    <text id="$" font-family="Roboto-Regular, Roboto" font-size="12" font-weight="normal" fill="#1E3A68">
+                        <tspan x="22.6308594" y="18">$</tspan>
+                    </text>
+                    <rect id="Rectangle" stroke="#1E326E" x="30.5" y="3.5" width="1" height="2" rx="0.5"></rect>
+                    <rect id="Rectangle" stroke="#1E326E" x="26.5" y="2.5" width="1" height="2" rx="0.5"></rect>
+                    <rect id="Rectangle" stroke="#1E326E" x="22.5" y="3.5" width="1" height="2" rx="0.5"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

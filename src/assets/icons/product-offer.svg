@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>5F216F69-4246-4EF7-8459-9BC8BB022B7E@2x</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-1.0.0.0" transform="translate(-74.000000, -583.000000)">
+            <g id="Main-Navigation" transform="translate(40.000000, 40.000000)">
+                <g id="Products-Normal" transform="translate(0.000000, 521.000000)">
+                    <g id="ic.Products-Normal" transform="translate(34.000000, 22.000000)">
+                        <rect id="Bond" stroke="#AFAFAF" stroke-width="1.07" opacity="0" fill-rule="nonzero" x="0.535" y="0.535" width="22.93" height="22.93" rx="2"></rect>
+                        <rect id="Rectangle" stroke="#1D2E65" x="0.5" y="0.5" width="9" height="9" rx="2"></rect>
+                        <rect id="Rectangle" stroke="#1D2E65" x="0.5" y="14.5" width="9" height="9" rx="2"></rect>
+                        <rect id="Rectangle" stroke="#1D2E65" x="14.5" y="0.5" width="9" height="9" rx="2"></rect>
+                        <line x1="19" y1="14.5" x2="19" y2="23.5" id="Path" stroke="#1D2E65" stroke-linecap="round"></line>
+                        <line x1="23.5" y1="19" x2="14.5" y2="19" id="Path" stroke="#1D2E65" stroke-linecap="round"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

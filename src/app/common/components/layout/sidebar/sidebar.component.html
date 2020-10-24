@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md fixed-left padding-lrn"
+    [ngClass]="[collapseMenu?'showBg':'noBg', selectedLanguage === arabicLanguageText ? 'nav-rtl-layout': '']"
+    (clickOutside)="closeMenu($event)" appDocumentClick>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+        aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation"
+        (click)="collapseMenu = !collapseMenu" [hidden]="collapseMenu">
+        <span class="navbar-toggler-icon"><img alt ="Mask Icon" src="/assets/icons/Mask@2x.svg"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggle" #sideNavContent>
+        <ul class="navbar-header">
+            <div class="user">
+                <div translate class="welcome">tr_HeaderDashboardComponent_welcomeText</div>
+                <div class="username">{{ customerName }}
+                    <app-menu-option [menuOptions]="logoutDropDownList" (clickedItem)="menuClickHandler($event)"
+                        [isLogoutDropdown]="'true'"></app-menu-option>
+                </div>
+            </div>
+        </ul>
+        <ul class="navbar-nav">
+            <li *ngFor="let navlist of navlists;" class="nav-item" routerLink="{{navlist.navLink}}"
+                routerLinkActive="active" (click)="closeMenu($event)" [ngClass]="(collapseMenu)?'showBg':'noBg'">
+                <img alt="navigation" class="nav-icon" [src]="navlist.navIcon">
+                <img alt="navigation active icon" class="nav-icon-active" [src]="navlist.navIconActive">
+                <span class="nav-link" translate>{{navlist.navText}}</span>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,221 @@
+@import "src/assets/styles/default";
+
+.banking-services-dashboard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &__container {
+    cursor: pointer;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    border: 1px solid $account-card-border;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02);
+    min-width: 327px;
+    padding: 16px 18px 8px 16px;
+    width: 100%;
+    background: $white;
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      span {
+        display: block;
+      }
+      &__header {
+        &__text {
+          color: $grey;
+          font-family: $font-light;
+          font-size: 13px;
+          margin-bottom: 4px;
+          line-height: normal;
+          font-weight: 300;
+          span {
+            display: inline-block;
+          }
+        }
+        &__value {
+          color: $grey;
+          font-family: $font-regular;
+          font-size: 16px;
+          line-height: normal;
+          position: relative;
+          &::after {
+            content: " ";
+            border: 1px solid $cerulean-blue;
+            display: block;
+            width: 30px;
+            position: absolute;
+            bottom: -8px;
+          }
+        }
+      }
+      &__body {
+        margin-top: 22px;
+        @include respond-to(screen-m-min) {
+          margin-top: 24px;
+        }
+        &__text {
+          color: $solid-blue;
+          font-family: $font-regular;
+          font-size: 14px;
+          line-height: normal;
+          @include respond-to(screen-m-min) {
+            margin-bottom: 10px;
+          }
+        }
+        &__value {
+          &::after {
+            content: " ";
+            border: solid 1px $grey;
+            display: block;
+            width: 30px;
+            margin-top: 4px;
+            opacity: 0.2;
+          }
+          span {
+            display: inline-block;
+            line-height: normal;
+          }
+          .label {
+            font-size: 12px;
+            font-weight: 300;
+            font-family: $font-light;
+            color: $grey;
+          }
+          .value {
+            font-size: 12px;
+            font-weight: normal;
+            color: $solid-blue;
+            font-family: $font-regular;
+            padding-left: 4px;
+          }
+        }
+      }
+      &__amount {
+        margin-top: 28px;
+        &__text {
+          color: $grey;
+          font-family: $font-light;
+          font-size: 13px;
+          line-height: normal;
+          margin-bottom: 4px;
+          font-weight: 300;
+        }
+        &__value {
+          margin-bottom: 6px;
+          &::after {
+            content: " ";
+            border: solid 1px $grey;
+            display: block;
+            width: 30px;
+            margin-top: 6px;
+            opacity: 0.2;
+          }
+          span {
+            display: inline-block;
+            line-height: normal;
+          }
+          &__digit {
+            color: $active-blue;
+            font-family: $font-medium;
+            font-size: 20px;
+            line-height: normal;
+            position: relative;
+          }
+          &__decimal,
+          &__currency {
+            color: $suva-grey;
+            font-family: $font-medium;
+            font-size: 12px;
+            line-height: normal;
+          }
+          &__currency {
+            padding-left: 4px;
+          }
+        }
+      }
+      &__status {
+        &__value {
+          font-size: 12px;
+          font-weight: normal;
+          color: $cerulean-blue;
+          font-family: $font-regular;
+          float: right;
+        }
+      }
+    }
+    &:hover {
+      background: $light-blue;
+      border-radius: 16px;
+      border: 1px solid $blue-border;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.06);
+    }
+    @include respond-to(screen-m-min) {
+      margin-right: 24px;
+      margin-bottom: 38px;
+      min-width: 571px;
+      width: auto;
+      &:last-child,
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+    @include respond-to(screen-l-min) {
+      min-width: 390px;
+      margin-right: 38px;
+      margin-bottom: 38px;
+      &:nth-child(2n) {
+        margin-right: 38px;
+      }
+    }
+    @include respond-to(screen-xl-min) {
+      min-width: 333px;
+      margin-right: 27px;
+      &:nth-child(2n) {
+        margin-right: 27px;
+      }
+    }
+  }
+}
+
+// RTL styles
+.banking-services-dashboard-rtl {
+  .banking-services-dashboard__container {
+    @include respond-to(screen-m-min) {
+      margin-right: 0px;
+      margin-left: 24px;
+      &:last-child,
+      &:nth-child(2n) {
+        margin-left: 0;
+      }
+    }
+    @include respond-to(screen-l-min) {
+      margin-right: 0px;
+      margin-left: 38px;
+      &:nth-child(2n) {
+        margin-left: 38px;
+        margin-right: 0px;
+      }
+    }
+    @include respond-to(screen-xl-min) {
+      margin-left: 27px;
+      margin-right: 0px;
+      &:nth-child(2n) {
+        margin-left: 27px;
+        margin-right: 0px;
+      }
+    }
+
+    .banking-services-dashboard__container__wrapper__body__value {
+      .value {
+        padding-right: 4px;
+        padding-left: 0px;
+      }
+    }
+    .banking-services-dashboard__container__wrapper__amount__value {
+      direction: ltr;
+      &::after {
+        margin-left: auto;
+      }
+    }
+  }
+}

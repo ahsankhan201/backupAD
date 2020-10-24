@@ -1,0 +1,17 @@
+<section class="ibd-finance-comp" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'finance-rtl-layout': ''">
+    <div class="ibd-finance-comp__wrapper">
+        <div class="container ibd-finance-comp__wrapper__container padding-lrn margin-lrn">
+            <div class="row ibd-finance-comp__wrapper__container__body-wrapper margin-lrn">
+                <div class="col-sm-12 padding-lrn ibd-finance-comp__wrapper__container__body-wrapper__body">
+                    <div class="ibd-finance-comp__wrapper__container__body-wrapper__body__component-container"
+                        *ngIf="selectedComponent=='financeLists'">
+                        <app-finance-list (financeSelectionStatus)="financeSelectionStatus($event)"></app-finance-list>
+                    </div>
+                    <app-finance-details (backButtonClicked)="onBackButtonClicked($event)"
+                        *ngIf="selectedComponent=='financeDetails'"></app-finance-details>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<router-outlet></router-outlet>

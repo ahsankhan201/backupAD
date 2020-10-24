@@ -1,0 +1,59 @@
+<section class="ibd-registration" [hidden]="showComponent !== 'RegistrationComponent'"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'registration-rtl-layout': ''">
+    <div class="ibd-registration__wrapper">
+        <div class="ibd-registration__wrapper__header">
+            <app-header-login-and-registration class="ibd-registration__wrapper__header-com">
+            </app-header-login-and-registration>
+        </div>
+        <div class="ibd-registration__wrapper__body">
+            <div class="ibd-registration__wrapper__body__registration" *ngIf="!showSuccessComponent">
+                <div class="title" translate>tr_registrationComponent_signUpText</div>
+                <div class="sub-title">
+                    <span translate>tr_registrationComponent_adibInternetText</span>
+                    <span translate>tr_registrationComponent_chooseUsernameText</span>
+                </div>
+                <div class="row ibd-registration__step-wrapper margin-lrn">
+                    <mat-horizontal-stepper linear #stepper (selectionChange)="stepIndexChanged(stepper,$event)">
+                        <ng-template matStepperIcon="edit">
+                            <mat-icon></mat-icon>
+                        </ng-template>
+                        <mat-step label="{{stepperText.cardDetails | translate}}">
+                            <app-card-details-step></app-card-details-step>
+                        </mat-step>
+                        <mat-step label="{{stepperText.otp | translate}}">
+                            <!-- otp step component -->
+                            <app-otp-step></app-otp-step>
+                        </mat-step>
+                        <mat-step label="{{stepperText.chooseUsername | translate}}">
+                            <!-- choose user name step component -->
+                            <app-username-step></app-username-step>
+                        </mat-step>
+                        <mat-step translate label="{{stepperText.choosePassword | translate}}">
+                            <!-- choose password step component -->
+                            <app-password-step (response)="handlePasswordStepResponse($event)"></app-password-step>
+                        </mat-step>
+                    </mat-horizontal-stepper>
+                </div>
+            </div>
+            <div class="ibd-registration__wrapper__body__success-screen" *ngIf="showSuccessComponent">
+                <app-registration-success-screen [title]="stepperText.registrationSuccessTitle"
+                    [subTitle]="stepperText.successSubTitle" [message]="stepperText.successMessage">
+                </app-registration-success-screen>
+            </div>
+            <div class="ibd-registration__wrapper__footer">
+                <div class="ibd-registration__wrapper__footer__wrapper">
+                    <div class="footer-link">{{ ADIB_WEBSITE_URL_TEXT | translate}}</div>
+                    <div class="footer-link" translate>tr_registrationComponent_fraudSecurityText</div>
+                    <div class="footer-link" translate>tr_common_termsAndConditions</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ibd-registration__security-tips">
+        <app-security-tips></app-security-tips>
+    </div>
+</section>
+<div (resized)="onResized($event)">
+    <app-security-tips (closeButtonClick)="handleCloseButtonClick($event)"
+        [hidden]="showComponent !== 'SecurityTipsComponent'"></app-security-tips>
+</div>

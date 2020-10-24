@@ -1,0 +1,323 @@
+@import "src/assets/styles/default";
+
+.cover-card-details {
+  padding: 14px 16px 20px 16px;
+  position: absolute;
+  min-width: 100%;
+  @include respond-to(screen-m-min) {
+    padding: 16px 89px 20px 38px;
+  }
+  @include respond-to(screen-l-min) {
+    padding: 16px 89px 20px 81px;
+  }
+  @include respond-to(screen-xl-min) {
+    padding: 16px 14px 20px 41px;
+  }
+  &__header {
+    line-height: normal;
+    &__back {
+      @extend .ibd-font-regular-cerulean;
+      font-size: 14px;
+      position: relative;
+      cursor: pointer;
+      padding-left: 12px;
+      &:before {
+        border: solid $cerulean-blue;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        content: " ";
+        position: absolute;
+        left: 1px;
+        top: 4px;
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+      }
+    }
+    &__title {
+      @extend .ibd-font-regular-cerulean;
+      margin-top: 12px;
+      color: $suva-grey;
+      font-size: 14px;
+      @include respond-to(screen-m-min) {
+        font-size: 16px;
+      }
+    }
+  }
+  &__details {
+    &__wrapper {
+      padding: 15px 16px 12px 16px;
+      margin-bottom: 24px;
+      margin-top: 16px;
+      min-height: 532px;
+      min-width: 328px;
+      background: $white;
+      box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.12);
+      border-radius: 16px;
+      line-height: normal;
+      display: flex;
+      flex-direction: column;
+      @include respond-to(screen-m-min) {
+        min-height: 487px;
+        min-width: 567px;
+        padding: 16px 16px 16px 20px;
+      }
+      @include respond-to(screen-l-min) {
+        padding: 16px 20px 20px 20px;
+        min-height: 360px;
+        min-width: 762px;
+      }
+      @include respond-to(screen-xl-min) {
+        padding: 20px;
+        min-width: 1293px;
+        min-height: 168px;
+        flex-direction: row;
+      }
+      &__card {
+        display: inline-flex;
+        @include respond-to(screen-m-min) {
+          align-self: center;
+        }
+        @include respond-to(screen-land) {
+          align-self: center;
+        }
+        @include respond-to(screen-xl-min) {
+          padding-right: 20px;
+          align-self: unset;
+        }
+        &__icon {
+          height: 109px;
+          width: 172px;
+        }
+        &__status {
+          display: flex;
+          justify-content: center;
+          margin-top: 45px;
+          margin-left: 14px;
+          @include respond-to(screen-xl-min) {
+            flex-direction: row;
+            position: absolute;
+            margin-top: 120px;
+            margin-left: 33px;
+          }
+          &__label {
+            @extend .ibd-small-text;
+            line-height: normal;
+          }
+          &__value {
+            @extend .ibd-font-regular-cerulean;
+            color: $solid-blue;
+            margin-left: 4px;
+          }
+        }
+      }
+      &__details-list {
+        border-top: 1px solid rgba(160, 160, 160, 0.2);
+        flex-grow: 100;
+        margin-top: 16px;
+        @include respond-to(screen-xl-min) {
+          border-top: unset;
+          border-left: 1px solid rgba(160, 160, 160, 0.2);
+          margin-top: 0px;
+          padding-left: 27px;
+        }
+        &__detail-item {
+          vertical-align: top;
+          margin-top: 16px;
+          display: inline-block;
+          width: 50%;
+          @include respond-to(screen-m-min) {
+            width: 33%;
+          }
+          @include respond-to(screen-land) {
+            width: 25%;
+          }
+          @include respond-to(screen-l-min) {
+            width: 25%;
+          }
+          @include respond-to(screen-xl-min) {
+            margin-top: 0px;
+            width: 14%;
+          }
+          &__label {
+            @extend .ibd-font-regular-12-grey;
+            color: #bcbcbc;
+          }
+          &__value {
+            margin-top: 4px;
+            @extend .ibd-font-regular-cerulean;
+            font-size: 14px;
+            color: #263372;
+            &__currency,
+            &__decimal {
+              @extend .ibd-font-regular-12-grey;
+              color: $step-gray;
+            }
+          }
+          .font-medium-weight {
+            font-size: 16px;
+            font-family: $font-medium;
+            font-weight: 500;
+          }
+        }
+        &__payment {
+          margin: 16px auto 0 auto;
+          background: rgb(232, 248, 255);
+          border-radius: 15px;
+          border: 1px solid rgb(0, 160, 230);
+          height: 28px;
+          width: 125px;
+          text-align: center;
+          cursor: pointer;
+          @include respond-to(screen-m-min) {
+            height: 30px;
+          }
+          @include respond-to(screen-land) {
+            display: inline-block;
+            margin-right: 75px;
+          }
+          @include respond-to(screen-l-min) {
+            display: inline-block;
+            margin-right: 75px;
+          }
+          @include respond-to(screen-xl-min) {
+            width: 140px;
+            margin-top: 0px;
+            margin-right: 0px;
+          }
+          &__btn {
+            @extend .ibd-font-regular-cerulean;
+            display: inline-block;
+            padding-top: 6px;
+          }
+        }
+        &__item {
+          margin-top: 16px;
+          padding: 7px 20px 7px 20px;
+          background: #f8f8fd;
+          border-radius: 16px;
+          display: flex;
+          justify-content: space-between;
+          @extend .ibd-font-regular-cerulean;
+          min-height: 28px;
+          @include respond-to(screen-land) {
+            width: 280px;
+            display: inline-flex;
+            &:nth-child(odd) {
+              margin-left: unset;
+              margin-right: 16px;
+            }
+          }
+          @include respond-to(screen-l-min) {
+            width: 351px;
+            display: inline-flex;
+            &:nth-child(odd) {
+              margin-left: unset;
+              margin-right: 20px;
+            }
+          }
+          @include respond-to(screen-xl-min) {
+            min-height: 32px;
+            width: 507px;
+            padding: 9px 18px 8px 16px;
+            &:nth-child(odd) {
+              margin-left: unset;
+              margin-right: 18px;
+            }
+          }
+          &__label {
+            color: $grey;
+            font-family: $font-light;
+            font-weight: 300;
+          }
+          &__value {
+            color: $solid-blue;
+            font-weight: 300;
+            text-align: right;
+          }
+          .font-medium-weight {
+            font-family: $font-medium;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+  &.cover-card-details-rtl-layout {
+    direction: rtl;
+    @include respond-to(screen-xl-min) {
+      padding: 16px 41px;
+    }
+    .cover-card-details__header {
+      text-align: right;
+      @include respond-to(screen-xl-min) {
+        margin-right: 10px;
+      }
+      &__back {
+        margin-right: 10px;
+        text-align: right;
+        &::before {
+          left: 100%;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+    .cover-card-details__details__wrapper {
+      &__card {
+        @include respond-to(screen-xl-min) {
+          padding-left: 20px;
+          padding-right: unset;
+        }
+        &__status {
+          margin-right: 14px;
+          margin-left: unset;
+          &__value {
+            margin-left: 0px;
+            margin-right: 4px;
+          }
+        }
+      }
+      &__details-list {
+        text-align: right;
+        @include respond-to(screen-xl-min) {
+          border-right: 1px solid rgba(160, 160, 160, 0.2);
+          border-left: unset;
+          padding-left: unset;
+          padding-right: 27px;
+        }
+        &__detail-item {
+          &__value {
+            direction: ltr;
+          }
+        }
+        &__item {
+          @include respond-to(screen-land) {
+            &:nth-child(odd) {
+              margin-right: unset;
+              margin-left: 16px;
+            }
+          }
+          @include respond-to(screen-l-min) {
+            &:nth-child(odd) {
+              margin-right: unset;
+              margin-left: 20px;
+            }
+          }
+          @include respond-to(screen-xl-min) {
+            padding: 9px 16px 8px 18px;
+            &:nth-child(odd) {
+              margin-right: unset;
+              margin-left: 18px;
+            }
+          }
+          &__value {
+            direction: ltr;
+          }
+        }
+      }
+    }
+  }
+  &__transactions {
+    margin-bottom: 60px;
+  }
+}

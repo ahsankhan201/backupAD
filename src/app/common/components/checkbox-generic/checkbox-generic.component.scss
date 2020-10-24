@@ -1,0 +1,89 @@
+@import "src/assets/styles/default";
+
+.checkbox-with-image-comp {
+  .hidden {
+    margin-right: 0;
+  }
+  &__container {
+    &__wrapper {
+      cursor: pointer;
+      background: $white;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 5px;
+      border-radius: 20px;
+      height: 28px;
+      min-width: 68px;
+      border: 1px solid $light-grey;
+      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02);
+
+      &__title {
+        @extend .ibd-small-text;
+        font-family: $font-regular;
+        color: $grey;
+        margin: 0px 10px;
+        font-size: 12px;
+      }
+      &:hover {
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
+      }
+      input {
+        pointer-events: none;
+      }
+    }
+    .active {
+      &.checkbox-with-image-comp__container__wrapper {
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
+        .checkbox-with-image-comp__container__wrapper__title {
+          color: $cerulean-blue;
+        }
+      }
+      &.active-blue {
+        background: #e1f6ff;
+        border: 1px solid #11b7ff;
+        box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.02);
+        &.checkbox-with-image-comp__container__wrapper {
+          .checkbox-with-image-comp__container__wrapper__input label {
+            background: #e1f6ff;
+          }
+          box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.02);
+          .checkbox-with-image-comp__container__wrapper__title {
+            color: $solid-blue;
+          }
+        }
+      }
+    }
+    .disabled {
+      pointer-events: none;
+    }
+    .right-aligned-checkbox {
+      flex-direction: row-reverse;
+      width: 333px;
+      height: 60px;
+      background: $white;
+      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02);
+      border-radius: 16px;
+      .checkbox-with-image-comp__container__wrapper__title {
+        margin-right: auto;
+        color: #263372;
+        font-size: 15px;
+        font-family: $font-medium;
+        font-weight: 500;
+        line-height: 22px;
+      }
+    }
+  }
+}
+
+.checkbox-generic-rtl {
+  .hidden {
+    margin-left: 0;
+  }
+  .checkbox-with-image-comp__container__wrapper__title {
+    margin-right: 6px;
+  }
+  .arabic-timing {
+    direction: ltr;
+  }
+}

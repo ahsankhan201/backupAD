@@ -1,0 +1,44 @@
+@import "src/assets/styles/default";
+
+.rta-selection-comp {
+  min-height: 390px;
+  @include respond-to(screen-m-min) {
+    min-height: auto;
+  }
+  &__provider {
+    @include respond-to(screen-m-min) {
+      margin-bottom: 63px;
+    }
+    @include respond-to(screen-l-min) {
+      margin-bottom: 65px;
+    }
+  }
+  &__buttons {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    z-index: 10;
+    .next-btn {
+      margin-left: 16px;
+      @include respond-to(screen-m-min) {
+        margin-left: 27px;
+      }
+    }
+    @include respond-to(screen-m-min) {
+      position: static;
+    }
+  }
+}
+
+.rta-payee-rtl {
+  .rta-selection-comp__buttons {
+    display: flex;
+    .next-btn {
+      margin-left: 0px;
+      margin-right: 16px;
+      @include respond-to(screen-m-min) {
+        margin-right: 27px;
+      }
+    }
+  }
+}

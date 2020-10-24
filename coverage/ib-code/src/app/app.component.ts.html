@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/app.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/app</a> app.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">87.69% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>57/65</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>7/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">72.22% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>13/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.44% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>51/59</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, OnDestroy, ChangeDetectorRef, AfterViewChecked, HostListener } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { LogoutService } from 'src/app/modules/logout/services/logout.service';
+import { SnackBarService } from './common/services/snack-bar.service';
+import { SharedService } from './common/services/shared.service';
+import { SnackBar } from './common/models/snackBar.model';
+import {
+  TRANSLATION_DATA, LANGUAGES_AVAILABLE, LOCALE, DEFAULT_HORIZONTAL_LINE_CLASS,
+  LOGIN_HEADER_URLS, EVENT_LIST
+} from './common/global-constants';
+&nbsp;
+&nbsp;
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit, OnDestroy, AfterViewChecked {
+  subscription$ = new Subscription();
+  showSnackBar = false;
+  horizontalLineClass = DEFAULT_HORIZONTAL_LINE_CLASS;
+  snackBarMessageObj: SnackBar;
+  showDashboardComponents = true;
+  showLoader: boolean;
+  constructor(
+    private translateService: TranslateService,
+    private snackBarService: SnackBarService,
+    private sharedService: SharedService,
+    private router: Router,
+    private changeDetectRef: ChangeDetectorRef,
+    private logoutService: LogoutService
+  ) {
+  }
+  ngOnInit() {
+    this.translateService.addLangs(LANGUAGES_AVAILABLE);
+    this.setLocale();
+    this.showSnackBarWithMessage();
+    this.setHorizontalLineStyle();
+  }
+&nbsp;
+  /**
+   * HostListener will listen DOM event contextmenu,paste,copy,cut and provides handler for preventDefault the event occurs.
+   */
+&nbsp;
+  @HostListener(EVENT_LIST.contextmenu, EVENT_LIST.event) <span class="fstat-no" title="function not covered" >onRightClick(</span>event: MouseEvent) {
+<span class="cstat-no" title="statement not covered" >    this.sharedService.stopEventPropagation(event);</span>
+  }
+&nbsp;
+  @HostListener(EVENT_LIST.paste, EVENT_LIST.event) <span class="fstat-no" title="function not covered" >blockPaste(</span>event: KeyboardEvent) {
+<span class="cstat-no" title="statement not covered" >    this.sharedService.stopEventPropagation(event);</span>
+  }
+&nbsp;
+  @HostListener(EVENT_LIST.copy, EVENT_LIST.event) <span class="fstat-no" title="function not covered" >blockCopy(</span>event: KeyboardEvent) {
+<span class="cstat-no" title="statement not covered" >    this.sharedService.stopEventPropagation(event);</span>
+  }
+&nbsp;
+  @HostListener(EVENT_LIST.cut, EVENT_LIST.event) <span class="fstat-no" title="function not covered" >blockCut(</span>event: KeyboardEvent) {
+<span class="cstat-no" title="statement not covered" >    this.sharedService.stopEventPropagation(event);</span>
+  }
+  // this will try to make async call to revoke the token or back / refresh button event
+  @HostListener(EVENT_LIST.beforeUnload, EVENT_LIST.event) <span class="fstat-no" title="function not covered" >async explicitLogout(</span>event: Event) {
+<span class="cstat-no" title="statement not covered" >    if (this.sharedService.accessToken || this.sharedService.refreshToken) {</span>
+<span class="cstat-no" title="statement not covered" >      this.logoutService.logoutUser();</span>
+<span class="cstat-no" title="statement not covered" >      return undefined;</span>
+    }
+  }
+  /**
+   * @methodName showSnackBarWithMessage
+   * @description used to show snackbar on errors from API
+   * @parameters none
+   * @return none
+   */
+  showSnackBarWithMessage(): void {
+    this.subscription$.add(this.snackBarService.getSnackBarInfo().subscribe(response =&gt; {
+      this.showSnackBar = response.showSnackBar;
+      this.snackBarMessageObj = Object.assign({} as SnackBar, response.message);
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName setLocale
+   * @description check locale else set to default locale
+   * @parameters none
+   * @return void
+   */
+  setLocale(): void {
+    let defaultLocale;
+    if (localStorage.getItem(LOCALE)) {
+      const browserLang = localStorage.getItem(LOCALE);
+      defaultLocale = LANGUAGES_AVAILABLE.includes(browserLang) ? browserLang : TRANSLATION_DATA.DEFAULT_LANGUAGE;
+      this.translateService.use(defaultLocale);
+    } else {
+      defaultLocale = TRANSLATION_DATA.DEFAULT_LANGUAGE;
+      this.translateService.setDefaultLang(TRANSLATION_DATA.DEFAULT_LANGUAGE);
+    }
+    localStorage.setItem(LOCALE, defaultLocale);
+    // setting value in translation service
+    this.translateService.currentLang = defaultLocale;
+    // dispatching selected language value to it's subscribers
+    this.sharedService.setLanguageInfo(defaultLocale);
+  }
+&nbsp;
+  /**
+   * @methodName setHorizontalLineStyle
+   * @description used to set the horizontal line style class
+   * @parameters none
+   * @return none
+   */
+  setHorizontalLineStyle(): void {
+    this.subscription$.add(this.sharedService.getHorizontalLineClass().subscribe(response =&gt; {
+      this.horizontalLineClass = response ? <span class="branch-0 cbranch-no" title="branch not covered" >response </span>: DEFAULT_HORIZONTAL_LINE_CLASS;
+    }));
+    this.sharedService.toggleBackgroundImageClasses();
+  }
+&nbsp;
+  /**
+   * @methodName hasLoginRoute
+   * @description Check if the router url contains the specified route to change layout
+   * @parameters none
+   * @return boolean
+   */
+  hasLoginRoute() {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.router.url !== '/') {
+<span class="cstat-no" title="statement not covered" >      this.showDashboardComponents = LOGIN_HEADER_URLS.includes(this.router.url);</span>
+    }
+  }
+&nbsp;
+  ngAfterViewChecked() {
+    this.hasLoginRoute();
+    this.setLoader();
+    this.changeDetectRef.detectChanges();
+  }
+&nbsp;
+  /**
+   * @methodName setLoader
+   * @description used to set loader status
+   * @parameters none
+   * @return none
+   */
+  setLoader(): void {
+    this.subscription$.add(this.sharedService.getLoaderStatus().subscribe(spinnerInfo =&gt; {
+      this.showLoader = spinnerInfo;
+    }));
+  }
+&nbsp;
+  ngOnDestroy() {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (this.subscription$) { this.subscription$.unsubscribe(); }
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

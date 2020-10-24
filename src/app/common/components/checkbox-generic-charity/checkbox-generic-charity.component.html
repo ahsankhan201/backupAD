@@ -1,0 +1,19 @@
+<div class="checkbox-with-image-comp"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'checkbox-charity-rtl': ''">
+    <div class="checkbox-with-image-comp__container-list" *ngFor="let items of optionsList">
+        <div class="checkbox-with-image-comp__container-list__title" translate> {{ items.title }}</div>
+        <div class="checkbox-with-image-comp__container" *ngFor="let item of items.data">
+            <div class="checkbox-with-image-comp__container__wrapper  {{customClassName}}"
+                [ngClass]="(item.id===preSelectedOption)? 'active':''"
+                (click)="handleChange($event, item, checkBoxName)">
+                <div class="checkbox-with-image-comp__container__wrapper__input ibd-check-box">
+                    <input type="radio" id="{{item.id}}" value="{{item.title}}" name="{{componentName}}" #checkBoxName
+                        [checked]="item.id===preSelectedOption" />
+                    <label for="{{item.id}}"></label>
+                </div>
+
+                <span class="checkbox-with-image-comp__container__wrapper__title">{{item.title | translate}}</span>
+            </div>
+        </div>
+    </div>
+</div>

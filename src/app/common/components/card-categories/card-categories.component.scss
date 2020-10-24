@@ -1,0 +1,72 @@
+@import "src/assets/styles/default";
+
+.card-categories-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  @include respond-to(screen-m-min) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  &__card {
+    cursor: pointer;
+    background: $white;
+    border-radius: 16px;
+    border: 1px solid $button-grey;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02);
+    height: 80px;
+    width: 100%;
+    display: flex;
+    padding: 18px 18px 16px 18px;
+    margin-bottom: 16px;
+    &:hover {
+      background: $light-blue;
+      border-radius: 16px;
+      border: 1px solid $blue-border;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.06);
+    }
+    .image-wrapper {
+      height: 44px;
+      width: 44px;
+      img {
+        height: 44px;
+        width: 44px;
+      }
+    }
+    &__text-wrapper {
+      margin-left: 16px;
+      align-self: center;
+      .title {
+        color: $active-blue;
+        font-family: $font-medium;
+        font-size: 15px;
+        letter-spacing: 0px;
+        line-height: 20px;
+      }
+    }
+    @include respond-to(screen-m-min) {
+      height: 80px;
+      width: 269px;
+      margin: 0 32px 32px 0;
+    }
+    @include respond-to(screen-l-min) {
+      width: 373px;
+    }
+    @include respond-to(screen-xl-min) {
+      width: 333px;
+      margin: 0 27px 27px 0;
+    }
+  }
+}
+
+.card-categories-list-rtl {
+  direction: rtl;
+  .card-categories-list__card {
+    margin: 0 0 27px 27px;
+  }
+  .card-categories-list__card__text-wrapper {
+    margin-left: none;
+    margin-right: 16px;
+  }
+}

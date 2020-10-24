@@ -1,0 +1,127 @@
+@import "src/assets/styles/default";
+
+.savings-account-comp {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 405px;
+  margin-top: 32px;
+  @include respond-to(screen-m-min) {
+    margin-top: 46px;
+    min-height: 405px;
+  }
+  @include respond-to(screen-l-min) {
+    max-width: 595px;
+  }
+  &__currency-wrapper {
+    &__title {
+      font-family: $font-regular;
+      font-size: 16px;
+      color: $suva-grey;
+      margin-bottom: 16px;
+    }
+  }
+  &__form {
+    min-height: 420px;
+    @include respond-to(screen-m-min) {
+      position: relative;
+      min-height: 365px;
+    }
+    &__title {
+      font-family: $font-regular;
+      font-size: 16px;
+      color: $suva-grey;
+      margin-top: 6px;
+    }
+    .personal-details-title {
+      margin-top: 16px;
+      @include respond-to(screen-m-min) {
+        margin-top: 12px;
+      }
+    }
+    &__wrapper {
+      .mat-form-field-should-float:first-child {
+        margin-top: 16px;
+      }
+      @include respond-to(screen-m-min) {
+        display: flex;
+        align-items: baseline;
+        .mat-form-field-should-float {
+          margin-top: 16px;
+        }
+        mat-form-field {
+          &:first-child {
+            padding-right: 13.5px;
+          }
+          &:last-child {
+            padding-left: 13.5px;
+          }
+        }
+      }
+    }
+    &__buttons {
+      width: 98%;
+      margin-top: 12px;
+      z-index: 10;
+      position: fixed;
+      bottom: 20px;
+      button {
+        width: 45%;
+        @include respond-to(screen-m-min) {
+          width: 47%;
+        }
+      }
+      .next-btn {
+        margin-left: 16px;
+        @include respond-to(screen-m-min) {
+          margin-left: 27px;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .currency-list {
+  .checkbox-with-image-comp {
+    display: flex;
+    flex-wrap: wrap;
+    &__container {
+      margin-right: 27px;
+      &__wrapper {
+        padding-right: 16px;
+        margin: 0 0 24px 0;
+      }
+    }
+  }
+}
+.savings-account-comp-rtl {
+  .next-btn {
+    margin-right: 16px;
+    margin-left: 0px;
+    @include respond-to(screen-m-min) {
+      margin-right: 27px;
+      margin-left: 0px;
+    }
+  }
+}
+
+.savings-account-comp-form-wrapper-rtl {
+  text-align: right;
+  @include respond-to(screen-m-min) {
+    mat-form-field {
+      &:first-child {
+        padding-left: 13.5px;
+        padding-right: 0px;
+      }
+      &:last-child {
+        padding-right: 13.5px;
+        padding-left: 0px;
+      }
+    }
+  }
+}

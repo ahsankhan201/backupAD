@@ -1,0 +1,81 @@
+@import "src/assets/styles/default";
+
+.confirm-payee-comp {
+  min-height: 420px;
+  @include respond-to(screen-m-min) {
+    min-height: auto;
+  }
+  &__row {
+    &__header {
+      @extend .ibd-small-text;
+
+      font-family: $font-regular;
+      font-size: 16px;
+      color: $suva-grey;
+      padding-bottom: 16px;
+    }
+    &__wrapper {
+      &__title {
+        @extend .ibd-small-text;
+        padding-bottom: 4px;
+      }
+      &__description {
+        @extend .ibd-small-text;
+
+        color: $solid-blue;
+        font-family: $font-regular;
+        font-size: 16px;
+        padding-bottom: 16px;
+      }
+    }
+    &__buttons {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      .next-btn {
+        margin-left: 16px;
+        @include respond-to(screen-m-min) {
+          margin-left: 27px;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        position: static;
+      }
+    }
+  }
+  &__otp-wrapper {
+    @include respond-to(screen-l-min) {
+      width: 100%;
+    }
+  }
+}
+
+:host ::ng-deep .confirm-payee-comp__success-screen {
+  width: 100%;
+  .success-screen-comp {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.confirm-payee-rtl {
+  .confirm-payee-comp__row {
+    &__header {
+      display: flex;
+    }
+    &__wrapper {
+      text-align: right;
+      text-align: -webkit-right;
+    }
+    &__buttons {
+      display: flex;
+      .next-btn {
+        margin-left: 0px;
+        margin-right: 16px;
+        @include respond-to(screen-m-min) {
+          margin-right: 27px;
+        }
+      }
+    }
+  }
+}

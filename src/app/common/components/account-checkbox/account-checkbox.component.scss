@@ -1,0 +1,200 @@
+@import "src/assets/styles/default";
+
+.account-checkbox-comp {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &__container {
+    margin-bottom: 16px;
+    border-radius: 16px;
+    border: 1px solid $account-card-border;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02);
+    min-width: 327px;
+    padding: 16px;
+    width: 100%;
+    &__wrapper {
+      cursor: pointer;
+      background: $white;
+      display: flex;
+      flex-direction: column;
+      span {
+        display: block;
+      }
+      &__account {
+        &__text {
+          color: $grey;
+          font-family: $font-light;
+          font-size: 13px;
+          margin-bottom: 4px;
+          line-height: normal;
+          span {
+            display: inline-block;
+          }
+        }
+        &__number {
+          color: $grey;
+          font-family: $font-regular;
+          font-size: 16px;
+          line-height: normal;
+          margin-bottom: 13px;
+          position: relative;
+          &::after {
+            content: " ";
+            border: 1px solid $cerulean-blue;
+            display: block;
+            width: 25px;
+            position: absolute;
+            bottom: -8px;
+            left: 3px;
+          }
+        }
+      }
+      &__funds {
+        &__text {
+          color: $grey;
+          font-family: $font-light;
+          font-size: 13px;
+          line-height: normal;
+          margin-bottom: 4px;
+        }
+        &__amount {
+          margin-bottom: 6px;
+          &::after {
+            content: " ";
+            border: solid 1px $grey;
+            display: block;
+            width: 25px;
+            margin-top: 6px;
+            opacity: 0.2;
+          }
+          span {
+            display: inline-block;
+            line-height: normal;
+          }
+          &__digit {
+            color: $active-blue;
+            font-family: $font-medium;
+            font-size: 20px;
+            line-height: normal;
+            position: relative;
+          }
+          &__decimal,
+          &__currency {
+            color: $suva-grey;
+            font-family: $font-medium;
+            font-size: 12px;
+            line-height: normal;
+          }
+          &__currency {
+            padding-left: 4px;
+          }
+        }
+      }
+      &__input {
+        label,
+        input {
+          left: 92%;
+        }
+        label {
+          height: 24px;
+          width: 24px;
+          &::after {
+            top: 7px;
+            left: 7px;
+            height: 5px;
+            width: 9px;
+          }
+        }
+      }
+    }
+    @include respond-to(screen-m-min) {
+      margin-right: 24px;
+      margin-bottom: 24px;
+      min-width: 295px;
+      width: auto;
+      &:last-child,
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+    @include respond-to(screen-l-min) {
+      min-width: 295px;
+      margin-right: 24px;
+      &:nth-child(2n) {
+        margin-right: 24px;
+      }
+    }
+    @include respond-to(screen-xl-min) {
+      min-width: 333px;
+      margin-right: 27px;
+      &:nth-child(2n) {
+        margin-right: 27px;
+      }
+    }
+    &.active {
+      &.account-checkbox-comp__container {
+        background: $light-blue;
+        border: 1px solid $blue-border;
+        box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.02);
+        .account-checkbox-comp__container__wrapper {
+          background: $light-blue;
+        }
+        .ibd-check-box {
+          label {
+            background: $light-blue;
+          }
+        }
+      }
+    }
+  }
+}
+
+.account-checkbox-rtl {
+  .account-checkbox-comp__container {
+    text-align: right;
+    text-align: -webkit-right;
+    margin-right: 0px;
+    &__wrapper {
+      &__account {
+        &__number {
+          &::after {
+            right: 3px;
+          }
+        }
+      }
+      &__funds {
+        direction: ltr;
+      }
+      &__input {
+        label,
+        input {
+          right: 92%;
+        }
+        label {
+          &::after {
+            right: 7px;
+          }
+        }
+      }
+    }
+    @include respond-to(screen-m-min) {
+      margin-left: 24px;
+      &:last-child,
+      &:nth-child(2n) {
+        margin-left: 0px;
+      }
+    }
+    @include respond-to(screen-l-min) {
+      margin-left: 24px;
+      &:nth-child(2n) {
+        margin-left: 24px;
+      }
+    }
+    @include respond-to(screen-xl-min) {
+      margin-left: 27px;
+      &:nth-child(2n) {
+        margin-left: 27px;
+      }
+    }
+  }
+}

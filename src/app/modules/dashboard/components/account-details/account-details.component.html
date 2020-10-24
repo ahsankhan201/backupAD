@@ -1,0 +1,162 @@
+<div class="body" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'account-details-rtl-layout': ''">
+    <div class="body__account-details-wrapper" *ngIf="accountData">
+        <div class="body__account-details-wrapper__link-wrapper" (click)="onBackButtonClicked()">
+            <span translate class="body__account-details-wrapper__link-wrapper__back-link">tr_navControl_backText</span>
+        </div>
+        <div class="body__account-details-wrapper__label-wrapper">
+            <div class="body__account-details-wrapper__label-wrapper__account-info">
+                <div class="body__account-details-wrapper__label-wrapper__account-info__account-type"
+                    [ngClass]="{'primary-account-width':accountData?.isDefaultAccount}">
+                    {{accountData.classDesc}}
+                </div>
+                <div *ngIf="accountData?.isDefaultAccount"
+                    class="body__account-details-wrapper__label-wrapper__account-info__account-categorey" translate>
+                    tr_common_primaryText
+                </div>
+            </div>
+            <div class="body__account-details-wrapper__label-wrapper__copy-button" id="ibd-copy-button"
+                (click)="copyToClipBoard()">
+                <div class="body__account-details-wrapper__label-wrapper__copy-button__icon">
+                    <img alt="copy icon" src="{{icons.copyIcon}}" />
+                </div>
+                <div translate class="body__account-details-wrapper__label-wrapper__copy-button__text">
+                    tr_accountDetailComponent_copyText</div>
+            </div>
+        </div>
+
+        <div class="body__account-details-wrapper__account-details">
+            <div class="body__account-details-wrapper__account-details__amount-wrapper">
+                <div class="body__account-details-wrapper__account-details__amount-wrapper__balance">
+                    <div class="body__account-details-wrapper__account-details__amount-wrapper__balance__box">
+                        <div translate
+                            class="body__account-details-wrapper__account-details__amount-wrapper__balance__box__label">
+                            tr_accountDetailComponent_avilableFunds</div>
+                        <div
+                            class="body__account-details-wrapper__account-details__amount-wrapper__balance__box__amount">
+                            <span
+                                class="body__account-details-wrapper__account-details__amount-wrapper__balance__box__amount__digit">
+                                {{accountData.balanceAvailable| numberFormat}}
+                            </span><span
+                                class="body__account-details-wrapper__account-details__amount-wrapper__balance__box__amount__decimal">
+                                .{{accountData.balanceAvailable| getDecimalValue}}
+                                {{accountData.currencyCode}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="body__account-details-wrapper__account-details__amount-wrapper__balance">
+                    <div class="body__account-details-wrapper__account-details__amount-wrapper__balance__box">
+                        <div translate
+                            class="body__account-details-wrapper__account-details__amount-wrapper__balance__box__label">
+                            tr_accountDetailComponent_currentBalance
+                        </div>
+                        <div
+                            class="body__account-details-wrapper__account-details__amount-wrapper__balance__box__amount">
+                            <span
+                                class="body__account-details-wrapper__account-details__amount-wrapper__balance__box__amount__digit">
+                                {{accountData.balanceCurrent|numberFormat}}
+                            </span>
+                            <span
+                                class="body__account-details-wrapper__account-details__amount-wrapper__balance__box__amount__decimal">
+                                .{{accountData.balanceCurrent|getDecimalValue}}
+                                {{accountData.currencyCode}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Saving Account wrapper -->
+            <div class="body__account-details-wrapper__account-details__info-wrapper" *ngIf="!isGhina">
+                <div class="body__account-details-wrapper__account-details__info-wrapper__info-bar">
+                    <div translate
+                        class="body__account-details-wrapper__account-details__info-wrapper__info-bar__label">
+                        tr_common_accountNumberText</div>
+                    <div
+                        class="body__account-details-wrapper__account-details__info-wrapper__info-bar__value accountNumber">
+                        {{accountData.accountNumber }}
+                    </div>
+                </div>
+                <div class="body__account-details-wrapper__account-details__info-wrapper__info-bar">
+                    <div translate
+                        class="body__account-details-wrapper__account-details__info-wrapper__info-bar__label">
+                        tr_common_ibanText</div>
+                    <div class="body__account-details-wrapper__account-details__info-wrapper__info-bar__value">
+                        {{accountData.ibanNumber }}
+                    </div>
+                </div>
+                <div class="body__account-details-wrapper__account-details__info-wrapper__info-bar">
+                    <div translate
+                        class="body__account-details-wrapper__account-details__info-wrapper__info-bar__label">
+                        tr_accountDetailComponent_swift</div>
+                    <div class="body__account-details-wrapper__account-details__info-wrapper__info-bar__value">
+                        {{accountData.swiftCode }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ghina wrapper -->
+            <div class="body__account-details-wrapper__account-details__ghina-wrapper" *ngIf="isGhina">
+                <div class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar">
+                    <div translate
+                        class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar__label">
+                        tr_common_accountNumberText</div>
+                    <div
+                        class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar__value  accountNumber">
+                        {{accountData.accountNumber }}
+                    </div>
+                </div>
+                <div class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar">
+                    <div translate
+                        class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar__label">
+                        tr_common_ibanText</div>
+                    <div class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar__value">
+                        {{accountData.ibanNumber }}
+                    </div>
+                </div>
+                <div class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar">
+                    <div translate
+                        class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar__label">
+                        tr_accountDetailComponent_swift</div>
+                    <div class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar__value">
+                        {{accountData.swiftCode }}
+                    </div>
+                </div>
+                <div class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar">
+                    <div translate
+                        class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar__label">
+                        tr_accountDetailComponent_numberOfCopun</div>
+                    <div class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar__value">
+                        {{accountData.couponsCount }}
+                    </div>
+                </div>
+                <div
+                    class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar body__account-details-wrapper__account-details__ghina-wrapper__full">
+                    <div translate
+                        class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar__label">
+                        tr_accountDetailComponent_drawDate</div>
+                    <div class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar__draw-wrapper">
+                        <div
+                            class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar__draw-wrapper__value">
+                            {{accountData.nextDraw | date: 'dd/MM/yyyy'}}</div>
+                        <div *ngIf="accountData.nextDrawDaysCount"
+                            class="body__account-details-wrapper__account-details__ghina-wrapper__info-bar__draw-wrapper__draw-days">
+                            {{accountData.nextDrawDaysCount }} <span
+                                translate>tr_accountDetailComponent_drawDaysLeftText</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="body__account-details-wrapper__quicklinks-wrapper">
+            <app-quick-links [quickLinksData]="quickLinksData" (clickedItem)="handleQuickLinkEvent($event)">
+            </app-quick-links>
+        </div>
+
+        <div class="transaction-history">
+            <app-transaction-grid [transactionHistoryAPIURL]="transactionHistoryURL"
+                transactionGridComponentName="{{transactionGridText.ACCOUNT_TEXT}}"
+                [transactionHeaderList]="ACCOUNT_TX_HEADERS">
+            </app-transaction-grid>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+@import "src/assets/styles/default";
+
+.region-selection-comp {
+  min-height: 370px;
+  &__wrapper {
+    &__title {
+      @extend .ibd-small-text;
+
+      font-family: $font-regular;
+      font-size: 14px;
+      color: $suva-grey;
+      padding-bottom: 16px;
+    }
+    &__buttons {
+      width: 91%;
+      position: fixed;
+      bottom: 84px;
+      z-index: 10;
+      button {
+        margin: 0;
+        width: 100%;
+      }
+      @include respond-to(screen-m-min) {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        button {
+          width: auto;
+        }
+      }
+    }
+  }
+  @include respond-to(screen-m-min) {
+    position: relative;
+    min-height: 405px;
+  }
+}
+
+.region-selection-rtl-layout {
+  .region-selection-comp__wrapper__title,
+  .region-selection-comp__wrapper__buttons {
+    display: flex;
+  }
+}
+
+:host ::ng-deep .region-card {
+  .checkbox-with-image-comp {
+    display: flex;
+    &__wrapper {
+      margin-right: 16px;
+      &:last-child {
+        margin-right: 0;
+      }
+      @include respond-to(screen-m-min) {
+        margin-right: 27px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .region-card-rtl {
+  .checkbox-with-image-comp {
+    &__wrapper {
+      margin-left: 16px;
+      margin-right: 0px;
+      &:last-child {
+        margin-left: 0;
+      }
+      @include respond-to(screen-m-min) {
+        margin-left: 27px;
+      }
+    }
+  }
+}

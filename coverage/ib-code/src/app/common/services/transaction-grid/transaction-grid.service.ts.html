@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/services/transaction-grid/transaction-grid.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/common/services/transaction-grid</a> transaction-grid.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>78/78</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.43% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>30/42</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>14/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>75/75</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+&nbsp;
+/* Include services here */
+import { APISyncService } from '../sync.service';
+import { FINANCE_ENDPOINTS, PENDING_TRANSACTION_API_URL } from 'src/app/common/api-endpoints';
+/* Include constants and models here */
+import {
+    TransactionHistoryInterface, TransactionGridModel,
+    PendingTransactionModel, PendingTransactionRow,
+    TransactionGridRow, GenericTransactionRowModel, PendingTransactionsPayLoad
+} from '../../models/global.model';
+import { SharedService } from '../../services/shared.service';
+import { DOMAINS, TRANSACTION_GRID_TEXT, HYPHEN_TEXT, SLASH, TEXT_TO_SEARCH } from '../../global-constants';
+&nbsp;
+@Injectable({
+    providedIn: 'root'
+})
+export class TransactionGridService {
+    typeOfTransactionHistory: string = TRANSACTION_GRID_TEXT.DATE_EFFECTIVE;
+    isLoadPendingTransctions = false;
+    formattedPendingTransactionList = {} as TransactionGridModel[];
+    constructor(private sharedService: SharedService, private httpService: APISyncService) { }
+&nbsp;
+    /**
+     * @methodName getTransactionHistory
+     * @description used to fetch the transaction history details
+     * @parameter url, historyType, otherArgs[loadMoreTransactions, isGhinaAccount, accountNumber]&lt;in this order&gt;
+     * @return Observable&lt;any&gt; it's a common function return object wil be different
+     */
+    getTransactionHistory(url: string, transactionHistoryPayLoad: TransactionHistoryInterface |
+        PendingTransactionsPayLoad): Observable&lt;any&gt; {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (!transactionHistoryPayLoad[TEXT_TO_SEARCH]) {
+            delete transactionHistoryPayLoad[TEXT_TO_SEARCH];
+        }
+        return this.httpService.get(url + SLASH + transactionHistoryPayLoad.aliasId ,
+        undefined, undefined, this.sharedService.removeKeyFromObject('aliasId', transactionHistoryPayLoad));
+    }
+&nbsp;
+    /**
+     * @methodName generateTransactionGridData
+     * @description used to format the transaction history table data year wise and return to the called function
+     * @parameter transactionHistoryInfo&lt;any&gt;Accepts different types of data,transactionGridComponentType
+     * @return TransactionGridModel
+     */
+    generateTransactionGridData(transactionHistoryInfo: any, transactionGridComponentType: string): TransactionGridModel[] {
+        const formattedTransactionGridArray = [];
+        const UNIQUE_YEARS = {};
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (transactionHistoryInfo) {
+            transactionHistoryInfo.map(transactionRow =&gt; {
+                // transactionRow will get the required properties based on type of transaction
+                transactionRow = this.generateTransactionProperties(transactionGridComponentType, transactionRow);
+                const TRANSACTION_YEAR = new Date(transactionRow[this.typeOfTransactionHistory]).getFullYear();
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (!UNIQUE_YEARS[TRANSACTION_YEAR]) {
+                    // it'll create the unique year wise transaction history data
+                    const formattedTransactionGridObj = {} as TransactionGridModel;
+                    UNIQUE_YEARS[TRANSACTION_YEAR] = TRANSACTION_YEAR;
+                    formattedTransactionGridObj.year = TRANSACTION_YEAR.toString();
+                    formattedTransactionGridObj.transactionHistory = transactionHistoryInfo.filter(history =&gt; {
+                        return TRANSACTION_YEAR === new Date(history[this.typeOfTransactionHistory]).getFullYear();
+                    });
+                    formattedTransactionGridArray.push(formattedTransactionGridObj);
+                }
+            });
+        }
+        return formattedTransactionGridArray;
+    }
+    /**
+     * @methodName getDatePropertyKey
+     * @description used to set the each row of transaction history
+     * @parameter transactionComponentType&lt;string&gt;, transactionGridRow&lt;any&gt;Accepts differnt types of objects
+     * @return strng
+     */
+    generateTransactionProperties(transactionComponentType: string, transactionGridRow: any): TransactionGridRow {
+        switch (transactionComponentType) {
+            // It will generate the Finance transaction table history row object for view when it matches with 'Finance'
+            case TRANSACTION_GRID_TEXT.FINANCE_TEXT:
+                transactionGridRow = this.generateFinanceTransactionProps(transactionGridRow);
+                break;
+            // It will generate the Debit Card transaction table history row object for view when it matches with 'Debit'
+            case TRANSACTION_GRID_TEXT.DEBIT_TEXT:
+                transactionGridRow = this.generateDebitTransactionProps(transactionGridRow);
+                break;
+            // It will generate the Credit Card transaction table history row object for view when it matches with 'Credit'
+            case TRANSACTION_GRID_TEXT.CREDIT_TEXT:
+                transactionGridRow = this.generateCreditTransactionProps(transactionGridRow);
+                break;
+            // It will generate the Credit Card transaction table history row object for view when it matches with 'Pending'
+            case TRANSACTION_GRID_TEXT.PENDING_TEXT:
+                transactionGridRow = this.generatePendingTransactionProps(transactionGridRow);
+                break;
+            default: this.typeOfTransactionHistory = TRANSACTION_GRID_TEXT.DATE_EFFECTIVE;
+        }
+        return transactionGridRow;
+    }
+    /**
+     * @methodName generateDebitTransactionProps
+     * @description used to form the finance transaction row properties
+     * @parameters financeTransctionRow&lt;GenericTransactionRowModel&gt;
+     * @return any It can send the different types of objects based on type of response
+     */
+    generateFinanceTransactionProps(financeTransctionRow: GenericTransactionRowModel): TransactionGridRow {
+        financeTransctionRow.debitOrCreditCode = financeTransctionRow.debitCredit;
+        financeTransctionRow.esbReferenceNo = HYPHEN_TEXT;
+        financeTransctionRow.currencyCode = financeTransctionRow.currency;
+        this.typeOfTransactionHistory = TRANSACTION_GRID_TEXT.DATE_EFFECTIVE;
+        return financeTransctionRow;
+    }
+    /**
+     * @methodName generateCreditTransactionProps
+     * @description used to form the credit card transaction row properties
+     * @parameters creditCardTransctionRow&lt;GenericTransactionRowModel&gt;
+     * @return TransactionGridRow
+     */
+    generateCreditTransactionProps(creditCardTransctionRow: GenericTransactionRowModel): TransactionGridRow {
+        creditCardTransctionRow.dateEffective = `${creditCardTransctionRow.transactionDate}T${creditCardTransctionRow.transactionTime}`;
+        creditCardTransctionRow.debitOrCreditCode = creditCardTransctionRow.debitCredit;
+        creditCardTransctionRow.currencyCode = creditCardTransctionRow.transactionCurrency;
+        creditCardTransctionRow.esbReferenceNo = creditCardTransctionRow.transactionReferenceNumber ?
+<span class="branch-0 cbranch-no" title="branch not covered" >            creditCardTransctionRow.transactionReferenceNumber </span>: HYPHEN_TEXT;
+        this.typeOfTransactionHistory = TRANSACTION_GRID_TEXT.TRANSACTION_DATE;
+        return creditCardTransctionRow;
+    }
+    /**
+     * @methodName generateFinanceTransactionProps
+     * @description used to form the debit card transaction row properties
+     * @parameters debitCradTransctionRow&lt;GenericTransactionRowModel&gt;
+     * @return TransactionGridRow
+     */
+    generateDebitTransactionProps(debitCradTransctionRow: GenericTransactionRowModel): TransactionGridRow {
+        debitCradTransctionRow.dateEffective = `${debitCradTransctionRow.transactionDate}T${debitCradTransctionRow.transactionTime}`;
+        debitCradTransctionRow.debitOrCreditCode = debitCradTransctionRow.debitCredit ? <span class="branch-0 cbranch-no" title="branch not covered" >debitCradTransctionRow.debitCredit </span>:
+            TRANSACTION_GRID_TEXT.DEBIT_KEY_TEXT;
+        debitCradTransctionRow.currencyCode = debitCradTransctionRow.transactionCurrency;
+        debitCradTransctionRow.esbReferenceNo = debitCradTransctionRow.transactionReferenceNumber;
+        this.typeOfTransactionHistory = TRANSACTION_GRID_TEXT.TRANSACTION_DATE;
+        return debitCradTransctionRow;
+    }
+    /**
+     * @methodName generatePendingTransactionProps
+     * @description used to form the cover card pending transaction row properties
+     * @parameters ccPendingTransctionRow&lt;GenericTransactionRowModel&gt;
+     * @return TransactionGridRow
+     */
+    generatePendingTransactionProps(ccPendingTransctionRow: GenericTransactionRowModel): TransactionGridRow {
+        ccPendingTransctionRow.dateEffective = ccPendingTransctionRow.date;
+        ccPendingTransctionRow.debitOrCreditCode = ccPendingTransctionRow.debitCredit;
+        ccPendingTransctionRow.currencyCode = ccPendingTransctionRow.transactionCurrency;
+        ccPendingTransctionRow.esbReferenceNo = ccPendingTransctionRow.transactionReferenceNumber ?
+<span class="branch-0 cbranch-no" title="branch not covered" >            ccPendingTransctionRow.transactionReferenceNumber </span>: HYPHEN_TEXT;
+        this.typeOfTransactionHistory = TRANSACTION_GRID_TEXT.PENDING_TX_DATE;
+        ccPendingTransctionRow.description = ccPendingTransctionRow.merchantName ? ccPendingTransctionRow.merchantName : <span class="branch-1 cbranch-no" title="branch not covered" >HYPHEN_TEXT;</span>
+        return ccPendingTransctionRow;
+    }
+    /**
+     * @methodName updateGridOnScroll
+     * @description used to get transaction history object from the response
+     * @parameters none
+     * @return any It can send the different types of objects based on type of response
+     */
+    getTransactionHistoryResponseObject(transactionHistoryResponse: any, transactionComponentType: string): any {
+        // It will return the transactionHistory object from response based on transaction component type 'Finance/Debit/Credit/Account'
+        switch (transactionComponentType) {
+            case TRANSACTION_GRID_TEXT.FINANCE_TEXT:
+                return transactionHistoryResponse &amp;&amp; transactionHistoryResponse.financeHistory ?
+                    transactionHistoryResponse.financeHistory : <span class="branch-1 cbranch-no" title="branch not covered" >undefined;</span>
+            case TRANSACTION_GRID_TEXT.DEBIT_TEXT:
+                return transactionHistoryResponse &amp;&amp; transactionHistoryResponse.debitCardTransactions ?
+                    transactionHistoryResponse.debitCardTransactions : <span class="branch-1 cbranch-no" title="branch not covered" >undefined;</span>
+            case TRANSACTION_GRID_TEXT.CREDIT_TEXT:
+                return transactionHistoryResponse.cardHistory ? transactionHistoryResponse.cardHistory.cardTransaction : <span class="branch-1 cbranch-no" title="branch not covered" >undefined;</span>
+            case TRANSACTION_GRID_TEXT.ACCOUNT_TEXT:
+                return transactionHistoryResponse &amp;&amp; transactionHistoryResponse.accountHistory ?
+                    transactionHistoryResponse.accountHistory : <span class="branch-1 cbranch-no" title="branch not covered" >undefined;</span>
+            case TRANSACTION_GRID_TEXT.PENDING_TEXT:
+                return transactionHistoryResponse &amp;&amp; transactionHistoryResponse.transactionList ?
+                    transactionHistoryResponse.transactionList : <span class="branch-1 cbranch-no" title="branch not covered" >undefined;</span>
+        }
+    }
+&nbsp;
+    /**
+     * @methodName filterPendingTransactionHistory
+     * @description It will return the matched elements from the input array List
+     * @parameters none
+     * @return PendingTransactionRow&lt;array&gt;
+     */
+    filterPendingTransactionHistory(pendingTransactionHistoryResponse: PendingTransactionModel, search: string): PendingTransactionRow[] {
+        return pendingTransactionHistoryResponse.transactionList.filter(
+            transactionRow =&gt; transactionRow.transactionAmount.toLowerCase().indexOf(search) &gt; -1);
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

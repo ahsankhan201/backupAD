@@ -1,0 +1,23 @@
+<div class="card-sub-categories-list"
+    [ngClass]="(selectedLang === arabicLanguageText) ? 'card-sub-categories-list-rtl': ''">
+    <div class="card-sub-categories-list__card" *ngFor="let card of cardCategoryCatalog">
+        <div class="image-wrapper">
+            <img src="{{card.imageUrlEnglish}}" alt="image" />
+            <div class="cta-btn" (click)="emitSelectedOption(card,linkText.ctaViewMore)" translate>{{linkText.viewMore}}
+            </div>
+        </div>
+        <div class="card-sub-categories-list__card__text-wrapper">
+            <div *ngIf="(selectedLang=='en'); else cardLangAr">
+                <div class="title">{{card.productNameEnglish}}</div>
+                <div class="description" *ngIf="card.shortDescriptionEnglish">{{card.shortDescriptionEnglish}}</div>
+            </div>
+            <ng-template #cardLangAr>
+                <div class="title">{{card.productNameArabic}}</div>
+                <div class="description" *ngIf="card.shortDescriptionArabic">{{card.shortDescriptionArabic}}</div>
+            </ng-template>
+
+            <span class="cta-btn cta-link-btn" (click)="emitSelectedOption(card,linkText.ctaApplyNow)"
+                translate>{{linkText.enquireNow}}</span>
+        </div>
+    </div>
+</div>

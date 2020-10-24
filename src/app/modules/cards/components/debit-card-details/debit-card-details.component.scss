@@ -1,0 +1,405 @@
+@import "src/assets/styles/default";
+
+.debit-card-details {
+  padding: 14px 16px 20px 16px;
+  position: absolute;
+  min-width: 100%;
+  @include respond-to(screen-m-min) {
+    padding: 16px 89px 20px 38px;
+  }
+  @include respond-to(screen-l-min) {
+    padding: 16px 89px 20px 81px;
+  }
+  @include respond-to(screen-xl-min) {
+    padding: 16px 14px 20px 41px;
+  }
+  &__header {
+    line-height: normal;
+    &__back {
+      @extend .ibd-font-regular-cerulean;
+      font-size: 14px;
+      position: relative;
+      cursor: pointer;
+      padding-left: 12px;
+      &:before {
+        border: solid $cerulean-blue;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        content: " ";
+        position: absolute;
+        left: 1px;
+        top: 4px;
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+      }
+    }
+    &__title {
+      @extend .ibd-font-regular-cerulean;
+      margin-top: 12px;
+      color: $suva-grey;
+      font-size: 14px;
+      @include respond-to(screen-m-min) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__details {
+    &__wrapper {
+      padding: 15px 16px 12px 16px;
+      margin-bottom: 24px;
+      margin-top: 16px;
+      min-height: 291px;
+      min-width: 328px;
+      background: $white;
+      box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.12);
+      border-radius: 16px;
+      line-height: normal;
+      display: flex;
+      flex-direction: column;
+      @include respond-to(screen-m-min) {
+        min-height: 168px;
+        flex-direction: row;
+        padding: 16px 16px 16px 20px;
+      }
+      @include respond-to(screen-land) {
+        min-height: 168px;
+        flex-direction: row;
+        padding: 16px 16px 16px 20px;
+      }
+      @include respond-to(screen-l-min) {
+        padding: 20px;
+        min-height: 168px;
+      }
+      @include respond-to(screen-xl-min) {
+        padding: 20px;
+        min-height: 168px;
+      }
+      &__card {
+        display: inline-flex;
+        @include respond-to(screen-m-min) {
+          padding-right: 16px;
+        }
+        @include respond-to(screen-land) {
+          padding-right: 16px;
+        }
+        @include respond-to(screen-xl-min) {
+          padding-right: 0px;
+        }
+        &__icon {
+          height: 109px;
+          width: 172px;
+          @include respond-to(screen-m-min) {
+            height: 84px;
+            width: 133px;
+          }
+          @include respond-to(screen-land) {
+            height: 84px;
+            width: 133px;
+          }
+          @include respond-to(screen-l-min) {
+            height: 84px;
+            width: 133px;
+          }
+          @include respond-to(screen-xl-min) {
+            height: 109px;
+            width: 172px;
+          }
+        }
+        &__status {
+          display: flex;
+          justify-content: center;
+          margin-top: 10px;
+          margin-left: 14px;
+          @include respond-to(screen-m-min) {
+            flex-direction: column;
+            justify-content: right;
+            margin-top: 35px;
+            margin-left: 15px;
+            min-width: 66px;
+          }
+          @include respond-to(screen-land) {
+            flex-direction: column;
+            justify-content: right;
+            margin-top: 35px;
+            margin-left: 15px;
+            min-width: 66px;
+          }
+          @include respond-to(screen-xl-min) {
+            flex-direction: row;
+            position: absolute;
+            margin-top: 120px;
+            margin-left: 31px;
+          }
+          &__label {
+            @extend .ibd-small-text;
+            line-height: normal;
+          }
+          &__value {
+            @extend .ibd-font-regular-cerulean;
+            color: $solid-blue;
+            margin-left: 4px;
+            @include respond-to(screen-m-min) {
+              margin-left: 12px;
+              margin-top: 4px;
+            }
+            @include respond-to(screen-land) {
+              margin-left: 12px;
+              margin-top: 4px;
+            }
+            @include respond-to(screen-xl-min) {
+              margin-top: unset;
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+      &__balance {
+        align-self: flex-end;
+        position: absolute;
+        margin-right: 11px;
+        margin-top: 55px;
+        @include respond-to(screen-m-min) {
+          margin-top: 0px;
+          margin-left: 12px;
+        }
+        @include respond-to(screen-land) {
+          margin-top: 0px;
+          margin-left: 12px;
+        }
+        @include respond-to(screen-l-min) {
+          align-self: flex-end;
+          padding-left: -27px;
+        }
+        @include respond-to(screen-xl-min) {
+          border-left: 1px solid rgba(160, 160, 160, 0.2);
+          margin-left: 20px;
+          padding: 40px 24px 40px 25px;
+          align-self: auto;
+          position: unset;
+        }
+        &__fund {
+          margin-top: 5px;
+          @extend .ibd-roboto-medium-text;
+          color: $solid-blue;
+          font-size: 18px;
+          @include respond-to(screen-m-min) {
+            margin-top: 4px;
+          }
+          @include respond-to(screen-land) {
+            margin-top: 4px;
+          }
+          @include respond-to(screen-xl-min) {
+            font-size: 24px;
+          }
+          &::after {
+            content: " ";
+            border: solid 1px $grey;
+            display: block;
+            width: 32px;
+            margin-top: 9px;
+            opacity: 0.2;
+            margin-left: 35px;
+            @include respond-to(screen-m-min) {
+              display: none;
+            }
+            @include respond-to(screen-land) {
+              display: none;
+            }
+          }
+
+          &__currency,
+          &__decimal {
+            @extend .ibd-font-regular-cerulean;
+            color: $step-gray;
+            @include respond-to(screen-xl-min) {
+              font-size: 14px;
+            }
+          }
+        }
+        &__title {
+          @extend .ibd-font-regular-cerulean;
+          color: $grey;
+          @include respond-to(screen-m-min) {
+            text-align: left;
+          }
+          @include respond-to(screen-land) {
+            text-align: left;
+          }
+          @include respond-to(screen-xl-min) {
+            font-size: 14px;
+          }
+        }
+      }
+
+      &__details-list {
+        border-top: 1px solid rgba(160, 160, 160, 0.2);
+        flex-grow: 100;
+        margin-top: 16px;
+        @include respond-to(screen-m-min) {
+          border-top: unset;
+          padding-left: 16px;
+          border-left: 1px solid rgba(160, 160, 160, 0.2);
+          margin-top: 0px;
+        }
+        @include respond-to(screen-land) {
+          border-top: unset;
+          padding-left: 16px;
+          border-left: 1px solid rgba(160, 160, 160, 0.2);
+          margin-top: 0px;
+        }
+        @include respond-to(screen-xl-min) {
+          display: flex;
+          flex-direction: column;
+        }
+        &__item {
+          margin-top: 16px;
+          padding: 7px 20px 7px 16px;
+          background: #f8f8fd;
+          border-radius: 16px;
+          display: flex;
+          justify-content: space-between;
+          @extend .ibd-font-regular-cerulean;
+          min-height: 28px;
+          @include respond-to(screen-m-min) {
+            min-height: 32px;
+            padding: 9px 20px 7px 16px;
+          }
+          @include respond-to(screen-land) {
+            min-height: 32px;
+            padding: 9px 20px 7px 16px;
+          }
+          @include respond-to(screen-l-min) {
+            min-height: 32px;
+            margin-top: 16px;
+          }
+          @include respond-to(screen-xl-min) {
+            min-height: 32px;
+          }
+          &__label {
+            color: $grey;
+            font-family: $font-light;
+            font-weight: 300;
+          }
+          &__value {
+            color: $solid-blue;
+            font-weight: 300;
+            text-align: right;
+          }
+          .font-medium-weight {
+            font-family: $font-medium;
+            font-weight: 500;
+          }
+          &:first-child {
+            @include respond-to(screen-m-min) {
+              margin-top: unset;
+            }
+            @include respond-to(screen-land) {
+              margin-top: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.debit-card-details-rtl-layout {
+    direction: rtl;
+    .debit-card-details {
+      &__header {
+        text-align: right;
+        &__back {
+          margin-right: 10px;
+          text-align: right;
+          &::before {
+            left: 100%;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+      &__details__wrapper {
+        &__card {
+          @include respond-to(screen-m-min) {
+            padding-right: unset;
+            padding-left: 16px;
+          }
+          @include respond-to(screen-land) {
+            padding-right: unset;
+            padding-left: 16px;
+          }
+        }
+        &__details-list {
+          @include respond-to(screen-m-min) {
+            border-top: unset;
+            padding-left: unset;
+            padding-right: 16px;
+            border-left: unset;
+            border-right: 1px solid rgba(160, 160, 160, 0.2);
+          }
+          @include respond-to(screen-land) {
+            border-top: unset;
+            padding-left: unset;
+            padding-right: 16px;
+            border-left: unset;
+            border-right: 1px solid rgba(160, 160, 160, 0.2);
+          }
+          &__item__value {
+            text-align: left;
+          }
+        }
+        &__balance {
+          margin-right: 0px;
+          margin-left: 11px;
+          @include respond-to(screen-m-min) {
+            margin-right: 12px;
+          }
+          @include respond-to(screen-land) {
+            margin-right: 12px;
+          }
+          @include respond-to(screen-l-min) {
+            margin-right: 12px;
+          }
+          @include respond-to(screen-xl-min) {
+            border-left: unset;
+            border-right: 1px solid rgba(160, 160, 160, 0.2);
+          }
+        }
+        &__card__status {
+          margin-left: unset;
+          margin-right: 14px;
+          @include respond-to(screen-xl-min) {
+            margin-left: unset;
+            margin-right: 31px;
+          }
+          &__value {
+            margin-left: 0px;
+            margin-right: 4px;
+            @include respond-to(screen-m-min) {
+              margin-left: 12px;
+              margin-right: unset;
+            }
+            @include respond-to(screen-land) {
+              margin-left: 12px;
+              margin-right: unset;
+            }
+            @include respond-to(screen-xl-min) {
+              margin-left: unset;
+              margin-right: 5px;
+            }
+          }
+        }
+        &__balance {
+          &__title {
+            text-align: right;
+          }
+          &__fund {
+            direction: ltr;
+          }
+        }
+      }
+    }
+  }
+  &__transactions {
+    margin-bottom: 60px;
+  }
+}

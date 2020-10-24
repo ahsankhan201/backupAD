@@ -1,0 +1,68 @@
+<div class="debit-card-details" *ngIf="!showDebitCardLinkAccountComp"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'debit-card-details-rtl-layout': ''">
+    <div class="debit-card-details__header padding-lrn">
+        <div translate class="debit-card-details__header__back" (click)="onBackButtonClicked()">tr_navControl_backText
+        </div>
+        <div translate class="debit-card-details__header__title">tr_cards_debitCardText</div>
+    </div>
+    <div class="debit-card-details__details">
+        <div class="debit-card-details__details__wrapper">
+            <div class="debit-card-details__details__wrapper__card padding-lrn">
+                <img alt="debit card image" class="debit-card-details__details__wrapper__card__icon"
+                    src="{{ CARDS_MASTER_DATA.DEBIT_CARD_IMAGE }}" />
+                <div class="debit-card-details__details__wrapper__card__status">
+                    <div translate class="debit-card-details__details__wrapper__card__status__label">
+                        tr_cards_cardStatusText</div>
+                    <span class="debit-card-details__details__wrapper__card__status__value">
+                        {{ debitCardDetails.cardStatus }}</span>
+                </div>
+            </div>
+            <div class="debit-card-details__details__wrapper__balance padding-lrn">
+                <div class="debit-card-details__details__wrapper__balance__title">
+                    {{CARDS_MASTER_DATA.AVAILABLE_BALANCE | translate}}</div>
+                <div class="debit-card-details__details__wrapper__balance__fund">
+                    <span>{{ debitCardDetails.availableBalance | numberFormat }}</span>.<span
+                        class="debit-card-details__details__wrapper__balance__fund__decimal">{{ debitCardDetails.availableBalance | getDecimalValue }}</span>
+                    <span class="debit-card-details__details__wrapper__balance__fund__currency">
+                        {{ debitCardDetails.currencyCode }}</span>
+                </div>
+            </div>
+            <div class="debit-card-details__details__wrapper__details-list padding-lrn">
+                <div class="debit-card-details__details__wrapper__details-list__item">
+                    <div translate class="debit-card-details__details__wrapper__details-list__item__label">
+                        tr_common_cardNumberText</div>
+                    <div class="debit-card-details__details__wrapper__details-list__item__value font-medium-weight">
+                        {{ debitCardDetails.cardNumber | formatMaskCardNumber }}</div>
+                </div>
+                <div class="debit-card-details__details__wrapper__details-list__item">
+                    <div translate class="debit-card-details__details__wrapper__details-list__item__label">
+                        tr_cards_expiryDateText</div>
+                    <div class="debit-card-details__details__wrapper__details-list__item__value">
+                        {{ debitCardDetails.cardExpiryDate | expiryDateFormat }}</div>
+                </div>
+                <div class="debit-card-details__details__wrapper__details-list__item">
+                    <div translate class="debit-card-details__details__wrapper__details-list__item__label">
+                        tr_cards_linkedAccountText</div>
+                    <div class="debit-card-details__details__wrapper__details-list__item__value">
+                        {{ debitCardDetails.accountDesc }}:
+                        {{ debitCardDetails.primaryAccountNumber }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="debit-card-details__quick-links">
+        <app-quick-links class="quick-links-wrapper" [item]="debitCardDetails"
+            (clickedItem)="quickItemClickHandler($event)" [quickLinksData]="quickLinksData"></app-quick-links>
+    </div>
+    <div class="debit-card-details__transactions">
+        <app-transaction-grid [transactionHeaderList]="transactionHeaderList"
+            [transactionHistoryAPIURL]="transactionHistoryAPIURL"
+            [transactionGridComponentName]="transactionGridComponentName">
+        </app-transaction-grid>
+    </div>
+
+</div>
+<div class="link-debit-card-account" *ngIf="showDebitCardLinkAccountComp">
+    <app-link-account [linkedAccount]="debitCardDetails.primaryAccountNumber" [debitcardDetails]="debitCardDetails"
+        (backButtonClicked)="showDebitCardDetals()"></app-link-account>
+</div>

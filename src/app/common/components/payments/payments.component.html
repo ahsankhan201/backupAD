@@ -1,0 +1,39 @@
+<section class="payments-comp" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'pay-bills-rtl': ''">
+    <div *ngIf="!isPaymentToCoverCard" class="payments-comp__header" translate>{{parentComponentTitle}}</div>
+    <div *ngIf="!isPaymentToCoverCard" class="payments-comp__title" translate>{{selectedComponentTitle}}</div>
+    <div *ngIf="isPaymentToCoverCard" class="payments-comp__header">{{parentComponentTitle | translate}}:
+        {{selectedComponentTitle | translate}}</div>
+    <div *ngIf="isPaymentToCoverCard" class="payments-comp__title" translate>
+        {{ transferFromScreenText.makePayment }}
+    </div>
+    <div class="row payee-comp__step-wrapper margin-lrn">
+        <mat-horizontal-stepper linear #stepper (selectionChange)="stepIndexChanged(stepper,$event)"
+            [ngClass]="(selectedLanguage === arabicLanguageText) ? 'mat-horizontal-stepper-rtl': ''">
+            <ng-template matStepperIcon="edit">
+                <mat-icon></mat-icon>
+            </ng-template>
+            <mat-step label="{{stepperText.transferFrom | translate}}" *ngIf="showTransferFromStep">
+                <div *ngIf="!isPaymentToCoverCard" class="payee-comp__step-wrapper__title">
+                    {{stepperText.transferFrom | translate}}</div>
+                <div *ngIf="isPaymentToCoverCard" class="payee-comp__step-wrapper__title">
+                    {{transferFromScreenText.payFromAccounts | translate}}</div>
+                <app-transfer-from-step [showCardsPayBillsView]="showCardsPayBillsView"
+                    [isPaymentToCoverCard]="isPaymentToCoverCard" [selectedAccountNumber]="selectedAccountNumber">
+                </app-transfer-from-step>
+            </mat-step>
+            <mat-step label="{{stepperText.transferTo | translate}}" *ngIf="showTransferToStep">
+                <div class="payee-comp__step-wrapper__title" *ngIf="showWrapperTitleTransferTo">
+                    {{stepperText.transferTo | translate}}</div>
+                <app-transfer-to-step></app-transfer-to-step>
+            </mat-step>
+            <mat-step label="{{stepperText.transferDetails | translate}}">
+                <div class="payee-comp__step-wrapper__title">{{ stepperTextTransferDetailsTitle | translate}}</div>
+                <app-transfer-details [isPaymentToCoverCard]="isPaymentToCoverCard"></app-transfer-details>
+            </mat-step>
+            <mat-step translate label="{{stepperText.confirm | translate}}">
+                <div class="payee-comp__step-wrapper__title">{{ stepperTextConfirmTitle | translate}}</div>
+                <app-confirm-payment [isPaymentToCoverCard]="isPaymentToCoverCard"></app-confirm-payment>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</section>

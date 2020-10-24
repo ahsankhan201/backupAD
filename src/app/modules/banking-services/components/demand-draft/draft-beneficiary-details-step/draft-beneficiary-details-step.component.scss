@@ -1,0 +1,95 @@
+@import "src/assets/styles/default";
+
+.ibd-demand-draft-beneficiary-details {
+  min-height: 385px;
+  position: relative;
+  &__wrapper {
+    margin-top: 32px;
+    &__form {
+      width: 100%;
+      max-width: 453px;
+      .row {
+        margin-bottom: 30px;
+      }
+    }
+    &__buttons {
+      width: 91%;
+      position: fixed;
+      bottom: 20px;
+      @include respond-to(screen-m-min) {
+        width: 100%;
+      }
+      @include respond-to(screen-land) {
+        position: static;
+      }
+      button {
+        width: 100%;
+        margin-top: 16px;
+        @include respond-to(screen-m-min) {
+          width: 184px;
+          min-width: 184px;
+          margin-top: 0;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        position: static;
+        display: flex;
+        .next-btn,
+        .previous-btn {
+          margin-left: 27px;
+        }
+      }
+    }
+    .alert-message {
+      max-width: 578px;
+      @include respond-to(screen-m-min) {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .account-currency-list {
+  .checkbox-with-image-comp {
+    display: flex;
+    flex-wrap: wrap;
+    &__container {
+      margin-right: 16px;
+      &:last-child {
+        margin-right: 0;
+      }
+      &__wrapper {
+        margin-top: 24px;
+      }
+    }
+    .checkbox-with-image-comp__container__wrapper__input {
+      label {
+        top: 1px;
+      }
+    }
+  }
+}
+
+// RTL STYLES
+
+.ibd-demand-draft-beneficiary-details-rtl {
+  .ibd-demand-draft-beneficiary-details__wrapper__form {
+    .ibd-demand-draft-beneficiary-details__wrapper__buttons {
+      @include respond-to(screen-m-min) {
+        .next-btn,
+        .previous-btn {
+          margin-right: 27px;
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep .ibd-demand-draft-beneficiary-details-rtl {
+  .checkbox-with-image-comp {
+    &__container {
+      margin-right: 0px;
+      margin-left: 27px;
+    }
+  }
+}

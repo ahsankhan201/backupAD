@@ -1,0 +1,94 @@
+@import "src/assets/styles/default";
+
+$border: rgb(240, 240, 240);
+
+.ibd-dashboard-footer {
+  flex-basis: 100%;
+  border-bottom: 1px $border solid;
+  position: fixed;
+  bottom: 0;
+  z-index: 9;
+  width: 100%;
+  background-color: rgba(255, 255, 255);
+  opacity: 1;
+  box-shadow: inset 0px 1px 0px 0px rgb(236, 236, 236);
+  height: 60px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    padding: 0 11px;
+
+    @include respond-to(screen-m-min) {
+      padding: 0 50px;
+      margin-left: 92px;
+    }
+    @include respond-to(screen-l-min) {
+      padding: 0 20px;
+      justify-content: space-between;
+    }
+    &__text {
+      color: $grey;
+      font-family: $font-light;
+      font-size: 12px;
+      font-weight: normal;
+      height: 14px;
+      letter-spacing: -0.1px;
+      text-align: center;
+      @include respond-to(screen-l-min) {
+        width: 50%;
+        text-align: left;
+      }
+    }
+    &__link-wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      @include respond-to(screen-l-min) {
+        width: 50%;
+      }
+
+      &__seprator {
+        background: $grey;
+        height: 12px;
+        width: 1px;
+        margin: 3px 6px 0 6px;
+        @include respond-to(screen-l-min) {
+          margin: 3px 14px 0 14px;
+        }
+      }
+      &__link-text {
+        cursor: pointer;
+        color: $cerulean-blue;
+        font-size: 12px;
+        font-family: $font-regular;
+        font-weight: normal;
+        height: 14px;
+        letter-spacing: 0px;
+        text-decoration: none;
+        &:hover {
+          color: $cerulean-blue;
+        }
+      }
+    }
+  }
+  &.footer-rtl-layout {
+    direction: rtl;
+    .ibd-dashboard-footer__wrapper {
+      @include respond-to(screen-m-min) {
+        margin-left: 0;
+        margin-right: 92px;
+      }
+      &__text {
+        @include respond-to(screen-l-min) {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/modules/products/components/card-products/card-products.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">All files</a> / <a href="index.html">src/app/modules/products/components/card-products</a> card-products.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">45.35% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>39/86</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">31.58% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">45.12% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>37/82</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+&nbsp;
+import { SharedService } from 'src/app/common/services/shared.service';
+import { ProductsService } from '../../services/products.service';
+&nbsp;
+import {
+  ProductCategoryResponse, ProductCardEmittedObj, ContactModeCheckBox,
+  ProductRegisterPayLoad, ProductTemplateModel
+} from 'src/app/common/models/products-module.model';
+import { PRODUCT_CARD_TEXT, PRODUCT_SCREEN_DIVIDER } from '../../products-module.constants';
+import { FORM_LENGTHS, HTTP_STATUS_CODE, ARABIC_LANG_TEXT, MOBILE_NUMBER_LENGTH } from 'src/app/common/global-constants';
+&nbsp;
+@Component({
+  selector: 'app-card-products',
+  templateUrl: './card-products.component.html',
+  styleUrls: ['./card-products.component.scss']
+})
+export class CardProductsComponent implements OnInit {
+  @Input() cardCategories = [] as string[];
+  @Output() showProductCardTab = new EventEmitter();
+  @Input() cardsCatalog: ProductCategoryResponse[];
+&nbsp;
+  cardSubCategoriesList: ProductCategoryResponse[];
+  showComponentName = PRODUCT_CARD_TEXT.PRODUCT_LIST_TEXT;
+  productTitle: string;
+  cardEquiryModes = [] as ContactModeCheckBox[];
+  cardEnquiryFormGroup: FormGroup;
+  selectedProductInfo = {} as ProductCategoryResponse;
+  showContactTimings: boolean;
+  enableNextBtn = false;
+  selectedContactMode: string;
+  cardEquiryTimings = [] as ContactModeCheckBox[];
+  AMOUNT_LENGTH = FORM_LENGTHS.FORM_LENGTH_TWENTYONE;
+  selectedContactTime: string;
+  typeOfProductEnquired: string;
+  selectedLang: string;
+  arabicLanguageText = ARABIC_LANG_TEXT;
+  readonly MOBILE_NUMBER_LENGTH: number = MOBILE_NUMBER_LENGTH;
+  readonly MOBILE_NUMBER_MIN_LENGTH: number = FORM_LENGTHS.FORM_LENGTH_NINE;
+  subscription$ = new Subscription();
+&nbsp;
+  constructor(
+    private productService: ProductsService,
+    private formBuilder: FormBuilder,
+    private sharedService: SharedService,
+    private translateService: TranslateService
+  ) { }
+&nbsp;
+  ngOnInit() {
+    this.createCardEnquiryForm();
+    this.getLanguage();
+  }
+&nbsp;
+  /**
+   * @methodName createCardEnquiryForm
+   * @parameter none
+   * @description used to create the card enquiry form group
+   * @return none
+   */
+  createCardEnquiryForm(): void {
+    this.cardEnquiryFormGroup = this.formBuilder.group({
+      mobileNumber: [this.sharedService.customerFilteredPrimaryAddress.phoneOffice,
+      [Validators.required, Validators.minLength(PRODUCT_CARD_TEXT.MOBILE_MIN_LENGTH)]],
+      emailId: [this.sharedService.customerFilteredPrimaryAddress.email,
+      [Validators.required, this.sharedService.validateEmailId()]],
+      cardLimit: ['', [Validators.required]]
+    });
+  }
+&nbsp;
+  /**
+   * @methodName getCardSubCategories
+   * @parameter none
+   * @description used to set sub category info
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  getCardSubCategories(</span>selectedCardCategory: string): void {
+<span class="cstat-no" title="statement not covered" >    this.cardSubCategoriesList = this.cardsCatalog.filter(<span class="fstat-no" title="function not covered" >cards =&gt;</span></span>
+<span class="cstat-no" title="statement not covered" >      cards.productSubCategoryResponses.subCategoryNameEnglish === selectedCardCategory)</span>;
+<span class="cstat-no" title="statement not covered" >    this.showProductCardTab.emit(false);</span>
+<span class="cstat-no" title="statement not covered" >    this.showComponentName = PRODUCT_CARD_TEXT.CARD_SUB_CATEGORIES_FORM;</span>
+<span class="cstat-no" title="statement not covered" >    this.productTitle = selectedCardCategory;</span>
+  }
+&nbsp;
+  /**
+   * @methodName showCardsTab
+   * @description It will disptach value to parent component to show category tabs
+   * @parameters none
+   * @return void
+   */
+<span class="fstat-no" title="function not covered" >  showCardsTab(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.showComponentName = PRODUCT_CARD_TEXT.PRODUCT_LIST_TEXT;</span>
+<span class="cstat-no" title="statement not covered" >    document.querySelector('body').classList.remove(PRODUCT_SCREEN_DIVIDER);</span>
+<span class="cstat-no" title="statement not covered" >    this.showProductCardTab.emit(true);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedProductInfo
+   * @parameter selectedCardInfo&lt;ProductCardEmittedObj&gt;
+   * @description used to get selected product info
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  getSelectedProductInfo(</span>selectedCardInfo: ProductCardEmittedObj): void {
+<span class="cstat-no" title="statement not covered" >    this.selectedProductInfo = selectedCardInfo.selectedOption;</span>
+<span class="cstat-no" title="statement not covered" >    this.showContactTimings = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.enableNextBtn = false;</span>
+<span class="cstat-no" title="statement not covered" >    if (selectedCardInfo.typeOfEvent === PRODUCT_CARD_TEXT.ctaViewMore) {</span>
+<span class="cstat-no" title="statement not covered" >      this.showProductDetail(selectedCardInfo.selectedOption);</span>
+    } else <span class="cstat-no" title="statement not covered" >if (selectedCardInfo.typeOfEvent === PRODUCT_CARD_TEXT.ctaApplyNow) {</span>
+<span class="cstat-no" title="statement not covered" >      this.setProductTitle();</span>
+<span class="cstat-no" title="statement not covered" >      this.setEnquiryFormInfo();</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName showProductDetail
+   * @description open popup for product description
+   * @parameters product&lt;ProductCategoryResponse&gt;
+   * @return void
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  showProductDetail(</span>product: ProductCategoryResponse): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.productService.openDetailBox(product).subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (response) {</span>
+<span class="cstat-no" title="statement not covered" >        this.setEnquiryFormInfo();</span>
+      }
+    });
+  }
+&nbsp;
+  /**
+   * @methodName setEnquiryFormInfo
+   * @parameter none
+   * @description used to set the enquiry form initial data
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setEnquiryFormInfo(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.setProductTitle();</span>
+<span class="cstat-no" title="statement not covered" >    this.showComponentName = PRODUCT_CARD_TEXT.ENQUIRY_FORM_TEXT;</span>
+<span class="cstat-no" title="statement not covered" >    this.showProductCardTab.emit(false);</span>
+<span class="cstat-no" title="statement not covered" >    this.cardEquiryModes = this.productService.generateContactCheckBoxObj(</span>
+      this.productService.preferredContactModes.preferredContactMethod, false);
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedContactMode
+   * @parameter selectedMode&lt;ContactModeCheckBox&gt;
+   * @description used to get the selected contact mode
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  getSelectedContactMode(</span>selectedMode: ContactModeCheckBox): void {
+<span class="cstat-no" title="statement not covered" >    selectedMode.id === PRODUCT_CARD_TEXT.mobile ? (this.showContactTimings = true, this.setPreferredTimingsInfo(),</span>
+      this.enableNextBtn = false) : (this.showContactTimings = false, this.enableNextBtn = true);
+<span class="cstat-no" title="statement not covered" >    this.selectedContactMode = selectedMode.id;</span>
+  }
+&nbsp;
+  /**
+   * @methodName setPreferredTimingsInfo
+   * @parameter none
+   * @description used to set the preferred contact timings
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setPreferredTimingsInfo(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.cardEquiryTimings = this.productService.generateContactCheckBoxObj(</span>
+      this.productService.preferredContactModes.preferredContactTime, true);
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedTimings
+   * @parameter selectedTimings&lt;ContactModeCheckBox&gt;
+   * @description used to set the preferred contact timings
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  getSelectedTimings(</span>selectedTimings: ContactModeCheckBox): void {
+<span class="cstat-no" title="statement not covered" >    this.enableNextBtn = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedContactTime = selectedTimings.id;</span>
+  }
+&nbsp;
+  /**
+   * @methodName registerProductEnquiry
+   * @parameter none
+   * @description used to post enquiry payload to the server
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  registerProductEnquiry(): void {</span></span>
+    const accountEnquiryPayLoad = <span class="cstat-no" title="statement not covered" >{} as ProductRegisterPayLoad;</span>
+<span class="cstat-no" title="statement not covered" >    accountEnquiryPayLoad.destinationEmailAddress = this.selectedProductInfo.receivingEmail;</span>
+<span class="cstat-no" title="statement not covered" >    accountEnquiryPayLoad.productCategory = this.selectedProductInfo.productId;</span>
+<span class="cstat-no" title="statement not covered" >    accountEnquiryPayLoad.productName = this.selectedProductInfo.productNameEnglish;</span>
+<span class="cstat-no" title="statement not covered" >    accountEnquiryPayLoad.productTemplate = {} as ProductTemplateModel;</span>
+<span class="cstat-no" title="statement not covered" >    accountEnquiryPayLoad.productTemplate.customerEmail = this.cardEnquiryFormGroup.get('emailId').value;</span>
+<span class="cstat-no" title="statement not covered" >    accountEnquiryPayLoad.productTemplate.customerMobile = this.cardEnquiryFormGroup.get('mobileNumber').value;</span>
+<span class="cstat-no" title="statement not covered" >    accountEnquiryPayLoad.productTemplate.cardLimit = this.cardEnquiryFormGroup.get('cardLimit').value;</span>
+<span class="cstat-no" title="statement not covered" >    accountEnquiryPayLoad.productTemplate.preferredContactMethod = this.selectedContactMode;</span>
+<span class="cstat-no" title="statement not covered" >    accountEnquiryPayLoad.productTemplate.preferredContactTime = this.selectedContactTime;</span>
+<span class="cstat-no" title="statement not covered" >    accountEnquiryPayLoad.productTemplate.customerName = this.productService.customerName ? this.productService.customerName : '';</span>
+<span class="cstat-no" title="statement not covered" >    this.productService.registerProductEnquiry(accountEnquiryPayLoad).subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (response &amp;&amp; response.status === HTTP_STATUS_CODE.NO_CONTENT) {</span>
+<span class="cstat-no" title="statement not covered" >        this.showComponentName = PRODUCT_CARD_TEXT.SUCCESS_SCREEN_TETXT;</span>
+<span class="cstat-no" title="statement not covered" >        document.querySelector('body').classList.add(PRODUCT_SCREEN_DIVIDER);</span>
+<span class="cstat-no" title="statement not covered" >        this.typeOfProductEnquired = (this.translateService.getDefaultLang() === ARABIC_LANG_TEXT) ?</span>
+          this.selectedProductInfo.productNameArabic : this.selectedProductInfo.productNameEnglish;
+      }
+    });
+  }
+&nbsp;
+  /**
+   * @methodName setProductTitle
+   * @parameter none
+   * @description used to set product title
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setProductTitle(): void {</span>
+    // translation added for productTitle based on the language selected
+<span class="cstat-no" title="statement not covered" >    this.productTitle = (this.translateService.getDefaultLang() === ARABIC_LANG_TEXT) ?</span>
+      this.selectedProductInfo.productNameArabic : this.selectedProductInfo.productNameEnglish;
+  }
+&nbsp;
+  /**
+   * @methodName getLanguage
+   * @parameter none
+   * @description Used to set selected language EN | AR
+   * @return none
+   */
+  getLanguage(): void {
+    this.subscription$.add(this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) =&gt; {
+      this.selectedLang = selectedLanguage;
+    }));
+  }
+&nbsp;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

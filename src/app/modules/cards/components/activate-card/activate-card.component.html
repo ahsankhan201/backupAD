@@ -1,0 +1,74 @@
+<section class="activate-card">
+    <div class="activate-card__wrapper">
+        <div class="activate-card__wrapper__container padding-lrn margin-lrn">
+            <div class="activate-card__wrapper__container__body-wrapper row no-gutters">
+                <div class="col-12 padding-lrn activate-card__wrapper__container__body-wrapper__body">
+                    <div class="title">{{CARDS_MASTER_DATA.ACTIVATE_CARD_TITLE | translate}}</div>
+                    <div class="card-number-title" *ngIf="!showOTPScreen && !showSuccessScreen">
+                        {{CARDS_MASTER_DATA.DEBIT_CARD_NUMBER | translate}}</div>
+                    <div class="card-number-value" *ngIf="!showOTPScreen && !showSuccessScreen">
+                        {{ cardDetails.cardNumber | formatMaskCardNumber }}</div>
+                    <div class="new-card-message" *ngIf="!showOTPScreen && !showSuccessScreen">
+                        {{CARDS_MASTER_DATA.NEW_CARD_INFO | translate}}
+                    </div>
+                    <div class="activate-card-alert-message" *ngIf="alertMessage">
+                        <app-alert-message [message]="alertMessage"></app-alert-message>
+                    </div>
+                    <div class="activate-card__form" *ngIf="!showOTPScreen && !showSuccessScreen">
+                        <form [formGroup]="activateCardFormGroup">
+                            <div class="row margin-lrn">
+                                <mat-form-field class="padding-lrn months-dropdown">
+                                    <mat-label translate>tr_common_monthText</mat-label>
+                                    <mat-select (selectionChange)="onMonthChange($event)" formControlName="months">
+                                        <mat-option *ngFor="let item of monthsList" [value]="item.value" [id]="item.id">
+                                            {{item.value}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>
+                                        <app-show-form-errors [control]="activateCardFormGroup.get('months')"
+                                            label="Month">
+                                        </app-show-form-errors>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="row margin-lrn">
+                                <mat-form-field class="padding-lrn">
+                                    <mat-label translate>tr_common_yearText</mat-label>
+                                    <mat-select (selectionChange)="onYearChange($event)" formControlName="years">
+                                        <mat-option *ngFor="let item of yearsList" [value]="item.value" [id]="item.id">
+                                            {{item.value}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>
+                                        <app-show-form-errors [control]="activateCardFormGroup.get('years')"
+                                            label="Year">
+                                        </app-show-form-errors>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="activate-card__button__wrapper" *ngIf="!showOTPScreen && !showSuccessScreen">
+                        <button class="btn cancel-btn" type="button" (click)="onBackButtonClicked()"
+                            translate>tr_common_cancelText</button>
+                        <button class="btn next-btn" [disabled]="!activateCardFormGroup.valid" type="button"
+                            (click)="showOTPComponent()" translate>tr_cards_activateText</button>
+                    </div>
+                    <div class="activate-card__otp" *ngIf="showOTPScreen">
+                        <app-otp *ngIf="location" [location]='location' [masking]=true
+                            [enableSubmitButton]="false" (response)="getResponse($event)"
+                            (cancelButtonClick)="onBackButtonClicked()" (resendOTPRequired)="resendOTPRequired($event)">
+                        </app-otp>
+                    </div>
+                    <div class="activate-card__success" *ngIf="showSuccessScreen">
+                        <app-success-screen [componentName]="'activateCard'" class="activate-card-success"
+                            [activatedCardNumber]="cardDetails.cardNumber">
+                        </app-success-screen>
+                        <button translate class="next-btn"
+                            (click)="handleNextButtonClick($event)">tr_cards_cardsDashBoardText</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

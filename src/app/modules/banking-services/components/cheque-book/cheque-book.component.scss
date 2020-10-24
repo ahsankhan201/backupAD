@@ -1,0 +1,70 @@
+@import "src/assets/styles/default";
+.cheque-book-comp {
+  .title {
+    color: $grey;
+    font-family: $font-regular;
+    font-size: 16px;
+  }
+  padding-top: 6px;
+  @include respond-to(screen-m-min) {
+    padding-top: 18px;
+  }
+  @include respond-to(screen-xl-min) {
+    padding-top: 10px;
+  }
+  &__wrapper {
+    @include respond-to(screen-m-min) {
+      padding-right: 43px;
+    }
+    @include respond-to(screen-l-min) {
+      max-width: 500px;
+      padding-right: 0;
+    }
+    form {
+      margin-top: 12px;
+    }
+    .floating-field {
+      margin-top: 48px;
+    }
+    .button-wrapper {
+      margin-top: 16px;
+      button {
+        width: 100%;
+        margin-bottom: 16px;
+      }
+      @include respond-to(screen-m-min) {
+        display: flex;
+        button {
+          &:first-child {
+            margin-right: 38px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// RTL Styles
+.cheque-book-comp-rtl {
+  direction: rtl;
+  .cheque-book-comp__wrapper {
+    text-align: right;
+    @include respond-to(screen-m-min) {
+      right: 92px;
+      padding: 10px 41px 0 24px;
+    }
+    .title {
+      text-align: right;
+    }
+    .button-wrapper {
+      @include respond-to(screen-m-min) {
+        button {
+          &:first-child {
+            margin-right: 0px;
+            margin-left: 38px;
+          }
+        }
+      }
+    }
+  }
+}

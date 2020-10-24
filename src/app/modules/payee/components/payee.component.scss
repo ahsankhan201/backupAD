@@ -1,0 +1,205 @@
+@import "src/assets/styles/default";
+
+.payee-comp {
+  background: $white;
+  height: auto;
+  position: absolute;
+  top: 56px;
+  z-index: 8;
+  background-color: transparent;
+
+  @include respond-to(screen-m-min) {
+    width: calc(100% - 92px);
+    top: 92px;
+    left: 92px;
+    margin-left: auto;
+  }
+
+  &__text-wrapper {
+    @extend .idb-font-family;
+    font-size: 14px;
+    letter-spacing: 0.16px;
+    @include respond-to(screen-m-min) {
+      font-size: 16px;
+    }
+  }
+  &__step-wrapper {
+    width: 100%;
+  }
+  &__link-wrapper {
+    @extend .ibd-small-text--blue;
+
+    font-size: 14px;
+    font-family: $font-regular;
+    padding: 14px 16px 6px 10px;
+    margin-left: 16px;
+    display: inline-block;
+    outline: none;
+    &__back {
+      position: relative;
+      cursor: pointer;
+      &:before {
+        border: solid $cerulean-blue;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        content: " ";
+        position: absolute;
+        left: -10px;
+        top: 4px;
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+      }
+    }
+    @include respond-to(screen-m-min) {
+      margin-left: 39px;
+      padding-bottom: 16px;
+    }
+  }
+  &__text-wrapper {
+    @extend .ibd-small-text;
+
+    padding: 0 16px 16px 16px;
+    font-size: 16px;
+    font-family: $font-regular;
+    @include respond-to(screen-m-min) {
+      padding-left: 39px;
+    }
+  }
+}
+
+.add-payee-rtl-layout {
+  direction: rtl;
+  @include respond-to(screen-m-min) {
+    right: 92px;
+    left: unset;
+  }
+  .payee-comp__link-wrapper {
+    display: flex;
+    margin-left: 0px;
+    @include respond-to(screen-m-min) {
+      margin-right: 25px;
+    }
+  }
+  .payee-comp__text-wrapper {
+    @include respond-to(screen-m-min) {
+      padding-right: 39px;
+      padding-left: 0px;
+    }
+  }
+}
+
+.payment {
+  margin-left: 16px;
+  @include respond-to(screen-m-min) {
+    margin-left: 39px;
+  }
+}
+
+:host ::ng-deep .payment .mat-horizontal-stepper-header-container {
+  height: 40px;
+  @include respond-to(screen-m-min) {
+    width: calc(84% - 10px);
+    margin-left: unset;
+  }
+}
+
+:host ::ng-deep .payment .mat-horizontal-stepper-content {
+  width: 100%;
+}
+
+:host ::ng-deep .payee-type-rtl {
+  .checkbox-with-image-rtl {
+    .checkbox-with-image-comp__wrapper {
+      .checkbox-with-image-comp__wrapper__img {
+        height: 32px;
+        width: 32px;
+        padding-right: 0px;
+        padding-left: 0px;
+        margin-left: 12px;
+        margin-right: 0px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .payee-selection-card,
+:host ::ng-deep .rta-selection-card {
+  .checkbox-with-image-comp {
+    &__wrapper {
+      height: 56px;
+      margin-top: 16px;
+      padding: 12px;
+      &__img {
+        height: 32px;
+        width: 32px;
+        padding-right: 0px;
+        margin-right: 12px;
+      }
+      &__title {
+        color: $cerulean-blue;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .payee-selection-card {
+  .checkbox-with-image-comp {
+    &__wrapper {
+      @include respond-to(screen-l-min) {
+        max-width: 300px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .mat-horizontal-stepper-header-container {
+  height: 40px;
+  @include respond-to(screen-m-min) {
+    width: calc(84% - 10px);
+    margin-left: 25px;
+  }
+  @include respond-to(screen-l-min) {
+    width: calc(54% - 10px);
+  }
+  @include respond-to(screen-xl-min) {
+    width: calc(40.5% - 10px);
+  }
+  .mat-horizontal-stepper-header {
+    padding: 0;
+    &:last-child {
+      margin-right: 10px;
+    }
+  }
+}
+
+:host ::ng-deep .mat-horizontal-stepper-content {
+  @include respond-to(screen-m-min) {
+    width: calc(84% - 10px);
+  }
+  @include respond-to(screen-l-min) {
+    width: calc(54% - 10px);
+  }
+  @include respond-to(screen-xl-min) {
+    width: calc(40.5% - 10px);
+  }
+}
+
+:host ::ng-deep mat-horizontal-stepper.mat-horizontal-stepper-rtl {
+  .mat-horizontal-stepper-header-container {
+    @include respond-to(screen-m-min) {
+      margin-left: 0px;
+      margin-right: 25px;
+    }
+    .mat-horizontal-stepper-header {
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+  }
+  .mat-horizontal-content-container {
+    @include respond-to(screen-m-min) {
+      padding: 33px 39px 32px 0px;
+    }
+  }
+}

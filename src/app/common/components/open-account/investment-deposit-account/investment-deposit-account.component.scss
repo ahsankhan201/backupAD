@@ -1,0 +1,120 @@
+@import "src/assets/styles/default";
+
+.open-account-comp {
+  display: flex;
+  &__wrapper {
+    margin-bottom: 30px;
+    @include respond-to(screen-land) {
+      width: 100%;
+    }
+    @include respond-to(screen-l-min) {
+      margin-bottom: 16px;
+    }
+    .title {
+      color: $suva-grey;
+      font-family: $font-regular;
+      font-size: 16px;
+    }
+    &__currency {
+      margin-top: 16px;
+      @include respond-to(screen-l-min) {
+        margin-top: 27px;
+      }
+    }
+    @include respond-to(screen-l-min) {
+      width: 460px;
+      mat-form-field {
+        max-width: 213px;
+      }
+      .full-width {
+        max-width: 100%;
+      }
+      .form-wrapper {
+        margin-bottom: 16px;
+      }
+      .email-field {
+        margin-left: 27px;
+      }
+    }
+    .button-wrapper {
+      margin-top: 21px;
+      span {
+        font-family: $font-regular;
+        font-size: 12px;
+        color: $grey;
+        margin-left: 27px;
+      }
+    }
+    .cta-back-btn {
+      margin-bottom: 18px;
+      &:before {
+        top: 3px;
+      }
+    }
+    .next-btn {
+      margin-left: 27px;
+    }
+    &__form {
+      .deposite-details {
+        margin-bottom: 26px;
+      }
+      &__buttons {
+        width: 98%;
+        margin-top: 12px;
+        z-index: 10;
+        position: fixed;
+        bottom: 20px;
+        button {
+          width: 45%;
+          @include respond-to(screen-m-min) {
+            width: 47%;
+          }
+        }
+        .next-btn {
+          margin-left: 16px;
+          @include respond-to(screen-m-min) {
+            margin-left: 27px;
+          }
+        }
+        @include respond-to(screen-m-min) {
+          position: static;
+          bottom: 20px;
+          width: 100%;
+        }
+        @include respond-to(screen-xl-min) {
+          max-width: 460px;
+        }
+      }
+    }
+  }
+  .success-screen-btn {
+    width: 92%;
+    position: fixed;
+    bottom: 20px;
+    z-index: 10;
+    @include respond-to(screen-m-min) {
+      position: static;
+      margin-top: 32px;
+      width: auto;
+    }
+  }
+}
+
+:host ::ng-deep .open-accoun-currency-list {
+  .checkbox-with-image-comp {
+    display: flex;
+    @include respond-to(screen-m-min) {
+      flex-wrap: wrap;
+    }
+    &__container {
+      margin-right: 27px;
+      &__wrapper {
+        padding-right: 16px;
+        margin: 16px 0 27px 0;
+      }
+    }
+  }
+}
+.open-account-summary {
+  width: 100%;
+}

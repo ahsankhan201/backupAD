@@ -1,0 +1,189 @@
+<ng-container *ngIf="!dialogData.productImage && !(dialogData.termsAndConditionComponent) && !dialogData.isReceiptDialog && 
+    !dialogData.isRegistarationConfirmDialog && !dialogData.isSessionTimeoutDialog && !dialogData.isBlockUser">
+    <div class="dialog-header">
+        <h1 mat-dialog-title translate>{{ dialogData.title }}</h1>
+    </div>
+    <div mat-dialog-content>
+        <div class="freeze-content" *ngIf="dialogData.freezeCard">
+            <div class="card-name" *ngIf="dialogData.cardName">{{dialogData.cardName}}</div>
+            <div class="card-number">{{ dialogData.cardNumber | formatMaskCardNumber }}</div>
+        </div>
+        <p class="dialog-message" translate>{{ dialogData.message }}</p>
+        <form [formGroup]="dialogForm" *ngIf="dialogData.showForm">
+            <mat-form-field>
+                <input matInput formControlName="nickName" placeholder="{{ nickNameText }}"
+                    maxlength="{{ nickNameMaxLength }}">
+                <mat-error *ngIf="dialogForm">
+                    <app-show-form-errors [control]="dialogForm.get('nickName')" label="{{ nickNameText }}">
+                    </app-show-form-errors>
+                </mat-error>
+            </mat-form-field>
+        </form>
+        <div *ngIf="dialogData.eStatementDialog" class="month-selection">
+            <div *ngFor="let months of lastSixMonths" class="month-year-cards"
+                (click)="setSelectedMonthYear(months.id,months.year)" [ngClass]="(months.id==activeOption)?'active':''">
+                <div class="month-year-option">
+                    <div class="month">{{months.month}}</div>
+                    <div class="year">{{months.year}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="dialogData.productImage">
+    <div class="dialog-product-header"
+        [ngClass]="(selectedLang === arabicLanguageText) ? 'dialog-product-header-rtl': ''">
+        <div class="icon">
+            <img src="{{dialogData.productImage}}" alt="product" />
+        </div>
+        <div class="heading-content">
+            <div class="title">{{ dialogData.title }}</div>
+            <div class="description">{{ dialogData.message }}</div>
+        </div>
+    </div>
+    <div class="mat-dialog-bullet-content" #bulletPoints>
+        <div *ngFor="let bulletPoint of dialogData.bulletPoints">
+            <div class="dialog-bullets-wrapper"
+                *ngIf="((selectedLang === arabicLanguageText) && bulletPoint.bulletDescriptionArabic != null) || ((selectedLang === 'en') && bulletPoint.bulletDescriptionEnglish != null)"
+                [ngClass]="(selectedLang === arabicLanguageText) ? 'dialog-bullets-wrapper-rtl': ''">
+                <div class="bullet-icon"></div>
+                <div class="bullet-text" *ngIf="selectedLang === 'en'"
+                    [innerHTML]="bulletPoint.bulletDescriptionEnglish">
+                </div>
+                <div class="bullet-text" *ngIf="selectedLang === arabicLanguageText"
+                    [innerHTML]="bulletPoint.bulletDescriptionArabic">
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="dialogData.termsAndConditionComponent">
+    <div class="dialog-header">
+        <h1 class="terms-and-condition-header" mat-dialog-title translate>tr_common_termsAndConditions</h1>
+        <button *ngIf="!dialogData.isUserAgreementDialog" class="terms-and-condition-header__close-button"
+            (click)="handleCloseDialog('Close')" #closebutton data-dismiss="modal" translate>tr_common_closeText<img
+                alt="Close icon" src="{{closeIcon}}"></button>
+    </div>
+    <div class="terms-and-condition-com" mat-dialog-content>
+        <app-terms-and-condition [name]="dialogData.termsAndConditionComponent"
+            (readStatus)="readStatusTermsAndCondition($event)" [agreementContent]="agreementContent">
+        </app-terms-and-condition>
+    </div>
+    <div *ngIf="dialogData.isUserAgreementDialog" class="user-agreement__buttons">
+        <button class="btn next-btn dialog-btn" (click)="confirmDialog()" [disabled]="isButtonDisabled()" type="button"
+            translate>{{ dialogData.confirmText }}</button>
+    </div>
+    <div *ngIf="dialogData.isUserAgreementDialog" class="user-agreement__version">
+        <span>{{ agreementVersion }}</span>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="dialogData.isRegistarationConfirmDialog">
+    <div class="auth-dialog-modal">
+        <div class="dialog-header">
+            <div class="terms-and-condition-header" mat-dialog-title translate>
+                tr_loginDialogComponent_welcomeToText
+                <span class="new-text" translate>tr_loginDialogComponent_newADIBText</span>
+            </div>
+        </div>
+        <div class="auth-dialog-modal__content">
+            <div class="auth-dialog-modal__content__info" translate>
+                tr_loginDialogComponent_infoTextText
+                <span translate>tr_loginDialogComponent_needToRegisterText</span>
+            </div>
+            <div class="auth-dialog-modal__content__note-text">
+                <span class="note" translate>tr_common_noteText</span>:
+                <span class="credential-text" translate>
+                    tr_loginDialogComponent_oldCredentialsText
+                </span>
+            </div>
+        </div>
+        <div class="auth-dialog-modal__buttons">
+            <button class="btn next-btn dialog-btn" type="button" routerLink="/registration" (click)="cancelDialog()"
+                translate>
+                tr_loginDialogComponent_registerToNewIBText
+            </button>
+            <span (click)="confirmDialog()" translate>tr_loginDialogComponent_alreadyRegisteredText</span>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="dialogData.isReceiptDialog">
+    <div class="transaction-receipt" [ngClass]="(selectedLang === arabicLanguageText) ? 'transaction-receipt-rtl': ''">
+        <div class="transaction-receipt__logo"><img alt="Logo" src="/assets/images/Logo.png"></div>
+        <div class="transaction-receipt__title" translate>tr_transferReceipt_receiptText</div>
+        <div class="transaction-receipt__wrapper">
+            <div class="transaction-receipt__wrapper__field"
+                *ngFor="let field of dialogData.receiptDetails?.listOfFields">
+                <div class="transaction-receipt__wrapper__field__name">{{field.name | translate}}</div>
+                <div class="transaction-receipt__wrapper__field__value" *ngIf="field.name!=='tr_transferReceipt_amountText' && field.name!=='tr_transferReceipt_dateAndTimeText' &&
+                     field.name!=='tr_cards_cardNumberText' && field.name!=='tr_paymentReceipt_amountText'">
+                    {{field.value | translate}}</div>
+                <div *ngIf="field.name==='tr_transferReceipt_amountText' || field.name==='tr_paymentReceipt_amountText'"
+                    class="transaction-receipt__wrapper__field__value">
+                    <span class="number">{{field.value | numberFormat}}.{{field.value | getDecimalValue}}</span>
+                    <span class="currency">{{dialogData.receiptDetails.currency}}</span>
+                </div>
+                <div *ngIf="field.name==='tr_transferReceipt_dateAndTimeText'"
+                    class="transaction-receipt__wrapper__field__value">
+                    {{field.value | date:'dd MMM yyyy hh:mma'}}
+                </div>
+                <div *ngIf="field.name==='tr_cards_cardNumberText'" class="transaction-receipt__wrapper__field__value">
+                    {{field.value | formatMaskCardNumber}}
+                </div>
+            </div>
+        </div>
+        <div class="transaction-receipt__buttons">
+            <button class="btn next-btn dialog-btn" (click)="confirmDialog()" type="button"
+                translate>tr_common_shareText</button>
+            <button class="btn cancel-btn dialog-btn" type="button" (click)="cancelDialog()"
+                translate>tr_common_closeText</button>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="dialogData.isSessionTimeoutDialog">
+    <div class="session-timeout">
+        <div class="session-timeout__wrapper">
+            <div class="session-timeout__wrapper__title" translate>
+                tr_logoutComponent_sessionExpireInText <span>{{sessionCount}}</span> tr_logoutComponent_secondsText
+            </div>
+            <div class="session-timeout__wrapper__question" translate>tr_logoutComponent_staySignInText</div>
+        </div>
+        <div class="session-timeout__buttons">
+            <button class="btn cancel-btn" type="button" (click)="cancelDialog()"
+                translate>tr_logoutComponent_signOutText</button>
+            <button class="btn next-btn" (click)="confirmDialog()" type="button"
+                translate>tr_logoutComponent_keepSignInText</button>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="dialogData.isBlockUser">
+    <div class="user-blocked">
+        <div class="dialog-header" *ngIf="dialogData.title">
+            <h1 mat-dialog-title translate>{{ dialogData.title }}</h1>
+        </div>
+        <div mat-dialog-content class="user-blocked-content">
+            <div *ngIf="dialogData.textTemplate === 'invalid-card-pin'" translate>tr_user_blocked_card_pin_text</div>
+            <div *ngIf="dialogData.textTemplate === 'invalid-otp'" translate>tr_user_blocked_otp_text</div>
+            <div *ngIf="dialogData.textTemplate === 'existing-user-session'" translate>tr_active_session_text</div>
+        </div>
+        <div mat-dialog-actions>
+            <button class="btn next-btn dialog-btn" [ngClass]="(!dialogData.cancelText)?'col-12':''"
+                (click)="confirmDialog()" [disabled]="isButtonDisabled()" type="button"
+                translate>{{ dialogData.confirmText }}</button>
+            <button *ngIf="dialogData.cancelText" class="btn cancel-btn dialog-btn" type="button"
+                (click)="cancelDialog()" translate>{{ dialogData.cancelText }}</button>
+        </div>
+    </div>
+</ng-container>
+
+<div mat-dialog-actions
+    [ngClass]="dialogData.eStatementDialog ? 'download-buttons' : (dialogData.termsAndConditionComponent ? 'terms-and-condition-action' : '')"
+    *ngIf="!dialogData.isReceiptDialog && !dialogData.isRegistarationConfirmDialog && !dialogData.isSessionTimeoutDialog && !dialogData.isUserAgreementDialog && !dialogData.isBlockUser">
+    <button class="btn next-btn dialog-btn" (click)="confirmDialog()" [disabled]="isButtonDisabled()" type="button"
+        translate>{{ dialogData.confirmText }}</button>
+    <button *ngIf="dialogData.cancelText" class="btn cancel-btn dialog-btn" type="button" (click)="cancelDialog()"
+        translate>{{ dialogData.cancelText }}</button>
+</div>

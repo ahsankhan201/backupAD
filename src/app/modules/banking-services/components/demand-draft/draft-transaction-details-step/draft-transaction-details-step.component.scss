@@ -1,0 +1,84 @@
+@import "src/assets/styles/default";
+
+.ibd-demand-draft-transaction-details {
+  min-height: 385px;
+  position: relative;
+  &__wrapper {
+    margin-top: 16px;
+    @include respond-to(screen-m-min) {
+      margin-top: 30px;
+    }
+    .text {
+      font-family: $font-light;
+      margin-bottom: 4px;
+      font-size: 16px;
+      color: $grey;
+    }
+    &__buttons {
+      width: 100%;
+      position: static;
+      margin-bottom: 16px;
+      button {
+        width: 100%;
+        margin-top: 16px;
+        @include respond-to(screen-m-min) {
+          width: 184px;
+          min-width: 184px;
+          margin-top: 0;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        display: flex;
+        .next-btn,
+        .previous-btn {
+          margin-left: 27px;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        margin-top: 38px;
+      }
+    }
+    .bottom-text {
+      font-size: 12px;
+      font-family: $font-light;
+      color: $grey;
+      padding-top: 30px;
+      line-height: 18px;
+      padding-bottom: 40px;
+      strong {
+        color: $solid-blue;
+        font-family: $font-medium;
+      }
+      .bank-fees-text {
+        display: block;
+      }
+    }
+    form {
+      .transfer-purpose {
+        @include respond-to(screen-m-min) {
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+  @include respond-to(screen-m-min) {
+    max-width: 600px;
+  }
+  .alert-message {
+    margin-top: 20px;
+  }
+}
+
+// RTL STYLES
+.ibd-demand-draft-transaction-details-rtl {
+  .ibd-demand-draft-transaction-details__wrapper {
+    .ibd-demand-draft-transaction-details__wrapper__buttons {
+      .previous-btn {
+        @include respond-to(screen-m-min) {
+          margin-left: 27px;
+          margin-right: 27px;
+        }
+      }
+    }
+  }
+}

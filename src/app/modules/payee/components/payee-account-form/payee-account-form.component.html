@@ -1,0 +1,54 @@
+<section class="payee-account-form-comp col-12 padding-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'payee-form-rtl': ''" *ngIf="payeeAccountGroup">
+    <form [formGroup]="payeeAccountGroup" class="payee-account-form-comp__form">
+        <div class="payee-account-form-comp__form__wrapper">
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>{{formControlLabel | translate}}</mat-label>
+                    <input autocomplete="off"  matInput formControlName="consumerNumber" minlength="{{ consumerNumberLength }}"
+                        maxlength="{{ consumerNumberLength }}" #consumerNumber numbersOnly [allowDot]='allowDotStatus'
+                        (blur)="isPayeeExisits('consumerNumber', 'utilityServiceNumber')">
+                    <mat-hint align="end">{{consumerNumber.value.length}} / {{ consumerNumberLength }}
+                    </mat-hint>
+                    <mat-error>
+                        <app-show-form-errors [control]="payeeAccountGroup.get('consumerNumber')"
+                            label="Account Number">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group" *ngIf="showPINNumber">
+                <mat-form-field>
+                    <mat-label>{{payeeAccountFormText.PIN_NUMBER | translate}}</mat-label>
+                    <input matInput formControlName="pin" #rtaPINNumber type="password"
+                        maxlength="{{payeeAccountFormText.PIN_NUMBER_MAX}}" numbersOnly>
+                    <mat-hint align="end">{{rtaPINNumber.value.length}} / {{payeeAccountFormText.PIN_NUMBER_MAX}}
+                    </mat-hint>
+                    <mat-error>
+                        <app-show-form-errors [control]="payeeAccountGroup.get('pin')" label="PIN Number">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>{{payeeAccountFormText.NICK_NAME | translate}}</mat-label>
+                    <input matInput appAlphaNumeric formControlName="nickName"
+                        maxlength="{{ payeeAccountFormText.NICK_NAME_MAX }}">
+                    <mat-error>
+                        <app-show-form-errors [control]="payeeAccountGroup.get('nickName')" label="Nick name">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="payee-account-form-comp__form__buttons">
+            <button matStepperPrevious class="btn previous-btn" type="button">{{navControlsText.PREV}}</button>
+            <button matStepperNext class="btn next-btn" type="button" [disabled]="!payeeAccountGroup.valid"
+                (click)="generatePayeePayLoad()">{{navControlsText.NEXT}}</button>
+        </div>
+    </form>
+</section>

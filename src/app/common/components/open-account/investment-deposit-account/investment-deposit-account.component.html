@@ -1,0 +1,173 @@
+<div class="open-account-comp">
+    <div class="open-account-comp__wrapper" *ngIf="showComponent === 'InvestmentDepositAccountComponent'">
+        <form [formGroup]="openAccountFormGroup" class="open-account-comp__wrapper__form">
+            <div class="open-account-comp__wrapper__currency">
+                <div class="title" translate>tr_common_currencyText</div>
+                <app-checkbox-generic [optionsList]="openAccountCurrencyList" 
+                    [preSelectedOption]="preSelectedCurrency"
+                    [componentName]="'openAccountCurrencyList'"
+                    (selectedOptionValue)="handleSelectedCurrency($event)"
+                    class="open-accoun-currency-list"
+                    customClassName="active-blue">
+                </app-checkbox-generic>
+            </div>
+            <div class="title deposite-details" translate>tr_openAccountComponent_depositDetailsText</div>
+            <div class="row margin-lrn form-wrapper">
+                <mat-form-field class="col-md-6 padding-lrn">
+                    <mat-label translate>tr_timeDepositAccount_accountDurationText</mat-label>
+                    <input type="text" matInput formControlName="accountDuration"
+                        [matAutocomplete]="autoAccountDuration">
+                    <mat-error>
+                        <app-show-form-errors [control]="openAccountFormGroup.get('accountDuration')"
+                            label="tr_timeDepositAccount_accountDurationText">
+                        </app-show-form-errors>
+                    </mat-error>
+                    <mat-autocomplete #autoAccountDuration="matAutocomplete" [displayWith]="accountDurationDisplayFn"
+                        (optionSelected)="handleAccountDurationChange($event.option.value)" autoActiveFirstOption>
+                        <mat-option *ngFor="let item of accountDurationList  | filterText:openAccountFormGroup.get('accountDuration').value:''"
+                            [value]="item" id="{{item}}_{{ MONTH }}">
+                            {{ item }} {{ MONTH }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <mat-form-field class="col-md-6 padding-lrn email-field">
+                    <mat-label translate>tr_timeDepositAccount_depositAmountText</mat-label>
+                    <input autocomplete="off" type="text" matInput formControlName="depositAmount" numbersOnly decimals="3"
+                    (focusout)="validateAmount()" appInputWithComma>
+                    <mat-hint align="end" *ngIf="minimumAmountForOpeningAccount" translate>tr_timeDepositAccount_minimumAmountText <span> {{minimumAmountForOpeningAccount }} {{ targetAccountCurrency}}</span></mat-hint>
+                    <mat-error>
+                        <app-show-form-errors [control]="openAccountFormGroup.get('depositAmount')"
+                            label="tr_timeDepositAccount_depositAmountText">
+                        </app-show-form-errors>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row margin-lrn form-wrapper">
+                <mat-form-field class="full-width">
+                    <mat-label translate>tr_openAccountComponent_transferFromAccountText</mat-label>
+                    <input type="text" matInput formControlName="transferFromAccount"
+                        [matAutocomplete]="transferFromAccount">
+                    <mat-hint align="end" *ngIf="sourceAccountCurrency && targetAccountCurrency && (sourceAccountCurrency !== targetAccountCurrency)">
+                        <span translate>tr_openAccountComponent_exchangeRateText</span> 1 {{sourceAccountCurrency }} =
+                    {{transferRateForView}} {{targetAccountCurrency}}
+                    </mat-hint>
+                    <mat-error>
+                        <app-show-form-errors [control]="openAccountFormGroup.get('transferFromAccount')"
+                            label="tr_openAccountComponent_transferFromAccountText">
+                        </app-show-form-errors>
+                    </mat-error>
+                    <mat-autocomplete #transferFromAccount="matAutocomplete"
+                        (optionSelected)="accountSelectionChange($event.option.id, 'transferFromAccount')" autoActiveFirstOption>
+                        <mat-option
+                            *ngFor="let item of accountList | filterText:openAccountFormGroup.controls['transferFromAccount'].value:'accountValueForDropDown'"
+                            value="{{item.currencyCode}} {{item.accountNameForDropDown | translate}} {{item.accountNumber}}"
+                            id="{{item.accountNumber}}" translate>
+                            {{item.currencyCode}} {{item.accountNameForDropDown | translate}} {{item.accountNumber}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+            </div>
+            <div class="row margin-lrn">
+                <div class="title" translate>tr_timeDepositAccount_summary_maturityOptionText</div>
+            </div>
+            <div class="row margin-lrn  form-group">
+                <mat-form-field class="full-width">
+                    <mat-label translate>tr_timeDepositAccount_transferToText</mat-label>
+                    <input type="text" matInput formControlName="maturityOptionTransferTo"
+                        [matAutocomplete]="autoMaturityOptionTransferTo">
+                    <mat-error>
+                        <app-show-form-errors [control]="openAccountFormGroup.get('maturityOptionTransferTo')"
+                            label="tr_timeDepositAccount_transferToText">
+                        </app-show-form-errors>
+                    </mat-error>
+                    <mat-autocomplete #autoMaturityOptionTransferTo="matAutocomplete" [displayWith]="transferToDisplayFn"
+                        (optionSelected)="onChangeMaturityOption($event.option.value)" autoActiveFirstOption>
+                        <mat-option
+                            *ngFor="let item of maturityOptionTransferToList"
+                            [value]="item" id="{{item.value}}">
+                            {{item.value}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <mat-form-field class="full-width" *ngIf="showMaturityAccount">
+                    <mat-label translate>tr_common_accountText</mat-label>
+                    <input type="text" matInput formControlName="maturityOptionAccount"
+                        [matAutocomplete]="maturityOptionAccount">
+                    <mat-error>
+                        <app-show-form-errors [control]="openAccountFormGroup.get('maturityOptionAccount')"
+                            label="tr_common_accountText">
+                        </app-show-form-errors>
+                    </mat-error>
+                    <mat-autocomplete (optionSelected)="accountSelectionChange($event.option.id, 'maturityAccount')" 
+                    #maturityOptionAccount="matAutocomplete" autoActiveFirstOption >
+                        <mat-option
+                            *ngFor="let item of maturityOptionAccountList | filterText:openAccountFormGroup.controls['maturityOptionAccount'].value:'accountValueForDropDown'"
+                            value="{{item.currencyCode}} {{item.accountNameForDropDown | translate}} {{item.accountNumber}}"
+                            id="{{item.accountNumber}}" translate>
+                            {{item.currencyCode}} {{item.accountNameForDropDown | translate}} {{item.accountNumber}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <div class="row margin-lrn">
+                <div class="title" translate>tr_timeDepositAccount_profitCreditOptionText</div>
+            </div>
+            <div class="row margin-lrn  form-group">
+                <mat-form-field class="full-width">
+                    <mat-label translate>tr_timeDepositAccount_transferToText</mat-label>
+                    <input autocomplete="off" type="text" matInput formControlName="profitCreditOptionTransferTo"
+                        [matAutocomplete]="profitCreditOptionTransferTo">
+                    <mat-error>
+                        <app-show-form-errors [control]="openAccountFormGroup.get('profitCreditOptionTransferTo')"
+                            label="tr_timeDepositAccount_transferToText">
+                        </app-show-form-errors>
+                    </mat-error>
+                    <mat-autocomplete #profitCreditOptionTransferTo="matAutocomplete" [displayWith]="transferToDisplayFn"
+                        (optionSelected)="onChangeProfitCreditOption($event.option.value)" autoActiveFirstOption>
+                        <mat-option
+                            *ngFor="let item of profitCreditOptionTransferToList"
+                            [value]="item" id="{{item.value}}">
+                            {{item.value}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <mat-form-field class="full-width" *ngIf="showProfitCreditAccount">
+                    <mat-label translate>tr_common_accountText</mat-label>
+                    <input type="text" matInput formControlName="profitCreditOptionAccount"
+                        [matAutocomplete]="profitCreditOptionAccount">
+                    <mat-error>
+                        <app-show-form-errors [control]="openAccountFormGroup.get('profitCreditOptionAccount')"
+                            label="tr_common_accountText">
+                        </app-show-form-errors>
+                    </mat-error>
+                    <mat-autocomplete (optionSelected)="accountSelectionChange($event.option.id, 'profitCreditAccount')" #profitCreditOptionAccount="matAutocomplete" autoActiveFirstOption>
+                        <mat-option
+                            *ngFor="let item of profitCreditOptionAccountList | filterText:openAccountFormGroup.controls['profitCreditOptionAccount'].value:'accountValueForDropDown'"
+                            value="{{item.currencyCode}} {{item.accountNameForDropDown | translate}} {{item.accountNumber}}"
+                            id="{{item.accountNumber}}" translate>
+                            {{item.currencyCode}} {{item.accountNameForDropDown | translate}} {{item.accountNumber}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+
+            <div class="open-account-comp__wrapper__form__buttons">
+            <button class="btn cancel-btn" type="button" (click)="cancelOpeningAccountProcess()"
+                translate>tr_common_cancelText</button>
+            <button class="btn next-btn" (click)="handleOpenAccountSubmit()"
+            [disabled]="!openAccountFormGroup.valid" translate>tr_common_nextText</button>
+            </div>
+        </form>
+    </div>
+    <!-- Summary screen Component Start -->
+    <app-open-account-summary 
+    class="open-account-summary"
+    (showOpenAccountFormComponent)="showOpenAccountFormComponent($event)"
+    *ngIf="showComponent === 'InvestmentDepositAccountsSummaryComponent'">
+    </app-open-account-summary>
+    <!-- Summary screen Component End -->
+</div>

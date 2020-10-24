@@ -1,0 +1,105 @@
+<section class="profile-component">
+    <div class="profile-component__wrapper">
+        <div class="profile-component__wrapper__title" translate>
+            tr_profileComponent_myProfile
+        </div>
+        <div class="profile-component__wrapper__sub-title" translate> tr_profileComponent_contactDetails </div>
+        <div class="profile-component__wrapper__info">
+            <div class="profile-component__wrapper__info__section">
+                <div class="profile-component__wrapper__info__section__label" translate>
+                    tr_paymentReceipt_phoneNumberText
+                </div>
+                <div class="profile-component__wrapper__info__section__value">
+                    {{ profileInformation && profileInformation.customerAddress && profileInformation.customerAddress[0].phoneOffice ? profileInformation.customerAddress[0].phoneOffice:'-'}}
+                </div>
+            </div>
+            <div class="profile-component__wrapper__info__section">
+                <div class="profile-component__wrapper__info__section__label" translate>
+                    tr_profileComponent_telePhoneNumber
+                </div>
+                <div class="profile-component__wrapper__info__section__value">
+                    {{ profileInformation && profileInformation.customerAddress && profileInformation.customerAddress[0].phoneHome ? profileInformation.customerAddress[0].phoneHome:'-'}}
+                </div>
+            </div>
+            <div class="profile-component__wrapper__info__section">
+                <div class="profile-component__wrapper__info__section__label" translate>
+                    tr_profileComponent_emailAddress
+                </div>
+                <div class="profile-component__wrapper__info__section__value">
+                    {{ profileInformation && profileInformation.customerAddress && profileInformation.customerAddress[0].email ? profileInformation.customerAddress[0].email:'-'}}
+                </div>
+            </div>
+        </div>
+        <div class="profile-component__wrapper__sub-title" translate> tr_profileComponent_personalDetails</div>
+        <div class="profile-component__wrapper__info">
+            <div class="profile-component__wrapper__info__section">
+                <div class="profile-component__wrapper__info__section__label" translate>
+                    tr_profileComponent_fullName
+                </div>
+                <div class="profile-component__wrapper__info__section__value">
+                    {{ customerName ? customerName:'-'}}
+                </div>
+            </div>
+            <div class="profile-component__wrapper__info__section">
+                <div class="profile-component__wrapper__info__section__label" translate>
+                    tr_profileComponent_dateOfBirth
+                </div>
+                <div class="profile-component__wrapper__info__section__value">
+                    {{ profileInformation && profileInformation.dateOfBirth ?  (profileInformation.dateOfBirth | date:'dd/MM/yyyy'):'-'}}
+                </div>
+            </div>
+        </div>
+        <div class="profile-component__wrapper__sub-title" translate> tr_profileComponent_mailingAddress </div>
+        <div class="profile-component__wrapper__info">
+            <div class="profile-component__wrapper__info__section">
+                <div class="profile-component__wrapper__info__section__label" translate>
+                    tr_profileComponent_countryText
+                </div>
+                <div class="profile-component__wrapper__info__section__value">
+                    {{ profileInformation && profileInformation.countryName ? profileInformation.countryName:'-'}}
+                </div>
+            </div>
+            <div class="profile-component__wrapper__info__section">
+                <div class="profile-component__wrapper__info__section__label" translate>tr_addBene_cityText</div>
+                <div class="profile-component__wrapper__info__section__value">
+                    {{ profileInformation && profileInformation.customerAddress && profileInformation.customerAddress[0].city ? profileInformation.customerAddress[0].city:'-'}}
+                </div>
+            </div>
+            <div class="profile-component__wrapper__info__section">
+                <div class="profile-component__wrapper__info__section__label" translate>
+                    tr_profileComponent_streetText
+                </div>
+                <div class="profile-component__wrapper__info__section__value">
+                    {{ profileInformation && profileInformation.customerAddress && profileInformation.customerAddress[0].streetName ? profileInformation.customerAddress[0].streetName:'-'}}
+                </div>
+            </div>
+            <div class="profile-component__wrapper__info__section">
+                <div class="profile-component__wrapper__info__section__label" translate>
+                    tr_profileComponent_apartmentText
+                </div>
+                <div class="profile-component__wrapper__info__section__value">
+                    {{ profileInformation && profileInformation.customerAddress && profileInformation.customerAddress[0].addressLine1 ? profileInformation.customerAddress[0].addressLine1:'-'}}
+                </div>
+            </div>
+            <div class="profile-component__wrapper__info__section">
+                <div class="profile-component__wrapper__info__section__label" translate>
+                    tr_profileComponent_landMark
+                </div>
+                <div class="profile-component__wrapper__info__section__value">
+                    {{ profileInformation && profileInformation.customerAddress && profileInformation.customerAddress[0].addressLine3 ? profileInformation.customerAddress[0].addressLine3:'-'}}
+                </div>
+            </div>
+            <div class="profile-component__wrapper__info__section">
+                <div class="profile-component__wrapper__info__section__label" translate>tr_profileComponent_poBox</div>
+                <div class="profile-component__wrapper__info__section__value">
+                    {{ profileInformation && profileInformation.customerAddress && profileInformation.customerAddress[0].boxNumber ? profileInformation.customerAddress[0].boxNumber:'-'}}
+                </div>
+            </div>
+        </div>
+        <div class="profile-component__wrapper__note">
+            <span translate class="text">tr_common_noteText</span>: <span
+                translate>tr_profileComponent_updateContactText</span>.
+        </div>
+        <button class="btn next-btn" (click)="handleCancelButtonClick()"> {{selectedDashboard | translate}}</button>
+    </div>
+</section>

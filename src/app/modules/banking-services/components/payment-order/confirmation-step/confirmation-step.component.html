@@ -1,0 +1,40 @@
+<div class="ibd-payment-order-confirmation">
+    <div class="ibd-payment-order-confirmation__wrapper" *ngIf="showComponent==='SummaryComponent'">
+        <div class="summary-label-group" *ngIf="summaryDetails.beneficiaryName">
+            <div class="summary-label-group__label" translate>tr_common_beneNameText</div>
+            <div class="summary-label-group__value ">{{summaryDetails.beneficiaryName | translate}}</div>
+        </div>
+        <div class="summary-label-group" *ngIf="summaryDetails.purpose">
+            <div class="summary-label-group__label" translate>tr_common_purposeOfTransferText</div>
+            <div class="summary-label-group__value">{{summaryDetails.purpose | translate}}</div>
+        </div>
+        <div class="summary-label-group" *ngIf="summaryDetails.collectFrom">
+            <div class="summary-label-group__label" translate>tr_common_collectFromText</div>
+            <div class="summary-label-group__value">{{summaryDetails.collectFrom | translate}}</div>
+        </div>
+        <div class="summary-label-group" *ngIf="summaryDetails.sourceAccountDetails">
+            <div class="summary-label-group__label" translate>tr_common_transferFromText</div>
+            <div class="summary-label-group__value">{{summaryDetails.sourceAccountDetails | translate}}</div>
+        </div>
+        <div class="summary-label-group" *ngIf="summaryDetails.amount">
+            <div class="summary-label-group__label" translate>tr_paymentOrder_confirmPaymentOrderAmountText</div>
+            <div class="summary-label-group__value">
+                {{summaryDetails.amount | numberFormat}}.{{summaryDetails.amount | getDecimalValue}}
+                {{summaryDetails.currency }}</div>
+        </div>
+        <div class="summary-buttons">
+            <button class="btn cancel-btn" type="button" (click)="handleCancelButtonClick()"
+                translate>tr_common_cancelText</button>
+            <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+            <button class="btn next-btn" type="button" (click)="handleNextButtonClick()"
+                translate>tr_common_nextText</button>
+        </div>
+    </div>
+    <div class="ibd-payment-order-confirmation__success-screen" *ngIf="showComponent ==='SuccessScreenComponent'">
+        <app-success-screen [showAlertIcon]="false" [newAccountNumber]="referanceNumber"
+            componentName="bankingServicePaymentOrder" class="payment-order-comp">
+        </app-success-screen>
+        <button class="btn next-btn success-screen-btn"
+            (click)="handleCancelButtonClick()">{{backToMainComponent | translate}}</button>
+    </div>
+</div>

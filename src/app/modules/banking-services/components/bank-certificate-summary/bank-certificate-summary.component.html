@@ -1,0 +1,53 @@
+<section class="bank-certificate-summary-comp"
+    [ngClass]="(selectedLang === arabicLanguageText) ? 'bank-certificate-summary-comp-rtl': ''">
+    <div class="col-sm-12 padding-lrn title" translate>tr_bankCertificateComponent_requestBankCertificate</div>
+    <div class="bank-certificate-summary-comp__wrapper" *ngIf="!showSuccessScreen">
+        <div class="bank-certificate-summary-comp__wrapper__title" translate>
+            tr_common_verifyDetailsText
+        </div>
+        <div class="bank-certificate-summary-comp__wrapper__container">
+            <div class="label" translate>tr_common_accountText</div>
+            <div class="value">{{accountNumberDescription}}</div>
+        </div>
+        <div class="bank-certificate-summary-comp__wrapper__container">
+            <div class="label" translate>tr_bankCertificateComponent_certificateType</div>
+            <div class="value">{{summaryDetails.certificateType}}</div>
+        </div>
+        <div class="bank-certificate-summary-comp__wrapper__container">
+            <div class="label" translate>tr_common_languageText</div>
+            <div class="value">{{summaryDetails.preferredLanguage}}</div>
+        </div>
+        <div class="bank-certificate-summary-comp__wrapper__container">
+            <div class="label" translate>tr_addBene_addressText</div>
+            <div class="value">{{summaryDetails.addressedTo}}</div>
+        </div>
+        <div class="bank-certificate-summary-comp__wrapper__container">
+            <div class="label" translate>tr_common_collectFromText</div>
+            <div class="value" translate>{{deliveryBranchType}}</div>
+        </div>
+        <div class="bank-certificate-summary-comp__wrapper__container">
+            <div class="label" translate>tr_bankCertificateComponent_branchName</div>
+            <div class="value">{{summaryDetails.branchName}}</div>
+        </div>
+        <div class="bank-certificate-summary-comp__wrapper__container">
+            <div class="label" translate>tr_common_feeText</div>
+            <div class="value"> {{feeCurrencyCode}} {{summaryDetails.standardCharges}}</div>
+        </div>
+        <div class="bank-certificate-summary-comp__wrapper__taxText" translate>tr_common_vatText</div>
+    </div>
+    <div class="button-wrapper" *ngIf="!showSuccessScreen">
+        <button class="cancel-btn" (click)="showBankCerificateDashboard()" translate>tr_common_cancelText</button>
+        <button class="previous-btn" (click)="showPreviousScreen()" translate>tr_common_previousText</button>
+        <button class="next-btn" (click)="makeBankCertificateRequest()" [disabled]="disableSubmitBtn"
+            translate>tr_common_confirmText</button>
+    </div>
+
+    <div *ngIf="showSuccessScreen">
+        <app-success-screen [paymentReferenceNumber]="referenceNumberForSuccessScreen"
+            [componentName]="'bankCertificate'" class="bankcertificate-success-component">
+        </app-success-screen>
+        <button translate class="next-btn success-screen-btn" (click)="showBankCerificateDashboard()">
+            tr_bankCertificateComponent_bankCertificateDashboard
+        </button>
+    </div>
+</section>

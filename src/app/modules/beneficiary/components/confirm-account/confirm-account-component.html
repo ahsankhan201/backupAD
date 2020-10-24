@@ -1,0 +1,54 @@
+<div class="confirm-account-comp row margin-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'confirm-bene-rtl': ''">
+    <div class="confirm-account-comp__row col-12 padding-lrn" *ngIf="!showOrHideOTPComp && !showSuccessScreen">
+        <div class="confirm-account-comp__row__header col-12 padding-lrn" translate>tr_common_summary</div>
+        <div class="confirm-account-comp__row__title" *ngIf="summaryDetails.region" translate>
+            tr_addBene_regionText
+        </div>
+        <div class="confirm-account-comp__row__description">
+            {{summaryDetails.region}}
+        </div>
+        <div class="confirm-account-comp__row__title" translate>
+            tr_addBene_bankText
+        </div>
+        <div class="confirm-account-comp__row__description">
+            {{summaryDetails.bank}}
+        </div>
+        <div class="confirm-account-comp__row__title" translate>
+            tr_common_accountText
+        </div>
+        <div class="confirm-account-comp__row__description">
+            <div class="account-info-label" *ngIf="summaryDetails.accountDetails.currency">
+                {{summaryLabelText.currency | translate}} : {{summaryDetails.accountDetails.currency}}
+            </div>
+            <div class="account-info-label" *ngIf="summaryDetails.accountDetails.accountNumber">
+                {{summaryDetails.accountDetails.accountTitle | translate}} :
+                {{summaryDetails.accountDetails.accountNumber}}</div>
+            <div class="account-info-label" *ngIf="summaryDetails.accountDetails.name">
+                {{summaryLabelText.name | translate}} :
+                {{summaryDetails.accountDetails.name}}</div>
+            <div class="account-info-label" *ngIf="summaryDetails.accountDetails.address">
+                {{summaryLabelText.address | translate}}
+                : {{summaryDetails.accountDetails.address}}
+            </div>
+        </div>
+        <div class="confirm-account-comp__row__title" translate>
+            tr_common_nickNameText
+        </div>
+        <div class="confirm-account-comp__row__description">
+            {{summaryDetails.nickName}}
+        </div>
+        <div class="confirm-account-comp__row__buttons">
+            <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+            <button class="btn next-btn" (click)="getOTPLocationDetails()" type="button"
+                translate>tr_addBene_confirmWithOTPText</button>
+        </div>
+    </div>
+    <div class="confirm-account-comp__otp-wrapper" *ngIf="showOrHideOTPComp">
+        <app-otp *ngIf="location" [location]='location' [masking]=true
+            (response)="getResponse($event)" (resendOTPRequired)="resendOTPRequired($event)"></app-otp>
+    </div>
+    <div class="confirm-account-comp__success-screen" *ngIf="showSuccessScreen">
+        <app-success-screen [beneficiaryName]="beneficiaryName" [coolingTime] = 'coolingTime' componentName="beneficiary"></app-success-screen>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="payee-checkbox-comp" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'checkbox-payee-rtl': ''">
+    <div class="payee-checkbox-comp__container">
+        <div class="card" *ngFor="let item of checkBoxPayeeList; let index = index"
+            (click)="handleChange(item,checkBoxName)" [ngClass]="(item.customerPayeeID===preSelectedValue)?'active':''">
+            <div class="payee-container">
+                <div class="payee-logo"><img alt="Payee"
+                        [src]="iconsConst.PAYEES[item.utilityProviderId] ? iconsConst.PAYEES[item.utilityProviderId] : iconsConst.defaultIcon" />
+                </div>
+                <div class="title detail-wrapper">
+                    <div class="title">{{item.nickName}}</div>
+                    <div class="company-name">{{item.utilityProviderId}}</div>
+                    <div class="account-number"> {{item.utilityServiceNumber}} </div>
+                </div>
+                <div class="icon-wrapper">
+                    <div class="icons">
+                        <span class="favorite">
+                            <span class="status-icon"
+                                [ngClass]="item.isFavourite ==='Y' ? 'favourite' : 'not-favourite'"></span>
+                        </span>
+                    </div>
+                    <div class="detail-icon">
+                        <div class="ibd-check-box">
+                            <input type="radio" id="{{item.customerPayeeID}}" value="{{item.customerPayeeID}}"
+                                name="{{componentName}}" #checkBoxName
+                                [checked]="item.customerPayeeID===preSelectedValue" />
+                            <label for="{{item.customerPayeeID}}"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

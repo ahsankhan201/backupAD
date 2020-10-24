@@ -1,0 +1,71 @@
+<div class="row ibd-account-list margin-lrn"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'account-list-rtl-layout': ''">
+    <div class="col-sm-12 ibd-account-list__btn-wrapper padding-lrn">
+        <span translate class="ibd-account-list__btn-wrapper__title">tr_accountDetailComponent_MY_ACCOUNT</span>
+        <button (click)="handleOpenAccountButton()" class="ibd-account-list__btn-wrapper__btn">
+            <span translate>tr_accountDetailComponent_OPEN_ACCOUNT</span>
+            <img alt="add icon" src="{{ACCOUNTS_MASTER_DATA.ADD_ICON}}"></button>
+    </div>
+    <div class="col-sm-12 ibd-account-list__card-wrapper padding-lrn" #scrollContainer (scroll)="moveScroll(undefined)">
+        <div class="ibd-account-list__card-wrapper__card" (click)="getDetails(card)"
+            *ngFor="let card of completeCardsList; let i = index"
+            [ngClass]="(card.cardType=='cover-card')?'ibd-account-list__card-wrapper__c_card':''">
+            <!-- card html starts here -->
+            <div *ngIf="card.cardType!=='cover-card'; else coverCard">
+                <div class="ibd-account-list__card-wrapper__card__account-container">
+                    <div class="ibd-account-list__card-wrapper__card__top-wrapper">
+                        <div class="ibd-account-list__card-wrapper__card__top-wrapper__account-type"
+                            (click)="getDetails(card)">
+                            {{card.classDesc}}
+                            <span *ngIf="card.isDefaultAccount">- {{ACCOUNTS_MASTER_DATA.PRIMARY | translate}}</span>
+                        </div>
+                        <div class="ibd-account-list__card-wrapper__card__top-wrapper__account-number">
+                            {{card.accountNumber}}</div>
+                    </div>
+                    <div class="ibd-account-list__card-wrapper__card__available-text">
+                        {{ACCOUNTS_MASTER_DATA.availableFundsText | translate}} </div>
+                    <div class="ibd-account-list__card-wrapper__card__fund">
+                        <span class="ibd-account-list__card-wrapper__card__fund__digit" [ngClass]="(balanceAvailableMaxLength && balanceAvailableMaxLength.length > 9) ? 'medium-font' : ''" >
+                            {{card.balanceAvailable | numberFormat}}</span>.<span
+                            class="ibd-account-list__card-wrapper__card__fund__decimal">{{card.balanceAvailable | getDecimalValue}}</span>
+                        <span class="ibd-account-list__card-wrapper__card__fund__currency"> {{card.currencyCode}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!--cover card html starts here -->
+            <ng-template #coverCard>
+                <div class="ibd-account-list__card-wrapper__card__cc-container">
+                    <img alt="covered card icon" class="ibd-account-list__card-wrapper__card__cardImg" src="/assets/icons/cover-card@2x.svg" />
+                    <div class="ibd-account-list__card-wrapper__card__ccTitle">{{card.cardTitle | translate}}</div>
+                    <div class="ibd-account-list__card-wrapper__card__ccSubTitle">
+                        {{card.getCardTitle | translate}}
+                    </div>
+                    <div class="ibd-account-list__card-wrapper__card__ctaLink" translate>
+                        tr_common_applyNowText
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <!-- Navigation controller code starts here -->
+    <div class="ibd-account-list__navigation-wrapper col-sm-12 px-0" *ngIf="hideNavigationControlls">
+        <button class="ibd-account-list__navigation-wrapper__btn" [disabled]="disablePreviousBtn"
+            (click)="moveScroll('backward')">
+            <img alt="previous icon" class="ibd-account-list__navigation-wrapper__btn__prev" src="{{ACCOUNTS_MASTER_DATA.PREV_ICON}}"
+                alt="Previous_Icon">
+        </button>
+        <button class="ibd-account-list__navigation-wrapper__btn" [disabled]="disableNextBtn"
+            (click)="moveScroll('forward')">
+            <img alt="next icon" class="ibd-account-list__navigation-wrapper__btn__next" src="{{ACCOUNTS_MASTER_DATA.NEXT_ICON}}"
+                alt="Next_Icon">
+        </button>
+    </div>
+
+    <div class="col-sm-12 ibd-account-list__card-wrapper padding-lrn" *ngIf="!completeCardsList || completeCardsList?.length === 0">
+        <div class="ibd-account-list__card-wrapper__no-account-wrapper">
+            <span class="icon"><img alt="info icon" src="{{iconsConst.infoIcon}}" /> </span>
+            <span translate class="message">tr_accountDetailComponent_NO_RECORD_MSSAGE</span>
+        </div>
+    </div>
+</div>

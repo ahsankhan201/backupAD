@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/components/dialog/dialog.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/common/components/dialog</a> dialog.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">65.88% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>56/85</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.5% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>12/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">61.9% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>13/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">68.35% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>54/79</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, Inject, OnInit, HostListener, ViewChildren, QueryList, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SharedService } from '../../services/shared.service';
+import {
+  NICKNAME_LABEL, NICKNAME_LENGTH, PATTERN_ALPHA_NUMERIC,
+  E_STATEMENT_DIALOG_DATA, ICON, TIME_INTERVAL_VALUE, HIDE_OVERFLOW_CLASS, ARABIC_LANG_TEXT
+} from 'src/app/common/global-constants';
+import { TranslateService } from '@ngx-translate/core';
+import { LastSixMonths } from '../../models/dialog.model';
+import { environment } from 'src/environments/environment';
+import { Subscription } from 'rxjs';
+&nbsp;
+@Component({
+  selector: 'app-dialog',
+  templateUrl: './dialog.component.html',
+  styleUrls: ['./dialog.component.scss']
+})
+&nbsp;
+export class DialogComponent implements OnInit, AfterViewInit {
+  @ViewChild('bulletPoints', { static: false}) bulletPoints: ElementRef;
+  lastSixMonths: LastSixMonths[] = [];
+  nickNameText = NICKNAME_LABEL;
+  nickNameMaxLength = NICKNAME_LENGTH;
+  dialogForm: FormGroup;
+  selectedLang: string;
+  activeOption: number;
+  disableAgreeButton = !this.dialogData.termsAndCondtionAgreeStatus;
+  closeIcon = ICON.closeIcon;
+  sessionCount = environment.SESSION_LOGOUT_INDICATION_TIME;
+  intervalCounter: number;
+  subscription$ = new Subscription();
+  arabicLanguageText = ARABIC_LANG_TEXT;
+  agreementVersion: string;
+  agreementContent: string;
+&nbsp;
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public dialogData,
+    public dialogRef: MatDialogRef&lt;DialogComponent&gt;,
+    private formBuilder: FormBuilder,
+    private elementRef: ElementRef,
+    private sharedService: SharedService,
+    private translateService: TranslateService
+  ) { this.getLanguage(); }
+&nbsp;
+  ngOnInit() {
+    this.setDialogContent();
+  }
+&nbsp;
+  /**
+   * @methodName setDialogContent
+   * @description set the dialog content
+   * @parameters none
+   * @return none
+   */
+  setDialogContent(): void {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.dialogData.showForm) {
+<span class="cstat-no" title="statement not covered" >      this.createDialogForm();</span>
+    } else <span class="missing-if-branch" title="if path not taken" >I</span>if (this.dialogData.eStatementDialog) {
+<span class="cstat-no" title="statement not covered" >      this.calculateLastSixMonths();</span>
+    } else <span class="missing-if-branch" title="if path not taken" >I</span>if (this.dialogData.isSessionTimeoutDialog) {
+<span class="cstat-no" title="statement not covered" >      this.updateSessionCounter();</span>
+    } else <span class="missing-if-branch" title="if path not taken" >I</span>if (this.dialogData.isUserAgreementDialog) {
+<span class="cstat-no" title="statement not covered" >      this.setUserAgreementContent();</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName cancelDialog
+   * @description used to cancel dialog box
+   * @parameters none
+   * @return none
+   */
+  cancelDialog(): void {
+    this.closeDialog(false);
+  }
+&nbsp;
+  /**
+   * @methodName closeDialog
+   * @description used to cancel dialog box
+   * @param value &lt;boolean&gt;
+   * @return none
+   */
+  closeDialog(value: boolean): void {
+    document.querySelector('body').classList.remove(HIDE_OVERFLOW_CLASS);
+    this.dialogRef.close(value);
+  }
+&nbsp;
+  /**
+   * @methodName confirmDialog
+   * @description used to confirm dialog box
+   * @parameters none
+   * @return none
+   */
+  confirmDialog(): void {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.dialogData.showForm) {
+<span class="cstat-no" title="statement not covered" >      this.closeDialog(this.dialogForm ? this.dialogForm.value : true);</span>
+    } else {
+      this.closeDialog(true);
+    }
+  }
+&nbsp;
+&nbsp;
+  /**
+   * @methodName HostListener onEsc
+   * @description used to close dialog on esc key press
+   * @parameters none
+   * @return none
+   */
+  @HostListener('keydown.esc')
+  onEsc(): void {
+    this.closeDialog(false);
+  }
+&nbsp;
+  /**
+   * @methodName createDialogForm
+   * @description used to create form
+   * @parameters none
+   * @return none
+   */
+  createDialogForm(): void {
+    this.dialogForm = this.formBuilder.group({
+      nickName: [this.dialogData.formData ? <span class="branch-0 cbranch-no" title="branch not covered" >this.dialogData.formData.nickname </span>: '',
+      [Validators.required, Validators.pattern(PATTERN_ALPHA_NUMERIC), this.sharedService.retrictWordValidator()]]
+    });
+  }
+&nbsp;
+  /**
+   * @methodName isButtonDisabled
+   * @description used to validate form
+   * @parameters none
+   * @return boolean
+   */
+  isButtonDisabled(): boolean {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.dialogData.showForm) {
+<span class="cstat-no" title="statement not covered" >      return !this.dialogForm.valid;</span>
+    } else <span class="missing-if-branch" title="if path not taken" >I</span>if ((this.dialogData.eStatementDialog &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.activeOption === undefined)</span>
+      || (this.dialogData.termsAndConditionComponent &amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >this.disableAgreeButton)</span>) {
+<span class="cstat-no" title="statement not covered" >      return true;</span>
+    }
+    return false;
+  }
+&nbsp;
+  /**
+   * @methodName getLanguage
+   * @parameter none
+   * @description Used to set selected language EN | AR
+   * @return none
+   */
+  getLanguage(): void {
+    this.subscription$.add(this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) =&gt; {
+      this.selectedLang = selectedLanguage;
+    }));
+  }
+&nbsp;
+  /**
+   * @methodName calculateLastSixMonths
+   * @parameter none
+   * @description Used to fetch last six months for downloading e-statement
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  calculateLastSixMonths(): void {</span>
+    const currentDate = <span class="cstat-no" title="statement not covered" >new Date();</span>
+    const eligibleMonthsDate = <span class="cstat-no" title="statement not covered" >new Date();</span>
+<span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >E_STATEMENT_DIALOG_DATA.ONE;</span> i &lt; E_STATEMENT_DIALOG_DATA.SEVEN; i++) {</span>
+<span class="cstat-no" title="statement not covered" >      eligibleMonthsDate.setMonth(currentDate.getMonth() - i);</span>
+<span class="cstat-no" title="statement not covered" >      this.lastSixMonths.push({</span>
+        id: ((eligibleMonthsDate.getMonth() + E_STATEMENT_DIALOG_DATA.ONE) &lt; E_STATEMENT_DIALOG_DATA.TEN ?
+          E_STATEMENT_DIALOG_DATA.ZERO_STRING : '') +
+          (eligibleMonthsDate.getMonth() + E_STATEMENT_DIALOG_DATA.ONE),
+        month: eligibleMonthsDate.toLocaleString(E_STATEMENT_DIALOG_DATA.DEFAULT, { month: E_STATEMENT_DIALOG_DATA.SHORT }),
+        year: eligibleMonthsDate.getFullYear()
+      });
+    }
+  }
+&nbsp;
+  /**
+   * @methodName setSelectedMonthYear
+   * @parameter selectedMonth&lt;number&gt;, selectedYear&lt;number&gt;
+   * @description Used to set selected month and year for downloading
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setSelectedMonthYear(</span>selectedMonth: number, selectedYear: number): void {
+<span class="cstat-no" title="statement not covered" >    this.activeOption = selectedMonth;</span>
+<span class="cstat-no" title="statement not covered" >    this.sharedService.selectedStatementMonth = selectedMonth;</span>
+<span class="cstat-no" title="statement not covered" >    this.sharedService.selectedStatementYear = selectedYear;</span>
+  }
+&nbsp;
+  /**
+   * @methodName readStatusTermsAndCondition
+   * @parameter status&lt;boolean&gt;
+   * @description read status for terms and condition
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  readStatusTermsAndCondition(</span>status: boolean): void {
+<span class="cstat-no" title="statement not covered" >    this.disableAgreeButton = (status) ? false : true;</span>
+  }
+&nbsp;
+  /**
+   * @methodName handleCloseDialog
+   * @parameter status&lt;string&gt;
+   * @description read handle close button action
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleCloseDialog(</span>status: string): void {
+<span class="cstat-no" title="statement not covered" >    if (status) { <span class="cstat-no" title="statement not covered" >this.dialogRef.close(undefined); </span>}</span>
+  }
+&nbsp;
+  /**
+   * @methodName updateSessionCounter
+   * @parameter none
+   * @description it will decrease the session counter time
+   * @return none
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  updateSessionCounter(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.intervalCounter = window.setInterval(<span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      this.sessionCount--;</span>
+<span class="cstat-no" title="statement not covered" >      if (this.sessionCount &lt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >        clearInterval(this.intervalCounter);</span>
+<span class="cstat-no" title="statement not covered" >        this.sharedService.isSessionExpired = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.cancelDialog();</span>
+      }
+    }, TIME_INTERVAL_VALUE);
+  }
+&nbsp;
+  /**
+   * @methodName setUserAgreementContent
+   * @parameter none
+   * @description set agreement dialog data
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setUserAgreementContent(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.agreementVersion = this.sharedService.agreementVersion;</span>
+<span class="cstat-no" title="statement not covered" >    this.agreementContent = this.sharedService.agreementContent;</span>
+  }
+&nbsp;
+  ngAfterViewInit() {
+    if (this.bulletPoints) {
+      const links = this.elementRef.nativeElement.querySelectorAll('a');
+      links.forEach(<span class="fstat-no" title="function not covered" >link =&gt; <span class="cstat-no" title="statement not covered" >link.target = '_blank')</span>;</span>
+    }
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

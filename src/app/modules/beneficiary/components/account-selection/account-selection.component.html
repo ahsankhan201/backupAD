@@ -1,0 +1,17 @@
+<div class="account-selection-comp row margin-lrn">
+    <div class="col-12 col-md-12 padding-lrn" *ngIf="showOtherInternationalBankComp">
+        <app-international-account></app-international-account>
+    </div>
+
+    <div class="col-12 col-md-12 padding-lrn" *ngIf="showADIBInternationalBankComp">
+        <app-adib-international-account></app-adib-international-account>
+    </div>
+
+    <div class="col-12 col-md-12 padding-lrn" *ngIf="showOtherUAEBankComp">
+        <app-uae-other-account></app-uae-other-account>
+    </div>
+
+    <div class="col-12 col-md-12 padding-lrn" *ngIf="showADIBUAEBankComp">
+       <app-uae-adib-beneficiary></app-uae-adib-beneficiary>
+    </div>
+</div>

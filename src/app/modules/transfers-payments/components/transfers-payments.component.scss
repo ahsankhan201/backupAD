@@ -1,0 +1,168 @@
+@import "src/assets/styles/default";
+
+.transfers-payments-comp {
+  &__wrapper {
+    &__container {
+      max-width: 100%;
+      .header {
+        display: none;
+        @include respond-to(screen-m-min) {
+          display: block;
+        }
+      }
+      &__body-wrapper {
+        &__body {
+          &.transfers-payments-rtl-layout {
+            direction: rtl;
+            @include respond-to(screen-m-min) {
+              right: 92px;
+              left: unset;
+            }
+            .transfers-payments-comp__wrapper__container__body-wrapper__body__quick-links {
+              padding: 0 16px 0 15px;
+
+              @include respond-to(screen-m-min) {
+                padding: 0 24px 0 16px;
+              }
+              @include respond-to(screen-l-min) {
+                padding-left: 15px;
+              }
+              @include respond-to(screen-xl-min) {
+                padding-right: 41px;
+              }
+            }
+            .transfers-payments-comp__wrapper__container__body-wrapper__body__link-wrapper {
+              display: flex;
+            }
+          }
+          height: auto;
+          position: absolute;
+          top: 56px;
+          z-index: 8;
+          @include respond-to(screen-m-min) {
+            width: calc(100% - 92px);
+            top: 92px;
+            left: 92px;
+            margin-left: auto;
+          }
+
+          &__quick-links {
+            padding: 0 15px 0 16px;
+            margin-top: 4px;
+
+            @include respond-to(screen-m-min) {
+              margin-top: 10px;
+              padding: 0 16px 0 24px;
+            }
+            @include respond-to(screen-l-min) {
+              padding-right: 15px;
+            }
+            @include respond-to(screen-xl-min) {
+              padding-left: 41px;
+              margin-top: 10px;
+            }
+          }
+
+          &__link-wrapper {
+            @extend .ibd-small-text--blue;
+
+            font-size: 14px;
+            font-family: $font-regular;
+            padding: 16px 16px 0px 16px;
+            margin: 0 16px 16px;
+            display: inline-block;
+            &:focus {
+              outline: none;
+            }
+            @include respond-to(screen-xl-min) {
+              padding: 16px 16px 0px 27px;
+            }
+            &__back {
+              position: relative;
+              cursor: pointer;
+              &:before {
+                border: solid $cerulean-blue;
+                border-width: 0 2px 2px 0;
+                display: inline-block;
+                padding: 3px;
+                content: " ";
+                position: absolute;
+                left: -15px;
+                top: 4px;
+                transform: rotate(135deg);
+                -webkit-transform: rotate(135deg);
+              }
+            }
+          }
+        }
+        .payments-body,
+        .transfers-body {
+          &.transfers-body-rtl,
+          &.payments-body-rtl {
+            direction: rtl;
+            @include respond-to(screen-m-min) {
+              right: 92px;
+              left: unset;
+            }
+            @include respond-to(screen-m-min) {
+              padding: 16px 38px 0 24px;
+            }
+            @include respond-to(screen-xl-min) {
+              padding: 20px 41px 0 24px;
+            }
+          }
+          padding: 16px;
+          @include respond-to(screen-m-min) {
+            padding: 16px 24px 0 38px;
+          }
+          @include respond-to(screen-xl-min) {
+            padding: 20px 24px 0 41px;
+          }
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep .search-box-wrapper {
+  float: right;
+  input {
+    @extend .ibd-small-text;
+
+    font-family: $font-regular;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 14px;
+    border: 1px solid rgba(130, 130, 130, 0.4);
+    height: 30px;
+    padding: 0 10px;
+    margin-right: 27px;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+    position: absolute;
+    top: 46px;
+    left: 0;
+    @include respond-to(screen-m-min) {
+      position: static;
+      width: 250px;
+    }
+    @include respond-to(screen-l-min) {
+      width: 453px;
+    }
+    ::placeholder {
+      /* For Chrome and other browsers */
+      color: $grey;
+    }
+
+    ::-webkit-input-placeholder {
+      /* Edge */
+      color: $grey;
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: $grey;
+    }
+  }
+}

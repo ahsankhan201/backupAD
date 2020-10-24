@@ -1,0 +1,96 @@
+@import "src/assets/styles/default";
+
+.open-account-comp-summary {
+    display: flex;
+    width: 100%;
+    &__wrapper {
+        min-height: 430px;
+        @include respond-to(screen-m-min) {
+            min-height: unset;
+        }
+        &__title {
+            @extend .idb-font-family;
+            font-size: 16px;
+            color: $suva-grey;
+            margin-top: 27px;
+          }
+        .summary-label-group {
+            margin: 16px 0px;
+            &__label {
+                color: $grey;
+                font-family: $font-light;
+                font-size: 12px;
+            }
+            &__value {
+                    @extend .idb-font-family;
+                    color: $solid-blue;
+                .text,
+                .number {
+                    color: rgb(26, 40, 88);
+                    font-family: $font-light;
+                    font-size: 16px;
+                }
+                .number {
+                    font-family: $font-regular;
+                }
+                .currency {
+                    color: $suva-grey;
+                    font-family: $font-medium;
+                    font-size: 12px;
+                    line-height: normal;
+                }
+            }
+        }
+        .summary-buttons {
+            width: 98%;
+            margin-top: 12px;
+            z-index: 10;
+            position: fixed;
+            bottom: 20px;
+            button {
+              width: 45%;
+              @include respond-to(screen-m-min) {
+                width: 47%;
+              }
+            }
+            .next-btn {
+              margin-left: 16px;
+              @include respond-to(screen-m-min) {
+                margin-left: 27px;
+              }
+            }
+            @include respond-to(screen-m-min) {
+              position: static;
+              bottom: 20px;
+              width: 100%;
+            }
+          }
+    }
+    &__success-screen {
+        width: 100%;
+        .success-screen-btn {
+            width: 92%;
+            position: fixed;
+            bottom: 20px;
+            z-index: 10;
+            @include respond-to(screen-m-min) {
+              position: static;
+              margin-top: 32px;
+              width: auto;
+            }
+          }
+        @include respond-to(screen-l-min) {
+            margin-top: 27px;
+        }
+    }
+}
+
+:host ::ng-deep .time-deposit-account-success-comp {
+    .success-screen-comp {
+      padding: 0;
+    }
+    .success-screen-comp__wrapper__buttons {
+      margin-top: 0;
+    }
+  }
+  

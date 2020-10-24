@@ -1,0 +1,113 @@
+<div class="uae-adib-beneficiary-comp"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'uae-adib-beneficiary-rtl': ''">
+    <form [formGroup]="uaeAdibBeneForm" class="uae-adib-beneficiary-comp__form">
+        <div class="uae-adib-beneficiary-comp__form__row">
+            <div class="form-group">
+                <mat-label class="uae-adib-beneficiary-comp__title" translate>tr_addBene_addByText</mat-label>
+                <app-checkbox-generic [optionsList]="addbyList" id="addBy" componentName="addBy"
+                    (selectedOptionValue)="selectedAccount($event)" class="step-three-addby"
+                    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'addBy-checkbox-rtl': ''">
+                </app-checkbox-generic>
+            </div>
+            <div class="row margin-lrn" *ngIf="showAccount">
+                <div class="uae-adib-beneficiary-comp__form__row__two-cols form-group col-md-6 padding-lrn">
+                    <mat-form-field>
+                        <mat-label class="uae-adib-beneficiary-comp__label" translate>
+                            tr_common_accountNumberText
+                        </mat-label>
+                        <input matInput #account type="text" numbersOnly inputmode="numeric" pattern="[0-9]*"
+                            maxlength="{{ FORM_LENGTH.adibAccountNumber.maxLength }}" formControlName="account"
+                            (blur)="isBeneficiaryExists('account', 'beneAccNo')">
+                        <mat-hint align="end">{{account.value.length}} / {{ FORM_LENGTH.adibAccountNumber.maxLength }}
+                        </mat-hint>
+                        <mat-error>
+                            <app-show-form-errors [control]="uaeAdibBeneForm.get('account')"
+                                label="{{ formText.account }}">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group col-md-6 confirm-account-label padding-lrn">
+                    <mat-form-field>
+                        <mat-label class="uae-adib-beneficiary-comp__label" translate>
+                            tr_common_confirmAccountNumberText</mat-label>
+                        <input matInput #confirmaccount type="tel" numbersOnly inputmode="numeric" pattern="[0-9]*"
+                            maxlength="{{ FORM_LENGTH.adibAccountNumber.maxLength }}" formControlName="confirmAccount">
+                        <mat-hint align="end">{{confirmaccount.value.length}} /
+                            {{ FORM_LENGTH.adibAccountNumber.maxLength }}</mat-hint>
+                        <mat-error>
+                            <app-show-form-errors [control]="uaeAdibBeneForm.get('confirmAccount')"
+                                label="{{ formText.confirmAccount }}">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group col-md-12 padding-lrn">
+                    <mat-form-field>
+                        <mat-label class="uae-adib-beneficiary-comp__label" translate>tr_common_nickNameText</mat-label>
+                        <input matInput appAlphaNumeric formControlName="nickName" maxlength="30">
+                        <mat-error>
+                            <app-show-form-errors [control]="uaeAdibBeneForm.get('nickName')" label="tr_common_nickNameText">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-group mt-3 mb-5" *ngIf="showCard">
+                <p class="uae-adib-beneficiary-comp__title" translate>tr_addBene_enterCardText</p>
+                <div class="uae-adib-beneficiary-comp_card_wrapper">
+                    <app-input-generic inputLabel='tr_common_cardNumberText' [errors]="uaeAdibBeneForm.get('cardNumber')" [maxlength]="4" [resetInputValue]="resetInputValue" 
+                    (outputData)="handleCardNumber($event)" class="cardNumber"
+                    type="cardNumber"></app-input-generic>
+                    <mat-hint align="start" class="mat-card-hint-text" translate>
+                        <strong>{{formText.noteText | translate}}</strong>:
+                        <span>{{formText.adibCardHint | translate}}</span>
+                    </mat-hint>
+                </div>
+                <div class="form-group nick-name-label">
+                    <mat-form-field>
+                        <mat-label translate>tr_common_nickNameText</mat-label>
+                        <input matInput appAlphaNumeric formControlName="nickName" maxlength="30">
+                        <mat-error>
+                            <app-show-form-errors [control]="uaeAdibBeneForm.get('nickName')" label="tr_common_nickNameText">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-group mt-3 mb-5 mobile-number-field" *ngIf="showMobile">
+                <p class="uae-adib-beneficiary-comp__title" translate>tr_addBene_mobileLabelText</p>
+                <div>
+                    <mat-form-field class="mobile-number-input">
+                        <mat-label translate>tr_common_mobileNumberText</mat-label>
+                        <span matPrefix>{{ formText.mobileCountyCode }} &nbsp;</span>
+                        <input formControlName="mobileNumber" (blur)="isBeneficiaryExists('mobileNumber', 'beneAccNo')"
+                            numbersOnly type="tel" inputmode="numeric" pattern="[0-9]*"
+                            minlength="{{ FORM_LENGTH.mobile.minLength }}"
+                            maxlength="{{ FORM_LENGTH.mobile.maxLength }}" matInput>
+                        <mat-error *ngIf="uaeAdibBeneForm.get('mobileNumber')">
+                            <app-show-form-errors [control]="uaeAdibBeneForm.get('mobileNumber')"
+                                label="{{ formText.mobileNumber }}">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field>
+                        <mat-label translate>tr_common_nickNameText</mat-label>
+                        <input matInput appAlphaNumeric formControlName="nickName" maxlength="30">
+                        <mat-error>
+                            <app-show-form-errors [control]="uaeAdibBeneForm.get('nickName')" label="tr_common_nickNameText">
+                            </app-show-form-errors>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="uae-adib-beneficiary-comp__wrapper__buttons">
+                <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
+                <button class="btn next-btn" (click)="onSubmit()" type="button"
+                    [disabled]="!enableNextBtn || !uaeAdibBeneForm.valid" translate>tr_common_nextText</button>
+            </div>
+        </div>
+    </form>
+</div>

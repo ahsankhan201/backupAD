@@ -1,0 +1,114 @@
+@import "src/assets/styles/default";
+
+.marketing-banner {
+  &.marketing-banner-rtl-layout {
+    .marketing-banner__content {
+      text-align: right;
+      padding-right: 10px;
+      @include respond-to(screen-m-min) {
+        padding-right: 16px;
+        padding-bottom: 10px;
+      }
+    }
+    .marketing-banner__link {
+      text-align: left;
+      padding-left: 16px;
+      &:after {
+        margin-right: 5px;
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+      }
+      @include respond-to(screen-m-min) {
+        padding-left: 24px;
+      }
+    }
+  }
+  background: rgb(255, 255, 255);
+  border-radius: 16px;
+  border: 1px solid rgb(235, 235, 235);
+  min-height: 70px;
+  min-width: 328px;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 20px;
+  margin-top: 20px;
+  @include respond-to(screen-l-min) {
+    margin-top: 0;
+  }
+
+  &__icon {
+    align-self: self-start;
+    margin-top: 15px;
+    flex-basis: 7%;
+    @include respond-to(screen-m-min) {
+      align-self: normal;
+      margin-top: 25px;
+    }
+    @include respond-to(screen-l-min) {
+      margin-top: 0px;
+      margin-top: 25px;
+    }
+    &__img-icon {
+      width: 38px;
+      height: 24px;
+      @include respond-to(screen-m-min) {
+        width: 48px;
+        height: 23px;
+      }
+    }
+  }
+
+  &__content {
+    padding-left: 16px;
+    margin-right: 10px;
+    min-width: 155px;
+    width: 155px;
+    &__title {
+      color: rgb(26, 40, 88);
+      font-family: $font-medium;
+      font-size: 18px;
+      font-weight: 500;
+      min-height: 21px;
+      min-width: 160px;
+      letter-spacing: 0px;
+      align-self: self-start;
+    }
+
+    &__description {
+      color: rgb(130, 130, 130, 0.9);
+      font-family: $font-regular;
+      font-size: 12px;
+      font-weight: normal;
+      letter-spacing: 0px;
+      line-height: 18px;
+    }
+
+    @include respond-to(screen-m-min) {
+      margin-right: 0px;
+      max-width: 100%;
+    }
+    @include respond-to(screen-l-min) {
+      padding-left: 15px;
+    }
+    @include respond-to(screen-xl-min) {
+      padding-left: unset;
+      margin-right: 8px;
+    }
+  }
+  &__link {
+    color: rgb(0, 160, 230);
+    font-family: $font-regular;
+    font-size: 13px;
+    font-weight: normal;
+    height: 15px;
+    letter-spacing: 0px;
+    align-self: center;
+    text-align: right;
+    min-width: 73px;
+    cursor: pointer;
+    &__under-line {
+      text-decoration: underline;
+    }
+  }
+}

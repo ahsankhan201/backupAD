@@ -1,0 +1,155 @@
+@import "src/assets/styles/default";
+
+.auth-component {
+  height: 100vh;
+  display: flex;
+  min-height: 720px;
+  &__wrapper {
+    min-width: 360px;
+    max-width: 1440px;
+    position: relative;
+    width: 100%;
+    @include respond-to(screen-l-min) {
+      width: 51%;
+    }
+    &__body {
+      position: absolute;
+      top: 56px;
+      width: 100%;
+      padding: 16px;
+      line-height: normal;
+      @include respond-to(screen-m-min) {
+        padding: 64px 68px 16px 66px;
+        top: 82px;
+      }
+      @include respond-to(screen-l-min) {
+        padding: 24px 90px 0px 87px;
+      }
+      @include respond-to(screen-xl-min) {
+        padding: 64px 130px 16px 130px;
+      }
+
+      &__registration {
+        .title {
+          color: $button-gray;
+          font-size: 16px;
+          text-align: center;
+          font-family: $font-regular;
+          @include respond-to(screen-m-min) {
+            font-size: 20px;
+          }
+        }
+        .sub-title {
+          color: $grey;
+          font-size: 12px;
+          font-family: $font-light;
+          font-weight: 300;
+          text-align: center;
+          margin-top: 10px;
+          @include respond-to(screen-m-min) {
+            font-size: 14px;
+          }
+          span {
+            display: inline-block;
+            line-height: 18px;
+          }
+        }
+        .ibd-registration__step-wrapper {
+          margin-top: 14px;
+          @include respond-to(screen-m-min) {
+            margin-top: 32px;
+          }
+        }
+      }
+    }
+
+    &__security-tips-wrapper {
+      margin-top: 24px;
+      margin-bottom: 24px;
+      color: $cerulean-blue;
+      font-size: 12px;
+      font-family: $font-regular;
+      text-align: center;
+      @include respond-to(screen-m-min) {
+        margin-top: 32px;
+      }
+      @include respond-to(screen-l-min) {
+        display: none;
+      }
+      &__text {
+        cursor: pointer;
+      }
+      span {
+        margin-left: 8px;
+      }
+    }
+
+    &__footer {
+      position: fixed;
+      bottom: 16px;
+      min-width: 340px;
+      width: 100%;
+      background: transparent;
+      margin: 0 auto;
+      @include respond-to(screen-m-min) {
+        position: absolute;
+        bottom: 64px;
+      }
+      @include respond-to(screen-l-min) {
+        bottom: 32px;
+      }
+      @include respond-to(screen-xl-min) {
+        bottom: 64px;
+      }
+      &__wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        .footer-link {
+          cursor: pointer;
+          color: $cerulean-blue;
+          font-size: 12px;
+          font-family: $font-regular;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+
+  &__security-tips {
+    display: none;
+    @include respond-to(screen-l-min) {
+      display: block;
+      width: 49%;
+      float: right;
+      z-index: 999;
+    }
+    @include respond-to(screen-xl-min) {
+      min-width: 707px;
+    }
+  }
+  &.auth-rtl-layout {
+    direction: rtl;
+  }
+
+  @include respond-to(screen-m-min) {
+    min-height: 820px;
+  }
+  @include respond-to(screen-xl-min) {
+    min-height: 920px;
+  }
+}
+
+:host ::ng-deep .auth-component-header {
+  .ibd-header-common__wrapper {
+    min-width: 360px;
+    width: 100%;
+    @include respond-to(screen-l-min) {
+      width: 51%;
+    }
+  }
+}
+
+:host ::ng-deep .auth-comp-security-tips .security-tips {
+  height: 100%;
+}

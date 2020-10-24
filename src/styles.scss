@@ -1,0 +1,488 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~roboto-fontface/css/roboto/roboto-fontface.css";
+@import "src/assets//styles/default";
+@import "~@angular/material/theming";
+@include mat-core();
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url("/assets/images/BG_Phone_Potrait.png");
+  background-size: cover;
+  width: auto;
+  background-position: top;
+  height: 100vh;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  background-attachment: fixed;
+  min-height: 100%;
+  @include respond-to(screen-m-min) {
+    background-image: unset;
+  }
+  @include respond-to(only-screen-md-land) {
+    background-image: url("/assets/images/BG_Phone_Land.png");
+  }
+
+  .horizontal-line {
+    border: 0.5px solid $bright-gray;
+    margin-top: 182px;
+    @include respond-to(screen-m-min) {
+      margin-top: 230px;
+    }
+  }
+  .top-bg-image,
+  .bottom-bg-image {
+    width: 100%;
+    position: fixed;
+    display: none;
+    @include respond-to(screen-m-min) {
+      display: block;
+    }
+    .top-bg-en,
+    .bottom-bg-en,
+    .login-bottom-bg-en,
+    .login-top-bg-en {
+      width: auto;
+      height: 100%;
+      position: absolute;
+      right: 0;
+    }
+    .top-bg-ar,
+    .bottom-bg-ar,
+    .login-bottom-bg-en,
+    .login-top-bg-en,
+    .login-bottom-bg-ar,
+    .login-top-bg-ar {
+      display: none;
+    }
+  }
+  .top-bg-image {
+    top: -25px;
+    height: 244px;
+  }
+  .bottom-bg-image {
+    bottom: -33px;
+    height: 233px;
+  }
+  app-root {
+    z-index: 9;
+  }
+  &.rtl-body {
+    background-image: url("/assets/images/AR_BG_Phone_Potrait.png");
+    @include respond-to(screen-m-min) {
+      background-image: unset;
+    }
+    @include respond-to(only-screen-md-land) {
+      background-image: url("/assets/images/AR_BG_Phone_Land.png");
+    }
+    .top-bg-image,
+    .bottom-bg-image {
+      .top-bg-en,
+      .bottom-bg-en {
+        display: none;
+      }
+      .top-bg-ar,
+      .bottom-bg-ar {
+        display: block;
+        left: 0;
+      }
+    }
+  }
+  &.product-success-screen {
+    .product-catalog-divider {
+      margin-top: 140px;
+      @include respond-to(screen-m-min) {
+        margin-top: 180px;
+      }
+    }
+  }
+
+  // setting login and registarion background image styles
+  &.pre-login-bg {
+    @include respond-to(screen-m-min) {
+      .top-bg-en,
+      .bottom-bg-en,
+      .top-bg-ar,
+      .bottom-bg-ar,
+      .login-bottom-bg-ar,
+      .login-top-bg-ar {
+        display: none;
+      }
+      &.rtl-body {
+        .top-bg-en,
+        .bottom-bg-en,
+        .top-bg-ar,
+        .bottom-bg-ar,
+        .login-bottom-bg-en,
+        .login-top-bg-en {
+          display: none;
+        }
+        .login-bottom-bg-ar,
+        .login-top-bg-ar {
+          display: block;
+        }
+        .bottom-bg-image {
+          bottom: -33px;
+        }
+        .top-bg-image {
+          top: -15px;
+        }
+        @include respond-to(screen-l-min) {
+          .bottom-bg-image,
+          .top-bg-image {
+            left: unset;
+            right: -49%;
+          }
+        }
+      }
+      .login-bottom-bg-en,
+      .login-top-bg-en {
+        display: block;
+      }
+      .bottom-bg-image {
+        bottom: -80px;
+      }
+      .top-bg-image {
+        bottom: -30px;
+      }
+    }
+
+    @include respond-to(screen-l-min) {
+      .bottom-bg-image,
+      .top-bg-image {
+        left: -49%;
+      }
+    }
+  }
+}
+
+// style to control the user can select text or not
+* {
+  -webkit-user-select: text; /* Chrome all / Safari all */
+  -moz-user-select: -moz-none; /* Firefox all */
+  user-select: none;
+}
+
+.padding-lrn {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.margin-lrn {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+// Custom Theme
+$custom-primary: mat-palette($mat-blue);
+$custom-accent: mat-palette($mat-grey, 200);
+
+$custom-theme: mat-light-theme($custom-primary, $custom-accent);
+
+// OTP styles
+$char-w: 1ch;
+$gap: 0.5 * $char-w;
+$n-char: 6;
+$in-w: $n-char * ($char-w + $gap);
+
+.otp {
+  display: flex;
+  border: none;
+  padding: 0;
+  width: 100%;
+  padding-left: 4px;
+  background: repeating-linear-gradient(
+      90deg,
+      #959494 0,
+      #a6a3a3 2ch,
+      transparent 0,
+      transparent 4.5ch
+    )
+    0 100%/24.5ch 1px no-repeat;
+  color: rgb(30, 30, 30);
+  font: 2.34ch $font-regular;
+  @include respond-to(screen-m-min) {
+    font: 2.73ch $font-regular;
+  }
+  letter-spacing: 3.9ch;
+  &:focus {
+    outline: none;
+    color: rgb(30, 30, 30);
+  }
+}
+
+$cardchar-w: 1ch;
+$cardgap: 0.5 * $cardchar-w;
+$card-n-char: 16;
+$card-in-w: $card-n-char * ($cardchar-w + $cardgap);
+
+mat-form-field .card-format {
+  display: flex;
+  border: none;
+  padding: 0;
+  width: 100%;
+  background: repeating-linear-gradient(
+      90deg,
+      #959494 0,
+      #a6a3a3 1ch,
+      transparent 0,
+      transparent 1.5ch
+    )
+    0 100%/23.5ch 2px no-repeat;
+  color: rgb(30, 30, 30);
+  font: 2.7ch $font-regular;
+  @include respond-to(screen-m-min) {
+    font: 4ch $font-regular;
+  }
+  letter-spacing: $gap;
+  &:focus {
+    outline: none;
+    color: rgb(30, 30, 30);
+  }
+}
+
+.horizontal-line-finance-list {
+  border: 0.5px solid $bright-gray;
+  margin-top: 182px;
+  @include respond-to(screen-m-min) {
+    margin-top: 230px;
+  }
+  @include respond-to(screen-xl-min) {
+    margin-top: 254px;
+  }
+}
+
+.horizontal-line-finance-details {
+  border: 0.5px solid $bright-gray;
+  margin-top: 182px;
+  @include respond-to(screen-m-min) {
+    margin-top: 230px;
+  }
+  @include respond-to(screen-xl-min) {
+    margin-top: 233px;
+  }
+}
+
+.cover-limit-horizontal-line {
+  border: 0.5px solid $bright-gray;
+  margin-top: 130px;
+  @include respond-to(screen-m-min) {
+    margin-top: 185px;
+  }
+  @include respond-to(screen-xl-min) {
+    margin-top: 186px;
+  }
+}
+
+.horizontal-line-link-acoount {
+  border: 0.5px solid $bright-gray;
+  margin-top: 154px;
+  @include respond-to(screen-m-min) {
+    margin-top: 192px;
+  }
+}
+
+.horizontal-line-link-acoount-success {
+  border: 0.5px solid $bright-gray;
+  margin-top: 128px;
+  @include respond-to(screen-m-min) {
+    margin-top: 182px;
+  }
+}
+.alert-message {
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  border: 0.5px solid $alert;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02);
+  min-width: 325px;
+  padding: 12px 12px 12px 35px;
+  font-family: $font-regular;
+  font-size: 13px;
+  letter-spacing: 0px;
+  line-height: 14px;
+  color: $alert;
+  min-height: 37px;
+  position: relative;
+  &::before {
+    content: " ";
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-image: url("/assets/icons/alert@2x.svg");
+    position: absolute;
+    left: 10px;
+    background-repeat: no-repeat;
+    top: 8px;
+  }
+}
+
+.alert-message-grey {
+  border: 1px solid #8c8c8c;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02);
+  color: #787878;
+  font-size: 12px;
+  font-family: $font-regular;
+  font-weight: normal;
+  letter-spacing: 0px;
+  line-height: 14px;
+  @include respond-to(screen-l-min) {
+    margin-right: 16px;
+  }
+  margin-right: 27px;
+  &::before {
+    background-image: url("/assets/icons/info-blue-icon@2x.svg");
+  }
+}
+
+.hide-summary-title {
+  display: none;
+}
+
+.bottom-text {
+  font-size: 12px;
+  font-family: $font-light;
+  color: $grey;
+  padding-top: 30px;
+  line-height: 18px;
+  padding-bottom: 40px;
+  strong {
+    color: $solid-blue;
+    font-family: $font-medium;
+  }
+  .bank-fees-text {
+    display: block;
+  }
+}
+
+.hide-overflow {
+  overflow: hidden;
+}
+
+.summary-terms-and-conditions {
+  margin: 32px 0px 52px 0px;
+  display: flex;
+  @include respond-to(screen-l-min) {
+    align-items: center;
+  }
+  &__tick {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  &__text {
+    @extend .ibd-small-text;
+    .link {
+      color: $cerulean-blue;
+      cursor: pointer;
+    }
+  }
+}
+
+.goto-adib-btn {
+  height: 24px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 0.8px solid $cerulean-blue;
+  border-radius: 11px;
+  padding: 4px 10px;
+  color: $cerulean-blue;
+  font-size: 13px;
+  font-family: $font-regular;
+  font-weight: normal;
+  text-align: center;
+  display: inline-block;
+}
+.cdk-overlay-container .cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+.cdk-overlay-connected-position-bounding-box.logout-dropdown {
+  left: 15px !important;
+}
+
+.cdk-overlay-connected-position-bounding-box.rtl-logout-dropdown {
+  right: 30px !important;
+}
+
+.dotted-button {
+  @extend .ibd-small-text;
+
+  border: 1px dashed $grey;
+  font-family: $font-regular;
+  letter-spacing: 0.2px;
+  height: 30px;
+  min-width: 120px;
+  border-radius: 12px;
+  border-style: dashed;
+  background: $white;
+  outline: none;
+  padding: 0 8px;
+  @include respond-to(screen-l-min) {
+    padding: 0 13px;
+  }
+  img {
+    margin: 0 5px;
+    @include respond-to(screen-l-min) {
+      margin: 0 10px;
+    }
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.solid-border-button {
+  background: $white;
+  border: 1px solid $cerulean-blue;
+  border-radius: 8px;
+  line-height: normal;
+  color: $cerulean-blue;
+  font-size: 11px;
+  font-family: $font-regular;
+  font-weight: normal;
+  letter-spacing: 0px;
+  padding: 2px 12px;
+  span {
+    padding-left: 10px;
+  }
+}
+
+.title {
+  color: $suva-grey;
+  font-size: 16px;
+  font-family: $font-regular;
+  font-weight: normal;
+}
+
+.mat-option#ar {
+  text-align: right;
+}
+.ibd-dashboard-comp__wrapper,
+.body__account-details-wrapper,
+.cards-comp__wrapper,
+.ibd-finance-comp__wrapper,
+.transfers-payments-comp__wrapper__container__body-wrapper__body
+  .money-transfer-comp,
+.transfers-payments-comp__wrapper__container__body-wrapper__body .payments-comp,
+.transfers-payments-comp__wrapper__container__body-wrapper__body .view-all-list,
+.beneficiary-comp .beneficiary-comp__step-wrapper,
+.transfers-payments-comp__wrapper__container__body-wrapper__body
+  .payment-transfer-dashboard,
+.payee-comp .payee-comp__step-wrapper,
+.products-comp__wrapper__container__body-wrapper__body .category-wrapper,
+.banking-service-comp .banking-service-comp__wrapper__container__body {
+  margin-bottom: 76px;
+  @include respond-to(screen-m-min) {
+    margin-bottom: 92px;
+  }
+}
+
+.beneficiary-comp .beneficiary-comp__step-wrapper {
+  margin-bottom: 70px;
+}
+.rtl-body .auth-rtl-layout .carousel-indicators,
+.rtl-body .registration-rtl-layout .carousel-indicators {
+  padding-right: 0;
+}

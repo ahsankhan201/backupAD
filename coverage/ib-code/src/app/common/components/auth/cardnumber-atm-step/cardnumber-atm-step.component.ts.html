@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/common/components/auth/cardnumber-atm-step/cardnumber-atm-step.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">All files</a> / <a href="index.html">src/app/common/components/auth/cardnumber-atm-step</a> cardnumber-atm-step.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">61.11% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>22/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>3/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.5% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>20/32</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, Input, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+&nbsp;
+import { ICON } from 'src/app/common/global-constants';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { AUTH_TEXT } from 'src/app/modules/auth/auth-module.constants';
+&nbsp;
+@Component({
+  selector: 'app-cardnumber-atm-step',
+  templateUrl: './cardnumber-atm-step.component.html',
+  styleUrls: ['./cardnumber-atm-step.component.scss']
+})
+export class CardnumberAtmStepComponent implements OnInit {
+  securityIcon = ICON.securityIcon;
+  @Input() loginLink: boolean;
+  @Input() alertMessage: string;
+  @Input() resetInputValue = false;
+  @Output() nextData = new EventEmitter(undefined);
+  @Output() cancelData = new EventEmitter(undefined);
+  cardNumber: string;
+  pinNumber: string;
+  constructor(private authService: AuthService) { }
+&nbsp;
+  ngOnInit() {
+    this.initializeComponent();
+  }
+&nbsp;
+  /**
+   * @methodName initializeComponent
+   * @params none
+   * @description Used to fetch the initial component logic
+   * @return none
+   */
+  initializeComponent() {
+    this.authService.isUserBlocked.subscribe(response =&gt; {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (response) {
+<span class="cstat-no" title="statement not covered" >          this.alertMessage = AUTH_TEXT.user_blocked_text;</span>
+          // reset subject for next call
+<span class="cstat-no" title="statement not covered" >          this.authService.isUserBlocked$.next(undefined);</span>
+&nbsp;
+      }
+    });
+  }
+&nbsp;
+  /**
+   * @methodName handleCardNumber
+   * @param cardNumber&lt;string&gt;
+   * @description Used to handle card number response from component
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleCardNumber(</span>cardNumber: string): void {
+<span class="cstat-no" title="statement not covered" >    this.cardNumber = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    if (cardNumber) { <span class="cstat-no" title="statement not covered" >this.cardNumber = cardNumber; </span>}</span>
+  }
+&nbsp;
+  /**
+   * @methodName handleAtmPinNumber
+   * @param pinNumber&lt;string&gt;
+   * @description Used to handle pin number response from component
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleAtmPinNumber(</span>pinNumber: string): void {
+<span class="cstat-no" title="statement not covered" >    this.pinNumber = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    if (pinNumber) { <span class="cstat-no" title="statement not covered" >this.pinNumber = pinNumber; </span>}</span>
+  }
+&nbsp;
+  /**
+   * @methodName isNextButtonEnabled
+   * @params none
+   * @description Used enable and disable next button
+   * @return boolean
+   */
+  isNextButtonEnabled(): boolean {
+    return (this.cardNumber &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.pinNumber)</span> ? <span class="branch-0 cbranch-no" title="branch not covered" >false </span>: true;
+  }
+&nbsp;
+  /**
+   * @methodName handleCancelButtonClick
+   * @description used to handle cancel button click
+   * @parameters none
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleCancelButtonClick(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.authService.isUserBlockedStatus = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.alertMessage = undefined;</span>
+<span class="cstat-no" title="statement not covered" >    this.authService.clearInputFieldValues$.next(true);</span>
+<span class="cstat-no" title="statement not covered" >    this.cancelData.emit(true);</span>
+  }
+&nbsp;
+  /**
+   * @methodName handleNextButtonClick
+   * @description used to handle cancel button click
+   * @parameters none
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  handleNextButtonClick(): void {</span>
+    const response = <span class="cstat-no" title="statement not covered" >{ cardNumber: this.cardNumber, pinNumber: this.pinNumber };</span>
+<span class="cstat-no" title="statement not covered" >    this.nextData.emit(response);</span>
+  }
+}
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

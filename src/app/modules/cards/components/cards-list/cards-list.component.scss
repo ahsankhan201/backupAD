@@ -1,0 +1,635 @@
+@import "src/assets/styles/default";
+
+.cards-list {
+  padding: 12px 3px 12px 16px;
+
+  @include respond-to(screen-m-min) {
+    padding: 16px 16px 17px 0;
+  }
+
+  @include respond-to(screen-l-min) {
+    padding: 14px 15px 20px 0;
+  }
+  &__text-wrapper {
+    padding-bottom: 12px;
+
+    &__title {
+      @extend .ibd-small-text;
+
+      font-size: 14px;
+      font-family: $font-regular;
+      float: left;
+      @include respond-to(screen-m-min) {
+        padding-left: 38px;
+      }
+      @include respond-to(screen-l-min) {
+        padding-left: 51px;
+      }
+    }
+  }
+
+  &__card-wrapper {
+    display: flex;
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    align-items: center;
+    @include respond-to(screen-m-min) {
+      padding-bottom: 20px;
+      padding-left: 28px;
+    }
+    @include respond-to(screen-l-min) {
+      padding: 10px 10px 20px 41px;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    // mozilla browser
+    overflow: -moz-scrollbars-none;
+
+    // IE and Edge browser suppert
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    .menu-options {
+      cursor: pointer;
+      float: right;
+    }
+    &__activate-card {
+      @extend .ibd-small-text;
+      line-height: normal;
+      cursor: pointer;
+      color: $cerulean-blue;
+      position: absolute;
+      width: max-content;
+      margin-left: 195px;
+      margin-top: 10px;
+      @include respond-to(screen-xl-min) {
+        margin-left: 225px;
+      }
+    }
+    &__no-cards {
+      background: $white;
+      border-radius: 16px;
+      border: 1px solid $bright-gray;
+      display: flex;
+      align-items: center;
+      padding: 10px 10px 10px 0px;
+      margin-top: 53px;
+      max-width: 328px;
+      margin-bottom: 7px;
+      @include respond-to(screen-land) {
+        margin-top: 0px;
+        margin-right: 68px;
+      }
+      @include respond-to(screen-m-min) {
+        margin-top: 10px;
+        margin-left: 7px;
+      }
+      @include respond-to(screen-l-min) {
+        margin-top: 0px;
+        max-width: 475px;
+        margin-left: 10px;
+      }
+      .icon {
+        line-height: 1;
+        @include respond-to(screen-m-min) {
+          height: 17px;
+          width: 17px;
+        }
+        margin: 0px 12px 0px 18px;
+      }
+      .message {
+        color: $active-blue;
+        font-family: $font-light;
+        font-weight: 300;
+        letter-spacing: 0px;
+        font-size: 13px;
+        line-height: 18px;
+      }
+    }
+    &__debit-card {
+      cursor: pointer;
+      background: $white;
+      border-radius: 8px;
+      box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.1);
+      height: 161.91px;
+      min-width: 282.92px;
+      max-width: 282.92px;
+      border: 1px solid #f0f0f0;
+      margin-right: 24px;
+      &__header {
+        &__card-icon {
+          height: 31.66px;
+          width: 50.62px;
+          margin-top: 13px;
+          margin-left: 13px;
+          @include respond-to(screen-xl-min) {
+            height: 35px;
+            width: 56px;
+          }
+          &.inactive {
+            -webkit-filter: grayscale(1) opacity(0.5);
+            filter: grayscale(1) opacity(0.5);
+          }
+        }
+        &__card-type {
+          color: $solid-blue;
+          @extend .ibd-font-regular-cerulean;
+          font-size: 14px;
+          margin-left: 9px;
+          margin-top: 18px;
+          @include respond-to(screen-xl-min) {
+            margin-top: 20px;
+          }
+        }
+        &__card-link-icon {
+          width: 13px;
+          margin-top: 10px;
+          margin-left: 2px;
+          @include respond-to(screen-xl-min) {
+            margin-top: 12px;
+            margin-left: 7px;
+          }
+        }
+        &__account-type {
+          @extend .ibd-font-regular-cerulean;
+          color: $grey;
+          letter-spacing: 0px;
+          line-height: 16px;
+          margin-top: 20px;
+          margin-left: 6px;
+          @include respond-to(screen-xl-min) {
+            margin-top: 22px;
+            margin-left: 7px;
+          }
+        }
+      }
+      &__body {
+        margin-top: 12px;
+        margin-left: 13px;
+        &__name {
+          @extend .ibd-font-regular-cerulean;
+          color: $grey;
+          max-height: 14px;
+        }
+        &__card-number {
+          @extend .ibd-font-regular-cerulean;
+          color: $grey;
+          font-size: 16px;
+          max-height: 19px;
+        }
+      }
+      &__footer {
+        margin-top: 11px;
+        margin-left: 13px;
+        @include respond-to(screen-xl-min) {
+          margin-top: 16px;
+        }
+        &__fund {
+          @extend .ibd-font-regular-cerulean;
+          color: $solid-blue;
+          font-size: 16px;
+          &::after {
+            content: " ";
+            border: solid 1px $grey;
+            display: block;
+            width: 25px;
+            margin-top: 4px;
+            opacity: 0.2;
+          }
+
+          &__currency,
+          &__decimal {
+            @extend .ibd-font-regular-cerulean;
+            color: $suva-grey;
+          }
+        }
+        &__title {
+          @extend .ibd-small-text;
+          color: $grey;
+        }
+      }
+      @include respond-to(screen-m-min) {
+        margin-left: 10px;
+        margin-right: 14px;
+      }
+      @include respond-to(screen-l-min) {
+        margin-left: 12px;
+        margin-right: 12px;
+      }
+      @include respond-to(screen-xl-min) {
+        height: 179px;
+        min-width: 313px;
+        max-width: 313px;
+        margin-left: 15px;
+        margin-right: 32px;
+      }
+    }
+    &__cover-card {
+      cursor: pointer;
+      background: $white;
+      border-radius: 8px;
+      box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.1);
+      height: 161.91px;
+      min-width: 282.92px;
+      max-width: 282.92px;
+      border: 1px solid #f0f0f0;
+      margin-right: 24px;
+      &__header {
+        &__card-icon {
+          height: 31.66px;
+          width: 50.62px;
+          margin-top: 13px;
+          margin-left: 13px;
+          @include respond-to(screen-xl-min) {
+            height: 35px;
+            width: 56px;
+          }
+          &.inactive {
+            -webkit-filter: grayscale(1) opacity(1);
+            filter: grayscale(1) opacity(1);
+          }
+        }
+        &__card {
+          margin-left: 9px;
+          &__card-type {
+            color: $grey;
+            @extend .ibd-font-regular-cerulean;
+            margin-top: 12px;
+            @include respond-to(screen-xl-min) {
+              margin-top: 12px;
+            }
+          }
+          &__card-description {
+            @extend .ibd-font-regular-cerulean;
+            color: $solid-blue;
+            font-size: 16px;
+            margin-top: -3px;
+            width: 180px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            @include respond-to(screen-xl-min) {
+              width: 190px;
+            }
+          }
+        }
+      }
+      &__body {
+        margin-top: 6px;
+        margin-left: 13px;
+        &__name {
+          @extend .ibd-font-regular-cerulean;
+          color: $grey;
+          max-height: 14px;
+        }
+        &__card-number {
+          @extend .ibd-font-regular-cerulean;
+          color: $grey;
+          font-size: 16px;
+          max-height: 19px;
+        }
+        @include respond-to(screen-xl-min) {
+          margin-top: 9px;
+        }
+      }
+      &__footer {
+        &__limit {
+          margin-top: 11px;
+          padding-left: 13px;
+          @include respond-to(screen-xl-min) {
+            margin-top: 16px;
+          }
+          &__fund {
+            @extend .ibd-font-regular-cerulean;
+            color: $solid-blue;
+            font-size: 16px;
+            &::after {
+              content: " ";
+              border: solid 1px $grey;
+              display: block;
+              width: 25px;
+              margin-top: 4px;
+              opacity: 0.2;
+            }
+
+            &__currency,
+            &__decimal {
+              @extend .ibd-font-regular-cerulean;
+              color: $suva-grey;
+            }
+          }
+          &__title {
+            @extend .ibd-small-text;
+            color: $grey;
+          }
+        }
+        &__balance {
+          margin-top: 11px;
+          padding-left: 13px;
+          @include respond-to(screen-xl-min) {
+            margin-top: 16px;
+            padding-left: 20px;
+          }
+          &__fund {
+            @extend .ibd-font-regular-cerulean;
+            color: $solid-blue;
+            font-size: 16px;
+
+            &__currency,
+            &__decimal {
+              @extend .ibd-font-regular-cerulean;
+              color: $suva-grey;
+            }
+          }
+          &__title {
+            @extend .ibd-small-text;
+            color: $grey;
+          }
+        }
+      }
+      @include respond-to(screen-m-min) {
+        margin-left: 10px;
+        margin-right: 14px;
+      }
+      @include respond-to(screen-l-min) {
+        margin-left: 12px;
+        margin-right: 12px;
+      }
+      @include respond-to(screen-xl-min) {
+        height: 179px;
+        min-width: 313px;
+        max-width: 313px;
+        margin-left: 15px;
+        margin-right: 32px;
+      }
+    }
+    .showads {
+      display: none;
+      @include respond-to(screen-m-min) {
+        display: block;
+      }
+      @include respond-to(screen-land) {
+        display: block;
+      }
+    }
+    &__card-ads {
+      @include respond-to(screen-m-min) {
+        margin-left: 10px;
+      }
+      &__container {
+        width: 193px;
+        height: 180px;
+        background: rgb(255, 255, 255);
+        border: 1px solid rgb(235, 235, 235);
+        border-radius: 16px;
+        padding: 14px 16px;
+      }
+      &__title {
+        margin-top: 10px;
+        color: $solid-blue;
+        font-size: 20px;
+        font-family: $font-regular;
+        font-weight: normal;
+        letter-spacing: 0px;
+        line-height: 24px;
+      }
+      &__subTitle {
+        @extend .ibd-small-text;
+
+        padding-top: 6px;
+        line-height: normal;
+      }
+      &__image {
+        height: 30px;
+        width: 40px;
+        object-fit: cover;
+      }
+      &__ctaLink {
+        @extend .cta-link-btn;
+
+        padding-top: 19px;
+        line-height: normal;
+        &:before {
+          width: 30px;
+          bottom: -11px;
+          opacity: 0.2;
+        }
+        &:after {
+          bottom: 3px;
+        }
+      }
+    }
+  }
+
+  &__navigation-wrapper {
+    text-align: center;
+
+    &__btn {
+      &:first-child {
+        margin-right: 8px;
+      }
+      height: 25px;
+      width: 25px;
+      background-color: $grey;
+      border-radius: 50%;
+      opacity: 0.3;
+      outline: none;
+      border: none;
+      line-height: 21px;
+      &:active,
+      &:focus {
+        border: none;
+      }
+      img {
+        margin-bottom: 2px;
+      }
+      &__next {
+        margin-left: 2px;
+      }
+      &__prev {
+        margin-right: 2px;
+      }
+      &:disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  &.cards-list-rtl-layout {
+    padding: 12px 0 12px 3px;
+    @include respond-to(screen-m-min) {
+      padding: 16px 0 17px 16px;
+    }
+    @include respond-to(screen-l-min) {
+      padding: 14px 0 20px 15px;
+    }
+    .cards-list__text-wrapper__title {
+      float: right;
+      padding-right: 16px;
+      @include respond-to(screen-m-min) {
+        padding-left: 0;
+      }
+      @include respond-to(screen-m-min) {
+        padding-right: 28px;
+      }
+      @include respond-to(screen-l-min) {
+        padding-right: 41px;
+      }
+    }
+    .cards-list__navigation-wrapper {
+      direction: ltr;
+    }
+    .cards-list__card-wrapper {
+      padding-right: 16px;
+      @include respond-to(screen-m-min) {
+        padding-right: 28px;
+      }
+      @include respond-to(screen-l-min) {
+        padding-right: 41px;
+      }
+      &__activate-card {
+        margin-left: 0px;
+        margin-right: 195px;
+        @include respond-to(screen-xl-min) {
+          margin-right: 225px;
+        }
+      }
+      &__debit-card,
+      &__cover-card {
+        margin-right: 0;
+        margin-left: 24px;
+        &__body {
+          margin-right: 12px;
+          text-align: right;
+          margin-left: 0;
+          &__card-number {
+            direction: ltr;
+          }
+        }
+      }
+      &__cover-card {
+        &__footer {
+          text-align: right;
+          &__balance,
+          &__limit {
+            padding-right: 13px;
+            padding-left: 0;
+          }
+          &__limit__fund,
+          &__balance__fund {
+            direction: ltr;
+            &::after {
+              margin-left: auto;
+            }
+          }
+        }
+        &__header__card-icon {
+          margin-right: 13px;
+          margin-left: 0;
+        }
+        &__header__card {
+          text-align: right;
+          margin-right: 9px;
+          margin-left: 0;
+        }
+      }
+      &__debit-card {
+        &__header {
+          &__card-icon {
+            margin-left: 0;
+            margin-right: 13px;
+          }
+          &__card-type {
+            margin-left: 0;
+            margin-right: 9px;
+          }
+          &__card-link-icon {
+            margin-right: 2px;
+            margin-left: 0;
+          }
+          &__account-type {
+            margin-left: 0;
+            margin-right: 6px;
+          }
+        }
+        &__footer {
+          margin-right: 13px;
+          margin-left: 0;
+          text-align: right;
+          &__fund {
+            direction: ltr;
+            &::after {
+              margin-left: auto;
+            }
+          }
+        }
+      }
+      .menu-options {
+        float: left;
+      }
+    }
+    .cards-list__card-wrapper__card-ads {
+      text-align: right;
+      .cards-list__card-wrapper__card-ads__ctaLink::after {
+        left: -14px;
+        right: unset;
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+        height: 10px;
+      }
+    }
+  }
+}
+
+.inactive {
+  color: $grey;
+  pointer-events: none;
+}
+
+.hover {
+  &:hover {
+    transform: scale(1.05);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    div,
+    span,
+    img {
+      color: $white;
+      &::after {
+        border-color: $sky-blue;
+      }
+    }
+    .cards-list__card-wrapper__cover-card__body__name,
+    .cards-list__card-wrapper__cover-card__footer__limit__title,
+    .cards-list__card-wrapper__cover-card__footer__balance__title,
+    .cards-list__card-wrapper__debit-card__header__account-type,
+    .cards-list__card-wrapper__debit-card__body__name,
+    .cards-list__card-wrapper__debit-card__footer__title {
+      color: $sky-blue;
+    }
+    background: linear-gradient(
+      -206.56505117707798deg,
+      rgb(0, 156, 225) 0%,
+      rgb(30, 58, 104) 100%
+    );
+    border-radius: 8px;
+    border: 1px solid rgb(3, 178, 255);
+    box-shadow: inset 0px -1px 0px 0px rgb(0, 175, 251),
+      0px 2px 30px 0px rgba(2, 178, 255, 0.12),
+      0px 16px 32px 0px rgba(0, 0, 0, 0.2);
+    @include respond-to(screen-xl-min) {
+      transform: scale(1.06, 1.11);
+    }
+  }
+}
+
+:host ::ng-deep .cards-menu .mat-menu-trigger {
+  padding: 12px;
+}

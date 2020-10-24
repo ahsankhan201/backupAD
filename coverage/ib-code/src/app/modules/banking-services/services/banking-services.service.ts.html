@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/modules/banking-services/services/banking-services.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/modules/banking-services/services</a> banking-services.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">29.09% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>32/110</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/48</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">6.45% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/31</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30.3% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>30/99</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { Observable, BehaviorSubject } from 'rxjs';
+&nbsp;
+import { APISyncService } from 'src/app/common/services/sync.service';
+import {
+  PaymentOrderPayload, BaneficiaryDetailsForm,
+  PaymentOrderSummaryScreenModel, DemandDraftPayload, DemandDraftSummaryScreenModel
+} from 'src/app/common/models/payment-order';
+import { AccountListModel } from 'src/app/common/models/accounts-module.model';
+import { BANKING_CERTIFICATE_INFO, REQUEST_TYPE } from '../banking-services-module.constants';
+import { SharedService } from 'src/app/common/services/shared.service';
+import { DOMAINS } from 'src/app/common/global-constants';
+import { BANKING_SERVICES_ENDPOINTS, PAYMENTS_ENDPOINTS } from 'src/app/common/api-endpoints';
+import {
+  BankCertificateReqModel,
+  GetBranchesListReqModel,
+  EligibleAccountsResponse,
+  ChequeBookRequestModel,
+  BankingServiceChargesModel,
+  ChequeBookResponse,
+  BankingServiceChargesResponse, AccountsSummaryResponse, PaymentsSummaryResponse
+} from 'src/app/common/models/bank-services-module.model';
+&nbsp;
+@Injectable({
+  providedIn: 'root'
+})
+&nbsp;
+export class BankingServicesService {
+  bankCertificateRequestPayload = {} as BankCertificateReqModel;
+  deliveryBranchType: string;
+  accountNumberDescription: string;
+  selectedBankingService: string;
+  amount: string;
+  selectedCurrency: string;
+  paymentOrderPayload = {} as PaymentOrderPayload;
+  selectedTransferFromAccount = {} as AccountListModel;
+  baneficiaryDetailsFormData = {} as BaneficiaryDetailsForm;
+  enableSummaryScreen$ = new BehaviorSubject&lt;boolean&gt;(undefined);
+  enableSummaryScreen = this.enableSummaryScreen$.asObservable();
+  demandDraftPayload = {} as DemandDraftPayload;
+  cancelButtonClick$ = new BehaviorSubject&lt;string&gt;(undefined);
+  cancelButtonClick = this.cancelButtonClick$.asObservable();
+  validAccountsForChequeBook: EligibleAccountsResponse;
+  chequeBookRequestPayload = {} as ChequeBookRequestModel;
+  constructor(private httpService: APISyncService, private sharedService: SharedService) { }
+&nbsp;
+  /**
+   * @methodName getAccountsServiceSummary
+   * @description get accounts service summary from server
+   * @parameters serviceRequestType&lt;string&gt;
+   * @return Observable&lt;AccountsSummaryResponse&gt;
+   */
+<span class="fstat-no" title="function not covered" >  getAccountsServiceSummary(</span>serviceRequestType: string): Observable&lt;AccountsSummaryResponse[]&gt; {
+    const URL = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false) +</span>
+      BANKING_SERVICES_ENDPOINTS.ACCOUNTS_SERVICE_SUMMARY + '?requestType=' + serviceRequestType;
+<span class="cstat-no" title="statement not covered" >    return this.httpService.get(URL).pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res ? JSON.parse(res) : res)</span>);</span></span>
+  }
+&nbsp;
+  /**
+   * @methodName getPaymentsServiceSummary
+   * @description get payments service summary from server
+   * @parameters serviceRequestType&lt;string&gt;
+   * @return Observable&lt;AccountsSummaryResponse&gt;
+   */
+<span class="fstat-no" title="function not covered" >  getPaymentsServiceSummary(</span>serviceRequestType: string): Observable&lt;PaymentsSummaryResponse[]&gt; {
+    const URL = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false) +</span>
+      BANKING_SERVICES_ENDPOINTS.PAYMENTS_SERVICE_SUMMARY + '?requestType=' + serviceRequestType;
+<span class="cstat-no" title="statement not covered" >    return this.httpService.get(URL).pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res ? JSON.parse(res) : res)</span>);</span></span>
+  }
+&nbsp;
+  /**
+   * @methodName getAccountsServiceDetails
+   * @description get accounts service details from server
+   * @parameters requestId&lt;number&gt;
+   * @return Observable&lt;AccountsSummaryResponse&gt;
+   */
+<span class="fstat-no" title="function not covered" >  getAccountsServiceDetails(</span>requestId: number): Observable&lt;AccountsSummaryResponse&gt; {
+    const URL = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false) +</span>
+      BANKING_SERVICES_ENDPOINTS.ACCOUNTS_SERVICE_DETAILS + requestId;
+<span class="cstat-no" title="statement not covered" >    return this.httpService.get(URL).pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res ? JSON.parse(res) : res)</span>);</span></span>
+  }
+&nbsp;
+  /**
+   * @methodName getPaymentsServiceDetails
+   * @description get payments service details from server
+   * @parameters requestId&lt;number&gt;
+   * @return Observable&lt;PaymentsSummaryResponse&gt;
+   */
+<span class="fstat-no" title="function not covered" >  getPaymentsServiceDetails(</span>requestId: number): Observable&lt;PaymentsSummaryResponse&gt; {
+    const URL = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false) +</span>
+      BANKING_SERVICES_ENDPOINTS.PAYMENTS_SERVICE_DETAILS + requestId;
+<span class="cstat-no" title="statement not covered" >    return this.httpService.get(URL).pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res ? JSON.parse(res) : res)</span>);</span></span>
+  }
+&nbsp;
+  /**
+   * @methodName chequeBookEligibility
+   * @description it will check eligility for cheque book
+   * @parameters url&lt;string&gt;
+   * @return Observable&lt;EligibleAccountsResponse&gt;
+   */
+<span class="fstat-no" title="function not covered" >  chequeBookEligibility(</span>url: string): Observable&lt;EligibleAccountsResponse&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.httpService.get(url).pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res ? JSON.parse(res) : res)</span>);</span></span>
+  }
+&nbsp;
+  /**
+   * @methodName submitPaymentOrderRequest
+   * @description used to call payment order payments API Service /service/payment-order
+   * @parameters url&lt;string&gt;
+   * @return Observable
+   */
+<span class="fstat-no" title="function not covered" >  submitPaymentOrderRequest(): Observable&lt;any&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.paymentOrderPayload) {</span>
+      const PAYMENT_ORDER_API_URL = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false)</span>
+        + PAYMENTS_ENDPOINTS.PAYMENT_ORDER;
+<span class="cstat-no" title="statement not covered" >      return this.httpService.post(PAYMENT_ORDER_API_URL, this.paymentOrderPayload)</span>
+        .pipe(map(<span class="fstat-no" title="function not covered" >response =&gt; <span class="cstat-no" title="statement not covered" >response.body ? JSON.parse(response.body) : response)</span>);</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName setPaymentOrderPayload
+   * @description used to set payment order payload
+   * @parameters none
+   * @return void
+   */
+<span class="fstat-no" title="function not covered" >  setPaymentOrderPayload(): void {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.baneficiaryDetailsFormData &amp;&amp; this.selectedTransferFromAccount) {</span>
+      const paymenOrderPayload = <span class="cstat-no" title="statement not covered" >{} as PaymentOrderPayload;</span>
+<span class="cstat-no" title="statement not covered" >      paymenOrderPayload.amount = this.amount;</span>
+<span class="cstat-no" title="statement not covered" >      paymenOrderPayload.beneficiaryName = this.baneficiaryDetailsFormData.beneficiaryName;</span>
+<span class="cstat-no" title="statement not covered" >      paymenOrderPayload.collectFrom = this.baneficiaryDetailsFormData.collectFrom;</span>
+<span class="cstat-no" title="statement not covered" >      paymenOrderPayload.purpose = this.baneficiaryDetailsFormData.purposeOfTransfer;</span>
+<span class="cstat-no" title="statement not covered" >      if (this.sharedService.customerBasicDetails) {</span>
+<span class="cstat-no" title="statement not covered" >        paymenOrderPayload.customerName = this.sharedService.customerBasicDetails.fullName;</span>
+<span class="cstat-no" title="statement not covered" >        paymenOrderPayload.emailAddress = this.sharedService.customerBasicDetails.email;</span>
+<span class="cstat-no" title="statement not covered" >        paymenOrderPayload.firstName = this.sharedService.customerBasicDetails.firstName;</span>
+<span class="cstat-no" title="statement not covered" >        paymenOrderPayload.lastName = this.sharedService.customerBasicDetails.lastName;</span>
+<span class="cstat-no" title="statement not covered" >        paymenOrderPayload.mobileNumber = this.sharedService.customerBasicDetails.mobile.toString();</span>
+      }
+<span class="cstat-no" title="statement not covered" >      paymenOrderPayload.requestType = REQUEST_TYPE.PAYMENT_ORDER;</span>
+<span class="cstat-no" title="statement not covered" >      paymenOrderPayload.sourceAccountNumber = this.selectedTransferFromAccount.accountNumber;</span>
+<span class="cstat-no" title="statement not covered" >      paymenOrderPayload.currency = this.selectedTransferFromAccount.currencyCode;</span>
+<span class="cstat-no" title="statement not covered" >      this.paymentOrderPayload = paymenOrderPayload;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName setDemandDraftPayload
+   * @description used to set demand draft payload
+   * @parameters none
+   * @return void
+   */
+<span class="fstat-no" title="function not covered" >  setDemandDraftPayload(): void {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.baneficiaryDetailsFormData &amp;&amp; this.selectedTransferFromAccount) {</span>
+      const demandDraftPayload = <span class="cstat-no" title="statement not covered" >{} as DemandDraftPayload;</span>
+<span class="cstat-no" title="statement not covered" >      demandDraftPayload.amount = this.amount;</span>
+<span class="cstat-no" title="statement not covered" >      demandDraftPayload.beneficiaryName = this.baneficiaryDetailsFormData.beneficiaryName;</span>
+<span class="cstat-no" title="statement not covered" >      demandDraftPayload.collectFrom = this.baneficiaryDetailsFormData.collectFrom;</span>
+<span class="cstat-no" title="statement not covered" >      demandDraftPayload.purpose = this.baneficiaryDetailsFormData.purposeOfTransfer;</span>
+<span class="cstat-no" title="statement not covered" >      if (this.sharedService.customerBasicDetails) {</span>
+<span class="cstat-no" title="statement not covered" >        demandDraftPayload.customerName = this.sharedService.customerBasicDetails.fullName;</span>
+<span class="cstat-no" title="statement not covered" >        demandDraftPayload.emailAddress = this.sharedService.customerBasicDetails.email;</span>
+<span class="cstat-no" title="statement not covered" >        demandDraftPayload.firstName = this.sharedService.customerBasicDetails.firstName;</span>
+<span class="cstat-no" title="statement not covered" >        demandDraftPayload.lastName = this.sharedService.customerBasicDetails.lastName;</span>
+<span class="cstat-no" title="statement not covered" >        demandDraftPayload.mobileNumber = this.sharedService.customerBasicDetails.mobile.toString();</span>
+      }
+<span class="cstat-no" title="statement not covered" >      demandDraftPayload.requestType = REQUEST_TYPE.DEMAND_DRAFT;</span>
+<span class="cstat-no" title="statement not covered" >      demandDraftPayload.sourceAccountNumber = this.selectedTransferFromAccount.accountNumber;</span>
+<span class="cstat-no" title="statement not covered" >      demandDraftPayload.currency = this.baneficiaryDetailsFormData.currency;</span>
+<span class="cstat-no" title="statement not covered" >      this.demandDraftPayload = demandDraftPayload;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName getPaymentOrderPayload
+   * @description used to get payment order payload
+   * @parameters none
+   * @return PaymentOrderPayload
+   */
+<span class="fstat-no" title="function not covered" >  getPaymentOrderPayload(): PaymentOrderPayload {</span>
+<span class="cstat-no" title="statement not covered" >    return this.paymentOrderPayload ? this.paymentOrderPayload : undefined;</span>
+  }
+&nbsp;
+  /**
+   * @methodName getPaymentOrderSummaryData
+   * @description used to get payment order summary data
+   * @parameters none
+   * @return PaymentOrderSummaryScreenModel
+   */
+<span class="fstat-no" title="function not covered" >  getPaymentOrderSummaryData(): PaymentOrderSummaryScreenModel {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.paymentOrderPayload &amp;&amp; this.selectedTransferFromAccount) {</span>
+      let paymenOrderSummeryData = <span class="cstat-no" title="statement not covered" >{} as PaymentOrderSummaryScreenModel;</span>
+<span class="cstat-no" title="statement not covered" >      paymenOrderSummeryData = this.paymentOrderPayload;</span>
+<span class="cstat-no" title="statement not covered" >      paymenOrderSummeryData.sourceAccountDetails =</span>
+        `${this.selectedTransferFromAccount.classDesc} - ${this.selectedTransferFromAccount.accountNumber}`;
+<span class="cstat-no" title="statement not covered" >      return paymenOrderSummeryData;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName getDemandDraftSummaryData
+   * @description used to get demand draft summary data
+   * @parameters none
+   * @return DemandDraftSummaryScreenModel
+   */
+<span class="fstat-no" title="function not covered" >  getDemandDraftSummaryData(): DemandDraftSummaryScreenModel {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.demandDraftPayload) {</span>
+      let demandDraftSummeryData = <span class="cstat-no" title="statement not covered" >{} as DemandDraftSummaryScreenModel;</span>
+<span class="cstat-no" title="statement not covered" >      demandDraftSummeryData = this.demandDraftPayload;</span>
+<span class="cstat-no" title="statement not covered" >      demandDraftSummeryData.sourceAccountDetails =</span>
+        `${this.selectedTransferFromAccount.classDesc} - ${this.selectedTransferFromAccount.accountNumber}`;
+<span class="cstat-no" title="statement not covered" >      return demandDraftSummeryData;</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName submitDemandDraftRequest
+   * @description used to call demand draft payments API Service /service/payment-order
+   * @parameters url&lt;string&gt;
+   * @return Observable
+   */
+<span class="fstat-no" title="function not covered" >  submitDemandDraftRequest(): Observable&lt;any&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.demandDraftPayload) {</span>
+      const DEMAND_DRAFT_API_URL = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false)</span>
+        + PAYMENTS_ENDPOINTS.PAYMENT_ORDER;
+<span class="cstat-no" title="statement not covered" >      return this.httpService.post(DEMAND_DRAFT_API_URL, this.demandDraftPayload)</span>
+        .pipe(map(<span class="fstat-no" title="function not covered" >response =&gt; <span class="cstat-no" title="statement not covered" >response.body ? JSON.parse(response.body) : response)</span>);</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName fetchBankBranches
+   * @parameter url&lt;string&gt;, reqPayload&lt;GetBranchesListReqModel&gt;
+   * @description used to fetch bank branches from server
+   * @return Observable&lt;any&gt;
+   */
+<span class="fstat-no" title="function not covered" >  fetchBankBranches(</span>url: string, reqPayload: GetBranchesListReqModel): Observable&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.httpService.post(url, reqPayload).pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res.body ? JSON.parse(res.body) : res)</span>);</span></span>
+  }
+&nbsp;
+  /**
+   * @methodName makeBankCertificateReq
+   * @parameter url&lt;string&gt;, reqPayload&lt;BankCertificateReqModel&gt;
+   * @description using for new making service request
+   * @return Observable&lt;any&gt;
+   */
+<span class="fstat-no" title="function not covered" >  makeBankCertificateReq(</span>url: string, reqPayLoad: BankCertificateReqModel): Observable&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.httpService.post(url, reqPayLoad).pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res.body ? JSON.parse(res.body) : res)</span>);</span></span>
+  }
+&nbsp;
+  /**
+   * @methodName fetchBankCertificateCharges
+   * @parameter url&lt;string&gt;, reqPayload&lt;BankingServiceChargesModel&gt;
+   * @description used to fetch certificate charges from server
+   * @return Observable&lt;BankingServiceChargesResponse&gt;
+   */
+<span class="fstat-no" title="function not covered" >  fetchBankCertificateCharges(</span>url: string, reqPayload: BankingServiceChargesModel): Observable&lt;BankingServiceChargesResponse&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.httpService.post(url, reqPayload).pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res.body ? JSON.parse(res.body) : res)</span>);</span></span>
+  }
+&nbsp;
+  /**
+   * @methodName getBranch
+   * @parameter none
+   * @description used to fetch bank branches from server
+   * @return Observable&lt;any&gt;
+   */
+<span class="fstat-no" title="function not covered" >  getBranch(): Observable&lt;any&gt; {</span>
+    const reqPayload = <span class="cstat-no" title="statement not covered" >{} as GetBranchesListReqModel;</span>
+<span class="cstat-no" title="statement not covered" >    reqPayload.country = BANKING_CERTIFICATE_INFO.UAE_COUNTRY_CODE_FOR_BRANCHES;</span>
+    const COUNTRY_LIST_API = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false)</span>
+      + BANKING_SERVICES_ENDPOINTS.BRANCH_LIST;
+<span class="cstat-no" title="statement not covered" >    return this.httpService.post(COUNTRY_LIST_API, reqPayload)</span>
+      .pipe(map(<span class="fstat-no" title="function not covered" >response =&gt; <span class="cstat-no" title="statement not covered" >response.body ? JSON.parse(response.body) : response)</span>);</span>
+  }
+&nbsp;
+  /**
+   * @methodName makeChequeBookReq
+   * @parameter url&lt;string&gt;, reqPayload&lt;ChequeBookRequestModel&gt;
+   * @description using for new making service request
+   * @return Observable&lt;ChequeBookResponse&gt;
+   */
+<span class="fstat-no" title="function not covered" >  makeChequeBookReq(</span>url: string, reqPayLoad: ChequeBookRequestModel): Observable&lt;ChequeBookResponse&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.httpService.post(url, reqPayLoad).pipe(map(<span class="fstat-no" title="function not covered" >res =&gt; <span class="cstat-no" title="statement not covered" >res.body ? JSON.parse(res.body) : res)</span>);</span></span>
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

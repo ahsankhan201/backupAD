@@ -1,0 +1,1865 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/modules/beneficiary/services/beneficiary.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/modules/beneficiary/services</a> beneficiary.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">28.97% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>62/214</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/146</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.73% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/55</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">28.5% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>59/207</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable, OnDestroy } from '@angular/core';
+import { Observable, BehaviorSubject, of, Subscription } from 'rxjs';
+import { APISyncService } from 'src/app/common/services/sync.service';
+import {
+  CountriesDetailsList, BankDetailsList, CountryDetails,
+  AddInternationalBeneficiary,
+  SummaryDetails,
+  AddInternalBeneficiary,
+  AccountDetailsFromApi,
+  CardDetailsFromApi,
+  AllUtilityList,
+  ValidateIBAN
+} from 'src/app/common/models/beneficiary-module.model';
+import { ACCOUNT_TYPES, FORM_LENGTH_VALIDATION, DOMAINS } from 'src/app/common/global-constants';
+import { BENEFICIARY_ENDPOINTS, ACCOUNTS_ENDPOINTS, PARTY_ENDPOINTS } from 'src/app/common/api-endpoints';
+import { OTPLocation } from 'src/app/common/models/otp.model';
+import {
+  BENEFICIARY_FORM_TEXT,
+  PAYEE_TYPE, PAYEE_ID,
+  BANK_SELECTION_SCREEN_TEXT,
+  ACCOUNTS_OR_CARDS_MAP,
+  COUNTRY_CODE_UAE,
+  ROMANIA_REGEX,
+  ROMANIA_RESTRICTED_WORDS
+} from '../beneficiary-module.constants';
+&nbsp;
+import { SharedService } from 'src/app/common/services/shared.service';
+import { AbstractControl, ValidatorFn } from '@angular/forms';
+&nbsp;
+@Injectable({
+  providedIn: 'root'
+})
+export class BeneficiaryService implements OnDestroy {
+  subscription$ = new Subscription();
+  region: string;
+  bank: string;
+  countriesList: CountryDetails[];
+  addedBy: string;
+  currency: string;
+  formData: object;
+  selectedAccountType: string;
+  selectedBenCountryDetails: any = {};
+  internationalBenPayLoadObj = new AddInternationalBeneficiary();
+  internalBenPayLoad = new AddInternalBeneficiary();
+  selectedInternationalBankName: string;
+  benSummaryDetails = new SummaryDetails();
+  public selectedCountry = new BehaviorSubject&lt;string&gt;('');
+  beneficiaryList = [];
+  isMobileBene = false;
+  selectedRegion = new BehaviorSubject&lt;string&gt;(undefined);
+  restrictRegex: RegExp;
+  restrictArray: string[];
+  constructor(private syncService: APISyncService, private sharedService: SharedService) { }
+  /**
+   * @methodName setRegion
+   * @description used to set Region
+   * @parameters none
+   * @return none
+   */
+  setRegion(region): void {
+    this.region = region;
+    this.selectedRegion.next(region);
+  }
+  /**
+   * @methodName getRegion
+   * @description used to get getRegion
+   * @parameters none
+   * @return string
+   */
+  getRegion(): string {
+    return this.region;
+  }
+&nbsp;
+  /**
+   * @methodName setBank
+   * @description used to set bank name
+   * @parameters none
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setBank(</span>bank): void {
+<span class="cstat-no" title="statement not covered" >    this.bank = bank;</span>
+  }
+  /**
+   * @methodName getBank
+   * @description used to return bank
+   * @parameters none
+   * @return string
+   */
+  getBank(): string {
+    return this.bank;
+  }
+  /**
+   * @methodName setAddedBy
+   * @description used to  set added By
+   * @parameters none
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setAddedBy(</span>addedBy): void {
+<span class="cstat-no" title="statement not covered" >    this.addedBy = addedBy;</span>
+  }
+  /**
+   * @methodName getAddedBy
+   * @description used to return addedBy
+   * @parameters none
+   * @return string
+   */
+<span class="fstat-no" title="function not covered" >  getAddedBy(): string {</span>
+<span class="cstat-no" title="statement not covered" >    return this.addedBy;</span>
+  }
+  /**
+   * @methodName setCurrency
+   * @description used to set currency
+   * @parameters none
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setCurrency(</span>currency): void {
+<span class="cstat-no" title="statement not covered" >    this.currency = currency;</span>
+  }
+  /**
+   * @methodName getCurrency
+   * @description used to get currency
+   * @parameters none
+   * @return string
+   */
+<span class="fstat-no" title="function not covered" >  getCurrency(): string {</span>
+<span class="cstat-no" title="statement not covered" >    return this.currency;</span>
+  }
+  /**
+   * @methodName setformData
+   * @description used to set account formData
+   * @parameters none
+   * @return string
+   */
+<span class="fstat-no" title="function not covered" >  setformData(</span>formData): void {
+<span class="cstat-no" title="statement not covered" >    this.formData = formData;</span>
+  }
+  /**
+   * @methodName getCurrency
+   * @description used to get account formData
+   * @parameters none
+   * @return string
+   */
+<span class="fstat-no" title="function not covered" >  getformData() {</span>
+<span class="cstat-no" title="statement not covered" >    return this.formData;</span>
+  }
+  /**
+   * @methodName setSelectedCountry
+   * @description used to get account formData
+   * @parameters none
+   * @return string
+   */
+<span class="fstat-no" title="function not covered" >  setSelectedCountry(</span>value) {
+<span class="cstat-no" title="statement not covered" >    this.selectedCountry.next(value);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getSelectedCountry
+   * @description used to get account formData
+   * @parameters none
+   * @return string
+   */
+  getSelectedCountry(): Observable&lt;any&gt; {
+    return this.selectedCountry.asObservable();
+  }
+&nbsp;
+  /**
+   * @methodName getCountriesList
+   * @description used to fetch all the countries data from sever
+   * @parameter none
+   * @return observable object
+   */
+&nbsp;
+<span class="fstat-no" title="function not covered" >  getCountriesList(): Observable&lt;CountriesDetailsList&gt; {</span>
+    const URL = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false) + BENEFICIARY_ENDPOINTS.GET_COUNTRIES_LIST;</span>
+<span class="cstat-no" title="statement not covered" >    return this.syncService.get(URL);</span>
+  }
+&nbsp;
+  /**
+   * @methodName fetchCountriesList
+   * @description used to fetch the countries data from sever
+   * @parameter none
+   * @return observable object
+   */
+<span class="fstat-no" title="function not covered" >  fetchCountriesList(</span>url: string): Observable&lt;CountriesDetailsList&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.syncService.get(url);</span>
+  }
+&nbsp;
+  /**
+   * @methodName fetchAdibInternationalCountries
+   * @description used to fetch the adib international countries data from sever and push it to key value pair
+   * @parameter countriesList
+   * @return object&lt;countriesList&gt;
+   */
+<span class="fstat-no" title="function not covered" >  fetchAdibInternationalCountriesWithKeys(</span>countriesList): any {
+    const adibInternationalCountriesListWithKeys = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >    if (countriesList) {</span>
+<span class="cstat-no" title="statement not covered" >      countriesList.filter(<span class="fstat-no" title="function not covered" >(</span>object) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (object.adibPresence === 'Yes') {</span>
+<span class="cstat-no" title="statement not covered" >          return adibInternationalCountriesListWithKeys.push({ id: object.countryISOCode, title: object.countryName });</span>
+        }
+      });
+    }
+<span class="cstat-no" title="statement not covered" >    return adibInternationalCountriesListWithKeys;</span>
+  }
+&nbsp;
+  /**
+   * @methodName fetchSwiftCode
+   * @description used to fetch the swift code from countries api data from sever
+   * @parameter country countriesList
+   * @return string
+   */
+<span class="fstat-no" title="function not covered" >  fetchSwiftCode(</span>country, countriesList): string {
+    let swiftCode = <span class="cstat-no" title="statement not covered" >'';</span>
+<span class="cstat-no" title="statement not covered" >    countriesList.filter(<span class="fstat-no" title="function not covered" >(</span>object) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (object.countryISOCode === country) {</span>
+<span class="cstat-no" title="statement not covered" >        swiftCode = object.swiftCode;</span>
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    return swiftCode;</span>
+  }
+&nbsp;
+  /**
+   * @methodName fetchCountryName
+   * @description used to fetch the country name from countries api data from sever
+   * @parameter country countriesList
+   * @return string
+   */
+<span class="fstat-no" title="function not covered" >  fetchCountryName(</span>country, countriesList): string {
+    let countryName = <span class="cstat-no" title="statement not covered" >'';</span>
+<span class="cstat-no" title="statement not covered" >    countriesList.filter(<span class="fstat-no" title="function not covered" >(</span>object) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (object.countryISOCode === country) {</span>
+<span class="cstat-no" title="statement not covered" >        countryName = object.countryName;</span>
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    return countryName;</span>
+  }
+&nbsp;
+  /**
+   * @methodName fetchBanksList
+   * @description used to fetch the banks data from sever
+   * @parameter none
+   * @return observable object
+   */
+<span class="fstat-no" title="function not covered" >  fetchBanksList(</span>url: string): Observable&lt;BankDetailsList&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.syncService.get(url);</span>
+  }
+&nbsp;
+  /**
+   * @methodName fetchCurrencyList
+   * @description used to fetch currency list from server
+   * @parameter none
+   * @return observable object
+   */
+<span class="fstat-no" title="function not covered" >  fetchCurrencyList(</span>url: string) {
+<span class="cstat-no" title="statement not covered" >    return this.syncService.get(url);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getBranchesList
+   * @description used to map the branches of the selected bank
+   * @parameter none
+   * @return object&lt;banksList&gt;
+   */
+<span class="fstat-no" title="function not covered" >  getBranchesList(</span>banksList, bankName): BankDetailsList {
+<span class="cstat-no" title="statement not covered" >    this.selectedInternationalBankName = bankName;</span>
+    const banksListArray = <span class="cstat-no" title="statement not covered" >banksList.filter(<span class="fstat-no" title="function not covered" >(</span>object) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (object.bankName === bankName) {</span>
+<span class="cstat-no" title="statement not covered" >        object.addressLine1 = object.address ? object.address.addressLine1 : '';</span>
+<span class="cstat-no" title="statement not covered" >        return object;</span>
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    return banksListArray;</span>
+  }
+&nbsp;
+  /**
+   * @methodName mapCurrencyDetailsWithKeys
+   * @description used to map the currncy data as key value pair
+   * @parameter currencyList
+   * @return object&lt;currencyList&gt;
+   */
+<span class="fstat-no" title="function not covered" >  mapCurrencyDetailsWithKeys(</span>currencyList): any {
+    const mappedCurrencyList = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >    if (currencyList.currency) {</span>
+<span class="cstat-no" title="statement not covered" >      currencyList.currency.map(<span class="fstat-no" title="function not covered" >(</span>element) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        mappedCurrencyList.push({ id: element, title: element });</span>
+      });
+    }
+<span class="cstat-no" title="statement not covered" >    return mappedCurrencyList;</span>
+  }
+&nbsp;
+  /**
+   * @methodName checkIBANRequied
+   * @description used to check IBANRequied or NOT based on country
+   * @parameter selectedCountry countryList
+   * @return boolean
+   */
+<span class="fstat-no" title="function not covered" >  checkIBANRequied(</span>selectedCountry: string, countriesList: CountryDetails[]): boolean {
+    let isIBANRequired = <span class="cstat-no" title="statement not covered" >false;</span>
+<span class="cstat-no" title="statement not covered" >    if (countriesList) {</span>
+<span class="cstat-no" title="statement not covered" >      countriesList.forEach(<span class="fstat-no" title="function not covered" >(</span>element) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (element.countryISOCode === selectedCountry &amp;&amp;</span>
+          element.isIBANRequired === BENEFICIARY_FORM_TEXT.IS_IBAN_REQUIRED) {
+<span class="cstat-no" title="statement not covered" >          isIBANRequired = true;</span>
+        }
+      });
+    }
+<span class="cstat-no" title="statement not covered" >    return isIBANRequired;</span>
+  }
+&nbsp;
+  /**
+   * @methodName fetchAccountDetails
+   * @description used to fetch account details
+   * @parameter url payload
+   * @return boolean
+   */
+<span class="fstat-no" title="function not covered" >  fetchAccountDetails(</span>url: string, payloadObj): Observable&lt;AccountDetailsFromApi&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.syncService.post(url, payloadObj);</span>
+  }
+&nbsp;
+  /**
+   * @methodName fetchCardDetails
+   * @description used to fetch card details
+   * @parameter url payload
+   * @return boolean
+   */
+<span class="fstat-no" title="function not covered" >  fetchCardDetails(</span>url: string, payloadObj): Observable&lt;CardDetailsFromApi&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.syncService.post(url, payloadObj);</span>
+  }
+  /**
+   * @methodName setBeneficiaryPayLoad
+   * @description used to set all the beneficiary detais except internal benfeciary
+   * @parameter url payloadForm
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setBeneficiaryPayLoad(</span>beneficiaryForm): void {
+<span class="cstat-no" title="statement not covered" >    this.internationalBenPayLoadObj.beneficiaryName = (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.name) ?</span>
+      beneficiaryForm.value.name : '';
+<span class="cstat-no" title="statement not covered" >    if (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.abaCode) {</span>
+<span class="cstat-no" title="statement not covered" >      this.internationalBenPayLoadObj.abaNumber = beneficiaryForm.value.abaCode;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.account) {</span>
+<span class="cstat-no" title="statement not covered" >      this.internationalBenPayLoadObj.accountNumber = beneficiaryForm.value.account;</span>
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.accountDetails.accountTitle = BENEFICIARY_FORM_TEXT.accountNumber;</span>
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.accountDetails.accountNumber = beneficiaryForm.value.account;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.ibanNumber) {</span>
+<span class="cstat-no" title="statement not covered" >      this.internationalBenPayLoadObj.iban = beneficiaryForm.value.ibanNumber;</span>
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.accountDetails.accountTitle = BENEFICIARY_FORM_TEXT.iban;</span>
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.accountDetails.accountNumber = beneficiaryForm.value.ibanNumber;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.cardNumber) {</span>
+<span class="cstat-no" title="statement not covered" >      this.internationalBenPayLoadObj.cardNumber = (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.cardNumber) ?</span>
+        beneficiaryForm.value.cardNumber : '';
+&nbsp;
+    }
+<span class="cstat-no" title="statement not covered" >    this.internationalBenPayLoadObj.beneficiaryAddress1 = (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.addressOne) ?</span>
+      beneficiaryForm.value.addressOne : '';
+<span class="cstat-no" title="statement not covered" >    this.internationalBenPayLoadObj.beneficiaryAddress2 = (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.addressTwo) ?</span>
+      beneficiaryForm.value.addressTwo : '';
+<span class="cstat-no" title="statement not covered" >    this.internationalBenPayLoadObj.beneficiaryCity = (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.city) ?</span>
+      beneficiaryForm.value.city : '';
+<span class="cstat-no" title="statement not covered" >    this.internationalBenPayLoadObj.beneficiaryCountry = this.selectedBenCountryDetails.countryISOCode;</span>
+<span class="cstat-no" title="statement not covered" >    this.internationalBenPayLoadObj.nickName = (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.nickName) ?</span>
+      beneficiaryForm.value.nickName : beneficiaryForm.value.name;
+<span class="cstat-no" title="statement not covered" >    this.setBeneficiarySummaryDetails(this.internationalBenPayLoadObj);</span>
+  }
+  /**
+   * @methodName setInternalBeneficiaryPayLoad
+   * @description used to set the internal beneficiary
+   * @parameter form, boolean
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setInternalBeneficiaryPayLoad(</span>beneficiaryForm, isCardSelected: boolean, adibUaeBeneName: string): void {
+<span class="cstat-no" title="statement not covered" >    this.internalBenPayLoad.mobileNumber = undefined; </span>// reseting mobile beneficiary value if exists
+<span class="cstat-no" title="statement not covered" >    this.internalBenPayLoad.nickName = beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.nickName ?</span>
+      beneficiaryForm.value.nickName : adibUaeBeneName;
+<span class="cstat-no" title="statement not covered" >    if (isCardSelected) {</span>
+<span class="cstat-no" title="statement not covered" >      this.internalBenPayLoad.cardNumber = beneficiaryForm &amp;&amp; beneficiaryForm.value ? beneficiaryForm.value.cardNumber : null;</span>
+<span class="cstat-no" title="statement not covered" >      this.internalBenPayLoad.accountType = ACCOUNT_TYPES.CARD;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.internalBenPayLoad.cardNumber = '';</span>
+<span class="cstat-no" title="statement not covered" >      this.internalBenPayLoad.accountType = ACCOUNT_TYPES.ACCOUNT;</span>
+<span class="cstat-no" title="statement not covered" >      this.internalBenPayLoad.accountNumber = beneficiaryForm &amp;&amp; beneficiaryForm.value ? beneficiaryForm.value.account : null;</span>
+    }
+  }
+  /**
+   * @methodName setADIBBenSummaryDetails
+   * @description used to set the internal beneficiary
+   * @parameter url payload
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setADIBBenSummaryDetails(</span>adibUaeCurrency: string): void {
+<span class="cstat-no" title="statement not covered" >    this.benSummaryDetails.nickName = this.internalBenPayLoad.nickName;</span>
+<span class="cstat-no" title="statement not covered" >    this.benSummaryDetails.bank = BANK_SELECTION_SCREEN_TEXT.adib;</span>
+<span class="cstat-no" title="statement not covered" >    this.benSummaryDetails.accountDetails.currency = adibUaeCurrency;</span>
+<span class="cstat-no" title="statement not covered" >    this.benSummaryDetails.region = this.region;</span>
+<span class="cstat-no" title="statement not covered" >    if (this.internalBenPayLoad.cardNumber) {</span>
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.accountDetails.accountTitle = BENEFICIARY_FORM_TEXT.cardNumber;</span>
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.accountDetails.accountNumber = this.internalBenPayLoad.cardNumber;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (this.internalBenPayLoad.accountNumber) {</span>
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.accountDetails.accountTitle = BENEFICIARY_FORM_TEXT.accountNumber;</span>
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.accountDetails.accountNumber = this.internalBenPayLoad.accountNumber;</span>
+    }
+  }
+  /**
+   * @methodName setBeneficiarySummaryDetails
+   * @description used to set beneficiary summary details
+   * @parameter url payload
+   * @return none
+   */
+<span class="fstat-no" title="function not covered" >  setBeneficiarySummaryDetails(</span>payLoadObject): void {
+<span class="cstat-no" title="statement not covered" >    if (Object.keys(payLoadObject).length) {</span>
+<span class="cstat-no" title="statement not covered" >      if (payLoadObject &amp;&amp; payLoadObject.cardNumber) {</span>
+<span class="cstat-no" title="statement not covered" >        this.benSummaryDetails.accountDetails.accountTitle = BENEFICIARY_FORM_TEXT.cardNumber;</span>
+<span class="cstat-no" title="statement not covered" >        this.benSummaryDetails.accountDetails.accountNumber = payLoadObject.cardNumber;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.nickName = payLoadObject.hasOwnProperty('nickName') ? payLoadObject.nickName : '-';</span>
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.bank =</span>
+        this.selectedInternationalBankName ? this.selectedInternationalBankName : BANK_SELECTION_SCREEN_TEXT.adib;
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.region = this.region;</span>
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.accountDetails.name = payLoadObject.beneficiaryName;</span>
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.accountDetails.currency = payLoadObject.currency;</span>
+<span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.accountDetails.address = `${payLoadObject.beneficiaryAddress1},${payLoadObject.beneficiaryAddress2},</span>
+      ${payLoadObject.beneficiaryCity},${payLoadObject.beneficiaryCountry}`;
+    }
+  }
+  /**
+   * @methodName fetchOTPLocation
+   * @description used to fetch the otp loacation details
+   * @parameter url payload
+   * @return Observable
+   */
+<span class="fstat-no" title="function not covered" >  fetchOTPLocation(</span>url: string, payloadObj): Observable&lt;OTPLocation&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.syncService.post(url, payloadObj);</span>
+  }
+  /**
+   * @methodName getBeneficiaryListInfo
+   * @description used to fetch  all beneficiary accounts from server
+   * @parameters none
+   * @return none
+   */
+  getBeneficiaryListInfo(): void {
+    const URL = this.sharedService.generateApiUrl(DOMAINS.API_SIT_CONNECT, true, false) + ACCOUNTS_ENDPOINTS.GET_ALL_BENIFICIARY;
+    this.subscription$.add(this.syncService.get(URL).subscribe(<span class="fstat-no" title="function not covered" >res =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (res) {</span>
+<span class="cstat-no" title="statement not covered" >        res = JSON.parse(res.toString());</span>
+<span class="cstat-no" title="statement not covered" >        this.beneficiaryList = (res &amp;&amp; res.length &gt; 0) ? res.retailBeneficiary : undefined;</span>
+      }
+    }, <span class="fstat-no" title="function not covered" >error =&gt; {</span>
+    }
+    ));
+  }
+&nbsp;
+  /**
+   * @methodName isBeneIbanExisits
+   * @description used to check IBAN duplication
+   * @parameters string
+   * @return boolean
+   */
+<span class="fstat-no" title="function not covered" >  isBeneIbanExisits(</span>iban): Observable&lt;boolean&gt; {
+<span class="cstat-no" title="statement not covered" >    if (iban != null &amp;&amp; iban !== '') {</span>
+      const user = <span class="cstat-no" title="statement not covered" >this.beneficiaryList.filter(<span class="fstat-no" title="function not covered" >item =&gt; <span class="cstat-no" title="statement not covered" >item.iban === iban)</span>;</span></span>
+<span class="cstat-no" title="statement not covered" >      return of((user &amp;&amp; user.length) &gt; 0 ? true : false);</span>
+    }
+  }
+&nbsp;
+  /**
+   * @methodName getCustomerNameByMobile
+   * @description used to fetch customer name by mobile accounts from server
+   * @parameters none
+   * @return Observable
+   */
+&nbsp;
+<span class="fstat-no" title="function not covered" >  getCustomerNameByMobile(</span>mob): Observable&lt;any&gt; {
+    const URL = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false) + PARTY_ENDPOINTS.GET_CUSTOMER_NAME_BY_MOBILE;</span>
+    const payLoad = <span class="cstat-no" title="statement not covered" >{ mobileNumber: mob };</span>
+<span class="cstat-no" title="statement not covered" >    return this.syncService.post(URL, payLoad);</span>
+  }
+&nbsp;
+  /**
+   * @methodName getUtilityProviderList
+   * @description used to fetch customer name by mobile accounts from server
+   * @parameters none
+   * @return Observable
+   */
+<span class="fstat-no" title="function not covered" >  getUtilityProviderList(): Observable&lt;AllUtilityList&gt; {</span>
+    const URL = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false) + BENEFICIARY_ENDPOINTS.UTILITY_PROVIDER;</span>
+<span class="cstat-no" title="statement not covered" >    return this.syncService.get(URL);</span>
+  }
+&nbsp;
+  /**
+   * @methodName setMobileBeneficiaryPayLoad
+   * @description used to fetch mobile beneficiary payload
+   * @parameters none
+   * @return void
+   */
+&nbsp;
+<span class="fstat-no" title="function not covered" >  setMobileBeneficiaryPayLoad(</span>beneficiaryForm): void {
+<span class="cstat-no" title="statement not covered" >    this.isMobileBene = true;</span>
+    let MOBILE_NO = <span class="cstat-no" title="statement not covered" >BENEFICIARY_FORM_TEXT.mobileCountyCodeWithoutPlus;</span>
+<span class="cstat-no" title="statement not covered" >    if (beneficiaryForm.mobileNumber.length &gt; FORM_LENGTH_VALIDATION.mobile.minLength) {</span>
+<span class="cstat-no" title="statement not covered" >      MOBILE_NO += beneficiaryForm.mobileNumber.substring(1);</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      MOBILE_NO += beneficiaryForm.mobileNumber;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    this.internalBenPayLoad.mobileNumber = MOBILE_NO;</span>
+<span class="cstat-no" title="statement not covered" >    this.internalBenPayLoad.accountType = ACCOUNT_TYPES.MOBILE;</span>
+<span class="cstat-no" title="statement not covered" >    this.internalBenPayLoad.nickName = (beneficiaryForm.nickName).substr(0, FORM_LENGTH_VALIDATION.nickname.maxLength);</span>
+<span class="cstat-no" title="statement not covered" >    this.setMobileBeneficiarySummaryDetails();</span>
+  }
+&nbsp;
+  /**
+   * @methodName setMobileBeneficiarySummaryDetails
+   * @description used to fetch mobile beneficiary summary
+   * @parameters none
+   * @return void
+   */
+<span class="fstat-no" title="function not covered" >  setMobileBeneficiarySummaryDetails(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.benSummaryDetails.bank = BANK_SELECTION_SCREEN_TEXT.adib;</span>
+<span class="cstat-no" title="statement not covered" >    this.benSummaryDetails.accountDetails.accountTitle = BENEFICIARY_FORM_TEXT.mobileNumber;</span>
+<span class="cstat-no" title="statement not covered" >    this.benSummaryDetails.accountDetails.accountNumber = this.internalBenPayLoad.mobileNumber;</span>
+<span class="cstat-no" title="statement not covered" >    this.benSummaryDetails.nickName = this.internalBenPayLoad.nickName;</span>
+  }
+&nbsp;
+  /**
+   * @methodName isBeneficiaryExisits
+   * @description used to check duplicate beneficiary
+   * @param filterName&lt;string&gt;, data &lt;string&gt;
+   * @return boolean
+   */
+<span class="fstat-no" title="function not covered" >  isBeneficiaryExisits(</span>filterName: string, data: string): Observable&lt;boolean&gt; {
+<span class="cstat-no" title="statement not covered" >    if (data != null &amp;&amp; data !== '') {</span>
+      const user = <span class="cstat-no" title="statement not covered" >(this.sharedService.allBeneficiaryList) ?</span>
+        this.sharedService.allBeneficiaryList.filter(<span class="fstat-no" title="function not covered" >(</span>item) =&gt; { <span class="cstat-no" title="statement not covered" >if (item) { <span class="cstat-no" title="statement not covered" >return item[filterName] === data; </span>} </span>}) : undefined;
+<span class="cstat-no" title="statement not covered" >      return of((user &amp;&amp; user.length) &gt; 0 ? true : false);</span>
+    }
+  }
+  /**
+   * @methodName checkSelfAccountsCards
+   * @description check if user accounts / cards is same of adding beneficiary accounts / cards
+   * @param filterName&lt;string&gt;, data &lt;string&gt;
+   * @return boolean
+   */
+<span class="fstat-no" title="function not covered" >  checkSelfAccountsCards(</span>accountsOrCards: string, data: string): Observable&lt;boolean&gt; {
+<span class="cstat-no" title="statement not covered" >    if (this.sharedService.accountsCardsList &amp;&amp; data != null &amp;&amp; data !== '') {</span>
+      let accountsOrCardsList<span class="cstat-no" title="statement not covered" >: string;</span>
+      let accountOrCards: string;
+<span class="cstat-no" title="statement not covered" >      (accountsOrCards === ACCOUNTS_OR_CARDS_MAP.CARD_NUMBER) ?</span>
+        (accountsOrCardsList = ACCOUNTS_OR_CARDS_MAP.CARDS_LIST, accountOrCards = accountsOrCards) :
+        (accountsOrCardsList = ACCOUNTS_OR_CARDS_MAP.ACCOUNTS_LIST, accountOrCards = ACCOUNTS_OR_CARDS_MAP.ACCOUNT_NUMBER);
+      const user = <span class="cstat-no" title="statement not covered" >this.sharedService.accountsCardsList[accountsOrCardsList].filter(<span class="fstat-no" title="function not covered" >item =&gt; <span class="cstat-no" title="statement not covered" >item[accountOrCards] === data)</span>;</span></span>
+<span class="cstat-no" title="statement not covered" >      return of((user &amp;&amp; user.length) &gt; 0 ? true : false);</span>
+    }
+  }
+  /**
+   * @methodName validateIBAN
+   * @description validates the IBAN entered by user
+   * @parameter url payload
+   * @return boolean
+   */
+<span class="fstat-no" title="function not covered" >  validateIBAN(</span>IBAN: string): Observable&lt;void&gt; {
+    const payloadObj = <span class="cstat-no" title="statement not covered" >{} as ValidateIBAN;</span>
+<span class="cstat-no" title="statement not covered" >    payloadObj.countryCode = this.selectedBenCountryDetails.countryISOCode;</span>
+<span class="cstat-no" title="statement not covered" >    payloadObj.ibanNumber = IBAN;</span>
+    const URL = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false) + BENEFICIARY_ENDPOINTS.VALIDATE_IBAN;</span>
+<span class="cstat-no" title="statement not covered" >    return this.syncService.post(URL, payloadObj);</span>
+  }
+&nbsp;
+  /**
+   * @methodName retrictWordForRomaniaValidator
+   * @description validate that input field must not have restrict word for Romania
+   * @parameters none
+   * @return ValidatorFn
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  retrictWordForRomaniaValidator(): ValidatorFn {</span></span>
+<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >(</span>control: AbstractControl): { [key: string]: any } | null =&gt; {</span>
+      let restrictKeyWord = <span class="cstat-no" title="statement not covered" >null;</span>
+<span class="cstat-no" title="statement not covered" >      this.restrictRegex = ROMANIA_REGEX;</span>
+<span class="cstat-no" title="statement not covered" >      this.restrictArray = ROMANIA_RESTRICTED_WORDS;</span>
+<span class="cstat-no" title="statement not covered" >      if (control.value !== null &amp;&amp; this.restrictRegex !== undefined) {</span>
+        const forbidden = <span class="cstat-no" title="statement not covered" >this.restrictRegex.test(control.value);</span>
+<span class="cstat-no" title="statement not covered" >        if (forbidden) {</span>
+<span class="cstat-no" title="statement not covered" >          this.restrictArray.forEach(<span class="fstat-no" title="function not covered" >word =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (control.value.toUpperCase().includes(word.toUpperCase())) {</span>
+<span class="cstat-no" title="statement not covered" >              restrictKeyWord = word;</span>
+            }
+          });
+<span class="cstat-no" title="statement not covered" >          restrictKeyWord = { restrictWord: { value: restrictKeyWord, message: restrictKeyWord } };</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return restrictKeyWord;</span>
+      }
+    };
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ngOnDestroy() {</span>
+<span class="cstat-no" title="statement not covered" >    this.internalBenPayLoad = new AddInternalBeneficiary(); </span>// reseting internal beneficiary
+<span class="cstat-no" title="statement not covered" >    this.subscription$.unsubscribe();</span>
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+@import "src/assets/styles/default";
+
+.activate-card {
+  &__wrapper {
+    &__container {
+      max-width: 100%;
+      &__body-wrapper {
+        &__body {
+          position: absolute;
+          z-index: 8;
+          padding: 16px;
+          margin-bottom: 60px;
+          @include respond-to(screen-m-min) {
+            margin-left: auto;
+            padding: 38px 24px 0 38px;
+          }
+          @include respond-to(screen-xl-min) {
+            padding: 40px 24px 0 41px;
+          }
+          .title {
+            font-family: $font-regular;
+            color: $grey;
+            font-size: 14px;
+            @include respond-to(screen-m-min) {
+              padding-bottom: 30px;
+            }
+          }
+          .card-number-title {
+            font-family: $font-regular;
+            font-size: 18px;
+            color: $solid-blue;
+            margin-top: 25px;
+          }
+          .card-number-value {
+            font-family: $font-regular;
+            color: $grey;
+            font-size: 16px;
+            margin-top: 5px;
+          }
+          .new-card-message {
+            font-family: $font-regular;
+            color: $grey;
+            font-size: 16px;
+            margin-top: 24px;
+          }
+          .activate-card-alert-message {
+            margin-top: 10px;
+            width: 328px;
+            @include respond-to(screen-m-min) {
+              width: 460px;
+            }
+          }
+          .activate-card__form {
+            margin-top: 16px;
+            @include respond-to(screen-m-min) {
+              width: 453px;
+              margin-top: 24px;
+            }
+            @include respond-to(screen-l-min) {
+              margin-top: 32px;
+            }
+            .months-dropdown {
+              margin-bottom: 30px;
+              margin-top: 10px;
+            }
+          }
+          .activate-card__button__wrapper {
+            width: 100%;
+            position: static;
+            margin-top: 20px;
+            @include respond-to(screen-m-min) {
+              margin-top: 30px;
+            }
+            button {
+              width: 100%;
+              margin-top: 16px;
+              @include respond-to(screen-m-min) {
+                width: 213px;
+                min-width: 213px;
+                margin-top: 0;
+              }
+            }
+            @include respond-to(screen-m-min) {
+              position: static;
+              display: flex;
+              .next-btn {
+                margin-left: 27px;
+              }
+            }
+          }
+          .activate-card__otp {
+            margin-top: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep app-otp {
+  .otp-message-comp {
+    @include respond-to(screen-m-min) {
+      width: 465px;
+    }
+  }
+  .otp-message-comp__wrapper__title {
+    text-align: center;
+  }
+}
+
+:host ::ng-deep .activate-card-success {
+  .success-screen-comp {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

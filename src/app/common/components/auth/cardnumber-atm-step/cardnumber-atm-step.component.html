@@ -1,0 +1,23 @@
+<div class="ibd-card-details">
+    <div class="ibd-card-details__alert" *ngIf="alertMessage">
+        <app-alert-message [message]="alertMessage"></app-alert-message>
+    </div>
+    <div class="ibd-card-details__form">
+        <app-input-generic componentTitle="tr_registrationComponent_enterCardNumberText" [maxlength]="4"
+            [resetInputValue]="resetInputValue" (outputData)="handleCardNumber($event)" class="cardNumber"
+            type="cardNumber"></app-input-generic>
+        <app-input-generic inputType='password' [resetInputValue]="resetInputValue"
+            componentTitle="tr_registrationComponent_atmPinText" class="atmPin"
+            (outputData)="handleAtmPinNumber($event)" [maxlength]="1" type="atmPin"></app-input-generic>
+    </div>
+    <div class="ibd-card-details__button__wrapper">
+        <button translate class="ibd-card-details__button__wrapper__button btn cancel-btn"
+            (click)="handleCancelButtonClick()" translate>tr_common_cancelText</button>
+        <button [disabled]="isNextButtonEnabled()" (click)="handleNextButtonClick()"
+            class="ibd-card-details__button__wrapper__button btn next-btn" translate>tr_common_nextText</button>
+    </div>
+    <div class="ibd-card-details__login__wrapper" *ngIf="loginLink">
+        <div class="ibd-card-details__login__wrapper__text" translate>tr_registrationComponent_alreadyRegisteredText
+            <span translate (click)="handleCancelButtonClick()">tr_common_loginText</span></div>
+    </div>
+</div>
