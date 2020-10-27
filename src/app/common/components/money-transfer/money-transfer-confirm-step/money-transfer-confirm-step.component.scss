@@ -64,6 +64,7 @@
     }
     .next-btn {
       margin-top: 32px;
+      outline: none;
       @include respond-to(screen-m-min) {
         margin-top: 0;
       }

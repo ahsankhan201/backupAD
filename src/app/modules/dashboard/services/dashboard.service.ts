@@ -3,16 +3,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { APISyncService } from 'src/app/common/services/sync.service';
 import { AccountsList } from 'src/app/common/models/global.model';
 import { AccountStatementPayload } from 'src/app/common/models/accounts-module.model';
+import { HttpHeaderService } from 'src/app/common/services/http-headers/http-header.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
   changePaymentsView$ = new BehaviorSubject(undefined);
-  constructor(
-    private httpService: APISyncService,
-  ) { }
-
+  constructor(private httpService: APISyncService) { }
 
   /**
    * @methodName setPaymentSummaryDetails

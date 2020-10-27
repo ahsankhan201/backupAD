@@ -7,13 +7,25 @@
         <div class="logout-component__wrapper__body">
             <div class="logout-component__wrapper__body__wrapper">
                 <!-- images for white background -->
-                <img *ngIf="!isSessionExpired" alt="logout" src="{{LOGOUT_SCREEN_IMAGES.LOGOUT_SUCCESS_IMG_BLUE}}">
-                <img *ngIf="isSessionExpired" alt="logout" src="{{LOGOUT_SCREEN_IMAGES.SESSION_EXP_IMG_BLUE}}">
+                <img *ngIf="!isSessionExpired && !isSessionActive" alt="logout"
+                    src="{{LOGOUT_SCREEN_IMAGES.LOGOUT_SUCCESS_IMG_BLUE}}">
+                <img *ngIf="isSessionExpired && !isSessionActive" alt="logout"
+                    src="{{LOGOUT_SCREEN_IMAGES.SESSION_EXP_IMG_BLUE}}">
+                <img *ngIf="isSessionActive" alt="logout" src="{{LOGOUT_SCREEN_IMAGES.ACTIVE_SESSION_IMG_WHITE}}">
 
-                <div class="sub" *ngIf="!isSessionExpired" translate>tr_logoutComponent_successfulLogoutText</div>
-                <div class="title" *ngIf="!isSessionExpired" translate>tr_logoutComponent_thankYouText</div>
-                <div class="title" *ngIf="isSessionExpired" translate>tr_logoutComponent_yourSessionExpiredText</div>
-                <div class="link-title" translate>tr_logoutComponent_loginBackText</div>
+                <div class="sub" *ngIf="!isSessionExpired && !isSessionActive">
+                    <span translate> tr_logoutComponent_successfulLogoutText</span>
+                </div>
+                <div class="title" *ngIf="!isSessionExpired && !isSessionActive">
+                    <span translate>tr_logoutComponent_thankYouText</span>
+                </div>
+                <div class="title" *ngIf="isSessionExpired && !isSessionActive">
+                    <span translate>tr_logoutComponent_yourSessionExpiredText</span>
+                </div>
+                <div class="title" *ngIf="isSessionActive" translate>tr_logoutComponent_activeLoginSessionText</div>
+                <div class="link-title">
+                    <span translate>tr_logoutComponent_loginBackText</span>
+                </div>
             </div>
             <button class="btn next-btn" type="button" routerLink="/" translate>tr_common_loginText</button>
             <div class="logout-component__wrapper__body__footer">
@@ -29,8 +41,11 @@
     <!-- right side section for larger devices -->
     <div class="logout-component__security-tips">
         <!-- images for blue background -->
-        <img *ngIf="!isSessionExpired" alt="logout" src="{{LOGOUT_SCREEN_IMAGES.LOGOUT_SUCCESS_IMG_WHITE}}">
-        <img *ngIf="isSessionExpired" alt="logout" src="{{LOGOUT_SCREEN_IMAGES.SESSION_EXP_IMG_WHITE}}">
+        <img *ngIf="!isSessionExpired && !isSessionActive" alt="logout"
+            src="{{LOGOUT_SCREEN_IMAGES.LOGOUT_SUCCESS_IMG_WHITE}}">
+        <img *ngIf="isSessionExpired && !isSessionActive" alt="logout"
+            src="{{LOGOUT_SCREEN_IMAGES.SESSION_EXP_IMG_WHITE}}">
+        <img *ngIf="isSessionActive" alt="logout" src="{{LOGOUT_SCREEN_IMAGES.ACTIVE_SESSION_IMG_BLUE}}">
     </div>
 
     <!-- QR images footer -->

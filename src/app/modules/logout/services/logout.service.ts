@@ -33,8 +33,7 @@ export class LogoutService {
   logout(): Observable<any> {
     const LOGOUT_URL = `${this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false)}${environment.CIAM.ENDPOINTS.LOGOUT}`;
     this.httpHeaderService.customHeaderFunction = this.httpHeaderService.generateLoginHeaders;
-    const requestPayload = new HttpParams().set('token', this.sharedService.accessToken)
-      .set('client_id', environment.CIAM.CLIENT_ID);
+    const requestPayload = 'token=' + this.sharedService.accessToken + '&client_id=' + environment.CIAM.CLIENT_ID;
     return this.httpService.post(LOGOUT_URL, requestPayload);
   }
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300px" height="200px" viewBox="0 0 300 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>LogoutGraphics/Session Expired@2x</title>
+    <g id="LogoutGraphics/Session-Expired" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(28.000000, 6.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="2" fill-opacity="0.1" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="244" height="188" rx="10"></rect>
+            <path d="M244,21 L244,178 C244,183.522847 239.522847,188 234,188 L6.4632,188 C5.35863,188 4.4632,187.104569 4.4632,186 C4.4632,185.339928 4.788882,184.722364 5.33359,184.349551 L244,21 L244,21 Z" id="Rectangle-Copy" fill-opacity="0.05" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <line x1="0.5" y1="20.5" x2="244" y2="21" id="Line" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"></line>
+            <path d="M35,21 L35,11 C35,8.2385763 37.238576,6 40,6 L97,6 C99.761424,6 102,8.2385763 102,11 L102,21 L102,21" id="Path" stroke="#FFFFFF" stroke-width="2"></path>
+            <circle id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="9.5" cy="10.5" r="2.5"></circle>
+            <circle id="Oval-Copy" fill="#FFFFFF" fill-rule="nonzero" cx="17.5" cy="10.5" r="2.5"></circle>
+            <circle id="Oval-Copy-2" fill="#FFFFFF" fill-rule="nonzero" cx="25.5" cy="10.5" r="2.5"></circle>
+            <g id="Group-2" opacity="0.181803385" transform="translate(19.000000, 34.000000)" fill="#FFFFFF" fill-opacity="0.3" fill-rule="nonzero" stroke="#FFFFFF" stroke-width="2">
+                <rect id="Rectangle" transform="translate(89.500000, 27.500000) rotate(-12.000000) translate(-89.500000, -27.500000) " x="31" y="12" width="117" height="31" rx="3"></rect>
+                <rect id="Rectangle-Copy-2" transform="translate(60.500000, 76.500000) rotate(10.000000) translate(-60.500000, -76.500000) " x="2" y="61" width="117" height="31" rx="3"></rect>
+                <rect id="Rectangle-Copy-3" transform="translate(70.500000, 127.500000) rotate(-10.000000) translate(-70.500000, -127.500000) " x="12" y="112" width="117" height="31" rx="3"></rect>
+                <rect id="Rectangle-Copy-4" transform="translate(169.500000, 87.500000) rotate(-20.000000) translate(-169.500000, -87.500000) " x="141" y="28" width="57" height="119" rx="3"></rect>
+            </g>
+            <g id="Group-3" transform="translate(69.000000, 69.000000)" fill-rule="nonzero">
+                <g id="Group" transform="translate(28.000000, 0.000000)">
+                    <path d="M27.5569682,2.16691112 L49.1962656,37.4309513 C50.0628272,38.8431259 49.6205206,40.6904065 48.2083461,41.5569682 C47.7362565,41.8466595 47.1931833,42 46.6392974,42 L3.36070259,42 C1.70384834,42 0.36070259,40.6568542 0.36070259,39 C0.36070259,38.4461141 0.51404309,37.9030409 0.8037344,37.4309513 L22.4430318,2.16691112 C23.3095935,0.75473658 25.1568741,0.31242995 26.5690487,1.17899159 C26.9715153,1.42595973 27.3100001,1.76444453 27.5569682,2.16691112 Z" id="Triangle" stroke="#FFFFFF" stroke-width="2" fill="#5894BB" stroke-linejoin="round"></path>
+                    <path d="M23.6261089,15 L26.3738911,15 C26.9261759,15 27.3738911,15.4477153 27.3738911,16 C27.3738911,16.0395082 27.3715498,16.0789817 27.3668794,16.1182129 L25.9318441,28.1725098 C25.8756495,28.644544 25.4753674,29 25,29 C24.5246326,29 24.1243505,28.644544 24.0681559,28.1725098 L22.6331206,16.1182129 C22.5678334,15.5698006 22.9594837,15.0722989 23.507896,15.0070117 C23.5471272,15.0023413 23.5866006,15 23.6261089,15 Z" id="Rectangle" fill="#FFFFFF"></path>
+                    <circle id="Oval" fill="#FFFFFF" cx="25" cy="32.5" r="1.5"></circle>
+                </g>
+                <g id="Session-Expired" transform="translate(0.000000, 53.000000)" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="15" font-weight="normal">
+                    <text>
+                        <tspan x="0.0715332031" y="14">Session Expired</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

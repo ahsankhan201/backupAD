@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 63.1 (101010) - https://sketch.com -->
+    <title>74E19D97-4C42-4545-8216-04D06AD4CDB0@2.00x</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.75">
+        <g id="ic/IconPlaceholder/Normal" stroke="#00A0E6">
+            <g>
+                <rect id="Rectangle" fill="#EFFAFF" x="0.5" y="0.5" width="23" height="23"></rect>
+                <line x1="1" y1="1" x2="23" y2="23" id="Line-2" stroke-linecap="square"></line>
+                <line x1="1" y1="1" x2="23" y2="23" id="Line-2-Copy" stroke-linecap="square" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) "></line>
+            </g>
+        </g>
+    </g>
+</svg>

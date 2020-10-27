@@ -18,30 +18,25 @@
                 </div>
             </div>
             <div class="ibd-finance-details-com__details__wrapper__details-list padding-lrn">
-                <div class="ibd-finance-details-com__details__wrapper__details-list__item"
-                    *ngIf="financeDetails.accountNumber">
+                <div class="ibd-finance-details-com__details__wrapper__details-list__item" >
                     <div class="account-label " translate>tr_common_accountNumberText</div>
                     <div class="account-value font-medium-weight">{{ financeDetails.accountNumber }}</div>
                 </div>
-                <div class="ibd-finance-details-com__details__wrapper__details-list__item"
-                    *ngIf="financeDetails.agreementNumber">
+                <div class="ibd-finance-details-com__details__wrapper__details-list__item" >
                     <div class="account-label" translate>tr_financeComponent_agreementNumber</div>
                     <div class="account-value">{{ financeDetails.agreementNumber }}</div>
                 </div>
-                <div class="ibd-finance-details-com__details__wrapper__details-list__item"
-                    *ngIf="financeDetails.dateMaturity">
+                <div class="ibd-finance-details-com__details__wrapper__details-list__item" >
                     <div class="account-label" translate>tr_financeComponent_maturityDate</div>
                     <div class="account-value font-medium-weight">{{ financeDetails.dateMaturity | date: 'dd/MM/yyyy'}}
                     </div>
                 </div>
-                <div class="ibd-finance-details-com__details__wrapper__details-list__item"
-                    *ngIf="financeDetails.murabhaAmount">
+                <div class="ibd-finance-details-com__details__wrapper__details-list__item" >
                     <div class="account-label" translate>tr_financeComponent_murabhaAmount</div>
                     <div class="account-value">{{ financeDetails.murabhaAmount }} {{ financeDetails.currencyCode }}
                     </div>
                 </div>
-                <div class="ibd-finance-details-com__details__wrapper__details-list__item"
-                    *ngIf="financeDetails.installmentAmount">
+                <div class="ibd-finance-details-com__details__wrapper__details-list__item" >
                     <div class="account-label" translate>tr_financeComponent_installmentAmount</div>
                     <div class="account-value">{{ financeDetails.installmentAmount }} {{ financeDetails.currencyCode }}
                     </div>

@@ -22,7 +22,7 @@
                         </mat-hint>
                         <mat-error>
                             <app-show-form-errors [control]="uaeAdibBeneForm.get('account')"
-                                label="{{ formText.account }}">
+                                label="{{ formText.account }}" digitsOnly="true">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>
@@ -37,7 +37,7 @@
                             {{ FORM_LENGTH.adibAccountNumber.maxLength }}</mat-hint>
                         <mat-error>
                             <app-show-form-errors [control]="uaeAdibBeneForm.get('confirmAccount')"
-                                label="{{ formText.confirmAccount }}">
+                                label="{{ formText.confirmAccount }}" digitsOnly="true">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>
@@ -47,7 +47,8 @@
                         <mat-label class="uae-adib-beneficiary-comp__label" translate>tr_common_nickNameText</mat-label>
                         <input matInput appAlphaNumeric formControlName="nickName" maxlength="30">
                         <mat-error>
-                            <app-show-form-errors [control]="uaeAdibBeneForm.get('nickName')" label="tr_common_nickNameText">
+                            <app-show-form-errors [control]="uaeAdibBeneForm.get('nickName')"
+                                label="tr_common_nickNameText">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>
@@ -56,9 +57,10 @@
             <div class="form-group mt-3 mb-5" *ngIf="showCard">
                 <p class="uae-adib-beneficiary-comp__title" translate>tr_addBene_enterCardText</p>
                 <div class="uae-adib-beneficiary-comp_card_wrapper">
-                    <app-input-generic inputLabel='tr_common_cardNumberText' [errors]="uaeAdibBeneForm.get('cardNumber')" [maxlength]="4" [resetInputValue]="resetInputValue" 
-                    (outputData)="handleCardNumber($event)" class="cardNumber"
-                    type="cardNumber"></app-input-generic>
+                    <app-input-generic inputLabel='tr_common_cardNumberText'
+                        [errors]="uaeAdibBeneForm.get('cardNumber')" [maxlength]="4" [resetInputValue]="resetInputValue"
+                        (outputData)="handleCardNumber($event)" class="cardNumber" type="cardNumber">
+                    </app-input-generic>
                     <mat-hint align="start" class="mat-card-hint-text" translate>
                         <strong>{{formText.noteText | translate}}</strong>:
                         <span>{{formText.adibCardHint | translate}}</span>
@@ -69,7 +71,8 @@
                         <mat-label translate>tr_common_nickNameText</mat-label>
                         <input matInput appAlphaNumeric formControlName="nickName" maxlength="30">
                         <mat-error>
-                            <app-show-form-errors [control]="uaeAdibBeneForm.get('nickName')" label="tr_common_nickNameText">
+                            <app-show-form-errors [control]="uaeAdibBeneForm.get('nickName')"
+                                label="tr_common_nickNameText">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>
@@ -87,7 +90,7 @@
                             maxlength="{{ FORM_LENGTH.mobile.maxLength }}" matInput>
                         <mat-error *ngIf="uaeAdibBeneForm.get('mobileNumber')">
                             <app-show-form-errors [control]="uaeAdibBeneForm.get('mobileNumber')"
-                                label="{{ formText.mobileNumber }}">
+                                label="{{ formText.mobileNumber }}" digitsOnly="true">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>
@@ -97,7 +100,8 @@
                         <mat-label translate>tr_common_nickNameText</mat-label>
                         <input matInput appAlphaNumeric formControlName="nickName" maxlength="30">
                         <mat-error>
-                            <app-show-form-errors [control]="uaeAdibBeneForm.get('nickName')" label="tr_common_nickNameText">
+                            <app-show-form-errors [control]="uaeAdibBeneForm.get('nickName')"
+                                label="tr_common_nickNameText">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>

@@ -67,8 +67,8 @@
       width: 75%;
     }
     @include respond-to(screen-s-min-land) {
-      margin: 0px;
-      width: 45%;
+      margin: 0 0 0 15px;
+      width: 38%;
     }
     @include respond-to(screen-l-min) {
       margin: 30px auto;
@@ -86,7 +86,7 @@
     }
     @include respond-to(screen-s-min-land) {
       bottom: 135px;
-      left: 73%;
+      left: 50%;
       width: 46%;
     }
     @include respond-to(screen-l-min) {
@@ -279,6 +279,9 @@
       @include respond-to(screen-m-min) {
         left: 42%;
       }
+      @include respond-to(screen-s-min-land) {
+        left: 35%;
+      }
       @include respond-to(screen-l-min) {
         left: 38%;
       }
@@ -299,6 +302,9 @@
       padding-top: 20px;
       @include respond-to(screen-m-min) {
         right: 42%;
+      }
+      @include respond-to(screen-s-min-land) {
+        right: 35%;
       }
       @include respond-to(screen-l-min) {
         right: 38%;

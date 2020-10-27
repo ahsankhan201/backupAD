@@ -1,3 +1,5 @@
+import { ProductCategoryResponse } from './models/products-module.model';
+
 export const CARD_NUMBER_PIPE_DATA = {
     mockCardNumber: '1220122012201220'
 };
@@ -221,7 +223,10 @@ export const COVER_CARD_CHECKBOX_LIST = [{
     primaryCardFlag: 'P',
     productDescription: 'Darhoom Card',
     lastStmtBalance: '10000',
-    creditAvailable: '1000'
+    creditAvailable: '1000',
+    availableLimit: '12343',
+    cardSubType: 'Cover',
+    cardImage: 'none'
 }];
 
 export const PAYEE_CHECKBOX_DATA = [{
@@ -475,4 +480,26 @@ export const PAYMENTS_DETAILS_DATA = {
     sourceAccountNumber: '8987893',
     status: 'NEW',
     updatedAt: '2020-03-17T00:00:00.000'
+};
+
+export const CARD_SUB_CATEGORY: ProductCategoryResponse = {
+    enquiryCTAText: 'Apply now',
+    productNameEnglish: 'Savings Account',
+    productNameArabic: 'Savings Arabic',
+    imageUrlEnglish: 'none',
+    imageUrlArabic: 'none',
+    shortDescriptionEnglish: 'open savings account',
+    shortDescriptionArabic: 'open savings account arabic',
+    receivingEmail: 'test@adib.com',
+    footNoteEn: 'apply now',
+    footNoteAr: 'apply now arabic',
+    isActive: true,
+    productSubCategoryResponses: {
+        subCategoryId: '123',
+        subCategoryNameArabic: 'credit',
+        subCategoryNameEnglish: 'credit'
+    },
+    productBulletsResponses: [],
+    productBenefitsResponses: [],
+    productId: 'SAVINGS_ACC'
 };

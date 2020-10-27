@@ -63,7 +63,7 @@ export class InternationalTransferSummaryComponent implements OnInit, OnDestroy 
   /**
    * @methodName setComponentInitialData
    * @parameter none
-   * @description used to set the component intial loda data
+   * @description used to set the component initial load data
    * @return none
    */
   setComponentInitialData(): void {
@@ -87,14 +87,14 @@ export class InternationalTransferSummaryComponent implements OnInit, OnDestroy 
   makeTransferRequest(): void {
     this.generateRequestPayLoad();
     this.disableTransferButton = true;
-    const URL = this.sharedService.generateApiUrl(DOMAINS.API_SIT_CONNECT, true, false) + TRANSFER_ENDPOINTS.INTERNATIONAL_TRANSFER;
+    const URL = this.sharedService.generateApiUrl(DOMAINS.API_SIT_CONNECT, true, false) + TRANSFER_ENDPOINTS.EXTERNAL;
     this.moneyTransferService.makeInternationalTransferReq(URL).subscribe(response => {
       if (response.status === HTTP_STATUS_CODE.CREATED) {
         this.referenceNumberForSuccessScreen = this.sharedService.getReferenceNumber(
           response.headers.get(INTERNATIONAL_TRANSFER_TEXT.location).toString());
         this.showSuccessScreen = true;
         this.transctionTimeStamp = new Date().toString();
-        // hiding summary title on successfull transfer
+        // hiding summary title on successful transfer
         document.querySelector('.' + INTERNATIONAL_TRANSFER_TEXT.SUMMARY_TITEL_CLASS).classList
           .add(INTERNATIONAL_TRANSFER_TEXT.HIDE_CLASS_TEXT);
         this.updateAccountList();
@@ -211,7 +211,7 @@ export class InternationalTransferSummaryComponent implements OnInit, OnDestroy 
   /**
    * @methodName fetchExchangeRate
    * @parameter none
-   * @description used to fetch the exchange rate from the servcer
+   * @description used to fetch the exchange rate from the server
    * @return none
    */
   fetchExchangeRate(): void {
@@ -233,7 +233,7 @@ export class InternationalTransferSummaryComponent implements OnInit, OnDestroy 
   /**
    * @methodName updateAccountList
    * @parameter none
-   * @description It'll update the account list on successfull transfer
+   * @description It'll update the account list on successful transfer
    * @return none
    */
   updateAccountList(): void {
@@ -255,7 +255,7 @@ export class InternationalTransferSummaryComponent implements OnInit, OnDestroy 
       const SELECTED_ACCOUNT = this.sharedService.accountsCardsList.accountsList.find(account => account.accountNumber
         === this.moneyTransferService.selectedAccForMoneyTransfer);
       this.accountListService.accountDetailData = SELECTED_ACCOUNT;
-      // resetting selected account in detals page for transfer
+      // resetting selected account in details page for transfer
       this.moneyTransferService.selectedAccForMoneyTransfer = undefined;
     }
   }
@@ -321,7 +321,7 @@ export class InternationalTransferSummaryComponent implements OnInit, OnDestroy 
   /**
    * @methodName openReceiptModal
    * @parameter none
-   * @description used to open the transfer recipt in modal
+   * @description used to open the transfer receipt in modal
    * @return none
    */
   openReceiptModal(): void {

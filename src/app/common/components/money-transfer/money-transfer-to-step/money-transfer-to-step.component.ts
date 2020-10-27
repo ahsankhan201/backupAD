@@ -52,7 +52,7 @@ export class MoneyTransferToStepComponent implements OnInit, OnDestroy {
     this.getSelectedLanguage();
     this.getAccountListForTransfer();
     this.getCardsListForTransfer();
-    this.updateBenefiaciryList();
+    this.updateBeneficiaryList();
   }
 
   /**
@@ -117,12 +117,12 @@ export class MoneyTransferToStepComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * @methodName updateBenefiaciryList
-   * @description used to update the beneficiry list based on option selection in transfer from step
+   * @methodName updateBeneficiaryList
+   * @description used to update the beneficiary list based on option selection in transfer from step
    * @parameters none
    * @return none
    */
-  updateBenefiaciryList() {
+  updateBeneficiaryList() {
     this.subscription$.add(this.moneyTransferService.getBeneficiaryListInfo().subscribe(populateBeneList => {
       if (populateBeneList) {
         this.populateBeneficiaryList();
@@ -282,7 +282,7 @@ export class MoneyTransferToStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName filterBeneficiaryList
    * @parameter beneficiaryList<BeneficiaryListResponse[]>
-   * @description used to filter benefeciaries when account/card option selected in from step
+   * @description used to filter beneficiary when account/card option selected in from step
    * @return BeneficiaryListResponse[]
    */
   filterBeneficiaryList(beneficiaryList: BeneficiaryListResponse[]): BeneficiaryListResponse[] {
@@ -301,10 +301,10 @@ export class MoneyTransferToStepComponent implements OnInit, OnDestroy {
       const filteredBeneficiaryList: BeneficiaryListResponse[] = this.filterLocalCurrencyBeneficiary(beneficiaryList);
       return filteredBeneficiaryList;
     }
-    // Filter beneficiary if transfer from Account with Foregin currency(FCY)
+    // Filter beneficiary if transfer from Account with foreign currency(FCY)
     if (beneficiaryList && this.moneyTransferService.selectedTransferFromAccount
       && FORGIN_CURRENCY.includes(this.moneyTransferService.selectedTransferFromAccount.currencyCode)) {
-      const filteredBeneficiaryList: BeneficiaryListResponse[] = this.filterForeginCurrencyBeneficiary(beneficiaryList);
+      const filteredBeneficiaryList: BeneficiaryListResponse[] = this.filterForeignCurrencyBeneficiary(beneficiaryList);
       return filteredBeneficiaryList;
     }
   }
@@ -312,7 +312,7 @@ export class MoneyTransferToStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName filterLocalCurrencyBeneficiary
    * @parameter beneficiaryList<BeneficiaryListResponse[]>
-   * @description used to filter benefeciaries when account with LCY option selected in from step
+   * @description used to filter beneficiary when account with LCY option selected in from step
    * @return BeneficiaryListResponse[]
    */
   filterLocalCurrencyBeneficiary(beneficiaryList: BeneficiaryListResponse[]): BeneficiaryListResponse[] {
@@ -329,12 +329,12 @@ export class MoneyTransferToStepComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * @methodName filterForeginCurrencyBeneficiary
+   * @methodName filterForeignCurrencyBeneficiary
    * @parameter beneficiaryList<BeneficiaryListResponse[]>
-   * @description used to filter benefeciaries when account with FCY option selected in from step
+   * @description used to filter update beneficiaries when account with FCY option selected in from step
    * @return BeneficiaryListResponse[]
    */
-  filterForeginCurrencyBeneficiary(beneficiaryList: BeneficiaryListResponse[]): BeneficiaryListResponse[] {
+  filterForeignCurrencyBeneficiary(beneficiaryList: BeneficiaryListResponse[]): BeneficiaryListResponse[] {
     return beneficiaryList.filter((beneficiary) => {
       if (beneficiary.beneType === INSIDE_UAE_TRANSFER_TEXT.INTRABANK) {
         if (beneficiary.beneExtAccType === INSIDE_UAE_TRANSFER_TEXT.creditCardText) {

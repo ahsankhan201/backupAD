@@ -25,6 +25,7 @@ export class RegionSelectionComponent implements OnInit {
 
   ngOnInit() {
     this.getSelectedLanguage();
+    this.beneficiaryService.resetBeneficiaryPayload();
   }
   /**
    * @methodName selectedRegion

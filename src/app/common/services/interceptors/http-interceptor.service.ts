@@ -13,13 +13,15 @@ import { SharedService } from '../shared.service';
 // Include constants and models here
 import { AuthTokenModel } from '../../models/user.model';
 import { ErrorModel } from '../../models/errors.model';
-import { ACCESS_TOKEN_TEXT, REFRESH_TOKEN_TEXT } from 'src/app/modules/auth/auth-module.constants';
+import { ACCESS_TOKEN_TEXT, REFRESH_TOKEN_TEXT, REFRESH_TOKEN_PARAM } from 'src/app/modules/auth/auth-module.constants';
 import {
     TEXT_PLAIN, CONTENT_TYPE_TEXT, HTTP_STATUS_CODE, API_ERROR_LIST,
-    RESPONSE_TYPE_TEXT, SNACK_BAR_RESTRICTED_MESSAGES, SNACK_BAR_RESTRICTED_ERROR_CODES, codeText, descText
+    RESPONSE_TYPE_TEXT, SNACK_BAR_RESTRICTED_MESSAGES, SNACK_BAR_RESTRICTED_ERROR_CODES, codeText,
+    descText, RESPONSE_TYPE_JSON
 } from '../../global-constants';
 import { environment } from '../../../../environments/environment';
-import { CIAM_ERROR_MAPPING, GENERIC_ERROR_MESSAGE } from '../../ciam-error-mapping';
+import { CIAM_ERROR_MAPPING, ERROR_LIST, GENERIC_ERROR_MESSAGE } from '../../ciam-error-mapping';
+import { DialogService } from '../dialog.service';
 
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
@@ -36,6 +38,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         private httpHeaderService: HttpHeaderService,
         private authService: AuthService,
         private sharedService: SharedService,
+        private dialogService: DialogService,
         private logoutService: LogoutService
     ) { }
 
@@ -46,23 +49,24 @@ export class HttpInterceptorService implements HttpInterceptor {
         this.requests.push(req);
         this.showLoader();
         this.responseType = req.responseType;
+        const keyData = this.cryptionService.encryptPublicKey();
         // clone and modify request
         let cloneReq: HttpRequest<any>;
         cloneReq = req.clone({
             headers: this.httpHeaderService.generateHttpHeaders(req)
                 .append('X-IBM-Client-Id', environment.IBM_CLIENT_ID)
+                .append('commkey', keyData.enceryptedKey)
         });
         // Enable encryption only if responseType = 'text'
-        if (this.responseType === RESPONSE_TYPE_TEXT &&
-            environment.CRYPTOGRAPHY_ENABLED && cloneReq.headers.get(CONTENT_TYPE_TEXT) === TEXT_PLAIN) {
-            cloneReq[this.BODY] = this.cryptionService.encrypt(cloneReq[this.BODY]);
+        if (this.responseType !== RESPONSE_TYPE_JSON && cloneReq.headers.get(CONTENT_TYPE_TEXT) === TEXT_PLAIN) {
+            cloneReq[this.BODY] = this.cryptionService.encrypt(cloneReq[this.BODY], keyData.key);
         }
         return next.handle(cloneReq).pipe(
             map((event: HttpEvent<any>) => {
                 if (event instanceof HttpResponse) {
                     this.removeRequest(req);
                 }
-                return this.decryptResponse(event);
+                return this.decryptResponse(event, keyData.key);
             }),
             catchError((error: HttpErrorResponse) => {
                 this.removeRequest(req);
@@ -81,20 +85,19 @@ export class HttpInterceptorService implements HttpInterceptor {
                                 cloneReq = this.updateReqHeaderWithNewAccessToken(cloneReq);
                                 return next.handle(cloneReq).pipe(
                                     map((event: HttpEvent<any>) => {
-                                        return this.decryptResponse(event);
+                                        return this.decryptResponse(event, keyData.key);
                                     }));
-                            }),
-                            catchError((errorResponse: HttpErrorResponse) => {
-                                // incase of refresh token expired logout the user
-                                this.logoutService.logoutUser();
-                                return throwError(errorResponse);
                             }),
                             finalize(() => {
                                 this.refreshTokenInProgress = false;
                             })
                         );
                     } else {
-                        // making unautherized API's in Que and call API once new access token received
+                        // incase of refresh token expired/API error,then logout the user
+                        if (this.refreshTokenInProgress) {
+                            this.logoutUser(error, req);
+                        }
+                        // making unauthorized API's in Que and call API once new access token received
                         return this.tokenRefreshedSource$.pipe(
                             filter(token => token != null),
                             take(1),
@@ -102,14 +105,14 @@ export class HttpInterceptorService implements HttpInterceptor {
                                 cloneReq = this.updateReqHeaderWithNewAccessToken(cloneReq);
                                 return next.handle(cloneReq).pipe(
                                     map((event: HttpEvent<any>) => {
-                                        return this.decryptResponse(event);
+                                        return this.decryptResponse(event, keyData.key);
                                     }));
                             })
                         );
                     }
                 } else {
                     // errorData may vary for different types of errors
-                    const errorData: any = this.checkErrorCodes(error);
+                    const errorData: any = this.checkErrorCodes(error, keyData.key);
                     this.showErrorInSnackBar(errorData);
                     return throwError({ httpCode: error.status, error: errorData });
                 }
@@ -146,16 +149,16 @@ export class HttpInterceptorService implements HttpInterceptor {
     /**
      * @methodName checkErrorCodes
      * @description used to generate x-unique-id
-     * @parameters error<HttpErrorRespons>
+     * @parameters error<HttpErrorResponse>
      * @return HttpErrorResponse
      */
-    checkErrorCodes(error: HttpErrorResponse): HttpErrorResponse {
+    checkErrorCodes(error: HttpErrorResponse, key: string): HttpErrorResponse {
         // errorData may vary for different types of errors
         const errorInfo = {} as HttpErrorResponse;
         let errorData: any;
         if (error.error) {
-            errorData = (this.responseType === RESPONSE_TYPE_TEXT || error.headers.get('content-type') === TEXT_PLAIN) ?
-                JSON.parse(this.cryptionService.decrypt(error.error)) : error.error;
+            errorData = (this.responseType !== RESPONSE_TYPE_JSON || error.headers.get('content-type') === TEXT_PLAIN) ?
+                JSON.parse(this.cryptionService.decrypt(error.error, key)) : error.error;
         }
         if ((error.status === HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR && error.statusText && error.statusText !== 'undefined') ||
             error.status === HTTP_STATUS_CODE.SERVICE_UNAVAILABLE ||
@@ -173,7 +176,7 @@ export class HttpInterceptorService implements HttpInterceptor {
             if (error.error instanceof Blob && error.error.type === 'text/plain') {
                 errorInfo['desc'] = API_ERROR_LIST.NO_STATEMENT_AVAILABLE;
             } else {
-                errorInfo['details'] = this.getErrorDesciption(error);
+                errorInfo['details'] = this.getErrorDescription(error, key);
             }
             if (errorInfo && errorInfo[HTTP_STATUS_CODE.vendorStatus]) {
                 // It will return the vendorStatus description from API_ERROR_LIST list
@@ -185,40 +188,43 @@ export class HttpInterceptorService implements HttpInterceptor {
     }
 
     /**
-     * @methodName getErrorDesciption
-     * @description used for error desciption mapping
-     * @parameters error<HttpErrorRespons>
+     * @methodName getErrorDescription
+     * @description used for error description mapping
+     * @parameter error<getErrorDescription>
      * @return ErrorModel
      */
-    getErrorDesciption(error: HttpErrorResponse): ErrorModel {
+    getErrorDescription(error: HttpErrorResponse, key: string): ErrorModel {
         if (error && error.status) {
             const ERROR = new ErrorModel();
             ERROR.status = error.status;
             const errorData = (this.responseType === RESPONSE_TYPE_TEXT || error.headers.get('content-type') === TEXT_PLAIN) ?
-                JSON.parse(this.cryptionService.decrypt(error.error)) : error.error;
-            ERROR.description = this.mapErrorDesciption(errorData);
+                JSON.parse(this.cryptionService.decrypt(error.error, key)) : error.error;
+            ERROR.description = this.mapErrorDescription(errorData);
             ERROR.name = error.name;
             return ERROR;
         }
     }
 
     /**
-     * @methodName mapErrorDesciption
-     * @description used for map error in traslation
+     * @methodName mapErrorDescription
+     * @description used for map error in translation
      * @parameters errorData<any>
      * @return string
      */
-    mapErrorDesciption(errorData: any): string {
-        let errorMeppedValue = '';
-        if (errorData && errorData.error_description) {
-            errorMeppedValue = (CIAM_ERROR_MAPPING[errorData.error_description]) ? CIAM_ERROR_MAPPING[errorData.error_description]
+    mapErrorDescription(errorData: any): string {
+        let errorMappedValue = '';
+        if (errorData && errorData.error_description && errorData.error_description === ERROR_LIST.R107) {
+            this.dialogService.openBlockDialogForBlockedCard(); // generic message for R107 card-pin block and other
+            errorMappedValue = undefined;
+        } else if (errorData && errorData.error_description) {
+            errorMappedValue = (CIAM_ERROR_MAPPING[errorData.error_description]) ? CIAM_ERROR_MAPPING[errorData.error_description]
                 : errorData.error_description;
         } else if (errorData && errorData.message) {
-            errorMeppedValue = (CIAM_ERROR_MAPPING[errorData.message]) ? CIAM_ERROR_MAPPING[errorData.message] : errorData.message;
+            errorMappedValue = (CIAM_ERROR_MAPPING[errorData.message]) ? CIAM_ERROR_MAPPING[errorData.message] : errorData.message;
         } else {
-            errorMeppedValue = errorData;
+            errorMappedValue = errorData;
         }
-        return errorMeppedValue;
+        return errorMappedValue;
     }
 
     /**
@@ -240,9 +246,9 @@ export class HttpInterceptorService implements HttpInterceptor {
      * @parameters event:HttpEvent<any>
      * @return HttpEvent<any>
      */
-    decryptResponse(event: HttpEvent<any>): HttpEvent<any> {
-        if (environment.CRYPTOGRAPHY_ENABLED && event[this.BODY] && typeof (event[this.BODY]) === this.STRING) {
-            event[this.BODY] = this.cryptionService.decrypt(event[this.BODY]);
+    decryptResponse(event: HttpEvent<any>, key: string): HttpEvent<any> {
+        if (event[this.BODY] && typeof (event[this.BODY]) === this.STRING) {
+            event[this.BODY] = this.cryptionService.decrypt(event[this.BODY], key);
         }
         return event;
     }
@@ -269,8 +275,9 @@ export class HttpInterceptorService implements HttpInterceptor {
      * @parameters errorData<any>
      * @return void
      */
-    showErrorInSnackBar(errorData: any): void {
+    showErrorInSnackBar(errorData: any ): void {
         let errorDescription = GENERIC_ERROR_MESSAGE;
+        const ERROR_CODES = Object.values(SNACK_BAR_RESTRICTED_ERROR_CODES);
         if (errorData.vendorStatus) {
             errorDescription = errorData.vendorStatus;
         } else if (errorData.httpMessage) {
@@ -281,17 +288,32 @@ export class HttpInterceptorService implements HttpInterceptor {
             typeof errorData.details.description === this.STRING) {
             errorDescription = errorData.details.description;
         } else if (errorData && errorData.details && errorData.details.description && errorData.details.description[descText]) {
-            errorDescription = ( errorData.details.description[codeText]
-            && SNACK_BAR_RESTRICTED_ERROR_CODES.includes(errorData.details.description[codeText])) ?
+            errorDescription = ( errorData.details.description[codeText] && ERROR_CODES.includes(errorData.details.description[codeText])) ?
              errorData.details.description[codeText] : errorData.details.description[descText];
+        } else if (errorData && errorData.details && !errorData.details.description) {
+            errorDescription = undefined;
         }
-        if (!SNACK_BAR_RESTRICTED_MESSAGES.includes(errorDescription)) {
+        if (errorDescription && !SNACK_BAR_RESTRICTED_MESSAGES.includes(errorDescription)) {
             this.snackBarService.showSnackBar({
                 showSnackBar: true, message: {
                     msgType: 'error',
                     msgText: errorDescription
                 }
             });
+        }
+    }
+    /**
+     * @methodName logoutUser
+     * @description used to reset the data and logout the user
+     * @parameters error: HttpErrorResponse, req: HttpRequest<any>
+     * @return none
+     */
+    logoutUser(error: HttpErrorResponse, req: HttpRequest<any>): void {
+        if (error.url.includes(environment.CIAM.ENDPOINTS.LOGIN) && req.body && req.body.includes(REFRESH_TOKEN_PARAM)) {
+            this.refreshTokenInProgress = false;
+            this.sharedService.isSessionExpired = false;
+            this.sharedService.detectedActiveSession = true;
+            this.logoutService.logoutUser();
         }
     }
 }

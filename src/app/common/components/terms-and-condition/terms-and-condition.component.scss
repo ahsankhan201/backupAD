@@ -159,5 +159,8 @@
 ::ng-deep .agreement-content {
   p {
     margin: 0;
+    a {
+      display: none;
+    }
   }
 }

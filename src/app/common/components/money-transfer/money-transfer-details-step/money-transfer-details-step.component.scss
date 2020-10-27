@@ -103,7 +103,7 @@
       color: $grey;
       padding-top: 30px;
       line-height: 18px;
-      padding-bottom: 40px;
+      padding-bottom: 24px;
       @include respond-to(screen-m-min) {
         padding-bottom: unset;
       }

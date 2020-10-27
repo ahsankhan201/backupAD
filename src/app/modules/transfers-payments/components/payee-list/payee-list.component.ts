@@ -24,6 +24,7 @@ import { ROUTING_URLS, PAYEE_ENDPOINTS } from '../../../../common/api-endpoints'
 
 import {
   DELETE_PAYEE_DIALOG_DATA, DELETE_PAYEE_SUCCESS_MESSAGE,
+  DELETE_PAYEE_SUCCESS_MESSAGE_KEYS,
   EDIT_PAYEE_SUCCESS_SNACKBAR, PAYEE_FAVORITE_MESSAGE
 } from '../../transfers-payments-module.constants';
 import { EDIT_PAYEE_DIALOG } from '../../transfers-payments-module.constants';
@@ -62,6 +63,7 @@ export class PayeeListComponent implements OnInit, OnDestroy, AfterViewChecked, 
   readonly menuOptions = PAYEE_MENU_OPTIONS;
   readonly labelConst = TRANSFER_PAYMENT_CONST;
   readonly iconsConst = ICON;
+  subscription$ = new Subscription();
 
   constructor(
     @Optional() private changeDetector: ChangeDetectorRef,
@@ -141,7 +143,6 @@ export class PayeeListComponent implements OnInit, OnDestroy, AfterViewChecked, 
       if (Number(scrollElement.scrollWidth - this.payeeScrollContainer.nativeElement.offsetWidth) === Number(scrollElement.scrollLeft)) {
         this.disableNextBtn = true;
       }
-      this.payeeScrollContainer.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }
   }
 
@@ -212,8 +213,13 @@ export class PayeeListComponent implements OnInit, OnDestroy, AfterViewChecked, 
         this.subscription.add(this.transfersPaymentsService.deleteUtility(URL).subscribe(res => {
           this.refreshPayee.emit(true);
           this.searchText = '';
-          const SUCCESS_MESSAGE = `${DELETE_PAYEE_SUCCESS_MESSAGE.prefix} “${payee.nickName}” ${DELETE_PAYEE_SUCCESS_MESSAGE.suffix}`;
-          this.snackBarService.showSnackBar({ showSnackBar: true, message: { msgText: SUCCESS_MESSAGE } });
+          this.subscription$.add(this.translateService.get(DELETE_PAYEE_SUCCESS_MESSAGE_KEYS).subscribe(translatedInfo => {
+            const successMessage = `${translatedInfo[DELETE_PAYEE_SUCCESS_MESSAGE.prefix]} “${payee.nickName}”
+              ${translatedInfo[DELETE_PAYEE_SUCCESS_MESSAGE.suffix]}`;
+            this.snackBarService.showSnackBar({
+              showSnackBar: true, message: { msgText: successMessage }
+            });
+          }));
         }));
       }
     });

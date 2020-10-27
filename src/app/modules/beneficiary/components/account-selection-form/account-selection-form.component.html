@@ -31,10 +31,10 @@
                         <mat-label translate>tr_common_ibanText</mat-label>
                         <input matInput #iban maxlength="{{ FORM_LENGTH.iban.maxLength}}" appAlphaNumeric
                             [allowSpace]="false" formControlName="ibanNumber"
-                            (blur)="isBeneficiaryExisits('ibanNumber', 'iban')">
+                            (blur)="isBeneficiaryExists('ibanNumber', 'iban')">
                         <mat-hint align="end">{{iban.value.length}} / {{ FORM_LENGTH.iban.maxLength }}</mat-hint>
                         <mat-error>
-                            <app-show-form-errors [control]="accountForm.get('ibanNumber')" label="IBAN">
+                            <app-show-form-errors [control]="accountForm.get('ibanNumber')" label="{{ formText.iban }}">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>
@@ -47,7 +47,8 @@
                             [allowSpace]="false" formControlName="confirmIban">
                         <mat-hint align="end">{{confirmiban.value.length}} / {{ FORM_LENGTH.iban.maxLength }}</mat-hint>
                         <mat-error>
-                            <app-show-form-errors [control]="accountForm.get('confirmIban')" label="Confirm IBAN">
+                            <app-show-form-errors [control]="accountForm.get('confirmIban')"
+                                label="{{ formText.confirmIban }}">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>
@@ -61,11 +62,12 @@
                         <mat-label translate>tr_common_accountNumberText</mat-label>
                         <input matInput type="tel" inputmode="numeric" numbersOnly #account
                             maxlength="{{ FORM_LENGTH.accountNumber.maxLength }}" formControlName="account"
-                            (blur)="isBeneficiaryExisits('account', 'beneAccNo')">
+                            (blur)="isBeneficiaryExists('account', 'beneAccNo')">
                         <mat-hint align="end">{{account.value.length}} / {{ FORM_LENGTH.accountNumber.maxLength }}
                         </mat-hint>
                         <mat-error>
-                            <app-show-form-errors [control]="accountForm.get('account')" label="Account">
+                            <app-show-form-errors [control]="accountForm.get('account')" label="{{ formText.account }}"
+                                digitsOnly="true">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>
@@ -79,7 +81,8 @@
                         <mat-hint align="end">{{confirmaccount.value.length}} /
                             {{ FORM_LENGTH.accountNumber.maxLength }}</mat-hint>
                         <mat-error>
-                            <app-show-form-errors [control]="accountForm.get('confirmAccount')" label="Confirm Account">
+                            <app-show-form-errors [control]="accountForm.get('confirmAccount')"
+                                label="{{ formText.confirmAccount }}" digitsOnly="true">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>
@@ -88,9 +91,9 @@
             <div class="form-group mt-3 mb-2" *ngIf="showCard">
                 <p class="account-form-comp__form__row__card" translate>tr_addBene_enterCardText</p>
                 <div class="account-form-comp_card_wrapper mat-form-field-right">
-                    <app-input-generic inputLabel='tr_common_cardNumberText' [errors]="accountForm.get('cardNumber')" [maxlength]="4" [resetInputValue]="resetInputValue" 
-                    (outputData)="handleCardNumber($event)" class="cardNumber"
-                    type="cardNumber"></app-input-generic>
+                    <app-input-generic inputLabel='tr_common_cardNumberText' [errors]="accountForm.get('cardNumber')"
+                        [maxlength]="4" [resetInputValue]="resetInputValue" (outputData)="handleCardNumber($event)"
+                        class="cardNumber" type="cardNumber"></app-input-generic>
                 </div>
             </div>
             <div class="form-group mat-form-field-right">
@@ -98,7 +101,7 @@
                     <mat-label translate>tr_common_nameText</mat-label>
                     <input matInput formControlName="name" maxlength="{{ FORM_LENGTH.name.maxLength }}'">
                     <mat-error>
-                        <app-show-form-errors [control]="accountForm.get('name')" label="Beneficiary Name">
+                        <app-show-form-errors [control]="accountForm.get('name')" label="{{ formText.beneName }}">
                         </app-show-form-errors>
                     </mat-error>
                 </mat-form-field>
@@ -110,7 +113,8 @@
                         <mat-label translate>tr_addBene_address1Text</mat-label>
                         <input matInput formControlName="addressOne" maxlength="{{ FORM_LENGTH.address.maxLength }}">
                         <mat-error>
-                            <app-show-form-errors [control]="accountForm.get('addressOne')" label="Address Line 1">
+                            <app-show-form-errors [control]="accountForm.get('addressOne')"
+                                label="{{ formText.address1 }}">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>
@@ -121,7 +125,8 @@
                         <mat-label translate>tr_addBene_address2Text</mat-label>
                         <input matInput formControlName="addressTwo" maxlength="{{ FORM_LENGTH.address.maxLength }}">
                         <mat-error>
-                            <app-show-form-errors [control]="accountForm.get('addressTwo')" label="Address Line 2">
+                            <app-show-form-errors [control]="accountForm.get('addressTwo')"
+                                label="{{ formText.address2 }}">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>
@@ -134,7 +139,7 @@
                         <mat-label translate>tr_addBene_cityText</mat-label>
                         <input matInput formControlName="city" maxlength="30">
                         <mat-error>
-                            <app-show-form-errors [control]="accountForm.get('city')" label="City">
+                            <app-show-form-errors [control]="accountForm.get('city')" label="{{ formText.city }}">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>
@@ -154,7 +159,7 @@
                         </mat-autocomplete>
                         <mat-hint align="end" translate>tr_addBenComponent_countryHintText</mat-hint>
                         <mat-error>
-                            <app-show-form-errors [control]="accountForm.get('country')" label="Country name">
+                            <app-show-form-errors [control]="accountForm.get('country')" label="{{ formText.country }}">
                             </app-show-form-errors>
                         </mat-error>
                     </mat-form-field>
@@ -165,7 +170,7 @@
                     <mat-label translate>tr_common_nickNameText</mat-label>
                     <input matInput appAlphaNumeric formControlName="nickName" maxlength="30">
                     <mat-error>
-                        <app-show-form-errors [control]="accountForm.get('nickName')" label="Nick Name">
+                        <app-show-form-errors [control]="accountForm.get('nickName')" label="{{ formText.nickName }}">
                         </app-show-form-errors>
                     </mat-error>
                 </mat-form-field>

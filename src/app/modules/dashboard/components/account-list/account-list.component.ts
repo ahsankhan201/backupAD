@@ -12,6 +12,8 @@ import { SharedService } from 'src/app/common/services/shared.service';
 import { ICON, ACCOUNT_ALLOWED_TYPE_LIST, ARABIC_LANG_TEXT } from 'src/app/common/global-constants';
 import { ACCOUNTS_MASTER_DATA } from '../../dashboard-module.constants';
 import { AccountsList, PromotionCardModel } from 'src/app/common/models/global.model';
+import { CARDS_MASTER_DATA } from 'src/app/modules/cards/cards-module.constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-list',
@@ -39,7 +41,8 @@ export class AccountListComponent implements OnInit, OnDestroy {
   constructor(
     @Optional() private changeDetector: ChangeDetectorRef,
     private accountListService: AccountlistService,
-    private sharedService: SharedService) {
+    private sharedService: SharedService,
+    private router: Router) {
   }
 
   ngOnInit() {
@@ -153,6 +156,17 @@ export class AccountListComponent implements OnInit, OnDestroy {
     this.subscription$.add(this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) => {
       this.selectedLanguage = selectedLanguage;
     }));
+  }
+
+  /**
+   * @methodName applyNewCard
+   * @parameter none
+   * @description Used to navigate to product card page
+   * @return none
+   */
+  applyNewCard(): void {
+    this.sharedService.selectedProduct = CARDS_MASTER_DATA.cardCategorey;
+    this.router.navigateByUrl(CARDS_MASTER_DATA.cardProductUrl);
   }
 
   ngOnDestroy() {

@@ -37,6 +37,9 @@
           margin-right: 27px;
         }
       }
+      &.invalid-iban {
+        background-color: $mid-gray;
+      }
       .beneficiary-container {
         display: flex;
         flex-wrap: wrap;

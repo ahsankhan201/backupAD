@@ -55,7 +55,7 @@
                 translate>tr_common_cancelTransactionText</button>
             <button matStepperPrevious class="btn previous-btn" translate>tr_common_previousText</button>
             <button matStepperNext class="btn next-btn" type="button"
-                [disabled]="!paymentTransferGroup.valid || showOutStandingBalError" (click)="setPaymentSummaryDetails()"
+                [disabled]="!paymentTransferGroup.valid || (showOutStandingBalError && !enableNextBtn)" (click)="setPaymentSummaryDetails()"
                 translate>tr_common_nextText</button>
         </div>
     </div>

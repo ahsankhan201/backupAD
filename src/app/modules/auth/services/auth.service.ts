@@ -69,14 +69,14 @@ export class AuthService implements OnDestroy {
   checkValidCardDetails(displaceSession: boolean = false): Observable<any> {
     // Assigning generateCiamValidateCardHeaders  method to generate custom header
     this.httpHeaderService.customHeaderFunction = this.httpHeaderService.generateCiamValidateCardHeaders;
-    const payloadObj = new HttpParams().set('grant_type', environment.CIAM.GRANT_TYPE)
-      .set('client_id', environment.CIAM.CLIENT_ID)
-      .set('username', this.cardNumber)
-      .set('password', this.pinNumber)
-      .set('mode', environment.CIAM.MODE_CARD_NUM_PIN);
+    const payloadObj = 'grant_type=' + environment.CIAM.GRANT_TYPE +
+    '&client_id=' + environment.CIAM.CLIENT_ID +
+    '&username=' +  this.cardNumber +
+    '&password=' + this.pinNumber +
+    '&mode=' + environment.CIAM.MODE_CARD_NUM_PIN;
     let CIAM_URL = environment.API_CONNECT_URL + environment.ADIB + environment.CIAM.ENDPOINTS.VALIDATE_CARD_PIN;
     CIAM_URL = this.sharedService.handleDisplaceSession(CIAM_URL, displaceSession);
-    return this.apiService.post(encodeURI(CIAM_URL), payloadObj, 'json');
+    return this.apiService.post(encodeURI(CIAM_URL), payloadObj);
   }
 
   /**
@@ -127,7 +127,7 @@ export class AuthService implements OnDestroy {
    * @return Observable<any>
    */
   postLoginDetails(url: string, reqPayLoad: any): Observable<any> {
-    return this.apiService.post(url, reqPayLoad, 'json');
+    return this.apiService.post(url, reqPayLoad);
   }
 
   /**
@@ -240,7 +240,7 @@ export class AuthService implements OnDestroy {
   refreshAccessToken(): Observable<any> {
     const LOGIN_URL = `${environment.API_CONNECT_URL}${environment.ADIB}${environment.CIAM.ENDPOINTS.LOGIN}`;
     const requestPayLoad = this.generateRefreshTokenPayLoad();
-    return this.apiService.post(encodeURI(LOGIN_URL), requestPayLoad, 'json')
+    return this.apiService.post(encodeURI(LOGIN_URL), requestPayLoad)
       .pipe(map(res => res.body ? res.body : res));
   }
 
@@ -250,11 +250,10 @@ export class AuthService implements OnDestroy {
    * @description used to genreate the login request payload
    * @return none
    */
-  generateRefreshTokenPayLoad(): HttpParams {
+  generateRefreshTokenPayLoad(): string {
     this.httpHeaderService.customHeaderFunction = this.httpHeaderService.refershTokenHeaders;
-    return new HttpParams().set('grant_type', environment.CIAM.REFRESH_TOKEN_GRANT_TYPE)
-      .set('client_id', environment.CIAM.CLIENT_ID)
-      .set('refresh_token', this.sharedService.refreshToken);
+    return 'grant_type=' + environment.CIAM.REFRESH_TOKEN_GRANT_TYPE + '&client_id=' +
+    environment.CIAM.CLIENT_ID + '&refresh_token=' + this.sharedService.refreshToken;
   }
 
   /**
@@ -278,12 +277,12 @@ export class AuthService implements OnDestroy {
   }
 
   /**
-   * @methodName openRegistraionConfirmModal
+   * @methodName openRegistrationConfirmModal
    * @parameter none
    * @description used to open registered device component in modal
    * @return none
    */
-  openRegistraionConfirmModal(): void {
+  openRegistrationConfirmModal(): void {
     const OPTIONS = {} as Dialog;
     OPTIONS.isRegistarationConfirmDialog = true;
     OPTIONS.dialogClassName = AUTH_DIALOG_CLASS;

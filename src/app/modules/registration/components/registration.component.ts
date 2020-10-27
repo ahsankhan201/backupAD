@@ -85,7 +85,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   /* @methodName handleCloseButtonClick
    * @params status<boolean>
-   * @description used to handle close button click event emited
+   * @description used to handle close button click event emitted
    * @return none
    */
   handleCloseButtonClick(status: boolean): void {
@@ -116,7 +116,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
         this.subscription$.add(this.registrationService.cancelRegistration().subscribe(
           (cancelResponse) => {
             if (cancelResponse && cancelResponse.result === CIAM_ERROR_CODE.cancelRegistration) {
-              this.stepperRegistration.reset(); // reseting stepper before canceling
+              this.stepperRegistration.reset(); // resetting stepper before canceling
               this.router.navigateByUrl(REGISTRATION_CONFIG.cancelRouterLink);
               this.registrationService.deRegister$.next(undefined);
             }

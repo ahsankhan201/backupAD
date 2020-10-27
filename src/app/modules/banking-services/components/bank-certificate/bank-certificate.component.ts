@@ -66,7 +66,7 @@ export class BankCertificateComponent implements OnInit {
   /**
    * @methodName getSelectedBranchTypes
    * @parameter selectedBranch<ContactModeCheckBox>
-   * @description used to toggle the branch input field based on branch type selcetion
+   * @description used to toggle the branch input field based on branch type selection
    * @return none
    */
   getSelectedBranchTypes(selectedBranch: ContactModeCheckBox): void {

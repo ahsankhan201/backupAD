@@ -1,9 +1,8 @@
 <div class="beneficiary-checkbox-comp" [ngClass]="(selectedLanguage === arabicLanguageText) ? 'bene-checkbox-rtl': ''">
   <div class="beneficiary-checkbox-comp__container">
     <div class="card" *ngFor="let item of checkBoxBeneficiaryList; let index = index"
-      [ngClass]="((item.beneAccNo + '' + item.utilityServiceNumber)===selectedValue)? 'active':''">
-      <div class="beneficiary-container" (click)="handleChange(item,checkBoxName)"
-        [ngClass]="(item.status === 'INACTIVE') ? 'inactive-beneficiary': ''">
+    [ngClass]="(item.isValidBeneficiary==='false')?'invalid-iban':''" [ngClass]="((item.beneAccNo + '' + item.utilityServiceNumber)===selectedValue)? 'active':''">
+      <div class="beneficiary-container" (click)="handleChange(item,checkBoxName)" [ngClass]="(item.status === 'INACTIVE') ? 'inactive-beneficiary': ''">
         <div class="detail-wrapper">
           <div class="title">
             <span class="verify">

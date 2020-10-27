@@ -16,10 +16,8 @@ import { BENEFICIARY_ENDPOINTS, ACCOUNTS_ENDPOINTS, PARTY_ENDPOINTS } from 'src/
 import { OTPLocation } from 'src/app/common/models/otp.model';
 import {
   BENEFICIARY_FORM_TEXT,
-  PAYEE_TYPE, PAYEE_ID,
   BANK_SELECTION_SCREEN_TEXT,
   ACCOUNTS_OR_CARDS_MAP,
-  COUNTRY_CODE_UAE,
   ROMANIA_REGEX,
   ROMANIA_RESTRICTED_WORDS
 } from '../beneficiary-module.constants';
@@ -274,7 +272,7 @@ export class BeneficiaryService implements OnDestroy {
 
   /**
    * @methodName mapCurrencyDetailsWithKeys
-   * @description used to map the currncy data as key value pair
+   * @description used to map the currency data as key value pair
    * @parameter currencyList
    * @return object<currencyList>
    */
@@ -328,16 +326,18 @@ export class BeneficiaryService implements OnDestroy {
   }
   /**
    * @methodName setBeneficiaryPayLoad
-   * @description used to set all the beneficiary detais except internal benfeciary
+   * @description used to set all the beneficiary details except internal beneficiary
    * @parameter url payloadForm
    * @return none
    */
   setBeneficiaryPayLoad(beneficiaryForm): void {
     this.internationalBenPayLoadObj.beneficiaryName = (beneficiaryForm && beneficiaryForm.value && beneficiaryForm.value.name) ?
       beneficiaryForm.value.name : '';
-    if (beneficiaryForm && beneficiaryForm.value && beneficiaryForm.value.abaCode) {
-      this.internationalBenPayLoadObj.abaNumber = beneficiaryForm.value.abaCode;
-    }
+
+    // adding abaNumber to payload
+    this.internationalBenPayLoadObj.abaNumber = (beneficiaryForm && beneficiaryForm.value && beneficiaryForm.value.abaCode)
+    ?  beneficiaryForm.value.abaCode : undefined;
+
     if (beneficiaryForm && beneficiaryForm.value && beneficiaryForm.value.account) {
       this.internationalBenPayLoadObj.accountNumber = beneficiaryForm.value.account;
       this.benSummaryDetails.accountDetails.accountTitle = BENEFICIARY_FORM_TEXT.accountNumber;
@@ -371,7 +371,7 @@ export class BeneficiaryService implements OnDestroy {
    * @return none
    */
   setInternalBeneficiaryPayLoad(beneficiaryForm, isCardSelected: boolean, adibUaeBeneName: string): void {
-    this.internalBenPayLoad.mobileNumber = undefined; // reseting mobile beneficiary value if exists
+    this.internalBenPayLoad.mobileNumber = undefined; // resetting mobile beneficiary value if exists
     this.internalBenPayLoad.nickName = beneficiaryForm && beneficiaryForm.value && beneficiaryForm.value.nickName ?
       beneficiaryForm.value.nickName : adibUaeBeneName;
     if (isCardSelected) {
@@ -427,7 +427,7 @@ export class BeneficiaryService implements OnDestroy {
   }
   /**
    * @methodName fetchOTPLocation
-   * @description used to fetch the otp loacation details
+   * @description used to fetch the otp location details
    * @parameter url payload
    * @return Observable
    */
@@ -524,12 +524,12 @@ export class BeneficiaryService implements OnDestroy {
   }
 
   /**
-   * @methodName isBeneficiaryExisits
+   * @methodName isBeneficiaryExists
    * @description used to check duplicate beneficiary
    * @param filterName<string>, data <string>
    * @return boolean
    */
-  isBeneficiaryExisits(filterName: string, data: string): Observable<boolean> {
+  isBeneficiaryExists(filterName: string, data: string): Observable<boolean> {
     if (data != null && data !== '') {
       const user = (this.sharedService.allBeneficiaryList) ?
         this.sharedService.allBeneficiaryList.filter((item) => { if (item) { return item[filterName] === data; } }) : undefined;
@@ -593,8 +593,20 @@ export class BeneficiaryService implements OnDestroy {
     };
   }
 
+
+  /**
+   * @methodName resetBeneficiaryPayload
+   * @description reset beneficiary payload
+   * @parameters none
+   * @return none
+   */
+  resetBeneficiaryPayload(): void {
+  this.internationalBenPayLoadObj = new AddInternationalBeneficiary(); // reset international beneficiary payload
+  this.internalBenPayLoad = new AddInternalBeneficiary(); // resetting internal beneficiary payload
+  }
+
   ngOnDestroy() {
-    this.internalBenPayLoad = new AddInternalBeneficiary(); // reseting internal beneficiary
+    this.resetBeneficiaryPayload();
     this.subscription$.unsubscribe();
   }
 }

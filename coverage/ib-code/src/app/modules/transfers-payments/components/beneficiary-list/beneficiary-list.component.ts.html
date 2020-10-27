@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55.67% </span>
+        <span class="strong">56.12% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>54/97</span>
+        <span class='fraction'>55/98</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">24% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>6/25</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">43.48% </span>
+        <span class="strong">41.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>10/23</span>
+        <span class='fraction'>10/24</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55.91% </span>
+        <span class="strong">56.38% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>52/93</span>
+        <span class='fraction'>53/94</span>
       </div>
     </div>
   </div>
@@ -316,7 +316,13 @@
 271
 272
 273
-274</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+274
+275
+276
+277
+278
+279</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -377,6 +383,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -458,7 +466,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -541,8 +548,11 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -614,7 +624,8 @@ import {
 import { ROUTING_URLS, ACCOUNTS_ENDPOINTS, PAYEE_ENDPOINTS, BENEFICIARY_ENDPOINTS } from 'src/app/common/api-endpoints';
 import {
   DELETE_BENEFICIARY_DIALOG_DATA, DELETE_BENEFICIARY_SUCCESS_MESSAGE,
-  BENEFICIARY_FAVORITE_MESSAGE
+  BENEFICIARY_FAVORITE_MESSAGE,
+  DELETE_BENEFICIARY_SUCCESS_MESSAGE_KEYS
 } from '../../transfers-payments-module.constants';
 import { BeneficiaryListResponse } from '../../../../common/models/beneficiary.model';
 import { MenuOption } from '../../../../common/models/menu-option.model';
@@ -650,6 +661,8 @@ export class BenificiaryListComponent implements OnInit, AfterViewChecked, OnDes
   selectedLanguage: string;
   arabicLanguageText = ARABIC_LANG_TEXT;
   accountTypes = ACCOUNT_TYPES;
+  subscription$ = new Subscription();
+&nbsp;
   constructor(
     @Optional() private changeDetector: ChangeDetectorRef,
     private transfersPaymentsService: TransfersPaymentsService,
@@ -731,7 +744,6 @@ export class BenificiaryListComponent implements OnInit, AfterViewChecked, OnDes
 <span class="cstat-no" title="statement not covered" >      if (Number(scrollElement.scrollWidth - this.beneScrollContainer.nativeElement.offsetWidth) === Number(scrollElement.scrollLeft)) {</span>
 <span class="cstat-no" title="statement not covered" >        this.disableNextBtn = true;</span>
       }
-<span class="cstat-no" title="statement not covered" >      this.beneScrollContainer.nativeElement.scrollIntoView({ behavior: TRANSFER_PAYMENT_CONST.srollDirectionSmooth });</span>
     }
   }
 &nbsp;
@@ -805,19 +817,22 @@ export class BenificiaryListComponent implements OnInit, AfterViewChecked, OnDes
 <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  deleteBeneficiary(</span>benefeciary: BeneficiaryListResponse): void {</span>
 <span class="cstat-no" title="statement not covered" >    if (benefeciary) {</span>
       const url = <span class="cstat-no" title="statement not covered" >this.sharedService.generateApiUrl(DOMAINS.API_SIT_CONNECT, true, false)</span>
-      + BENEFICIARY_ENDPOINTS.ACCOUNTS_BENEFICIARY + SLASH + benefeciary.beneID;
+        + BENEFICIARY_ENDPOINTS.ACCOUNTS_BENEFICIARY + SLASH + benefeciary.beneID;
       const OPTIONS = <span class="cstat-no" title="statement not covered" >DELETE_BENEFICIARY_DIALOG_DATA;</span>
 <span class="cstat-no" title="statement not covered" >      this.dialogService.open(OPTIONS);</span>
 <span class="cstat-no" title="statement not covered" >      this.dialogService.confirmed().subscribe(<span class="fstat-no" title="function not covered" >confirmed =&gt; {</span></span>
 <span class="cstat-no" title="statement not covered" >        if (confirmed) {</span>
-<span class="cstat-no" title="statement not covered" >          this.subscription.add( this.transfersPaymentsService.deleteUtility(url).subscribe(<span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
-<span class="cstat-no" title="statement not covered" >                this.refreshBeneficiary.emit(true);</span>
-<span class="cstat-no" title="statement not covered" >                this.searchText = '';</span>
-                const successMessage = `${<span class="cstat-no" title="statement not covered" >DELETE_BENEFICIARY_SUCCESS_MESSAGE.prefix} “${benefeciary.nickName}”</span>
-                  ${DELETE_BENEFICIARY_SUCCESS_MESSAGE.suffix}`;
-<span class="cstat-no" title="statement not covered" >                this.snackBarService.showSnackBar({ showSnackBar: true, message: { msgText: successMessage }</span>
-                });
-              })
+<span class="cstat-no" title="statement not covered" >          this.subscription.add(this.transfersPaymentsService.deleteUtility(url).subscribe(<span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >            this.refreshBeneficiary.emit(true);</span>
+<span class="cstat-no" title="statement not covered" >            this.searchText = '';</span>
+<span class="cstat-no" title="statement not covered" >            this.subscription$.add(this.translateService.get(DELETE_BENEFICIARY_SUCCESS_MESSAGE_KEYS).subscribe(<span class="fstat-no" title="function not covered" >translatedInfo =&gt; {</span></span>
+              const successMessage = `${<span class="cstat-no" title="statement not covered" >translatedInfo[DELETE_BENEFICIARY_SUCCESS_MESSAGE.prefix]} “${benefeciary.nickName}”</span>
+                ${translatedInfo[DELETE_BENEFICIARY_SUCCESS_MESSAGE.suffix]}`;
+<span class="cstat-no" title="statement not covered" >              this.snackBarService.showSnackBar({</span>
+                showSnackBar: true, message: { msgText: successMessage }
+              });
+            }));
+          })
           );
         }
       });
@@ -868,7 +883,7 @@ export class BenificiaryListComponent implements OnInit, AfterViewChecked, OnDes
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 21 2020 17:50:31 GMT+0400 (Gulf Standard Time)
 </div>
 </div>
 <script src="../../../../../../prettify.js"></script>

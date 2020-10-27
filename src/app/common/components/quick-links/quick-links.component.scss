@@ -15,10 +15,13 @@
       border-right: none;
       border-left: 1px solid $very-light-gray;
       &:nth-child(3n) {
+        border-bottom: none;
+      }
+      &:nth-child(2n) {
         border-left: none;
       }
       @include respond-to(screen-m-min) {
-        &:nth-child(3n) {
+        &:nth-child(2n),&:nth-child(3n) {
           border-left: 1px solid $very-light-gray;
         }
         &:last-child {
@@ -114,14 +117,15 @@
   }
 }
 .item-4 {
-  &:nth-child(3n) {
+  width: 50%;
+  &:nth-child(2n) {
     border-right: none;
   }
   &:last-child {
     border-bottom: none;
   }
   @include respond-to(screen-m-min) {
-    &:nth-child(3n) {
+    &:nth-child(2n), &:nth-child(3n) {
       border-right: 1px solid $very-light-gray;
     }
     &:last-child {

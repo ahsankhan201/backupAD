@@ -14,7 +14,7 @@ import { MaterialModule } from './material.module';
 
 // declaring services
 import { HttpInterceptorService } from '../services/interceptors/http-interceptor.service';
-import { AuthGuardService } from '../services/auth/auth-gurd.service';
+import { AuthGuardService } from '../services/auth/auth-guard.service';
 import { LogoutService } from 'src/app/modules/logout/services/logout.service';
 
 // declaring components

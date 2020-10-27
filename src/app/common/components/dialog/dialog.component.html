@@ -116,8 +116,9 @@
             <div class="transaction-receipt__wrapper__field"
                 *ngFor="let field of dialogData.receiptDetails?.listOfFields">
                 <div class="transaction-receipt__wrapper__field__name">{{field.name | translate}}</div>
-                <div class="transaction-receipt__wrapper__field__value" *ngIf="field.name!=='tr_transferReceipt_amountText' && field.name!=='tr_transferReceipt_dateAndTimeText' &&
-                     field.name!=='tr_cards_cardNumberText' && field.name!=='tr_paymentReceipt_amountText'">
+                <div class="transaction-receipt__wrapper__field__value"
+                    *ngIf="field.name!=='tr_transferReceipt_amountText' && field.name!=='tr_transferReceipt_dateAndTimeText' &&
+                     field.name!=='tr_cards_cardNumberText' && field.name!=='tr_paymentReceipt_amountText' && field.name!=='tr_paymentReceipt_cardNumberText'">
                     {{field.value | translate}}</div>
                 <div *ngIf="field.name==='tr_transferReceipt_amountText' || field.name==='tr_paymentReceipt_amountText'"
                     class="transaction-receipt__wrapper__field__value">
@@ -128,7 +129,8 @@
                     class="transaction-receipt__wrapper__field__value">
                     {{field.value | date:'dd MMM yyyy hh:mma'}}
                 </div>
-                <div *ngIf="field.name==='tr_cards_cardNumberText'" class="transaction-receipt__wrapper__field__value">
+                <div *ngIf="field.name==='tr_cards_cardNumberText' || field.name==='tr_paymentReceipt_cardNumberText'"
+                    class="transaction-receipt__wrapper__field__value">
                     {{field.value | formatMaskCardNumber}}
                 </div>
             </div>
@@ -165,7 +167,11 @@
             <h1 mat-dialog-title translate>{{ dialogData.title }}</h1>
         </div>
         <div mat-dialog-content class="user-blocked-content">
-            <div *ngIf="dialogData.textTemplate === 'invalid-card-pin'" translate>tr_user_blocked_card_pin_text</div>
+            <div *ngIf="dialogData.textTemplate === 'generic-message-card-pin-block'" >
+                <span translate>tr_error_R107_prefix</span>
+                <a href="tel:{{customerCareContactNumber}}"  target="_blank" *ngIf="customerCareContactNumber"> {{ customerCareContactNumber }} </a>
+                <span translate>tr_error_R107_suffix</span>
+            </div>
             <div *ngIf="dialogData.textTemplate === 'invalid-otp'" translate>tr_user_blocked_otp_text</div>
             <div *ngIf="dialogData.textTemplate === 'existing-user-session'" translate>tr_active_session_text</div>
         </div>

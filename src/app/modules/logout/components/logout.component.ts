@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class LogoutComponent implements OnInit, OnDestroy {
   isSessionExpired: boolean;
+  isSessionActive: boolean;
   adibWebsiteUrl = ADIB_WEBSITE_URL_TEXT;
   subscription$ = new Subscription();
   selectedLanguage: string;
@@ -23,6 +24,7 @@ export class LogoutComponent implements OnInit, OnDestroy {
   constructor(private sharedService: SharedService) { }
   ngOnInit() {
     this.isSessionExpired = this.sharedService.isSessionExpired;
+    this.isSessionActive = this.sharedService.detectedActiveSession;
     this.getSelectedLanguage();
   }
 

@@ -50,7 +50,7 @@
                     <div class="cards-list__card-wrapper__debit-card__footer">
                         <div class="cards-list__card-wrapper__debit-card__footer__title">
                             {{CARDS_MASTER_DATA.AVAILABLE_BALANCE | translate}}</div>
-                        <div class="cards-list__card-wrapper__debit-card__footer__fund">
+                        <div class="cards-list__card-wrapper__debit-card__footer__fund amount-primary">
                             <span
                                 [ngClass]="(debitCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS)?'active':'inactive'">{{ debitCard.availableBalance | numberFormat}}</span>.<span
                                 class="cards-list__card-wrapper__debit-card__footer__fund__decimal">{{ debitCard.availableBalance | getDecimalValue}}</span>
@@ -99,7 +99,7 @@
                         <div class="cards-list__card-wrapper__cover-card__footer__limit col-6 padding-lrn">
                             <div class="cards-list__card-wrapper__cover-card__footer__limit__title">
                                 {{CARDS_MASTER_DATA.AVAILABLE_BALANCE | translate}}</div>
-                            <div class="cards-list__card-wrapper__cover-card__footer__limit__fund">
+                            <div class="cards-list__card-wrapper__cover-card__footer__limit__fund amount-primary">
                                 <span
                                     [ngClass]="(coverCard.cardStatus === CARDS_MASTER_DATA.ACTIVE_CARD_STATUS)?'active':'inactive'">{{ coverCard.creditAvailable | numberFormat }}</span>.<span
                                     class="cards-list__card-wrapper__cover-card__footer__limit__fund__decimal">{{ coverCard.creditAvailable | getDecimalValue }}</span>
@@ -125,10 +125,12 @@
         </div>
         <div class="cards-list__card-wrapper__card-ads" [ngClass]="{showads: (showNoCardsMessage ? true: false)}">
             <div class="cards-list__card-wrapper__card-ads__container">
-                <img alt="promotion icon" class="cards-list__card-wrapper__card-ads__image" src="{{iconsConst.promotionalCardIcon}}" />
+                <img alt="promotion icon" class="cards-list__card-wrapper__card-ads__image"
+                    src="{{iconsConst.promotionalCardIcon}}" />
                 <div class="cards-list__card-wrapper__card-ads__title">{{ promotionalCard.cardTitle }}</div>
                 <div class="cards-list__card-wrapper__card-ads__subTitle">{{ promotionalCard.getCardTitle }}</div>
-                <div translate class="cards-list__card-wrapper__card-ads__ctaLink">tr_common_applyNowText</div>
+                <div translate (click)="applyNewCard()" class="cards-list__card-wrapper__card-ads__ctaLink">
+                    tr_common_applyNowText</div>
             </div>
         </div>
     </div>

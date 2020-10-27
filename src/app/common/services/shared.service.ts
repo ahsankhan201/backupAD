@@ -88,10 +88,12 @@ export class SharedService {
   selectedStatementYear: number;
   customerRIMID: string;
   isSessionExpired: boolean;
+  detectedActiveSession: boolean;
   userEmailId: string;
   previousRoute: string;
   currentRoute: string;
   selectedDashboardText: string;
+  selectedProduct: string;
   customerDetail: CustomerDetailsModel;
   customerFilteredPrimaryAddress: CustomerAddress;
   customerBasicDetails = {} as CustomerBasicDetailsModel;
@@ -102,7 +104,6 @@ export class SharedService {
   xLanguage = API_HEADERS.xLanguage;
   loaderSubject = new BehaviorSubject<boolean>(false);
   selectedBankingServicesOnQuickLink: string;
-
   constructor(
     private snackBarService: SnackBarService,
     private httpService: APISyncService,
@@ -133,16 +134,16 @@ export class SharedService {
    * @return boolean
    */
   isEmpty(value: string): boolean {
-    return value === null || value.length === 0;
+    return value && (value === null || value.length === 0);
   }
 
   /**
-   * @methodName retrictWordValidator
+   * @methodName restrictWordValidator
    * @description validate that input field must not have restrict word
    * @parameters none
    * @return ValidatorFn
    */
-  retrictWordValidator(): ValidatorFn {
+  restrictWordValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
       let restrictKeyWord = null;
       if (control.value !== null && this.restrictRegex !== undefined) {
@@ -929,7 +930,7 @@ export class SharedService {
    * @return string
    */
   handleDisplaceSession(CIAM_URL: string, displaceSession: boolean): string {
-    return CIAM_URL =  (displaceSession) ?  CIAM_URL + DISPLACE_SESSION : CIAM_URL;
+    return CIAM_URL = (displaceSession) ? CIAM_URL + DISPLACE_SESSION : CIAM_URL;
   }
 
   /* @methodName removeCommaFromString

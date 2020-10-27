@@ -4,7 +4,7 @@ export const EDIT_PAYEE_DIALOG = {
     cancelText: 'tr_common_cancelText',
     confirmText: 'tr_linkAccount_doneText'
 };
-
+export const INVALID_IBAN_BENEFICIARY = 'tr_transfer_module_invalid_beneficiary_data';
 export const DELETE_PAYEE_DIALOG_DATA = {
     title: 'tr_transfer_module_delete_payee_confirm',
     message: 'tr_transfer_module_delete_payee',
@@ -17,6 +17,9 @@ export const DELETE_PAYEE_SUCCESS_MESSAGE = {
     prefix: 'tr_transfer_module_payee_text',
     suffix: 'tr_transfer_module_delete_beneficiary',
 };
+
+export const DELETE_PAYEE_SUCCESS_MESSAGE_KEYS = [DELETE_PAYEE_SUCCESS_MESSAGE.prefix,
+DELETE_PAYEE_SUCCESS_MESSAGE.suffix];
 
 export const BENEFICIARY_FAVORITE_MESSAGE = {
     favorite: 'tr_transfer_module_fav_bene',
@@ -42,6 +45,9 @@ export const DELETE_BENEFICIARY_SUCCESS_MESSAGE = {
     prefix: 'tr_moneyTransferComponent_beneficiaryText',
     suffix: 'tr_transfer_module_delete_beneficiary',
 };
+
+export const DELETE_BENEFICIARY_SUCCESS_MESSAGE_KEYS = [DELETE_BENEFICIARY_SUCCESS_MESSAGE.prefix,
+DELETE_BENEFICIARY_SUCCESS_MESSAGE.suffix];
 
 export const PAYMENT_STEPPER_TEXT = {
     transferFrom: 'tr_common_transferFromText',

@@ -56,7 +56,7 @@ export class RegistrationService implements OnDestroy {
    */
   userExist(username: string): boolean {
     // CIAM call to check user already exist or not
-    // if user alreadyexist return true, else return false
+    // if user already exist return true, else return false
     return false;
   }
 
@@ -69,19 +69,19 @@ export class RegistrationService implements OnDestroy {
   checkValidCardDetails(displaceSession: boolean = false): Observable<any> {
     // Assigning generateCiamValidateCardHeaders  method to generate custom header
     this.httpHeaderService.customHeaderFunction = this.httpHeaderService.generateCiamValidateCardHeaders;
-    const payloadObj = new HttpParams().set('grant_type', environment.CIAM.GRANT_TYPE)
-      .set('client_id', environment.CIAM.CLIENT_ID)
-      .set('username', this.cardNumber)
-      .set('password', this.pinNumber)
-      .set('mode', environment.CIAM.MODE_CARD_NUM_PIN);
+    const payloadObj = 'grant_type=' + environment.CIAM.GRANT_TYPE +
+    '&client_id=' + environment.CIAM.CLIENT_ID +
+    '&username=' +  this.cardNumber +
+    '&password=' + this.pinNumber +
+    '&mode=' + environment.CIAM.MODE_CARD_NUM_PIN;
     let CIAM_URL = environment.API_CONNECT_URL + environment.ADIB + environment.CIAM.ENDPOINTS.VALIDATE_CARD_PIN;
     CIAM_URL = this.sharedService.handleDisplaceSession(CIAM_URL, displaceSession);
-    return this.apiService.post(encodeURI(CIAM_URL), payloadObj, 'json');
+    return this.apiService.post(encodeURI(CIAM_URL), payloadObj);
   }
 
   /**
    * @methodName newUserRegistration
-   * @description initiate the new user regisration flow
+   * @description initiate the new user registration flow
    * @parameter void
    * @return void
    */
@@ -152,9 +152,9 @@ export class RegistrationService implements OnDestroy {
    */
   cancelRegistration() {
     const payloadObj = {};
-    const CIAM_URL = `${environment.API_CONNECT_URL}${environment.ADIB}${environment.CIAM.ENDPOINTS.DE_REGISTARTION}`;
+    const CIAM_URL = `${environment.API_CONNECT_URL}${environment.ADIB}${environment.CIAM.ENDPOINTS.DE_REGISTRATION}`;
     if (CIAM_URL) {
-      // Assigning onlyAuthorizationHeader method to generate cancel regitstration header
+      // Assigning onlyAuthorizationHeader method to generate cancel registration header
       this.httpHeaderService.customHeaderFunction = this.httpHeaderService.onlyAuthorizationHeader;
       return this.apiService.post(encodeURI(CIAM_URL), payloadObj)
         .pipe(map(res => res.body ? JSON.parse(res.body) : res));

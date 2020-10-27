@@ -80,7 +80,7 @@ export class PayeeAccountFormComponent implements OnInit, OnDestroy {
   createPayeeAccountFormGroup(): void {
     this.payeeAccountGroup = this.formBuilder.group({
       consumerNumber: ['', [Validators.required]],
-      nickName: ['', [Validators.required, Validators.pattern(PATTERN_ALPHA_NUMERIC), this.sharedService.retrictWordValidator()]]
+      nickName: ['', [Validators.required, Validators.pattern(PATTERN_ALPHA_NUMERIC), this.sharedService.restrictWordValidator()]]
     });
   }
 

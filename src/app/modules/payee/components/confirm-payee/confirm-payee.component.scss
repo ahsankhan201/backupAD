@@ -55,6 +55,14 @@
   .success-screen-comp {
     padding-left: 0;
     padding-right: 0;
+    @include respond-to(screen-m-min) {
+      padding-top: 0;
+    }
+    .success-screen-comp__wrapper__buttons {
+      @include respond-to(screen-m-min) {
+        margin-top: 31px;
+      }
+    }
   }
 }
 

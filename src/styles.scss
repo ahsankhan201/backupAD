@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~roboto-fontface/css/roboto/roboto-fontface.css";
-@import "src/assets//styles/default";
+@import "src/assets/styles/default";
 @import "~@angular/material/theming";
 @include mat-core();
 
@@ -102,7 +102,7 @@ body {
     }
   }
 
-  // setting login and registarion background image styles
+  // setting login and registration background image styles
   &.pre-login-bg {
     @include respond-to(screen-m-min) {
       .top-bg-en,
@@ -279,7 +279,7 @@ mat-form-field .card-format {
   }
 }
 
-.horizontal-line-link-acoount {
+.horizontal-line-link-account {
   border: 0.5px solid $bright-gray;
   margin-top: 154px;
   @include respond-to(screen-m-min) {
@@ -287,7 +287,7 @@ mat-form-field .card-format {
   }
 }
 
-.horizontal-line-link-acoount-success {
+.horizontal-line-link-account-success {
   border: 0.5px solid $bright-gray;
   margin-top: 128px;
   @include respond-to(screen-m-min) {
@@ -485,4 +485,17 @@ mat-form-field .card-format {
 .rtl-body .auth-rtl-layout .carousel-indicators,
 .rtl-body .registration-rtl-layout .carousel-indicators {
   padding-right: 0;
+}
+
+
+.amount-primary {
+  font-family: $font-regular;
+  span:nth-child(1) {
+    color: $solid-blue;
+    font-size: 17px;
+  }
+  span:nth-child(3), span:nth-child(2) {
+    font-size: 12px;
+    color: $grey;
+  }
 }

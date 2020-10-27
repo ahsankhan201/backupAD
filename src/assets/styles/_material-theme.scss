@@ -155,7 +155,9 @@ mat-autocomplete + .mat-form-field-label-wrapper {
       border-radius: 8px 8px 0px 0px;
       .mat-dialog-title {
         @extend .ibd-roboto-medium-text;
-        color: $solid-blue;
+
+        font-family: $font-regular;
+        color: $grey;
         font-weight: normal;
         letter-spacing: 0px;
       }
@@ -169,10 +171,14 @@ mat-autocomplete + .mat-form-field-label-wrapper {
       max-height: 100%;
       .dialog-message {
         @extend .ibd-roboto-medium-text;
-        color: $dark-grey;
+        color: $solid-blue;
         font-family: $font-regular;
         line-height: 22px;
       }
+    }
+    .user-blocked-content {
+      color: $solid-blue;
+      font-family: $font-regular;
     }
     .mat-dialog-actions {
       padding: 0px 16px;
@@ -280,13 +286,16 @@ mat-autocomplete + .mat-form-field-label-wrapper {
 
 mat-slider {
   width: 100%;
-  
 }
 .mat-accent .mat-slider-track-fill {
   background-color: $cerulean-blue;
 }
 .mat-accent .mat-slider-thumb {
-  background: radial-gradient(ellipse 100% 0% at 50% 0%, $cerulean-blue 0%, #0181ba 100%);
+  background: radial-gradient(
+    ellipse 100% 0% at 50% 0%,
+    $cerulean-blue 0%,
+    #0181ba 100%
+  );
   border: 1px solid #007eb5;
   box-shadow: 0px 4px 14px 0px rgba(0, 160, 230, 0.4);
 }
@@ -296,13 +305,12 @@ mat-slider {
   transform: none;
   transform: none;
   border-radius: 4px;
-
 }
 .mat-slider:not(.mat-slider-disabled).cdk-focused .mat-slider-thumb-label {
   border-radius: 5px;
-mat-dialog-container.receipt-dialog {
-  width: 360px !important;
-}
+  mat-dialog-container.receipt-dialog {
+    width: 360px !important;
+  }
 }
 .session-timeout-modal {
   mat-dialog-container {

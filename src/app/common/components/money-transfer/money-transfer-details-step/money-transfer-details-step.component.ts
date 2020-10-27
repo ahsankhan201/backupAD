@@ -102,7 +102,7 @@ export class MoneyTransferDetailsStepComponent implements OnInit, OnDestroy {
             this.moneyTransferService.isCrossCurrencyTransaction = false;
           }
           this.handleCrossCurrency();
-          // resetting the subject details to avoid data confliction in next load of this component
+          // resetting the subject details to avoid data conflict in next load of this component
           this.moneyTransferService.setInternationalMoneyTransferDetailsSubject(undefined);
         }
       }));
@@ -318,7 +318,7 @@ export class MoneyTransferDetailsStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName fetchExchangeRate
    * @parameter none
-   * @description used to fetch the exchange rate from the servcer
+   * @description used to fetch the exchange rate from the server
    * @return none
    */
   fetchExchangeRate(): void {
@@ -380,7 +380,7 @@ export class MoneyTransferDetailsStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName validateCrossCurrencyAmount
    * @parameter none
-   * @description used to validate the fromAccountcurrency field
+   * @description used to validate the from account currency field
    * @return none
    */
   validateCrossCurrencyAmount(): void {
@@ -392,11 +392,11 @@ export class MoneyTransferDetailsStepComponent implements OnInit, OnDestroy {
     if ((!this.moneyTransferService.isTransferToAdibAccount() && !this.moneyTransferService.isBeneficiaryInsideAdibUAE())
       && (!amountValue
         || Number(amountValue < INSIDE_UAE_TRANSFER_TEXT.minimumTransferAmountCrossCurrency))) {
-      // handle error validaiton for min amount is less
+      // handle error validation for min amount is less
       FORM_CONTROL_AMOUNT.setErrors(
         { minAmount: { message: INSIDE_UAE_TRANSFER_TEXT.minimumAmountErrorCrossCurrency } });
     } else if (amountValue > Number(this.transferDetails.availableAmount)) {
-      // handle error validaiton for amount is greater than availableAmount
+      // handle error validation for amount is greater than availableAmount
       FORM_CONTROL_AMOUNT.setErrors(
         { notValidAmount: { message: INSIDE_UAE_TRANSFER_TEXT.minimumAmountError } });
     }

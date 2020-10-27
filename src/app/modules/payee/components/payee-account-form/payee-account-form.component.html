@@ -5,14 +5,15 @@
             <div class="form-group">
                 <mat-form-field>
                     <mat-label>{{formControlLabel | translate}}</mat-label>
-                    <input autocomplete="off"  matInput formControlName="consumerNumber" minlength="{{ consumerNumberLength }}"
-                        maxlength="{{ consumerNumberLength }}" #consumerNumber numbersOnly [allowDot]='allowDotStatus'
+                    <input autocomplete="off" matInput formControlName="consumerNumber"
+                        minlength="{{ consumerNumberLength }}" maxlength="{{ consumerNumberLength }}" #consumerNumber
+                        numbersOnly [allowDot]='allowDotStatus'
                         (blur)="isPayeeExisits('consumerNumber', 'utilityServiceNumber')">
                     <mat-hint align="end">{{consumerNumber.value.length}} / {{ consumerNumberLength }}
                     </mat-hint>
                     <mat-error>
                         <app-show-form-errors [control]="payeeAccountGroup.get('consumerNumber')"
-                            label="Account Number">
+                            label="{{formControlLabel}}" digitsOnly="true">
                         </app-show-form-errors>
                     </mat-error>
                 </mat-form-field>
@@ -26,7 +27,8 @@
                     <mat-hint align="end">{{rtaPINNumber.value.length}} / {{payeeAccountFormText.PIN_NUMBER_MAX}}
                     </mat-hint>
                     <mat-error>
-                        <app-show-form-errors [control]="payeeAccountGroup.get('pin')" label="PIN Number">
+                        <app-show-form-errors [control]="payeeAccountGroup.get('pin')"
+                            label="{{payeeAccountFormText.PIN_NUMBER}}">
                         </app-show-form-errors>
                     </mat-error>
                 </mat-form-field>
@@ -38,7 +40,8 @@
                     <input matInput appAlphaNumeric formControlName="nickName"
                         maxlength="{{ payeeAccountFormText.NICK_NAME_MAX }}">
                     <mat-error>
-                        <app-show-form-errors [control]="payeeAccountGroup.get('nickName')" label="Nick name">
+                        <app-show-form-errors [control]="payeeAccountGroup.get('nickName')"
+                            label="{{payeeAccountFormText.NICK_NAME}}">
                         </app-show-form-errors>
                     </mat-error>
                 </mat-form-field>

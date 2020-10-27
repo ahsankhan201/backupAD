@@ -409,7 +409,7 @@
       }
       &__ctaLink {
         @extend .cta-link-btn;
-
+        cursor: pointer;
         padding-top: 19px;
         line-height: normal;
         &:before {

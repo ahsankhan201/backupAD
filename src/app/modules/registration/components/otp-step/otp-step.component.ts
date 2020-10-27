@@ -32,7 +32,7 @@ export class OtpStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName getOTPLocationData
    * @params none
-   * @description Used for get the otp locationfrom registration step
+   * @description Used for get the otp location from registration step
    * @return none
    */
   getOTPLocationData(): void {
@@ -48,11 +48,7 @@ export class OtpStepComponent implements OnInit, OnDestroy {
    * @return none
    */
   getOTPLocationDetails(isItPostCall?: boolean): void {
-    // Functionality will implemement later
-    if (isItPostCall) {
-      this.stepper.next();
-    }
-
+    if (isItPostCall) { this.stepper.next(); }
   }
   /**
    * @methodName resendOTPRequired
@@ -64,7 +60,7 @@ export class OtpStepComponent implements OnInit, OnDestroy {
     if (resendOTP) {
       this.subscription$.add(this.registrationService.newUserRegistration().subscribe(res => {
         if (res) {
-          // Used to udpate the location value
+          // Used to update the location value
           this.registrationService.newUserRegistrationSubject$.next(res);
           // reset location value for next instance
           this.registrationService.newUserRegistrationSubject$.next(undefined);

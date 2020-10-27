@@ -17,7 +17,6 @@ export const CIAM_ERROR_MAPPING = {
     R15: 'tr_error_R15',
     R16: GENERIC_ERROR_MESSAGE,
     R106: GENERIC_ERROR_MESSAGE,
-    R107: GENERIC_ERROR_MESSAGE,
     R108: GENERIC_ERROR_MESSAGE,
     R109: GENERIC_ERROR_MESSAGE,
     R110: GENERIC_ERROR_MESSAGE,
@@ -53,6 +52,7 @@ export const CIAM_ERROR_MAPPING = {
     R332: 'tr_error_backend',
     R334: 'tr_error_backend',
     R505: 'tr_error_invalidUsername',
+    '[R507]': 'tr_error_invalidUsername',
     R511: 'tr_error_newPwdInHistory',
     R512: 'tr_error_wrongOldPwd',
     R514: 'tr_error_wrongCardDetails',
@@ -83,4 +83,5 @@ export const CIAM_ERROR_MAPPING = {
 export const ERROR_LIST = {
     R14: '[R14]',
     R115: 'R115',
+    R107: 'R107',
 };

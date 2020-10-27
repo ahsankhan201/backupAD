@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">31.91% </span>
+        <span class="strong">30.61% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>45/141</span>
+        <span class='fraction'>45/147</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">8.51% </span>
+        <span class="strong">6.78% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/47</span>
+        <span class='fraction'>4/59</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">34.62% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>9/26</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">32.31% </span>
+        <span class="strong">30.88% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>42/130</span>
+        <span class='fraction'>42/136</span>
       </div>
     </div>
   </div>
@@ -361,7 +361,19 @@
 316
 317
 318
-319</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -613,7 +625,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -621,19 +638,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -681,12 +705,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 &nbsp;
 import { SharedService } from 'src/app/common/services/shared.service';
 import { PaymentService } from 'src/app/common/services/payment/payment.service';
 &nbsp;
 import { PaymentSummaryDetailsModel } from 'src/app/common/models/payment.model';
-import { Subscription } from 'rxjs';
 import {
   DOMAINS, PAYMENT_TYPES, HTTP_STATUS_CODE,
   PAYMENT_SUCCESS_SCREEN_TEXT, TRANSFER_RECEIPT_LABELS,
@@ -814,7 +838,7 @@ export class ConfirmPaymentComponent implements OnInit, OnDestroy {
     const PAYMENT_END_POINT = <span class="cstat-no" title="statement not covered" >`${this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false)}${UTILITY_PAYMENT_ENDPOINTS.PAYMENT}`;</span>
 <span class="cstat-no" title="statement not covered" >    this.paymentService.sendPaymentRequest(PAYMENT_END_POINT, this.paymentService.setUtilityPaymentPayLoad()).subscribe(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      if (response.status === HTTP_STATUS_CODE.CREATED) {</span>
-<span class="cstat-no" title="statement not covered" >        this.transctionTimeStamp = new Date().toString();</span>
+<span class="cstat-no" title="statement not covered" >        this.transctionTimeStamp = new Date().toLocaleString();</span>
 <span class="cstat-no" title="statement not covered" >        this.setReferenceNumber(response.headers.get(PAYMENT_SUCCESS_SCREEN_TEXT.REF_NO_LOCATION).toString());</span>
 <span class="cstat-no" title="statement not covered" >        this.showSuccessScreen = true;</span>
 <span class="cstat-no" title="statement not covered" >        this.updateAccountAndCards();</span>
@@ -927,32 +951,44 @@ export class ConfirmPaymentComponent implements OnInit, OnDestroy {
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
 <span class="cstat-no" title="statement not covered" >    receiptObject.name = PAYMENT_RECEIPT_LABELS.paymentDateText;</span>
-<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.transctionTimeStamp;</span>
+<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.transctionTimeStamp.toString().slice(0, 24);</span>
 <span class="cstat-no" title="statement not covered" >    this.paymentReceipt.listOfFields.push(receiptObject);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
-<span class="cstat-no" title="statement not covered" >    receiptObject.name = this.paymentSummaryDetails.utilityServiceNumber ?</span>
-      PAYMENT_RECEIPT_LABELS.paymentAmountText : PAYMENT_RECEIPT_LABELS.donationAmountText;
+    // checking for card payments
+<span class="cstat-no" title="statement not covered" >    if (this.paymentSummaryDetails &amp;&amp; this.paymentSummaryDetails.hasOwnProperty('payToCardNumber')) {</span>
+<span class="cstat-no" title="statement not covered" >      receiptObject.name = PAYMENT_RECEIPT_LABELS.paymentAmountText;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      receiptObject.name = this.paymentSummaryDetails.utilityServiceNumber ?</span>
+        PAYMENT_RECEIPT_LABELS.paymentAmountText : PAYMENT_RECEIPT_LABELS.donationAmountText;
+    }
 <span class="cstat-no" title="statement not covered" >    receiptObject.value = this.paymentSummaryDetails.amount;</span>
 <span class="cstat-no" title="statement not covered" >    this.paymentAmountToTextForCopy = receiptObject.name;</span>
 <span class="cstat-no" title="statement not covered" >    this.paymentReceipt.listOfFields.push(receiptObject);</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
-<span class="cstat-no" title="statement not covered" >    receiptObject.name = this.paymentSummaryDetails.utilityServiceNumber ?</span>
-      PAYMENT_RECEIPT_LABELS.utilityProviderText : PAYMENT_RECEIPT_LABELS.donationTypeText;
-<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.paymentSummaryDetails.utilityServiceNumber ?</span>
-      this.paymentService.selectedPayeeObj.utilityProviderId : this.paymentService.selectedPayeeObj.payeeType;
-<span class="cstat-no" title="statement not covered" >    this.paymentReceipt.listOfFields.push(receiptObject);</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
-<span class="cstat-no" title="statement not covered" >    receiptObject.name = this.paymentSummaryDetails.utilityServiceNumber ?</span>
-      PAYMENT_RECEIPT_LABELS.serviceProviderNumberText : PAYMENT_RECEIPT_LABELS.donatedToText;
-<span class="cstat-no" title="statement not covered" >    if (this.paymentService.selectedPayeeObj &amp;&amp; this.paymentService.selectedPayeeObj.payeeType &amp;&amp;</span>
-      this.paymentService.selectedPayeeObj.payeeType === PAYEE_SELECTION_MASTER_DATA.TELECOM_TEXT) {
-<span class="cstat-no" title="statement not covered" >      receiptObject.name = PAYMENT_RECEIPT_LABELS.phoneNumberText;</span>
+    // checking for card payments
+<span class="cstat-no" title="statement not covered" >    if (this.paymentSummaryDetails &amp;&amp; !this.paymentSummaryDetails.hasOwnProperty('payToCardNumber')) {</span>
+<span class="cstat-no" title="statement not covered" >      receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >      receiptObject.name = this.paymentSummaryDetails.utilityServiceNumber ?</span>
+        PAYMENT_RECEIPT_LABELS.utilityProviderText : PAYMENT_RECEIPT_LABELS.donationTypeText;
+<span class="cstat-no" title="statement not covered" >      receiptObject.value = this.paymentSummaryDetails.utilityServiceNumber ?</span>
+        this.paymentService.selectedPayeeObj.utilityProviderId : this.paymentService.selectedPayeeObj.payeeType;
+<span class="cstat-no" title="statement not covered" >      this.paymentReceipt.listOfFields.push(receiptObject);</span>
     }
-<span class="cstat-no" title="statement not covered" >    receiptObject.value = this.paymentSummaryDetails.utilityServiceNumber ?</span>
-      this.paymentSummaryDetails.utilityServiceNumber : this.paymentService.selectedPayeeObj.payeeCategory;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    receiptObject = {} as ListOfReceiptFields;</span>
+<span class="cstat-no" title="statement not covered" >    if (this.paymentSummaryDetails &amp;&amp; this.paymentSummaryDetails.hasOwnProperty('payToCardNumber')) {</span>
+<span class="cstat-no" title="statement not covered" >      receiptObject.name = PAYMENT_RECEIPT_LABELS.paymentToCardNumberText;</span>
+<span class="cstat-no" title="statement not covered" >      receiptObject.value = this.paymentSummaryDetails.payToCardNumber;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      receiptObject.name = this.paymentSummaryDetails.utilityServiceNumber ?</span>
+        PAYMENT_RECEIPT_LABELS.serviceProviderNumberText : PAYMENT_RECEIPT_LABELS.donatedToText;
+<span class="cstat-no" title="statement not covered" >      if (this.paymentService.selectedPayeeObj &amp;&amp; this.paymentService.selectedPayeeObj.payeeType &amp;&amp;</span>
+        this.paymentService.selectedPayeeObj.payeeType === PAYEE_SELECTION_MASTER_DATA.TELECOM_TEXT) {
+<span class="cstat-no" title="statement not covered" >        receiptObject.name = PAYMENT_RECEIPT_LABELS.phoneNumberText;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      receiptObject.value = this.paymentSummaryDetails.utilityServiceNumber ?</span>
+        this.paymentSummaryDetails.utilityServiceNumber : this.paymentService.selectedPayeeObj.payeeCategory;
+    }
 <span class="cstat-no" title="statement not covered" >    this.amountSendToTextForCopy = receiptObject.name;</span>
 <span class="cstat-no" title="statement not covered" >    this.amountSendToValueForCopy = receiptObject.value;</span>
 <span class="cstat-no" title="statement not covered" >    this.paymentReceipt.listOfFields.push(receiptObject);</span>
@@ -1003,7 +1039,7 @@ export class ConfirmPaymentComponent implements OnInit, OnDestroy {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 21 2020 17:50:31 GMT+0400 (Gulf Standard Time)
 </div>
 </div>
 <script src="../../../../../../prettify.js"></script>

@@ -161,6 +161,7 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
     this.authService.pinNumber = cardData.pinNumber;
     if (this.authService.cardNumber && this.authService.pinNumber) {
       this.subscription$.add(this.authService.checkValidCardDetails().subscribe(res => {
+        res.body = JSON.parse(res.body.toString());
         if (res.body.access_token) {
           this.sharedService.accessToken = res.body.access_token;
           this.handleNewCiamRequest();
@@ -180,6 +181,7 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
   checkValidCardDetails(displaceSession = false): void {
     if (this.authService.cardNumber && this.authService.pinNumber) {
       this.subscription$.add(this.authService.checkValidCardDetails(displaceSession).subscribe(res => {
+        res.body = JSON.parse(res.body.toString());
         if (res.body.access_token) {
           this.sharedService.accessToken = res.body.access_token;
           this.handleNewCiamRequest();
@@ -187,7 +189,7 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
       }, errors => {
         if (errors && errors.error && errors.error.details &&
           (errors.error.details[ERROR_DESCRIPTION_TEXT] === ERROR_LIST.R115)) {
-            this.handleUserSessionManagment();
+            this.handleUserSessionManagement();
         } else if (errors.error && errors.error.details) { this.alertMessage = errors.error.details.description; }
       }));
     }
@@ -302,13 +304,13 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
 
 
   /**
-   * @methodName handleUserSessionManagment
+   * @methodName handleUserSessionManagement
    * @parameter none
-   * @description used to handle user session managment
+   * @description used to handle user session management
    * @return none
    */
-  handleUserSessionManagment(): void {
-    this.subscription$.add(this.dialogService.handleMultipleUserSessionManagment().subscribe(
+  handleUserSessionManagement(): void {
+    this.subscription$.add(this.dialogService.handleMultipleUserSessionManagement().subscribe(
       response => {
         if (response === true) {
           this.checkValidCardDetails(true);

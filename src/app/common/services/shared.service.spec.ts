@@ -38,7 +38,7 @@ describe('SharedService', () => {
   // Testing generateApiUrl method
   it('should return string object', () => {
     const returnedURL = service.generateApiUrl('dummyDomain', true, true);
-    expect(returnedURL).toEqual('undefined/adib/sb/app');
+    expect(returnedURL).toContain('undefined/adib');
   });
 
   // Testing setSnackBarMessage method

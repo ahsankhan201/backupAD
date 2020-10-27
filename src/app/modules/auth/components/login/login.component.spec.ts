@@ -38,4 +38,10 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('testing showForgetComponent() method', () => {
+    component.showForgetComponent('LoginComponent');
+    component.showForgetComponent(undefined);
+    expect(component).toBeTruthy();
+  });
 });

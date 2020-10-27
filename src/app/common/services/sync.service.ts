@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders, HttpBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -6,8 +6,11 @@ import { Observable } from 'rxjs';
 })
 
 export class APISyncService {
+    private httpClientAvoidInterceptor: HttpClient;
     // retryCount: number = environment ? environment.retryCount : 2;
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, handler: HttpBackend) {
+        this.httpClientAvoidInterceptor = new HttpClient(handler);
+    }
 
     /**
      * @methodName get
@@ -18,7 +21,15 @@ export class APISyncService {
     get(url: string, type = 'text', headers?: HttpHeaders, paramsObject?: any): Observable<any> {
         return this.http.get(url, { headers, responseType: type as any, params: paramsObject });
     }
-
+    /**
+     * @methodName getWithNoIntercept
+     * @description used to fetch the data from sever bypass interceptor
+     * @param url<string>, payLoad<Object>
+     * return observable object
+     */
+    getWithNoIntercept(url: string, type = 'text', headers?: HttpHeaders, paramsObject?: any): Observable<any> {
+        return this.httpClientAvoidInterceptor.get(url, { headers, responseType: type as any, params: paramsObject });
+    }
     /**
      * @methodName put
      * @description used to fetch the data from sever

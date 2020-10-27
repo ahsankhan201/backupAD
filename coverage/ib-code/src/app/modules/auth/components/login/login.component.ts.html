@@ -847,7 +847,7 @@ import { AuthService } from '../../services/auth.service';
 import { LogoutService } from 'src/app/modules/logout/services/logout.service';
 &nbsp;
 import { environment } from 'src/environments/environment';
-import { AGREEMENT_ENDPOINTS, DEVICE_REGISTRATION, DISPLACE_SESSION } from 'src/app/common/api-endpoints';
+import { AGREEMENT_ENDPOINTS, DEVICE_REGISTRATION } from 'src/app/common/api-endpoints';
 import { BrowserRegistrationDetails } from 'src/app/common/models/registration.model';
 import { OTPResponse } from 'src/app/common/models/otp.model';
 import {
@@ -942,7 +942,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 <span class="cstat-no" title="statement not covered" >        this.sharedService.accessToken = response.body[ACCESS_TOKEN_TEXT];</span>
 <span class="cstat-no" title="statement not covered" >        this.sharedService.customerRIMID = response.body['rimid'];</span>
 <span class="cstat-no" title="statement not covered" >        this.sharedService.refreshToken = response.body[REFRESH_TOKEN_TEXT];</span>
-<span class="cstat-no" title="statement not covered" >        this.checkDeviceRegistaration();</span>
+<span class="cstat-no" title="statement not covered" >        this.checkDeviceRegistration();</span>
 <span class="cstat-no" title="statement not covered" >        this.resetCaptcha();</span>
       }
     },
@@ -969,7 +969,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 <span class="cstat-no" title="statement not covered" >          this.authService.showComponent$.next(COMPONENT_LIST.FORGET_PASSWORD);</span>
         } else <span class="cstat-no" title="statement not covered" >if (error &amp;&amp; error.error &amp;&amp; error.error.details &amp;&amp;</span>
           (error.error.details[ERROR_DESCRIPTION_TEXT] === ERROR_LIST.R115)) {
-<span class="cstat-no" title="statement not covered" >            this.handleUserSessionManagment();</span>
+<span class="cstat-no" title="statement not covered" >          this.handleUserSessionManagement();</span>
         }
 <span class="cstat-no" title="statement not covered" >        this.resetCaptcha();</span>
 <span class="cstat-no" title="statement not covered" >        this.loginFormGroup.updateValueAndValidity();</span>
@@ -1039,12 +1039,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 &nbsp;
   /**
-   * @methodName checkDeviceRegistaration
+   * @methodName checkDeviceRegistration
    * @parameter none
    * @description used to get access token using credentials from server
    * @return none
    */
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  checkDeviceRegistaration(): void {</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  checkDeviceRegistration(): void {</span></span>
     const CIAM_SESSION_URL = <span class="cstat-no" title="statement not covered" >`${environment.API_CONNECT_URL}${environment.ADIB}${environment.CIAM.ENDPOINTS.DEVICE_SESSION_REG}`;</span>
 <span class="cstat-no" title="statement not covered" >    this.httpHeadersService.customHeaderFunction = this.httpHeadersService.generateDeviceSessionRegHeaders;</span>
 <span class="cstat-no" title="statement not covered" >    this.authService.getDeviceRegistrationSession(CIAM_SESSION_URL, this.generateBrowserDetailsPayLoad()).subscribe(<span class="fstat-no" title="function not covered" >response =&gt; {</span></span>
@@ -1081,7 +1081,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 <span class="cstat-no" title="statement not covered" >        this.getUserAgreementData();</span>
       }
     }, <span class="fstat-no" title="function not covered" >error =&gt; {</span>
-      // if API fails instoring browser data allow the user to continue with the flow
+      // if API fails in storing browser data allow the user to continue with the flow
 <span class="cstat-no" title="statement not covered" >      this.getUserAgreementData();</span>
     });
   }
@@ -1089,7 +1089,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   /**
    * @methodName generateLoginPayLoad
    * @parameter none
-   * @description used to genreate the login request payload
+   * @description used to generate the login request payload
    * @return none
    */
 <span class="fstat-no" title="function not covered" >  generateLoginPayLoad(): HttpParams {</span>
@@ -1110,7 +1110,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   /**
    * @methodName generateBrowserDetailsPayLoad
    * @parameter none
-   * @description used to genreate browser details payload
+   * @description used to generate browser details payload
    * @return BrowserRegistrationDetails
    */
 <span class="fstat-no" title="function not covered" >  generateBrowserDetailsPayLoad(): BrowserRegistrationDetails {</span>
@@ -1209,13 +1209,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 &nbsp;
   /**
-   * @methodName handleUserSessionManagment
+   * @methodName handleUserSessionManagement
    * @parameter none
-   * @description used to handle user session managment
+   * @description used to handle user session management
    * @return none
    */
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  handleUserSessionManagment(): void {</span></span>
-<span class="cstat-no" title="statement not covered" >    this.subscription$.add(this.dialogService.handleMultipleUserSessionManagment().subscribe(</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  handleUserSessionManagement(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.subscription$.add(this.dialogService.handleMultipleUserSessionManagement().subscribe(</span>
 <span class="fstat-no" title="function not covered" >      response =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        if (response === true) {</span>
 <span class="cstat-no" title="statement not covered" >          this.loginUser(true);</span>
@@ -1237,7 +1237,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 21 2020 17:50:31 GMT+0400 (Gulf Standard Time)
 </div>
 </div>
 <script src="../../../../../../prettify.js"></script>

@@ -1,5 +1,5 @@
 import { environment } from 'src/environments/environment';
-
+export const DUMMY_STRING = 'Dummy String Data';
 export const TRANSLATION_DATA = {
     LANGUAGES: [
         {
@@ -109,7 +109,6 @@ export const HEADER_INFO = {
 };
 
 export const HEADER_CONST = {
-    name: 'Bader Alzaben',
     totalAvailableFundsText: 'tr_HeaderDashboardComponent_totalFundsText',
     welcomeText: 'Welcome!',
     languageEngText: 'Eng',
@@ -407,7 +406,7 @@ export const SUCCESS_SCREEN_TEXT = {
 
 export const PAYEE_SUCCESS_SCREEN_TEXT = {
     PAYEE: 'payee',
-    payeeAdded: 'Payee Added',
+    payeeAdded: 'tr_addPayee_payeeAddedText',
     note: 'tr_common_noteText',
     transferText: 'tr_addPayee_transferText',
     twentryFourHrs: 'tr_common_twentyFourHoursText',
@@ -465,6 +464,7 @@ export const ERROR_MESSAGES = {
     isRequired: 'is required',
     mustBe: 'must be at least',
     charactersLong: 'characters long',
+    digitsLong: 'digits long',
     cannotExceed: 'cannot exceed',
     characters: 'characters',
     notValidEmail: 'is not valid.',
@@ -497,6 +497,7 @@ export const NAV_CONTROLS = {
 };
 export const NICKNAME_LABEL = 'Nick name';
 export const RESPONSE_TYPE_TEXT = 'text';
+export const RESPONSE_TYPE_JSON = 'json';
 export const TEXT_SUFFIX = '_TEXT';
 export const IMG_SUFFIX = '_IMG';
 export const NICKNAME_LENGTH = 20;
@@ -881,7 +882,7 @@ export const OPEN_ACCOUNT_TEXT = {
     termsAndCondtionsText: 'tr_common_termsAndConditions',
     termsAndConditionGhinaService: 'terms-and-condition-ghina-service',
     termsAndConditionBankingService: 'terms-and-condition-banking-service',
-    termsAndConditionDisagreeText: 'tr_common_disgree',
+    termsAndConditionDisagreeText: 'tr_common_disagree',
     termsAndConditionAgreeText: 'tr_common_agree'
 };
 export const EXCHANGE_TRANSFER_AMOUNT_DEFAULT = '1';
@@ -968,6 +969,13 @@ export const DIALOG_OPTION_BANKING_SERVICE_TERMS = {
     termsAndConditionComponent: OPEN_ACCOUNT_TEXT.termsAndConditionBankingService
 };
 
+export const DIALOG_OPTION_R107_ERROR = {
+    title: 'tr_user_blocked_dialog_text',
+    cancelText: undefined,
+    confirmText: 'tr_common_closeText',
+    textTemplate: 'generic-message-card-pin-block'
+};
+
 export const DIALOG_OPTION_GHINA_SERVICE_TERMS = {
     cancelText: OPEN_ACCOUNT_TEXT.termsAndConditionDisagreeText,
     confirmText: OPEN_ACCOUNT_TEXT.termsAndConditionAgreeText,
@@ -1001,7 +1009,7 @@ export const DIALOG_OPTION_USER_SESSION_MANAGEMENT = {
 };
 
 export const LOGIN_HEADER_URLS = ['/registration', '/auth', '/logout']; // login for switching view dashboard or login
-export const ADIB_WEBSITE_URL_TEXT = 'www.adib.ae';
+export const ADIB_WEBSITE_URL_TEXT =  environment.ADIB_WEBSITE_URL;
 export const RECAPTCHA_CONFIG = {
     SITE_KEY: environment.CAPTCHA.SITEKEY, // RECAPTCHA_SITE_KEY
     CALLBACK: 'grecaptchaCallback',
@@ -1091,8 +1099,9 @@ export const FOOTER_LINKS = {
 };
 export const AGREEMENT_CODE = 'BSA';
 export const MOBILE_NUMBER_LENGTH = 12;
-export const SNACK_BAR_RESTRICTED_MESSAGES = ['tr_error_R01', 'tr_error_R02', 'tr_error_R03', 'tr_error_R15', 'R115', '8072'];
-export const SNACK_BAR_RESTRICTED_ERROR_CODES = ['8072'];
+export const SNACK_BAR_RESTRICTED_MESSAGES = ['tr_error_R01', 'tr_error_R02', 'tr_error_R03', 'tr_error_R15', 'R115',
+'8072', '8000', 'R107'];
+export const SNACK_BAR_RESTRICTED_ERROR_CODES = { invalidIBAN: '8072',  invalidCardNumber: '8000' };
 export const COOLING_PERIOD_CALCULATION = {
     MINUTES: 60,
     MIN_TEXT: ' mins',
@@ -1134,5 +1143,7 @@ export const LOGOUT_SCREEN_IMAGES = {
     LOGOUT_SUCCESS_IMG_BLUE: '/assets/images/Logout_Success@2x.svg',
     SESSION_EXP_IMG_BLUE: '/assets/images/Logout_Session_Exp@2x.svg',
     LOGOUT_SUCCESS_IMG_WHITE: '/assets/images/Logout_Success_White@2x.svg',
-    SESSION_EXP_IMG_WHITE: '/assets/images/Session_Expired_White@2x.svg'
+    SESSION_EXP_IMG_WHITE: '/assets/images/Session_Expired_White@2x.svg',
+    ACTIVE_SESSION_IMG_WHITE: '/assets/images/active_session_white@2x.svg',
+    ACTIVE_SESSION_IMG_BLUE: '/assets/images/active_session_blue@2x.svg'
 };

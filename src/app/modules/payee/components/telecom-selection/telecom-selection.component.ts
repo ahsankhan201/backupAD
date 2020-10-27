@@ -1,14 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, QueryList, ViewChildren } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 // Include services here
 import { PayeeService } from '../../services/payee.service';
 
 // Include constants and models here
-import { PAYEE_SELECTION_MASTER_DATA } from '../../payee-module.constants';
+import { CHECKBOX_COMP_NAME, PAYEE_SELECTION_MASTER_DATA } from '../../payee-module.constants';
 import { NAV_CONTROLS, ARABIC_LANG_TEXT } from 'src/app/common/global-constants';
 import { CheckBoxEmittedObj } from 'src/app/common/models/payee.model';
 import { SharedService } from 'src/app/common/services/shared.service';
+import { CheckboxGenericComponent } from 'src/app/common/components/checkbox-generic/checkbox-generic.component';
 
 @Component({
     selector: 'app-telecom-selection',
@@ -22,7 +23,8 @@ export class TelecomSelectionComponent implements OnInit, OnDestroy {
     navControlsText = NAV_CONTROLS;
     selectedLanguage: string;
     arabicLanguageText = ARABIC_LANG_TEXT;
-
+    previousSelectedProvider: string;
+    @ViewChildren(CheckboxGenericComponent) checkboxComponent: QueryList<CheckboxGenericComponent>;
     constructor(
         private payeeService: PayeeService,
         private sharedService: SharedService) { }
@@ -60,11 +62,19 @@ export class TelecomSelectionComponent implements OnInit, OnDestroy {
     }
     /**
      * @methodName selectedTelecomProduct
-     * @parameter selectProduct<CheckBoxEmittedObj>
+     * @parameter selectProduct<CheckBoxEmittedObj> selectedProvider<string>
      * @description Used to set the telecom provider object
      * @return none
      */
-    selectedTelecomProduct(selectProduct: CheckBoxEmittedObj): void {
+    selectedTelecomProduct(selectProduct: CheckBoxEmittedObj, selectedProvider: string): void {
+        if (this.previousSelectedProvider && selectedProvider !== this.previousSelectedProvider) {
+            this.checkboxComponent.forEach(checkbox => {
+                if (checkbox.componentName === CHECKBOX_COMP_NAME + this.previousSelectedProvider) {
+                    checkbox.handleMultipleCheckboxClickEvent();
+                }
+            });
+        }
+        this.previousSelectedProvider = selectedProvider;
         this.enableNextBtn = true;
         this.payeeService.selectedProviderProduct = selectProduct;
         this.payeeService.setSelectedProduct(selectProduct.value);

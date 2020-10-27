@@ -9,7 +9,7 @@ import {
 } from '../banking-services-module.constants';
 import {
   ICON, DASHBOARD_NAMES, DOMAINS, BANKING_SERVICE_TYPE,
-  ARABIC_LANG_TEXT, HTTP_STATUS_CODE
+  ARABIC_LANG_TEXT
 } from 'src/app/common/global-constants';
 import { BANKING_SERVICES_ENDPOINTS } from 'src/app/common/api-endpoints';
 import { AccountsSummaryResponse, PaymentsSummaryResponse } from 'src/app/common/models/bank-services-module.model';
@@ -32,8 +32,8 @@ export class BankingServicesComponent implements OnInit, OnDestroy {
   showChequeBookReqForm = false;
   bankingServiceAlertText: string;
   selectedServiceType: string;
-  accountsSummaryReponseList: AccountsSummaryResponse[] = [];
-  paymentsSummaryReponseList: PaymentsSummaryResponse[] = [];
+  accountsSummaryResponseList: AccountsSummaryResponse[] = [];
+  paymentsSummaryResponseList: PaymentsSummaryResponse[] = [];
   selectedLang: string;
   arabicLanguageText = ARABIC_LANG_TEXT;
   selectedAccountRequestDetails: AccountsSummaryResponse;
@@ -65,6 +65,7 @@ export class BankingServicesComponent implements OnInit, OnDestroy {
     if (this.sharedService.selectedBankingServicesOnQuickLink) {
       this.selectedComponent = this.sharedService.selectedBankingServicesOnQuickLink;
       this.selectedBankingService = this.sharedService.selectedBankingServicesOnQuickLink;
+      this.bankingServiceAlertText = undefined;
       this.setRequestDashboardDetails();
     }
   }
@@ -78,8 +79,8 @@ export class BankingServicesComponent implements OnInit, OnDestroy {
   getBankingService(bankingService: string): void {
     if (bankingService) {
       this.bankingServiceAlertText = undefined;
-      this.accountsSummaryReponseList = [];
-      this.paymentsSummaryReponseList = [];
+      this.accountsSummaryResponseList = [];
+      this.paymentsSummaryResponseList = [];
       this.selectedComponent = this.selectedBankingService = this.bankingService.selectedBankingService = bankingService;
       this.setRequestDashboardDetails();
     }
@@ -137,25 +138,20 @@ export class BankingServicesComponent implements OnInit, OnDestroy {
   getServiceSummary(serviceRequestType: string): void {
     if (serviceRequestType === BANKING_SERVICE_TYPE.BANK_CERTIFICATE || serviceRequestType === BANKING_SERVICE_TYPE.CHEQUE_BOOK) {
       this.subscription$.add(this.bankingService.getAccountsServiceSummary(serviceRequestType).subscribe((response) => {
-        if (response) {
-          this.accountsSummaryReponseList = response;
-        }
-      }, errors => {
-        if (errors.error && errors.error.details && errors.error.details.status === HTTP_STATUS_CODE.BAD_FORMAT) {
+        if (response && response.length > 0) {
+          this.accountsSummaryResponseList = response;
+        } else if (response && response.length === 0) {
           this.bankingServiceAlertText = this.getAlertMessage();
         }
       }));
     } else if (serviceRequestType === BANKING_SERVICE_TYPE.DEMAND_DRAFT || serviceRequestType === BANKING_SERVICE_TYPE.PAYMENT_ORDER) {
       this.subscription$.add(this.bankingService.getPaymentsServiceSummary(serviceRequestType).subscribe((response) => {
-        if (response) {
-          this.paymentsSummaryReponseList = response;
-        }
-      }, errors => {
-        if (errors.error && errors.error.details && errors.error.details.status === HTTP_STATUS_CODE.BAD_FORMAT) {
+        if (response && response.length > 0) {
+          this.paymentsSummaryResponseList = response;
+        } else if (response && response.length === 0) {
           this.bankingServiceAlertText = this.getAlertMessage();
         }
       }));
-
     }
   }
 

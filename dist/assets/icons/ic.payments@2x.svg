@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>E1AE7F14-8498-419F-87F0-CEC3101098B7@2x</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-1.0.0.0" transform="translate(-486.000000, -509.000000)">
+            <g id="Quick-Links" transform="translate(486.000000, 40.000000)">
+                <g id="Pay-Bills" transform="translate(0.000000, 469.000000)">
+                    <rect id="Bond" stroke="#979797" opacity="0" x="0.5" y="0.5" width="23" height="23"></rect>
+                    <path d="M19.9205196,1.57778027 L20.4171685,21.2367278 L17.7230704,19.9574806 L12.0299234,22.378733 L7.4744715,19.8996871 L4.35957191,21.792101 L3.58183029,2.10163306 L19.9205196,1.57778027 Z" id="Path" stroke="#1E326E" stroke-width="1.12" fill-rule="nonzero"></path>
+                    <line x1="7" y1="6" x2="17" y2="6" id="Path" stroke="#1E326E" stroke-width="1.12" stroke-linecap="round"></line>
+                    <line x1="7" y1="9" x2="17" y2="9" id="Path" stroke="#1E326E" stroke-width="1.12" stroke-linecap="round"></line>
+                    <line x1="7" y1="12" x2="17" y2="12" id="Path" stroke="#1E326E" stroke-width="1.12" stroke-linecap="round"></line>
+                    <line x1="9" y1="15" x2="15" y2="15" id="Path" stroke="#00A0E6" stroke-width="1.12" stroke-linecap="round"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

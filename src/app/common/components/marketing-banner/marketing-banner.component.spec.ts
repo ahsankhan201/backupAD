@@ -25,4 +25,9 @@ describe('MarketingBannerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('testing onDestroy() method', () => {
+    component.ngOnDestroy();
+    expect(component.selectedLanguage).toBeUndefined();
+  });
 });

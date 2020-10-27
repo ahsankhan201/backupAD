@@ -1,7 +1,11 @@
 <ng-container *ngIf="control && control.hasError('required')">
     {{label | translate}} {{ errorMessage.isRequired}}
 </ng-container>
-<ng-container *ngIf="control && control.hasError('minlength')"> {{label | translate}} {{ errorMessage.mustBe }}
+<ng-container *ngIf="control && control.hasError('minlength') && digitsOnlyError"> {{label | translate}}
+    {{ errorMessage.mustBe }}
+    {{ control.errors.minlength.requiredLength }} {{ errorMessage.digitsLong}}</ng-container>
+<ng-container *ngIf="control && control.hasError('minlength') && !digitsOnlyError"> {{label | translate}}
+    {{ errorMessage.mustBe }}
     {{ control.errors.minlength.requiredLength }} {{ errorMessage.charactersLong}}</ng-container>
 <ng-container *ngIf="control && control.hasError('maxlength')"> {{label | translate}} {{ errorMessage.cannotExceed }}
     {{ control.errors.maxlength.requiredLength }} {{ errorMessage.characters}}</ng-container>
@@ -12,11 +16,14 @@
 </ng-container>
 <ng-container *ngIf="control && control.hasError('pattern')"> {{ errorMessage.specialCharactersNotAllowed }}
 </ng-container>
-<ng-container *ngIf="control && control.hasError('mustMatch')"> {{ label | translate }} {{ errorMessage.mustMatch }}</ng-container>
+<ng-container *ngIf="control && control.hasError('mustMatch')"> {{ label | translate }} {{ errorMessage.mustMatch }}
+</ng-container>
 <ng-container *ngIf="control && control.hasError('isValidMobile')"> {{ control.errors.message }}</ng-container>
 <ng-container *ngIf="control && control.hasError('isTaken')"> {{ control.errors.message }}</ng-container>
-<ng-container *ngIf="control && control.hasError('min')"> {{ label | translate }} <span translate>tr_common_morethanText</span> {{ control.errors.min.message }}</ng-container>
-<ng-container *ngIf="control && control.hasError('max')"> {{ label | translate }} <span translate>tr_common_lessthanText</span> {{ control.errors.max.message }}</ng-container>
+<ng-container *ngIf="control && control.hasError('min')"> {{ label | translate }} <span
+        translate>tr_common_morethanText</span> {{ control.errors.min.message }}</ng-container>
+<ng-container *ngIf="control && control.hasError('max')"> {{ label | translate }} <span
+        translate>tr_common_lessthanText</span> {{ control.errors.max.message }}</ng-container>
 <ng-container *ngIf="control && control.hasError('minAmount')">{{ control.errors.minAmount.message | translate}}
 </ng-container>
 <ng-container *ngIf="control && control.hasError('notValidAmount')">

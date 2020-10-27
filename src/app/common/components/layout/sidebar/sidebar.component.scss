@@ -95,7 +95,10 @@
       margin-top: 92px;
     }
     @include respond-to(only-screen-sm-land) {
-      height: auto;
+      height: -webkit-fill-available;
+      .navbar-nav {
+        background: $white;
+      }
     }
   }
   .navbar-header {

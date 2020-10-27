@@ -28,10 +28,10 @@
                                 </button>
                             </div>
                             <div class="summary-cards" *ngIf="selectedComponent !== BANKING_SERVICE_CONST.bankingServicesComponent && 
-                                (accountsSummaryReponseList.length > 0 || paymentsSummaryReponseList.length >0)">
+                                (accountsSummaryResponseList.length > 0 || paymentsSummaryResponseList.length >0)">
                                 <app-banking-services-dashboard [selectedService]="selectedServiceType"
-                                    [accountsServiceSummaryData]="accountsSummaryReponseList"
-                                    [paymentsServiceSummaryData]="paymentsSummaryReponseList"
+                                    [accountsServiceSummaryData]="accountsSummaryResponseList"
+                                    [paymentsServiceSummaryData]="paymentsSummaryResponseList"
                                     (selectedRequestId)="getSelectedRequestDetails($event)">
                                 </app-banking-services-dashboard>
                             </div>

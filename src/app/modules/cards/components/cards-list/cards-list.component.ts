@@ -7,6 +7,7 @@ import { ICON, ARABIC_LANG_TEXT } from 'src/app/common/global-constants';
 import { DebitCardData, CoverCardData } from 'src/app/common/models/cards-module.model';
 import { PromotionCardModel, DebitCardsListResponse, CoverCardsListResponse } from 'src/app/common/models/global.model';
 import { MenuOptionItem, MenuOption } from 'src/app/common/models/menu-option.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cards-list',
@@ -35,7 +36,8 @@ export class CardsListComponent implements OnInit, OnDestroy {
   constructor(
     @Optional() private changeDetector: ChangeDetectorRef,
     private cardsService: CardsService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -193,6 +195,17 @@ export class CardsListComponent implements OnInit, OnDestroy {
     this.sharedService.getSelectedLanguge().subscribe((selectedLanguage: string) => {
       this.selectedLanguage = selectedLanguage;
     });
+  }
+
+  /**
+   * @methodName applyNewCard
+   * @parameter none
+   * @description Used to navigate to product card page
+   * @return none
+   */
+  applyNewCard(): void {
+    this.sharedService.selectedProduct = CARDS_MASTER_DATA.cardCategorey;
+    this.router.navigateByUrl(CARDS_MASTER_DATA.cardProductUrl);
   }
 
   ngOnDestroy() {

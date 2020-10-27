@@ -3,14 +3,16 @@
     <div class="telecom-selection-comp__provider" *ngFor="let telecomProvider of telecomProvidersList">
         <div class="telecom-selection-comp__provider__card">
             <div class="telecom-selection-comp__provider__card__wrapper">
-                <span class="telecom-selection-comp__provider__card__wrapper__img"><img
-                        alt="telecom provider" src="{{telecomProvider.imgSrc}}"></span>
-                <span class="telecom-selection-comp__provider__card__wrapper__title">{{telecomProvider.provider | titlecase }}</span>
+                <span class="telecom-selection-comp__provider__card__wrapper__img"><img alt="telecom provider"
+                        src="{{telecomProvider.imgSrc}}"></span>
+                <span
+                    class="telecom-selection-comp__provider__card__wrapper__title">{{telecomProvider.provider | titlecase }}</span>
             </div>
         </div>
         <div class="telecom-selection-comp__provider__checkbox">
             <app-checkbox-generic [optionsList]="telecomProvider.providerProduct"
-                [componentName]="'telecomProviderSelection'" (selectedOptionValue)="selectedTelecomProduct($event)"
+                [componentName]="'telecomProviderSelection'+telecomProvider.provider"
+                (selectedOptionValue)="selectedTelecomProduct($event, telecomProvider.provider)"
                 class="telecom-provider-checkbox"
                 [ngClass]="(selectedLanguage === arabicLanguageText) ? 'telecom-checkbox-rtl': ''"
                 [emitSelectedEleID]="true">

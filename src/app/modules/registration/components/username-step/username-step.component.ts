@@ -7,6 +7,7 @@ import { RegistrationService } from '../../services/registration.service';
 import { STEPPER_TEXT, PATTERN_NO_SPECIAL_CHAR, STEPPER_CONST } from '../../registration-module.constants';
 import { MatStepper } from '@angular/material/stepper';
 import { SharedService } from 'src/app/common/services/shared.service';
+import { CIAM_ERROR_MAPPING } from 'src/app/common/ciam-error-mapping';
 
 @Component({
   selector: 'app-username-step',
@@ -42,7 +43,7 @@ export class UsernameStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName initializeComponent
    * @parameter none
-   * @description used to set component and initialise data if required
+   * @description used to set component and initialize data if required
    * @return none
    */
   initializeComponent(): void {
@@ -129,7 +130,7 @@ export class UsernameStepComponent implements OnInit, OnDestroy {
         this.enableNextBtn = true;
         this.stepper.next();
       } else if (response && response['mechanism'] === CIAM_MECHANISMS.otp_success) {
-        this.userNameControl.setErrors({ userNameExist: { message: response['message'] } });
+        this.userNameControl.setErrors({ userNameExist: { message: CIAM_ERROR_MAPPING[response['message']] } });
         this.registrationService.otpResponse$.next(response);
         this.registrationService.usernameApiResponse$.next(undefined);
       }

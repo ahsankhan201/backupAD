@@ -51,7 +51,9 @@ export const CARDS_MASTER_DATA = {
     PRIMARY_ACCOUNT_KEY: 'primaryAccountNumber',
     CARD_HOLDER_NAME_KEY: 'cardHolderName',
     cardsRoute: 'cards',
-    wrongExpiryMessage: 'tr_cards_wrongExpiryMessage'
+    wrongExpiryMessage: 'tr_cards_wrongExpiryMessage',
+    cardCategorey: 'product_2',
+    cardProductUrl: 'products'
 };
 
 export const CARDS_DIALOG_TEXT = {
@@ -127,7 +129,7 @@ export const PRIMARY_COVER_CARD_QUICK_LINKS = [
 export const SUPP_COVER_CARD_QUICK_LINKS = [
     {
         action: 'changeLimit',
-        title: 'tr_common_changeCoverLimittText',
+        title: 'tr_common_changeCoverLimitText',
         icon: '/assets/icons/ic.change-cover-limit@2x.svg'
     },
     {
@@ -167,7 +169,7 @@ export const SUCCESS_SCREEN_COMPONENT_TEXT = 'SuccessScreenComponent';
 
 export const MIN_COVER_CARD_LIMIT = '1000';
 export const RANGE_SLIDER_FORMATE_LABEL = 'tr_cards_newCoverLimitText';
-export const QUICK_LINK_ID_CHANGE_COVER_LIMIT =  'changeLimit';
+export const QUICK_LINK_ID_CHANGE_COVER_LIMIT = 'changeLimit';
 
 export const LINK_DEBITCARD_ACCOUNT_TEXT = {
     ACTIVE: 'Active',
@@ -202,8 +204,8 @@ export const COVER_CARD_IMAGE_MAPPING = {
 };
 
 export const LINK_ACCOUNT_DIVIDER_LINE_CLASS = {
-    LINK_ACC_SUCCESS: 'horizontal-line-link-acoount-success',
-    LINK_ACC: 'horizontal-line-link-acoount'
+    LINK_ACC_SUCCESS: 'horizontal-line-link-account-success',
+    LINK_ACC: 'horizontal-line-link-account'
 };
 
 export const NEW_COVER_LIMIT_TEXT = 'newCoverLimit';

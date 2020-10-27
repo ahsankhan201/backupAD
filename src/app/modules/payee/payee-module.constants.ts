@@ -45,3 +45,5 @@ export const PAYEE_ACCOUNT_FORM_TEXT = {
     LANDLINE_NUMBER: 'tr_addPayee_landlineNumberText',
     MOBILE_NUMBER: 'tr_common_mobileNumberText'
 };
+
+export const CHECKBOX_COMP_NAME = 'telecomProviderSelection';

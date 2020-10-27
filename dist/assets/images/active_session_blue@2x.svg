@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300px" height="200px" viewBox="0 0 300 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>LogoutGraphics/Detected Active Login@2x</title>
+    <g id="LogoutGraphics/Detected-Active-Login" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(15.000000, 6.000000)">
+            <g id="Group-2-Copy">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#FFFFFF" stroke-width="2" fill-rule="nonzero" x="0" y="0" width="244" height="188" rx="10"></rect>
+                    <path d="M244,21 L244,178 C244,183.522847 239.522847,188 234,188 L6.46319987,188 C5.35863037,188 4.46319987,187.104569 4.46319987,186 C4.46319987,185.339928 4.78888206,184.722364 5.33358956,184.349551 L244,21 L244,21 Z" id="Rectangle-Copy" fill-opacity="0.05" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <line x1="0.5" y1="20.5" x2="244" y2="21" id="Line" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"></line>
+                    <path d="M35,21 L35,11 C35,8.23857625 37.2385763,6 40,6 L97,6 C99.7614237,6 102,8.23857625 102,11 L102,21 L102,21" id="Path" stroke="#FFFFFF" stroke-width="2"></path>
+                    <circle id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="9.5" cy="10.5" r="2.5"></circle>
+                    <circle id="Oval-Copy" fill="#FFFFFF" fill-rule="nonzero" cx="17.5" cy="10.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-2" fill="#FFFFFF" fill-rule="nonzero" cx="25.5" cy="10.5" r="2.5"></circle>
+                </g>
+                <rect id="Rectangle" stroke="#FFFFFF" stroke-width="2" fill-opacity="0.3" fill="#FFFFFF" fill-rule="nonzero" x="57" y="57" width="130" height="25" rx="3"></rect>
+                <rect id="Rectangle-Copy-2" stroke="#FFFFFF" stroke-width="2" fill-opacity="0.3" fill="#FFFFFF" fill-rule="nonzero" x="57" y="92" width="130" height="25" rx="3"></rect>
+                <rect id="Rectangle-Copy-3" stroke="#FFFFFF" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero" x="57" y="127" width="130" height="25" rx="3"></rect>
+            </g>
+            <g id="Group-3" transform="translate(219.000000, 50.000000)" fill-rule="nonzero">
+                <circle id="Oval" stroke="#FFFFFF" stroke-width="2" fill="#5894BB" cx="25.5" cy="25.5" r="25.5"></circle>
+                <g id="Group" transform="translate(16.000000, 18.000000)" fill="#FFFFFF">
+                    <path d="M12.0665002,2.24030474 L18.2439899,12.446592 C19.1019134,13.8640309 18.6483366,15.7085767 17.2308977,16.5665002 C16.7623705,16.8500825 16.2251543,17 15.6774896,17 L3.32251037,17 C1.66565612,17 0.32251037,15.6568542 0.32251037,14 C0.32251037,13.4523353 0.47242789,12.9151191 0.75601013,12.446592 L6.93349976,2.24030474 C7.79142333,0.8228658 9.6359691,0.36928897 11.053408,1.22721254 C11.4679709,1.47813214 11.8155806,1.82574193 12.0665002,2.24030474 Z" id="Triangle" stroke="#FFFFFF" stroke-width="2" fill-opacity="0.15" stroke-linejoin="round"></path>
+                    <circle id="Oval" cx="9.5" cy="12" r="1"></circle>
+                </g>
+                <path d="M17.5734496,8.15854894 C13.7428516,10.1343458 10.6511992,13.3420864 8.82234634,17.257917" id="Oval-Copy-3" stroke="#FFFFFF" stroke-width="2" fill="#5894BB" stroke-linecap="round"></path>
+            </g>
+            <path d="M244.219804,73 L244.780196,73 C245.332481,73 245.780196,73.447715 245.780196,74 C245.780196,74.065852 245.773691,74.131543 245.760777,74.196116 L245.098058,77.50971 C245.041041,77.794793 244.790729,78 244.5,78 C244.209271,78 243.958959,77.794793 243.901942,77.50971 L243.239223,74.196116 C243.130911,73.654556 243.482128,73.127731 244.023688,73.019419 C244.088261,73.006505 244.153952,73 244.219804,73 Z" id="Rectangle" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

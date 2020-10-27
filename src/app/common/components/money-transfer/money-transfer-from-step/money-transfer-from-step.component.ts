@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
 import { TransferFromSelectionModel } from 'src/app/common/models/global.model';
 import {
   TRANSFER_FROM_PAYEE_SELECTION, ACCOUNT_TYPES,
@@ -7,11 +9,10 @@ import {
 import { MONEY_TRANSFER_SCREEN_TEXT, ACCOUNT_ALLOWED_STATUS_LIST, PAYMENT_SCREEN_TEXT } from 'src/app/common/global-constants';
 import { INSIDE_UAE_TRANSFER_TEXT, LOCAL_CURRENCY } from 'src/app/common/global-constants';
 import { SharedService } from 'src/app/common/services/shared.service';
-import { DebitCardData, CoverCardData } from 'src/app/common/models/cards-module.model';
+import { CoverCardData } from 'src/app/common/models/cards-module.model';
 import { AccountListModel } from 'src/app/common/models/accounts-module.model';
 import { MoneyTransferService } from 'src/app/common/services/money-transfer/money-transfer.service';
 import { MoneyTransferDetails } from 'src/app/common/models/money-transfer.model';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-money-transfer-from-step',
@@ -107,7 +108,7 @@ export class MoneyTransferFromStepComponent implements OnInit, OnDestroy {
         }
       });
       if (this.moneyTransferService.selectedBeneficiaryForTransfer) {
-        this.transferFromAccountList = this.filterAcountForSelectedBeneficiary();
+        this.transferFromAccountList = this.filterAccountForSelectedBeneficiary();
       }
     }
   }
@@ -156,7 +157,7 @@ export class MoneyTransferFromStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName setToFilterList
    * @parameter none
-   * @description used to set filterd card, account checkbox list
+   * @description used to set filtered card, account checkbox list
    * @return none
    */
   setToFilterList() {
@@ -228,15 +229,23 @@ export class MoneyTransferFromStepComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * @methodName filterAcountForSelectedBeneficiary
+   * @methodName filterAccountForSelectedBeneficiary
    * @parameter none
-   * @description used to set acount filter for if beneficiary selected
+   * @description used to set account filter for if beneficiary selected
    * @return AccountListModel
    */
-  filterAcountForSelectedBeneficiary(): AccountListModel[] {
+  filterAccountForSelectedBeneficiary(): AccountListModel[] {
     let UPDATED_ACCOUNT_LIST: AccountListModel[] = [];
     const selectedBeneficiary = this.moneyTransferService.selectedBeneficiaryForTransfer;
     const BENEFICIARY_CURRENCY = (selectedBeneficiary) ? selectedBeneficiary.beneAccCurr : undefined;
+    // restricting card tab when transfer to beneficiary selected
+    // restricting card tab when international beneficiary selected
+    // restricting card tab when ADIB FCY beneficiary selected
+    this.showCardsTabInStepFrom = (selectedBeneficiary.beneExtAccType === INSIDE_UAE_TRANSFER_TEXT.creditCardText ||
+      (selectedBeneficiary.beneType === INSIDE_UAE_TRANSFER_TEXT.external ||
+        (selectedBeneficiary.beneType === INSIDE_UAE_TRANSFER_TEXT.INTRABANK &&
+        !LOCAL_CURRENCY.includes(selectedBeneficiary.beneAccCurr)))) ? false : true;
+    // filtering account when beneficiary selected
     if (this.transferFromAccountList && BENEFICIARY_CURRENCY) {
       if (selectedBeneficiary.beneType === INSIDE_UAE_TRANSFER_TEXT.INTRABANK &&
         selectedBeneficiary.beneExtAccType === INSIDE_UAE_TRANSFER_TEXT.creditCardText) {

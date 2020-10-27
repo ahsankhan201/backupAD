@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>85D9123C-CA6D-45A0-8B4B-2C8EE04E570A@2x</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-1.0.0.0" transform="translate(-74.000000, -359.000000)">
+            <g id="Main-Navigation" transform="translate(40.000000, 40.000000)">
+                <g id="Finance-Normal" transform="translate(0.000000, 297.000000)">
+                    <g id="ic.Finance-Normal" transform="translate(34.000000, 22.000000)">
+                        <rect id="Bond" stroke="#AFAFAF" stroke-width="1.07" opacity="0" fill-rule="nonzero" x="0.535" y="0.535" width="22.93" height="22.93" rx="2"></rect>
+                        <g id="1" transform="translate(1.000000, 1.000000)" stroke="#1D2E65" stroke-linecap="round">
+                            <path d="M11,22 L1.11107166,22 C0.497506886,22 0,21.4882783 0,20.8571826 L0,1.14281739 C0,0.511721739 0.497506886,0 1.11107166,0 L18.8888269,0 C19.5024931,0 20,0.511721739 20,1.14281739 L20,4" id="Path"></path>
+                            <line x1="4" y1="3.5" x2="14" y2="3.5" id="Path"></line>
+                            <line x1="4" y1="6.5" x2="9" y2="6.5" id="Path"></line>
+                            <line x1="4" y1="9.5" x2="9" y2="9.5" id="Path"></line>
+                            <line x1="4" y1="12.5" x2="9" y2="12.5" id="Path"></line>
+                            <line x1="4" y1="15.5" x2="9" y2="15.5" id="Path"></line>
+                        </g>
+                        <g id="2" transform="translate(13.000000, 7.000000)" stroke="#1E326E">
+                            <path d="M4.99995253,0 C2.51098979,0 0,0.61885081 0,1.9995611 C0,3.38122234 2.51098979,4 4.99995253,4 C7.48901021,4 10,3.38122234 10,1.9995611 C10,0.61885081 7.48901021,0 4.99995253,0 Z" id="Path"></path>
+                            <path d="M10,5 C10,6.10436676 7.76126828,7 5,7 C2.23883987,7 0,6.10436676 0,5" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10,8 C10,9.10436676 7.76126828,10 5,10 C2.23883987,10 0,9.10436676 0,8" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10,14 C10,15.1043668 7.76126828,16 5,16 C2.23883987,16 0,15.1043668 0,14" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10,11 C10,12.1043668 7.76126828,13 5,13 C2.23883987,13 0,12.1043668 0,11" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

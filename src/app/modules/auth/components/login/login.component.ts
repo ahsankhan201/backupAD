@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -10,7 +9,7 @@ import { AuthService } from '../../services/auth.service';
 import { LogoutService } from 'src/app/modules/logout/services/logout.service';
 
 import { environment } from 'src/environments/environment';
-import { AGREEMENT_ENDPOINTS, DEVICE_REGISTRATION, DISPLACE_SESSION } from 'src/app/common/api-endpoints';
+import { AGREEMENT_ENDPOINTS, DEVICE_REGISTRATION } from 'src/app/common/api-endpoints';
 import { BrowserRegistrationDetails } from 'src/app/common/models/registration.model';
 import { OTPResponse } from 'src/app/common/models/otp.model';
 import {
@@ -21,7 +20,7 @@ import { COMPONENT_LIST, IS_REGISTRED_COOKIE_TEXT } from '../../auth-module.cons
 import { CIAM_ERROR_MAPPING, ERROR_LIST } from 'src/app/common/ciam-error-mapping';
 import {
   DOMAINS, IS_REGISTERED_TEXT, HTTP_STATUS_CODE, DIALOG_OPTION_USER_AGREEMENT,
-  AGREEMENT_CODE, CAPTCHA_TEXT, ARABIC_LANG_TEXT, DIALOG_OPTION_USER_SESSION_MANAGEMENT
+  AGREEMENT_CODE, CAPTCHA_TEXT, ARABIC_LANG_TEXT
 } from 'src/app/common/global-constants';
 import { Dialog } from 'src/app/common/models/dialog.model';
 import { DialogService } from 'src/app/common/services/dialog.service';
@@ -101,11 +100,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     let LOGIN_URL = `${environment.API_CONNECT_URL}${environment.ADIB}${environment.CIAM.ENDPOINTS.LOGIN}`;
     LOGIN_URL = this.sharedService.handleDisplaceSession(LOGIN_URL, displaceSession);
     this.authService.postLoginDetails(encodeURI(LOGIN_URL), reqPayLoad).subscribe((response) => {
+      response['body'] = JSON.parse(response['body'].toString());
       if (response.status === HTTP_STATUS_CODE.OK && response.body && response.body[ACCESS_TOKEN_TEXT]) {
         this.sharedService.accessToken = response.body[ACCESS_TOKEN_TEXT];
         this.sharedService.customerRIMID = response.body['rimid'];
         this.sharedService.refreshToken = response.body[REFRESH_TOKEN_TEXT];
-        this.checkDeviceRegistaration();
+        this.checkDeviceRegistration();
         this.resetCaptcha();
       }
     },
@@ -132,7 +132,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.authService.showComponent$.next(COMPONENT_LIST.FORGET_PASSWORD);
         } else if (error && error.error && error.error.details &&
           (error.error.details[ERROR_DESCRIPTION_TEXT] === ERROR_LIST.R115)) {
-            this.handleUserSessionManagment();
+          this.handleUserSessionManagement();
         }
         this.resetCaptcha();
         this.loginFormGroup.updateValueAndValidity();
@@ -202,12 +202,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * @methodName checkDeviceRegistaration
+   * @methodName checkDeviceRegistration
    * @parameter none
    * @description used to get access token using credentials from server
    * @return none
    */
-  checkDeviceRegistaration(): void {
+  checkDeviceRegistration(): void {
     const CIAM_SESSION_URL = `${environment.API_CONNECT_URL}${environment.ADIB}${environment.CIAM.ENDPOINTS.DEVICE_SESSION_REG}`;
     this.httpHeadersService.customHeaderFunction = this.httpHeadersService.generateDeviceSessionRegHeaders;
     this.authService.getDeviceRegistrationSession(CIAM_SESSION_URL, this.generateBrowserDetailsPayLoad()).subscribe(response => {
@@ -244,7 +244,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.getUserAgreementData();
       }
     }, error => {
-      // if API fails instoring browser data allow the user to continue with the flow
+      // if API fails in storing browser data allow the user to continue with the flow
       this.getUserAgreementData();
     });
   }
@@ -252,20 +252,19 @@ export class LoginComponent implements OnInit, OnDestroy {
   /**
    * @methodName generateLoginPayLoad
    * @parameter none
-   * @description used to genreate the login request payload
+   * @description used to generate the login request payload
    * @return none
    */
-  generateLoginPayLoad(): HttpParams {
+  generateLoginPayLoad(): string {
     this.httpHeadersService.customHeaderFunction = this.httpHeadersService.generateLoginHeaders;
-    let params: HttpParams = new HttpParams();
-    params = params.append('grant_type', environment.CIAM.GRANT_TYPE);
-    params = params.append('client_id', environment.CIAM.CLIENT_ID);
-    params = params.append('username', this.loginFormGroup.get('userName').value);
-    params = params.append('password', this.loginFormGroup.get('password').value);
-    params = params.append('scope', environment.CIAM.SCOPE);
-    params = params.append('mode', environment.CIAM.LOGIN.MODE);
+    let params =
+      'grant_type=' + environment.CIAM.GRANT_TYPE +
+      '&client_id=' + environment.CIAM.CLIENT_ID +
+      '&username=' + this.loginFormGroup.get('userName').value +
+      '&password=' + this.loginFormGroup.get('password').value +
+      '&scope=' + environment.CIAM.SCOPE + '&mode=' + environment.CIAM.LOGIN.MODE;
     if (this.httpHeadersService.reCaptchaValue) {
-      params = params.append(CAPTCHA_TEXT, this.httpHeadersService.reCaptchaValue);
+      params += '&' + CAPTCHA_TEXT + '=' + this.httpHeadersService.reCaptchaValue;
     }
     return params;
   }
@@ -273,7 +272,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   /**
    * @methodName generateBrowserDetailsPayLoad
    * @parameter none
-   * @description used to genreate browser details payload
+   * @description used to generate browser details payload
    * @return BrowserRegistrationDetails
    */
   generateBrowserDetailsPayLoad(): BrowserRegistrationDetails {
@@ -323,7 +322,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.loginFromNewDevice = false;
       this.logoutService.logoutUser(true);
       if (!this.sharedService.getCookie(IS_REGISTRED_COOKIE_TEXT)) {
-        this.authService.openRegistraionConfirmModal();
+        this.authService.openRegistrationConfirmModal();
       }
     }
   }
@@ -372,13 +371,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * @methodName handleUserSessionManagment
+   * @methodName handleUserSessionManagement
    * @parameter none
-   * @description used to handle user session managment
+   * @description used to handle user session management
    * @return none
    */
-  handleUserSessionManagment(): void {
-    this.subscription$.add(this.dialogService.handleMultipleUserSessionManagment().subscribe(
+  handleUserSessionManagement(): void {
+    this.subscription$.add(this.dialogService.handleMultipleUserSessionManagement().subscribe(
       response => {
         if (response === true) {
           this.loginUser(true);
@@ -393,4 +392,5 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.resetCaptcha();
     if (this.loginFormGroup && this.loginFormGroup.get(CAPTCHA_TEXT)) { this.loginFormGroup.reset(); }
   }
+
 }

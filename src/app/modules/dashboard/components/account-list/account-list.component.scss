@@ -300,7 +300,7 @@
       }
       &__ctaLink {
         @extend .cta-link-btn;
-
+        cursor: pointer;
         padding-top: 19px;
         line-height: normal;
         &:before {
@@ -316,7 +316,6 @@
     &__c_card {
       border: 1px solid $light-grey;
       box-shadow: none;
-      pointer-events: none;
     }
 
     &__no-account-wrapper {

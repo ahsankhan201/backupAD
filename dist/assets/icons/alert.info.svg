@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>8A5EBF41-6D2A-45AA-8EB6-6F0541C2F7CD@2.00x</title>
+    <g id="Registration/Signup---Phone" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Registration-Phone-Port-1.0.0.4" transform="translate(-26.000000, -223.000000)" fill-rule="nonzero">
+            <g id="Alert-Message" transform="translate(16.000000, 216.000000)">
+                <g id="ic.info">
+                    <g transform="translate(10.000000, 7.000000)">
+                        <rect id="ViewBox" x="0" y="0" width="24" height="24"></rect>
+                        <path d="M11,3 C15.9705627,3 20,7.02943725 20,12 C20,16.9705627 15.9705627,21 11,21 C6.02943725,21 2,16.9705627 2,12 C2,7.02943725 6.02943725,3 11,3 Z M11,4 C6.581722,4 3,7.581722 3,12 C3,16.418278 6.581722,20 11,20 C15.418278,20 19,16.418278 19,12 C19,7.581722 15.418278,4 11,4 L11,4 Z M10,9 L10,7 L12,7 L12,9 L10,9 Z M10,17 L10,11 L12,11 L12,17 L10,17 Z" id="Icon-Shape" fill="#FF7215"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

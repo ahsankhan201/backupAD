@@ -66,19 +66,20 @@ export class BankCertificateSummaryComponent implements OnInit {
   }
 
   /**
-   * @methodName showBankCerificateDashboard
+   * @methodName showBankCertificateDashboard
    * @parameter none
    * @description used to navigate to dashboard screen
    * @return none
    */
-  showBankCerificateDashboard(): void {
+  showBankCertificateDashboard(): void {
+    this.sharedService.selectedBankingServicesOnQuickLink = BANKING_SERVICE_LIST.bankCertificate;
     this.bankingServices.cancelButtonClick$.next(BANKING_SERVICE_LIST.bankCertificate);
   }
 
   /**
    * @methodName showPreviousScreen
    * @parameter none
-   * @description used to navigate to the previos screen
+   * @description used to navigate to the previous screen
    * @return none
    */
   showPreviousScreen(): void {

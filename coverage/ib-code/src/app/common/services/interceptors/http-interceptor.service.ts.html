@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">37.7% </span>
+        <span class="strong">36.43% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>46/122</span>
+        <span class='fraction'>47/129</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">16.07% </span>
+        <span class="strong">15.13% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>18/112</span>
+        <span class='fraction'>18/119</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">33.33% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>7/21</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">36.67% </span>
+        <span class="strong">35.43% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>44/120</span>
+        <span class='fraction'>45/127</span>
       </div>
     </div>
   </div>
@@ -340,7 +340,20 @@
 295
 296
 297
-298</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -427,14 +440,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -620,13 +632,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -634,6 +646,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -655,7 +681,7 @@ import { ErrorModel } from '../../models/errors.model';
 import { ACCESS_TOKEN_TEXT, REFRESH_TOKEN_TEXT } from 'src/app/modules/auth/auth-module.constants';
 import {
     TEXT_PLAIN, CONTENT_TYPE_TEXT, HTTP_STATUS_CODE, API_ERROR_LIST,
-    RESPONSE_TYPE_TEXT, SNACK_BAR_RESTRICTED_MESSAGES, SNACK_BAR_RESTRICTED_ERROR_CODES, codeText, descText
+    RESPONSE_TYPE_TEXT, SNACK_BAR_RESTRICTED_MESSAGES, SNACK_BAR_RESTRICTED_ERROR_CODES, codeText, descText, RESPONSE_TYPE_JSON
 } from '../../global-constants';
 import { environment } from '../../../../environments/environment';
 import { CIAM_ERROR_MAPPING, GENERIC_ERROR_MESSAGE } from '../../ciam-error-mapping';
@@ -692,7 +718,7 @@ export class HttpInterceptorService implements HttpInterceptor {
                 .append('X-IBM-Client-Id', environment.IBM_CLIENT_ID)
         });
         // Enable encryption only if responseType = 'text'
-        if (this.responseType === RESPONSE_TYPE_TEXT &amp;&amp;
+        if (this.responseType !== RESPONSE_TYPE_JSON &amp;&amp;
             environment.CRYPTOGRAPHY_ENABLED &amp;&amp; cloneReq.headers.get(CONTENT_TYPE_TEXT) === TEXT_PLAIN) {
             cloneReq[this.BODY] = this.cryptionService.encrypt(cloneReq[this.BODY]);
         }
@@ -723,17 +749,16 @@ export class HttpInterceptorService implements HttpInterceptor {
 <span class="cstat-no" title="statement not covered" >                                        return this.decryptResponse(event);</span>
                                     }));
                             }),
-                            catchError(<span class="fstat-no" title="function not covered" >(</span>errorResponse: HttpErrorResponse) =&gt; {
-                                // incase of refresh token expired logout the user
-<span class="cstat-no" title="statement not covered" >                                this.logoutService.logoutUser();</span>
-<span class="cstat-no" title="statement not covered" >                                return throwError(errorResponse);</span>
-                            }),
                             finalize(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >                                this.refreshTokenInProgress = false;</span>
                             })
                         );
                     } else {
-                        // making unautherized API's in Que and call API once new access token received
+                        // incase of refresh token expired/API error,then logout the user
+<span class="cstat-no" title="statement not covered" >                        if (this.refreshTokenInProgress) {</span>
+<span class="cstat-no" title="statement not covered" >                            this.logoutUser(error, req);</span>
+                        }
+                        // making unauthorized API's in Que and call API once new access token received
 <span class="cstat-no" title="statement not covered" >                        return this.tokenRefreshedSource$.pipe(</span>
                             filter(<span class="fstat-no" title="function not covered" >token =&gt; <span class="cstat-no" title="statement not covered" >token != null)</span>,</span>
                             take(1),
@@ -785,7 +810,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     /**
      * @methodName checkErrorCodes
      * @description used to generate x-unique-id
-     * @parameters error&lt;HttpErrorRespons&gt;
+     * @parameters error&lt;HttpErrorResponse&gt;
      * @return HttpErrorResponse
      */
 <span class="fstat-no" title="function not covered" >    checkErrorCodes(</span>error: HttpErrorResponse): HttpErrorResponse {
@@ -793,7 +818,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         const errorInfo = <span class="cstat-no" title="statement not covered" >{} as HttpErrorResponse;</span>
         let errorData: any;
 <span class="cstat-no" title="statement not covered" >        if (error.error) {</span>
-<span class="cstat-no" title="statement not covered" >            errorData = (this.responseType === RESPONSE_TYPE_TEXT || error.headers.get('content-type') === TEXT_PLAIN) ?</span>
+<span class="cstat-no" title="statement not covered" >            errorData = (this.responseType !== RESPONSE_TYPE_JSON || error.headers.get('content-type') === TEXT_PLAIN) ?</span>
                 JSON.parse(this.cryptionService.decrypt(error.error)) : error.error;
         }
 <span class="cstat-no" title="statement not covered" >        if ((error.status === HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR &amp;&amp; error.statusText &amp;&amp; error.statusText !== 'undefined') ||</span>
@@ -812,7 +837,7 @@ export class HttpInterceptorService implements HttpInterceptor {
 <span class="cstat-no" title="statement not covered" >            if (error.error instanceof Blob &amp;&amp; error.error.type === 'text/plain') {</span>
 <span class="cstat-no" title="statement not covered" >                errorInfo['desc'] = API_ERROR_LIST.NO_STATEMENT_AVAILABLE;</span>
             } else {
-<span class="cstat-no" title="statement not covered" >                errorInfo['details'] = this.getErrorDesciption(error);</span>
+<span class="cstat-no" title="statement not covered" >                errorInfo['details'] = this.getErrorDescription(error);</span>
             }
 <span class="cstat-no" title="statement not covered" >            if (errorInfo &amp;&amp; errorInfo[HTTP_STATUS_CODE.vendorStatus]) {</span>
                 // It will return the vendorStatus description from API_ERROR_LIST list
@@ -824,40 +849,40 @@ export class HttpInterceptorService implements HttpInterceptor {
     }
 &nbsp;
     /**
-     * @methodName getErrorDesciption
-     * @description used for error desciption mapping
-     * @parameters error&lt;HttpErrorRespons&gt;
+     * @methodName getErrorDescription
+     * @description used for error description mapping
+     * @parameter error&lt;getErrorDescription&gt;
      * @return ErrorModel
      */
-<span class="fstat-no" title="function not covered" >    getErrorDesciption(</span>error: HttpErrorResponse): ErrorModel {
+<span class="fstat-no" title="function not covered" >    getErrorDescription(</span>error: HttpErrorResponse): ErrorModel {
 <span class="cstat-no" title="statement not covered" >        if (error &amp;&amp; error.status) {</span>
             const ERROR = <span class="cstat-no" title="statement not covered" >new ErrorModel();</span>
 <span class="cstat-no" title="statement not covered" >            ERROR.status = error.status;</span>
-            const errorData = <span class="cstat-no" title="statement not covered" >(this.responseType === RESPONSE_TYPE_TEXT || error.headers.get('content-type') === TEXT_PLAIN) ?</span>
+            const errorData = <span class="cstat-no" title="statement not covered" >(this.responseType !== RESPONSE_TYPE_JSON || error.headers.get('content-type') === TEXT_PLAIN) ?</span>
                 JSON.parse(this.cryptionService.decrypt(error.error)) : error.error;
-<span class="cstat-no" title="statement not covered" >            ERROR.description = this.mapErrorDesciption(errorData);</span>
+<span class="cstat-no" title="statement not covered" >            ERROR.description = this.mapErrorDescription(errorData);</span>
 <span class="cstat-no" title="statement not covered" >            ERROR.name = error.name;</span>
 <span class="cstat-no" title="statement not covered" >            return ERROR;</span>
         }
     }
 &nbsp;
     /**
-     * @methodName mapErrorDesciption
-     * @description used for map error in traslation
+     * @methodName mapErrorDescription
+     * @description used for map error in translation
      * @parameters errorData&lt;any&gt;
      * @return string
      */
-<span class="fstat-no" title="function not covered" >    mapErrorDesciption(</span>errorData: any): string {
-        let errorMeppedValue = <span class="cstat-no" title="statement not covered" >'';</span>
+<span class="fstat-no" title="function not covered" >    mapErrorDescription(</span>errorData: any): string {
+        let errorMappedValue = <span class="cstat-no" title="statement not covered" >'';</span>
 <span class="cstat-no" title="statement not covered" >        if (errorData &amp;&amp; errorData.error_description) {</span>
-<span class="cstat-no" title="statement not covered" >            errorMeppedValue = (CIAM_ERROR_MAPPING[errorData.error_description]) ? CIAM_ERROR_MAPPING[errorData.error_description]</span>
+<span class="cstat-no" title="statement not covered" >            errorMappedValue = (CIAM_ERROR_MAPPING[errorData.error_description]) ? CIAM_ERROR_MAPPING[errorData.error_description]</span>
                 : errorData.error_description;
         } else <span class="cstat-no" title="statement not covered" >if (errorData &amp;&amp; errorData.message) {</span>
-<span class="cstat-no" title="statement not covered" >            errorMeppedValue = (CIAM_ERROR_MAPPING[errorData.message]) ? CIAM_ERROR_MAPPING[errorData.message] : errorData.message;</span>
+<span class="cstat-no" title="statement not covered" >            errorMappedValue = (CIAM_ERROR_MAPPING[errorData.message]) ? CIAM_ERROR_MAPPING[errorData.message] : errorData.message;</span>
         } else {
-<span class="cstat-no" title="statement not covered" >            errorMeppedValue = errorData;</span>
+<span class="cstat-no" title="statement not covered" >            errorMappedValue = errorData;</span>
         }
-<span class="cstat-no" title="statement not covered" >        return errorMeppedValue;</span>
+<span class="cstat-no" title="statement not covered" >        return errorMappedValue;</span>
     }
 &nbsp;
     /**
@@ -910,6 +935,7 @@ export class HttpInterceptorService implements HttpInterceptor {
      */
 <span class="fstat-no" title="function not covered" >    showErrorInSnackBar(</span>errorData: any): void {
         let errorDescription = <span class="cstat-no" title="statement not covered" >GENERIC_ERROR_MESSAGE;</span>
+        const ERROR_CODES = <span class="cstat-no" title="statement not covered" >Object.values(SNACK_BAR_RESTRICTED_ERROR_CODES);</span>
 <span class="cstat-no" title="statement not covered" >        if (errorData.vendorStatus) {</span>
 <span class="cstat-no" title="statement not covered" >            errorDescription = errorData.vendorStatus;</span>
         } else <span class="cstat-no" title="statement not covered" >if (errorData.httpMessage) {</span>
@@ -920,8 +946,7 @@ export class HttpInterceptorService implements HttpInterceptor {
             typeof errorData.details.description === this.STRING) {
 <span class="cstat-no" title="statement not covered" >            errorDescription = errorData.details.description;</span>
         } else <span class="cstat-no" title="statement not covered" >if (errorData &amp;&amp; errorData.details &amp;&amp; errorData.details.description &amp;&amp; errorData.details.description[descText]) {</span>
-<span class="cstat-no" title="statement not covered" >            errorDescription = ( errorData.details.description[codeText]</span>
-            &amp;&amp; SNACK_BAR_RESTRICTED_ERROR_CODES.includes(errorData.details.description[codeText])) ?
+<span class="cstat-no" title="statement not covered" >            errorDescription = ( errorData.details.description[codeText] &amp;&amp; ERROR_CODES.includes(errorData.details.description[codeText])) ?</span>
              errorData.details.description[codeText] : errorData.details.description[descText];
         }
 <span class="cstat-no" title="statement not covered" >        if (!SNACK_BAR_RESTRICTED_MESSAGES.includes(errorDescription)) {</span>
@@ -933,6 +958,20 @@ export class HttpInterceptorService implements HttpInterceptor {
             });
         }
     }
+    /**
+     * @methodName logoutUser
+     * @description used to reset the data and logout the user
+     * @parameters error: HttpErrorResponse, req: HttpRequest&lt;any&gt;
+     * @return none
+     */
+<span class="fstat-no" title="function not covered" >    logoutUser(</span>error: HttpErrorResponse, req: HttpRequest&lt;any&gt;): void {
+<span class="cstat-no" title="statement not covered" >        if (error.url.includes(environment.CIAM.ENDPOINTS.LOGIN) &amp;&amp; req.body &amp;&amp; req.body.get(REFRESH_TOKEN_TEXT)) {</span>
+<span class="cstat-no" title="statement not covered" >            this.refreshTokenInProgress = false;</span>
+<span class="cstat-no" title="statement not covered" >            this.sharedService.isSessionExpired = false;</span>
+<span class="cstat-no" title="statement not covered" >            this.sharedService.detectedActiveSession = true;</span>
+<span class="cstat-no" title="statement not covered" >            this.logoutService.logoutUser();</span>
+        }
+    }
 }
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -940,7 +979,7 @@ export class HttpInterceptorService implements HttpInterceptor {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 21 2020 17:50:31 GMT+0400 (Gulf Standard Time)
 </div>
 </div>
 <script src="../../../../../prettify.js"></script>

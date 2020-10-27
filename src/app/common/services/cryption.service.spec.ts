@@ -13,12 +13,12 @@ describe('CryptionService', () => {
   });
   xit('should do encyrption', () => {
     const service: CryptionService = TestBed.get(CryptionService);
-    const encryptedData  = service.encrypt(SAMPLE);
-    expect(encryptedData).toBe(ENCRYPTED_SAMPLE_DATA);
+    const encryptedData  = service.encrypt(SAMPLE , ENCRYPTED_SAMPLE_DATA);
+    expect(encryptedData).toBe(ENCRYPTED_SAMPLE_DATA, ENCRYPTED_SAMPLE_DATA);
   });
   xit('should do decyption', () => {
     const service: CryptionService = TestBed.get(CryptionService);
-    const decryptedData  = service.decrypt(ENCRYPTED_SAMPLE_DATA);
+    const decryptedData  = service.decrypt(ENCRYPTED_SAMPLE_DATA, ENCRYPTED_SAMPLE_DATA);
     expect(decryptedData).toBe(SAMPLE);
   });
 });

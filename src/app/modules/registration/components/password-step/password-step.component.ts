@@ -56,7 +56,7 @@ export class PasswordStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName initializeComponent
    * @parameter none
-   * @description used to set component and initialise data if required
+   * @description used to set component and initialize data if required
    * @return none
    */
   initializeComponent(): void {
@@ -143,7 +143,7 @@ export class PasswordStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName setPassword
    * @parameter none
-   * @description used to set pwd in registeration service
+   * @description used to set pwd in registration service
    * @return none
    */
   setPassword(): void {
@@ -164,7 +164,7 @@ export class PasswordStepComponent implements OnInit, OnDestroy {
       if (confirmed === true) {
         this.submitPasswordRequest();
       } else if (confirmed === false) {
-        // functionality will implement later for  cancel registation
+        // functionality will implement later for  cancel registration
         this.handleCancelButtonClick();
       }
     });

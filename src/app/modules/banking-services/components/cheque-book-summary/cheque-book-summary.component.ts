@@ -7,7 +7,6 @@ import { ChequeBookRequestModel } from 'src/app/common/models/bank-services-modu
 import { CHEQUE_BOOK_INFO, BANKING_SERVICE_LIST } from '../../banking-services-module.constants';
 import { ARABIC_LANG_TEXT, CURRENCY_CODE_AED, DOMAINS } from 'src/app/common/global-constants';
 
-
 @Component({
   selector: 'app-cheque-book-summary',
   templateUrl: './cheque-book-summary.component.html',
@@ -54,6 +53,7 @@ export class ChequeBookSummaryComponent implements OnInit, OnDestroy {
    * @return none
    */
   showChequeBookDashboard(): void {
+    this.sharedService.selectedBankingServicesOnQuickLink = BANKING_SERVICE_LIST.chequeBook;
     this.bankingService.cancelButtonClick$.next(BANKING_SERVICE_LIST.chequeBook);
   }
 

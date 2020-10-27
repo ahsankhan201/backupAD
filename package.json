@@ -1,6 +1,6 @@
 {
   "name": "ib-code",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "scripts": {
     "ng": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng",
     "serve": "ng serve",

@@ -1,8 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { ICON, TRANSFER_PAYMENT_CONST, ARABIC_LANG_TEXT, ACCOUNT_TYPES } from '../../global-constants';
+import { INVALID_IBAN_BENEFICIARY} from '../../../modules/transfers-payments/transfers-payments-module.constants';
 import { BeneficiaryListResponse } from '../../models/beneficiary.model';
 import { Subscription } from 'rxjs';
 import { SharedService } from '../../services/shared.service';
+import { SnackBarService } from 'src/app/common/services/snack-bar.service';
 
 @Component({
   selector: 'app-checkbox-beneficiary',
@@ -22,7 +24,8 @@ export class CheckboxBeneficiaryComponent implements OnInit, OnDestroy {
   arabicLanguageText = ARABIC_LANG_TEXT;
   accountTypes = ACCOUNT_TYPES;
   constructor(
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private snackBarService: SnackBarService
   ) { }
 
   ngOnInit() {
@@ -48,8 +51,12 @@ export class CheckboxBeneficiaryComponent implements OnInit, OnDestroy {
    * @return none
    */
   handleChange(account: BeneficiaryListResponse, input: HTMLInputElement): void {
-    this.selectedValue = input.value;
-    this.selectedOptionValue.emit(account);
+    if (account.isValidBeneficiary === 'true') {
+      this.selectedValue = input.value;
+      this.selectedOptionValue.emit(account);
+    } else {
+      this.snackBarService.showSnackBar({ showSnackBar: true, message: { msgType: 'error', msgText: INVALID_IBAN_BENEFICIARY } });
+    }
   }
 
   ngOnDestroy() {

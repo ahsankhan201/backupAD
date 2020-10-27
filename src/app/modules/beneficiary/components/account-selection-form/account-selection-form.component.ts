@@ -4,7 +4,8 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { IsTaken } from 'src/app/common/validators/is-taken.validator';
 import { MustMatch } from 'src/app/common/validators/must-match.validator';
 import {
-  FORM_LENGTH_VALIDATION, PATTERN_ALPHA_NUMERIC, ERROR_MESSAGES, ARABIC_LANG_TEXT, CARD_NUMBER_TEXT
+  FORM_LENGTH_VALIDATION, PATTERN_ALPHA_NUMERIC, ERROR_MESSAGES, ARABIC_LANG_TEXT,
+  CARD_NUMBER_TEXT, codeText, SNACK_BAR_RESTRICTED_ERROR_CODES
 } from 'src/app/common/global-constants';
 import { BENEFICIARY_FORM_TEXT } from '../../beneficiary-module.constants';
 import { Subscription } from 'rxjs';
@@ -35,6 +36,7 @@ export class AccountSelectionFormComponent implements OnInit, OnChanges, OnDestr
   arabicLanguageText = ARABIC_LANG_TEXT;
   resetInputValue = false;
   addedValidatorForRomania = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private beneficiaryService: BeneficiaryService,
@@ -79,12 +81,12 @@ export class AccountSelectionFormComponent implements OnInit, OnChanges, OnDestr
    */
   createForm(): void {
     this.accountForm = this.formBuilder.group({
-      name: [null, [Validators.required, Validators.pattern(PATTERN_ALPHA_NUMERIC), this.sharedService.retrictWordValidator()]],
-      addressOne: [null, [Validators.required, this.sharedService.retrictWordValidator()]],
-      addressTwo: [null, [Validators.required, this.sharedService.retrictWordValidator()]],
-      city: [null, [Validators.required, this.sharedService.retrictWordValidator()]],
+      name: [null, [Validators.required, Validators.pattern(PATTERN_ALPHA_NUMERIC), this.sharedService.restrictWordValidator()]],
+      addressOne: [null, [Validators.required, this.sharedService.restrictWordValidator()]],
+      addressTwo: [null, [Validators.required, this.sharedService.restrictWordValidator()]],
+      city: [null, [Validators.required, this.sharedService.restrictWordValidator()]],
       country: [null, Validators.required],
-      nickName: [null, [Validators.required, this.sharedService.retrictWordValidator()]],
+      nickName: [null, [Validators.required, this.sharedService.restrictWordValidator()]],
     });
     this.addDynamicFormControls();
   }
@@ -223,30 +225,31 @@ export class AccountSelectionFormComponent implements OnInit, OnChanges, OnDestr
   clearValidatorforRomania(): void {
     this.accountForm.get(BENEFICIARY_FORM_TEXT.addressOne).clearValidators();
     this.accountForm.get(BENEFICIARY_FORM_TEXT.addressTwo).clearValidators();
-    this.accountForm.get(BENEFICIARY_FORM_TEXT.addressOne).setValidators([Validators.required, this.sharedService.retrictWordValidator()]);
-    this.accountForm.get(BENEFICIARY_FORM_TEXT.addressTwo).setValidators([Validators.required, this.sharedService.retrictWordValidator()]);
+    this.accountForm.get(BENEFICIARY_FORM_TEXT.addressOne).setValidators([Validators.required, this.sharedService.restrictWordValidator()]);
+    this.accountForm.get(BENEFICIARY_FORM_TEXT.addressTwo).setValidators([Validators.required, this.sharedService.restrictWordValidator()]);
     this.accountForm.updateValueAndValidity();
     this.addedValidatorForRomania = false;
   }
 
   /**
-   * @methodName isBeneficiaryExisits
+   * @methodName isBeneficiaryExists
    * @description used to check duplicate beneficiary and validates IBAN if found
    * @param filterName<string>, data <string>
    * @return boolean
    */
-  isBeneficiaryExisits(formItem: string, check: string): void {
+  isBeneficiaryExists(formItem: string, check: string): void {
     const data: string = this.accountForm.get(formItem).value;
     if (data && formItem === BENEFICIARY_FORM_TEXT.ibanNumber && data.length >= this.FORM_LENGTH.iban.minLength) {
       this.beneficiaryService.validateIBAN(data).subscribe((res) => {
       }, errors => {
-        if (errors && errors.error && errors.error.details && errors.error.details.description) {
+        if (errors && errors.error && errors.error.details && errors.error.details.description
+          && errors.error.details.description[codeText] === SNACK_BAR_RESTRICTED_ERROR_CODES.invalidIBAN) {
           this.accountForm.get(formItem).setErrors({ isCustomError: true, message: errors.error.details.description.desc });
         }
       });
     }
     if (!this.sharedService.isEmpty(data)) {
-      this.subscription.add(this.beneficiaryService.isBeneficiaryExisits(check, data).subscribe(
+      this.subscription.add(this.beneficiaryService.isBeneficiaryExists(check, data).subscribe(
         res => {
           res ? this.accountForm.get(formItem).setErrors({ isTaken: true, message: ERROR_MESSAGES.isBeneficiaryTaken })
             : this.selfAccountCardValidation(formItem);
@@ -293,7 +296,7 @@ export class AccountSelectionFormComponent implements OnInit, OnChanges, OnDestr
   handleCardNumber(cardNumber: string): void {
     this.accountForm.get(CARD_NUMBER_TEXT).setValue(cardNumber);
     if (cardNumber) {
-      this.isBeneficiaryExisits(CARD_NUMBER_TEXT, BENEFICIARY_FORM_TEXT.beneAccNoText);
+      this.isBeneficiaryExists(CARD_NUMBER_TEXT, BENEFICIARY_FORM_TEXT.beneAccNoText);
     }
   }
   ngOnDestroy() {

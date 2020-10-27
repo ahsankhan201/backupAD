@@ -36,7 +36,7 @@ export class FinanceService {
     const FINANCE_DETAILS_API = this.sharedService.generateApiUrl(DOMAINS.APICONNECT, true, false) + FINANCE_ENDPOINTS.FINANCE_DETAILS
     + SLASH + payloadObj.aliasId;
     return this.syncService.get(FINANCE_DETAILS_API, undefined, undefined, this.sharedService.removeKeyFromObject('aliasId', payloadObj))
-    .pipe( map( res => res.body ? JSON.parse(res.body) : res));
+    .pipe( map( res => res.body ? JSON.parse(res.body) : JSON.parse(res)));
   }
 
   /**

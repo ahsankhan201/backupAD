@@ -3,6 +3,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CardSubCategoriesComponent } from './card-sub-categories.component';
+import { CARD_SUB_CATEGORY } from '../../global-test.data';
 
 describe('CardSubCategoriesComponent', () => {
   let component: CardSubCategoriesComponent;
@@ -23,6 +24,11 @@ describe('CardSubCategoriesComponent', () => {
   });
 
   it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('testing emitSelectedOption() method', () => {
+    component.emitSelectedOption(CARD_SUB_CATEGORY, 'account');
     expect(component).toBeTruthy();
   });
 });

@@ -32,7 +32,7 @@
   }
   @include respond-to(screen-m-min) {
     position: relative;
-    min-height: 405px;
+    min-height: 355px;
   }
 }
 
@@ -47,6 +47,7 @@
   .checkbox-with-image-comp {
     display: flex;
     &__wrapper {
+      max-width: 213px;
       margin-right: 16px;
       &:last-child {
         margin-right: 0;

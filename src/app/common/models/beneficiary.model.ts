@@ -24,7 +24,7 @@ export class BeneficiaryListResponse {
     abaNumber?: string;
     iban?: string;
     beneBankCountryName?: string;
-    isValidBeneficiary?: boolean;
+    isValidBeneficiary?: boolean | string;
     isFavourite?: string;
     nickNameArabic?: string;
     pin?: string;

@@ -29,6 +29,7 @@ export const AUTH_DIALOG_CLASS = 'auth-dialog';
 export const UNKNOWN_DEVICE_TEXT = 'Unknown Device';
 export const NONE_TEXT = 'none';
 export const REFRESH_TOKEN_TEXT = 'refresh_token';
+export const REFRESH_TOKEN_PARAM = 'grant_type=refresh_token';
 export const FORGET_PASSWORD_TEXT = {
-    verfiyUsernameText : 'tr_verify_username_title_text'
+    verfiyUsernameText: 'tr_verify_username_title_text'
 };

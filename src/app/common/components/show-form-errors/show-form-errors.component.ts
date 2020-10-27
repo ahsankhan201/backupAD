@@ -9,9 +9,22 @@ export class ShowErrorComponent implements OnInit {
   errorMessage = ERROR_MESSAGES;
   @Input() control: any;
   @Input() label: string;
+  @Input() digitsOnly?: boolean;
+  digitsOnlyError: boolean;
   constructor() { }
 
   ngOnInit() {
+    this.showDigitsOnlyError();
+  }
+
+  /**
+   * @methodName showDigitsOnlyError
+   * @parameter none
+   * @description used to set the digitsOnlyError based on form field
+   * @return none
+   */
+  showDigitsOnlyError(): void {
+    this.digitsOnlyError = this.digitsOnly ? true : false;
   }
 
 }

@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">28.97% </span>
+        <span class="strong">30.09% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>62/214</span>
+        <span class='fraction'>65/216</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/146</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">12.73% </span>
+        <span class="strong">14.29% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>7/55</span>
+        <span class='fraction'>8/56</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">28.5% </span>
+        <span class="strong">29.67% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>59/207</span>
+        <span class='fraction'>62/209</span>
       </div>
     </div>
   </div>
@@ -643,7 +643,21 @@
 598
 599
 600
-601</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -980,8 +994,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1236,6 +1252,18 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -1519,7 +1547,7 @@ export class BeneficiaryService implements OnDestroy {
 &nbsp;
   /**
    * @methodName mapCurrencyDetailsWithKeys
-   * @description used to map the currncy data as key value pair
+   * @description used to map the currency data as key value pair
    * @parameter currencyList
    * @return object&lt;currencyList&gt;
    */
@@ -1573,16 +1601,18 @@ export class BeneficiaryService implements OnDestroy {
   }
   /**
    * @methodName setBeneficiaryPayLoad
-   * @description used to set all the beneficiary detais except internal benfeciary
+   * @description used to set all the beneficiary details except internal beneficiary
    * @parameter url payloadForm
    * @return none
    */
 <span class="fstat-no" title="function not covered" >  setBeneficiaryPayLoad(</span>beneficiaryForm): void {
 <span class="cstat-no" title="statement not covered" >    this.internationalBenPayLoadObj.beneficiaryName = (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.name) ?</span>
       beneficiaryForm.value.name : '';
-<span class="cstat-no" title="statement not covered" >    if (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.abaCode) {</span>
-<span class="cstat-no" title="statement not covered" >      this.internationalBenPayLoadObj.abaNumber = beneficiaryForm.value.abaCode;</span>
-    }
+&nbsp;
+    // adding abaNumber to payload
+<span class="cstat-no" title="statement not covered" >    this.internationalBenPayLoadObj.abaNumber = (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.abaCode)</span>
+    ?  beneficiaryForm.value.abaCode : undefined;
+&nbsp;
 <span class="cstat-no" title="statement not covered" >    if (beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.account) {</span>
 <span class="cstat-no" title="statement not covered" >      this.internationalBenPayLoadObj.accountNumber = beneficiaryForm.value.account;</span>
 <span class="cstat-no" title="statement not covered" >      this.benSummaryDetails.accountDetails.accountTitle = BENEFICIARY_FORM_TEXT.accountNumber;</span>
@@ -1616,7 +1646,7 @@ export class BeneficiaryService implements OnDestroy {
    * @return none
    */
 <span class="fstat-no" title="function not covered" >  setInternalBeneficiaryPayLoad(</span>beneficiaryForm, isCardSelected: boolean, adibUaeBeneName: string): void {
-<span class="cstat-no" title="statement not covered" >    this.internalBenPayLoad.mobileNumber = undefined; </span>// reseting mobile beneficiary value if exists
+<span class="cstat-no" title="statement not covered" >    this.internalBenPayLoad.mobileNumber = undefined; </span>// resetting mobile beneficiary value if exists
 <span class="cstat-no" title="statement not covered" >    this.internalBenPayLoad.nickName = beneficiaryForm &amp;&amp; beneficiaryForm.value &amp;&amp; beneficiaryForm.value.nickName ?</span>
       beneficiaryForm.value.nickName : adibUaeBeneName;
 <span class="cstat-no" title="statement not covered" >    if (isCardSelected) {</span>
@@ -1672,7 +1702,7 @@ export class BeneficiaryService implements OnDestroy {
   }
   /**
    * @methodName fetchOTPLocation
-   * @description used to fetch the otp loacation details
+   * @description used to fetch the otp location details
    * @parameter url payload
    * @return Observable
    */
@@ -1838,8 +1868,20 @@ export class BeneficiaryService implements OnDestroy {
     };
   }
 &nbsp;
+&nbsp;
+  /**
+   * @methodName resetBeneficiaryPayload
+   * @description reset beneficiary payload
+   * @parameters none
+   * @return none
+   */
+  resetBeneficiaryPayload(): void {
+  this.internationalBenPayLoadObj = new AddInternationalBeneficiary(); // reset international beneficiary payload
+  this.internalBenPayLoad = new AddInternalBeneficiary(); // resetting internal beneficiary payload
+  }
+&nbsp;
 <span class="fstat-no" title="function not covered" >  ngOnDestroy() {</span>
-<span class="cstat-no" title="statement not covered" >    this.internalBenPayLoad = new AddInternalBeneficiary(); </span>// reseting internal beneficiary
+<span class="cstat-no" title="statement not covered" >    this.resetBeneficiaryPayload();</span>
 <span class="cstat-no" title="statement not covered" >    this.subscription$.unsubscribe();</span>
   }
 }
@@ -1849,7 +1891,7 @@ export class BeneficiaryService implements OnDestroy {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 14:19:46 GMT+0400 (Gulf Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 21 2020 17:50:31 GMT+0400 (Gulf Standard Time)
 </div>
 </div>
 <script src="../../../../../prettify.js"></script>

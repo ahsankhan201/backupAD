@@ -34,6 +34,7 @@ export class TransferDetailsComponent implements OnInit, OnDestroy {
   AMOUNT_LENGTH = FORM_LENGTHS.FORM_LENGTH_TWENTYONE;
   selectedLanguage: string;
   arabicLanguageText = ARABIC_LANG_TEXT;
+  enableNextBtn: boolean;
   constructor(
     private sharedService: SharedService,
     private paymentService: PaymentService,
@@ -110,9 +111,16 @@ export class TransferDetailsComponent implements OnInit, OnDestroy {
           this.outStandingBalance = outStandingBalanceRes.outstandingAmount;
           this.paymentService.utilityPayeeOutStandingBalance = outStandingBalanceRes;
           this.showOutStandingBalError = false;
+          this.enableNextBtn = true;
           if (Number(this.outStandingBalance) > PAYMENT_SCREEN_TEXT.ZERO) {
             this.checkOutStandingBalValidation();
           }
+        }
+      }, errors => {
+        if (errors.error && errors.error.details) {
+          this.outStandingBalance = undefined;
+          this.paymentService.utilityPayeeOutStandingBalance = undefined;
+          this.enableNextBtn = false;
         }
       }));
   }
@@ -251,6 +259,7 @@ export class TransferDetailsComponent implements OnInit, OnDestroy {
       ALLOWED_PAYEES_FOR_FULLORMORE_PAYMENT.includes(this.paymentService.selectedPayeeObj.utilityProviderProductId) &&
       Number(this.transferDetails.availableAmount) < Number(this.outStandingBalance)) {
       this.showOutStandingBalError = true;
+      this.enableNextBtn = false;
     }
   }
 

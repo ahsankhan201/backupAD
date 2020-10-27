@@ -112,6 +112,7 @@ validateCardandPinDetails(event): void {
   checkValidCardDetails(displaceSession: boolean = false): void {
     if (this.registrationService.cardNumber && this.registrationService.pinNumber) {
       this.subscription$.add(this.registrationService.checkValidCardDetails(displaceSession).subscribe(res => {
+        res.body = JSON.parse(res.body.toString());
         if (res.body.access_token) {
           this.sharedService.accessToken = res.body.access_token;
           this.handleNewUserRegistration();
@@ -119,7 +120,7 @@ validateCardandPinDetails(event): void {
       }, errors => {
         if (errors && errors.error && errors.error.details &&
           (errors.error.details[ERROR_DESCRIPTION_TEXT] === ERROR_LIST.R115)) {
-            this.handleUserSessionManagment();
+            this.handleUserSessionManagement();
         } else if (errors.error && errors.error.details) { this.alertMessage = errors.error.details.description; }
       }));
     }
@@ -134,7 +135,7 @@ validateCardandPinDetails(event): void {
   if (this.sharedService.accessToken) {
     this.subscription$.add(this.registrationService.newUserRegistration().subscribe(res => {
       if (res) {
-        // Used to udpate the location value for otp screen
+        // Used to update the location value for otp screen
         this.registrationService.newUserRegistrationSubject$.next(res);
         // reset location value for next instance
         this.registrationService.newUserRegistrationSubject$.next(undefined);
@@ -148,13 +149,13 @@ validateCardandPinDetails(event): void {
 }
 
   /**
-   * @methodName handleUserSessionManagment
+   * @methodName handleUserSessionManagement
    * @parameter none
-   * @description used to handle user session managment
+   * @description used to handle user session management
    * @return none
    */
-  handleUserSessionManagment(): void {
-    this.subscription$.add(this.dialogService.handleMultipleUserSessionManagment().subscribe(
+  handleUserSessionManagement(): void {
+    this.subscription$.add(this.dialogService.handleMultipleUserSessionManagement().subscribe(
       response => {
         if (response === true) {
           this.checkValidCardDetails(true);

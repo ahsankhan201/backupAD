@@ -25,4 +25,9 @@ describe('CardCategoriesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('testing emitSelectedOption() method', () => {
+    component.emitSelectedOption('test_option');
+    expect(component).toBeTruthy();
+  });
 });

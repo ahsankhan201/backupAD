@@ -22,7 +22,7 @@ export class CardSubCategoriesComponent {
   subscription$ = new Subscription();
   arabicLanguageText = ARABIC_LANG_TEXT;
 
-  constructor(private translateService: TranslateService, private sharedService: SharedService) { this.getLanguage(); }
+  constructor(private sharedService: SharedService) { this.getLanguage(); }
 
   /**
    * @methodName emitSelectedOption

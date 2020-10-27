@@ -50,6 +50,7 @@ export class HeaderDashboardComponent implements OnInit, OnDestroy {
     this.loadUserData();
     this.getSelectedLanguage();
     this.sharedService.isSessionExpired = false;
+    this.sharedService.detectedActiveSession = false;
     this.logoutService.getUserIdleTime();
   }
 

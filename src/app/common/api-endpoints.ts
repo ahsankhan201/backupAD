@@ -69,14 +69,14 @@ export const UTILITY_PAYMENT_ENDPOINTS = {
 };
 
 export const TRANSFER_ENDPOINTS = {
-    UAE_INTERNAL_TRANSFER: '/payments/v2/account/internal',
-    UAE_EXTERNAL_TRANSFER: '/payments/v2/account/external',
-    UAE_COVERECARD_ACC_INTERNAL_TRANSFER: '/payments/v2/accounts',
+    // ADIB Internal beneficiary and account transfer - internal
+    // NON ADIB UAE beneficiary and international transfer - external
+    // ADIB cover card to account and beneficiary transfer -  account
+    INTERNAL: '/payments/v2/account/internal',
+    EXTERNAL: '/payments/v2/account/external',
+    ACCOUNTS: '/payments/v2/accounts',
     EXCHANGE_RATE: '/payments/transfer-rate',
-    TRANSFER_PURPOSE: '/support/transfer-purpose',
-    INTERNATIONAL_TRANSFER: '/payments/v2/account/external',
-    ACCOUNT_INTERNAL_TRANSFER: '/payments/account/internal',
-    CARD_ACCOUNT_TRANSFER: '/payments/accounts'
+    TRANSFER_PURPOSE: '/support/transfer-purpose'
 };
 
 export const PAYMENTS_ENDPOINTS = {

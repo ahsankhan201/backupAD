@@ -24,8 +24,9 @@
                     </div>
                     <div class="ibd-account-list__card-wrapper__card__available-text">
                         {{ACCOUNTS_MASTER_DATA.availableFundsText | translate}} </div>
-                    <div class="ibd-account-list__card-wrapper__card__fund">
-                        <span class="ibd-account-list__card-wrapper__card__fund__digit" [ngClass]="(balanceAvailableMaxLength && balanceAvailableMaxLength.length > 9) ? 'medium-font' : ''" >
+                    <div class="ibd-account-list__card-wrapper__card__fund amount-primary">
+                        <span class="ibd-account-list__card-wrapper__card__fund__digit"
+                            [ngClass]="(balanceAvailableMaxLength && balanceAvailableMaxLength.length > 9) ? 'medium-font' : ''">
                             {{card.balanceAvailable | numberFormat}}</span>.<span
                             class="ibd-account-list__card-wrapper__card__fund__decimal">{{card.balanceAvailable | getDecimalValue}}</span>
                         <span class="ibd-account-list__card-wrapper__card__fund__currency"> {{card.currencyCode}}
@@ -36,12 +37,13 @@
             <!--cover card html starts here -->
             <ng-template #coverCard>
                 <div class="ibd-account-list__card-wrapper__card__cc-container">
-                    <img alt="covered card icon" class="ibd-account-list__card-wrapper__card__cardImg" src="/assets/icons/cover-card@2x.svg" />
+                    <img alt="covered card icon" class="ibd-account-list__card-wrapper__card__cardImg"
+                        src="/assets/icons/cover-card@2x.svg" />
                     <div class="ibd-account-list__card-wrapper__card__ccTitle">{{card.cardTitle | translate}}</div>
                     <div class="ibd-account-list__card-wrapper__card__ccSubTitle">
                         {{card.getCardTitle | translate}}
                     </div>
-                    <div class="ibd-account-list__card-wrapper__card__ctaLink" translate>
+                    <div (click)="applyNewCard()" class="ibd-account-list__card-wrapper__card__ctaLink" translate>
                         tr_common_applyNowText
                     </div>
                 </div>
@@ -52,17 +54,18 @@
     <div class="ibd-account-list__navigation-wrapper col-sm-12 px-0" *ngIf="hideNavigationControlls">
         <button class="ibd-account-list__navigation-wrapper__btn" [disabled]="disablePreviousBtn"
             (click)="moveScroll('backward')">
-            <img alt="previous icon" class="ibd-account-list__navigation-wrapper__btn__prev" src="{{ACCOUNTS_MASTER_DATA.PREV_ICON}}"
-                alt="Previous_Icon">
+            <img alt="previous icon" class="ibd-account-list__navigation-wrapper__btn__prev"
+                src="{{ACCOUNTS_MASTER_DATA.PREV_ICON}}" alt="Previous_Icon">
         </button>
         <button class="ibd-account-list__navigation-wrapper__btn" [disabled]="disableNextBtn"
             (click)="moveScroll('forward')">
-            <img alt="next icon" class="ibd-account-list__navigation-wrapper__btn__next" src="{{ACCOUNTS_MASTER_DATA.NEXT_ICON}}"
-                alt="Next_Icon">
+            <img alt="next icon" class="ibd-account-list__navigation-wrapper__btn__next"
+                src="{{ACCOUNTS_MASTER_DATA.NEXT_ICON}}" alt="Next_Icon">
         </button>
     </div>
 
-    <div class="col-sm-12 ibd-account-list__card-wrapper padding-lrn" *ngIf="!completeCardsList || completeCardsList?.length === 0">
+    <div class="col-sm-12 ibd-account-list__card-wrapper padding-lrn"
+        *ngIf="!completeCardsList || completeCardsList?.length === 0">
         <div class="ibd-account-list__card-wrapper__no-account-wrapper">
             <span class="icon"><img alt="info icon" src="{{iconsConst.infoIcon}}" /> </span>
             <span translate class="message">tr_accountDetailComponent_NO_RECORD_MSSAGE</span>

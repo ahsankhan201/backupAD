@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SUMMARY_COMPONENT } from 'src/app/common/global-constants';
 import { BankingServicesService } from '../../../services/banking-services.service';
 import { PaymentOrderSummaryScreenModel } from 'src/app/common/models/payment-order';
 import { PAYMENT_ORDER_CONST, BANKING_SERVICE_LIST } from '../../../banking-services-module.constants';
+import { SharedService } from 'src/app/common/services/shared.service';
 
 @Component({
   selector: 'app-payment-order-confirmation-step',
@@ -15,7 +15,9 @@ export class ConfirmationStepComponent implements OnInit {
   summaryDetails = {} as PaymentOrderSummaryScreenModel;
   referanceNumber: string;
 
-  constructor(private bankingService: BankingServicesService) { }
+  constructor(
+    private sharedService: SharedService,
+    private bankingService: BankingServicesService) { }
 
   ngOnInit() {
     this.setComponentInitialData();
@@ -44,6 +46,7 @@ export class ConfirmationStepComponent implements OnInit {
    * @return none
    */
   handleCancelButtonClick(): void {
+    this.sharedService.selectedBankingServicesOnQuickLink = BANKING_SERVICE_LIST.demandDraft;
     this.bankingService.cancelButtonClick$.next(BANKING_SERVICE_LIST.paymentOrder);
   }
 

@@ -4,7 +4,8 @@ import { DialogComponent } from '../components/dialog/dialog.component';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { Dialog } from '../models/dialog.model';
-import { DIALOG_DEFAULT, HIDE_OVERFLOW_CLASS, E_STATEMENT_DIALOG_DATA, DIALOG_OPTION_USER_SESSION_MANAGEMENT } from '../global-constants';
+import { DIALOG_DEFAULT, HIDE_OVERFLOW_CLASS, E_STATEMENT_DIALOG_DATA, DIALOG_OPTION_USER_SESSION_MANAGEMENT,
+  SESSION_TIMEOUT_CLASS, DIALOG_OPTION_R107_ERROR } from '../global-constants';
 
 @Injectable({
   providedIn: 'root'
@@ -101,15 +102,34 @@ export class DialogService {
   }
 
   /**
-   * @methodName handleMultipleUserSessionManagment
+   * @methodName handleMultipleUserSessionManagement
    * @parameter none
-   * @description used to handle multiple user session managment
+   * @description used to handle multiple user session management
    * @return Observable<boolean>
    */
-  handleMultipleUserSessionManagment(): Observable<boolean> {
+  handleMultipleUserSessionManagement(): Observable<boolean> {
     const OPTIONS: Dialog = DIALOG_OPTION_USER_SESSION_MANAGEMENT;
     this.open(OPTIONS);
     return this.confirmed();
+  }
+
+  /**
+   * @methodName openBlockDialogForBlockedCard
+   * @description used to open dialog for blocked card and pin
+   * @parameters none
+   * @return none
+   */
+  openBlockDialogForBlockedCard(): void {
+    const OPTIONS = {} as Dialog;
+    OPTIONS.title = DIALOG_OPTION_R107_ERROR.title;
+    OPTIONS.message = undefined;
+    OPTIONS.cancelText = DIALOG_OPTION_R107_ERROR.cancelText;
+    OPTIONS.confirmText = DIALOG_OPTION_R107_ERROR.confirmText;
+    OPTIONS.dialogClassName = SESSION_TIMEOUT_CLASS;
+    OPTIONS.textTemplate = DIALOG_OPTION_R107_ERROR.textTemplate; // dialog message template when a user blocked-invalid card and pin | R107
+    OPTIONS.isBlockUser = true; // The maximum number of retries (3) card and pin has been exceeded | generic message for R107
+    this.open(OPTIONS);
+    this.confirmed().subscribe((response) => {});
   }
 }
 

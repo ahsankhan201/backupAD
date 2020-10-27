@@ -97,7 +97,7 @@ export class FinanceListComponent implements OnInit, AfterViewInit, OnDestroy {
   /**
    * @methodName setFinanceData
    * @description used to set finance data from server api calls
-   * account service used to fetch all finance acount
+   * account service used to fetch all finance account
    * party finance list
    * @parameters responseData result from getFinanceList includes account list
    * @return none

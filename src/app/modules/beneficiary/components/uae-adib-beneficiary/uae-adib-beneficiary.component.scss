@@ -29,7 +29,7 @@
     }
   }
   @include respond-to(screen-m-min) {
-    min-height: 405px;
+    min-height: 380px;
     &__form {
       &__row {
         &__two-cols {
@@ -53,7 +53,6 @@
       font-family: $font-medium;
     }
   }
-
   .nick-name-label .mat-form-field-should-float {
     margin-top: 15px;
     @include respond-to(screen-m-min) {

@@ -18,7 +18,7 @@ import { Subscription } from 'rxjs';
 })
 
 export class DialogComponent implements OnInit, AfterViewInit {
-  @ViewChild('bulletPoints', { static: false}) bulletPoints: ElementRef;
+  @ViewChild('bulletPoints', { static: false }) bulletPoints: ElementRef;
   lastSixMonths: LastSixMonths[] = [];
   nickNameText = NICKNAME_LABEL;
   nickNameMaxLength = NICKNAME_LENGTH;
@@ -28,6 +28,7 @@ export class DialogComponent implements OnInit, AfterViewInit {
   disableAgreeButton = !this.dialogData.termsAndCondtionAgreeStatus;
   closeIcon = ICON.closeIcon;
   sessionCount = environment.SESSION_LOGOUT_INDICATION_TIME;
+  customerCareContactNumber = environment.ADIB_CUSTOMER_CARE_CONTACT_NUMBER;
   intervalCounter: number;
   subscription$ = new Subscription();
   arabicLanguageText = ARABIC_LANG_TEXT;
@@ -121,7 +122,7 @@ export class DialogComponent implements OnInit, AfterViewInit {
   createDialogForm(): void {
     this.dialogForm = this.formBuilder.group({
       nickName: [this.dialogData.formData ? this.dialogData.formData.nickname : '',
-      [Validators.required, Validators.pattern(PATTERN_ALPHA_NUMERIC), this.sharedService.retrictWordValidator()]]
+      [Validators.required, Validators.pattern(PATTERN_ALPHA_NUMERIC), this.sharedService.restrictWordValidator()]]
     });
   }
 
@@ -218,6 +219,7 @@ export class DialogComponent implements OnInit, AfterViewInit {
       if (this.sessionCount <= 0) {
         clearInterval(this.intervalCounter);
         this.sharedService.isSessionExpired = true;
+        this.sharedService.detectedActiveSession = false;
         this.cancelDialog();
       }
     }, TIME_INTERVAL_VALUE);

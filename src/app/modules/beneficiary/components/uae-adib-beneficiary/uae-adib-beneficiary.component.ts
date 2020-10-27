@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BeneficiaryService } from '../../services/beneficiary.service';
 import { BENEFICIARY_UAE_ADIB, MOBILE_BENEFICIARY_ERROR_CODE, AddByType } from '../../beneficiary-module.constants';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { FORM_LENGTH_VALIDATION, DOMAINS, ERROR_MESSAGES, ARABIC_LANG_TEXT, CARD_NUMBER_TEXT } from 'src/app/common/global-constants';
+import { FORM_LENGTH_VALIDATION, DOMAINS, ERROR_MESSAGES, ARABIC_LANG_TEXT, CARD_NUMBER_TEXT,
+  SNACK_BAR_RESTRICTED_ERROR_CODES } from 'src/app/common/global-constants';
 import { MustMatch } from 'src/app/common/validators/must-match.validator';
 import { HTTP_STATUS_CODE } from '../../../../common/global-constants';
 import { BENEFICIARY_ENDPOINTS } from 'src/app/common/api-endpoints';
@@ -55,7 +56,7 @@ export class UaeAdibBeneficiaryComponent implements OnInit, OnDestroy {
    */
   createForm(): void {
     this.uaeAdibBeneForm = this.formBuilder.group({
-      nickName: [null, [Validators.required, this.sharedService.retrictWordValidator()]],
+      nickName: [null, [Validators.required, this.sharedService.restrictWordValidator()]],
     });
   }
 
@@ -192,14 +193,15 @@ export class UaeAdibBeneficiaryComponent implements OnInit, OnDestroy {
           this.stepper.next();
         }
       }, errors => {
-        if (errors && errors.error && errors.error.details && errors.error.details.description) {
-          this.uaeAdibBeneForm.get('cardNumber').setErrors({ isCustomError: true, message: errors.error.details.description.desc });
-          this.uaeAdibBeneForm.updateValueAndValidity();
+        if (errors && errors.error && errors.error.details && errors.error.details.description
+          && errors.error.details.description.desc === SNACK_BAR_RESTRICTED_ERROR_CODES.invalidCardNumber) {
+          this.uaeAdibBeneForm.get(CARD_NUMBER_TEXT).setErrors({ isCustomError: true, message: errors.error.details.description.desc });
         }
       });
     } else if (this.showMobile) {
       this.validateMobileFormData();
     }
+    this.uaeAdibBeneForm.updateValueAndValidity();
   }
 
   /**
@@ -255,7 +257,7 @@ export class UaeAdibBeneficiaryComponent implements OnInit, OnDestroy {
       if (formData === BENEFICIARY_FORM_TEXT.mobileNumberText) {
         data = this.getMobileNoWithCountryCode();
       }
-      this.subscription.add(this.beneficiaryService.isBeneficiaryExisits(filterName, data).subscribe(
+      this.subscription.add(this.beneficiaryService.isBeneficiaryExists(filterName, data).subscribe(
         res => {
           res ? this.uaeAdibBeneForm.get(formData).setErrors({ isTaken: true, message: ERROR_MESSAGES.isBeneficiaryTaken })
             : this.selfAccountCardValidation(formData);
@@ -304,6 +306,7 @@ export class UaeAdibBeneficiaryComponent implements OnInit, OnDestroy {
     if (cardNumber) {
       this.isBeneficiaryExists(CARD_NUMBER_TEXT, BENEFICIARY_FORM_TEXT.beneAccNoText);
    }
+
   }
   ngOnDestroy() {
     this.removeFormControls();

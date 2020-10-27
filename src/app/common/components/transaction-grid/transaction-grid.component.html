@@ -87,7 +87,8 @@
                                 <span class="decimal-value">.{{transactionRow.transactionAmount | getDecimalValue}}
                                     {{transactionRow.currencyCode}}</span>
                                 <app-menu-option [item]="transactionRow" [menuOptions]="menuOptions"
-                                    (clickedItem)="menuClickHandler($event)"></app-menu-option>
+                                    (clickedItem)="menuClickHandler($event)" class="transaction-grid-menu">
+                                </app-menu-option>
                             </div>
                         </div>
 

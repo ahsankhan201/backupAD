@@ -2,7 +2,7 @@
     <div class="success-screen-comp__title-wrapper" *ngIf="componentName==='linkAccount'">
         <div class="success-screen-comp__title-wrapper__title" translate>{{linkAccountDetails.componentTitle}}</div>
     </div>
-    <div class="success-screen-comp__wrapper row margin-lrn">
+    <div class="success-screen-comp__wrapper row margin-lrn" [ngClass]="(componentName === successScreenTextPayee?.PAYEE)?'align-items-center': ''">
         <div class="success-screen-comp__wrapper__success-image col-2 padding-lrn">
             <img src="/assets/images/Ben_Success@2x.svg" alt="Success_Alt_Img" />
         </div>
@@ -13,13 +13,6 @@
                 <span class="image-wrapper" *ngIf="showAlertIcon">
                     <img src="/assets/images/Alert@2x.svg" alt="Alert_Alt_Img" />
                 </span>
-                <!-- Payee success code -->
-                <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'payee'">
-                    <strong>{{successScreenTextPayee.note | translate}}:</strong>
-                    {{successScreenTextPayee.transferText | translate}}
-                    <strong>{{coolingTime}}</strong>
-                    {{successScreenTextPayee.lastText | translate}}.</span>
-                <!-- Beneficiary success code -->
                 <span class="success-screen-comp__wrapper__text__description" *ngSwitchCase="'beneficiary'">
                     <strong>{{successScreenTextBeneficiary.note | translate}}:</strong>{{successScreenTextBeneficiary.transferText | translate}}
                     {{beneficiaryName}} 

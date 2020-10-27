@@ -4,6 +4,9 @@
   min-height: 385px;
   position: relative;
   &__wrapper {
+    &__cards {
+      margin-top: 8px;
+    }
     &__buttons {
       width: 100%;
       position: static;
@@ -196,10 +199,10 @@
     display: flex;
     flex-wrap: wrap;
     &__container {
-      margin-right: 27px;
+      margin-right: 15px;
       &__wrapper {
         padding-right: 16px;
-        margin: 0 0 24px 0;
+        margin: 0 0 16px 0;
       }
     }
   }

@@ -59,10 +59,10 @@ export const BENEFICIARY_FORM_TEXT = {
     name: 'Name',
     address1: 'Address Line 1',
     address2: 'Address Line 2',
-    city: 'City',
+    city: 'tr_addBene_cityText',
     country: 'Country',
     select: 'Select',
-    nickName: 'Nick name',
+    nickName: 'tr_common_nickNameText',
     previous: 'Previous',
     next: 'Next',
     optional: 'Optional',
@@ -82,7 +82,8 @@ export const BENEFICIARY_FORM_TEXT = {
     beneAccNoText: 'beneAccNo',
     addressOne: 'addressOne',
     addressTwo: 'addressTwo',
-    romania: 'Romania'
+    romania: 'Romania',
+    beneName: 'tr_common_beneNameText'
 };
 
 export const SUMMARY_SCREEN_TEXT = {

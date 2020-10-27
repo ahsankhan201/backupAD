@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="22px" viewBox="0 0 24 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 63.1 (101010) - https://sketch.com -->
+    <title>58BBE0A3-B71E-4357-84D6-41F6F13EDB80@2.00x</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic.Car" transform="translate(-4.000000, -5.000000)" fill-rule="nonzero">
+            <g transform="translate(4.000000, 4.000000)">
+                <rect id="ViewBox" x="0" y="0" width="24" height="24"></rect>
+                <path d="M20,1 L24,10 L24,21 C24,21.75625 23.4,23 22.6666667,23 L22.6666667,23 L21.3333333,23 C20.6,23 20,21.75625 20,21 L20,21 L20,20 L4,20 L4,21 C4,21.75625 3.4,23 2.66666667,23 L2.66666667,23 L1.33333333,23 C0.6,23 0,21.75625 0,21 L0,21 L0,10 L4,1 L20,1 Z M22,10 L2,10 L2,18 L22,18 L22,10 Z M6,12 C7.1045695,12 8,12.8954305 8,14 C8,15.1045695 7.1045695,16 6,16 C4.8954305,16 4,15.1045695 4,14 C4,12.8954305 4.8954305,12 6,12 Z M18,12 C19.1045695,12 20,12.8954305 20,14 C20,15.1045695 19.1045695,16 18,16 C16.8954305,16 16,15.1045695 16,14 C16,12.8954305 16.8954305,12 18,12 Z M19,3 L5.11764706,3 L3,8 L21,8 L19,3 Z" id="Combined-Shape" fill="#1A2858"></path>
+            </g>
+        </g>
+    </g>
+</svg>

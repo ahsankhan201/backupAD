@@ -695,7 +695,7 @@ export class MoneyTransferService {
     this.insideUaeTransferEndPoint = '';
     if (this.selectedTransferFromCard) {
       // From cover card to beneficiary transfer
-      this.insideUaeTransferEndPoint = TRANSFER_ENDPOINTS.UAE_COVERECARD_ACC_INTERNAL_TRANSFER;
+      this.insideUaeTransferEndPoint = TRANSFER_ENDPOINTS.ACCOUNTS;
       this.insideUaeTransferPayLoad = await this.setInsideUaeTransferFromCoverCardPayLoad();
       return true;
     } else if (this.isTransferToAdibCardBeneficiary()) {
@@ -707,13 +707,13 @@ export class MoneyTransferService {
       // To beneficiary outside ADIB within UAE
       this.generateInsideUaeRequestPayLoad();
       this.insideUaeTransferPayLoad.transferType = INSIDE_UAE_TRANSFER_TEXT.TRANSFER_TYPE_OUTSIDE_ADIB;
-      this.insideUaeTransferEndPoint = TRANSFER_ENDPOINTS.UAE_EXTERNAL_TRANSFER;
+      this.insideUaeTransferEndPoint = TRANSFER_ENDPOINTS.EXTERNAL;
       return true;
     } else if (this.isBeneficiaryInsideAdibUAE()) {
       // To beneficiary inside ADIB within UAE
       this.generateInsideUaeRequestPayLoad();
       this.insideUaeTransferPayLoad.transferType = INSIDE_UAE_TRANSFER_TEXT.TRANSFER_TYPE_INSIDE_ADIB;
-      this.insideUaeTransferEndPoint = TRANSFER_ENDPOINTS.UAE_INTERNAL_TRANSFER;
+      this.insideUaeTransferEndPoint = TRANSFER_ENDPOINTS.INTERNAL;
       return true;
     }
   }

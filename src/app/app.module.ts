@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -20,9 +20,10 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { MaterialModule } from './common/modules/material.module';
 import { SnackBarComponent } from './common/components/snack-bar/snack-bar.component';
 import { AuthModule } from './modules/auth/auth.module';
+import { CryptionService } from './common/services/cryption.service';
 /**
  * @methodName httpTranslateLoader
- * @description we can use this for AOT complilation and http subscribe calls on translate
+ * @description we can use this for AOT compilation and http subscribe calls on translate
  * @parameters event<boolean>
  * @return none
  */
@@ -54,7 +55,14 @@ export function httpTranslateLoader(http: HttpClient): TranslateHttpLoader {
     LayoutModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    CryptionService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (cryptionService: CryptionService) => () => cryptionService.load(),
+      deps: [CryptionService], multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

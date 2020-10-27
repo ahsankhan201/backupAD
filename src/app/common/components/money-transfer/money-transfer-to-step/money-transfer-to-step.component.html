@@ -7,7 +7,7 @@
             class="money-transfer-to-generic-checkbox"
             [ngClass]="(selectedLanguage === arabicLanguageText) ? 'transfer-to-checkbox-rtl': ''">
         </app-checkbox-generic>
-        <div *ngIf="showAccountsCheckbox && !showCardsCheckbox && !showBeneficiaryCheckbox">
+        <div *ngIf="showAccountsCheckbox && !showCardsCheckbox && !showBeneficiaryCheckbox" class="money-transfer-to-comp__wrapper__cards">
             <app-account-checkbox [checkBoxAccountsList]="transferToAccountList"
                 componentName="transferToAccountCheckBox" (selectedAccountOption)="selectedAccount($event)"
                 [preSelectedValue]="selectedAccountNumber">

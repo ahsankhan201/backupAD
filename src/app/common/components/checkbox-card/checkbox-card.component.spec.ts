@@ -24,7 +24,7 @@ describe('CheckboxCardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CheckboxCardComponent);
     component = fixture.componentInstance;
-    component.checkBoxCoverCardList = [];
+    component.checkBoxCoverCardList = COVER_CARD_CHECKBOX_LIST;
     fixture.detectChanges();
   });
 
@@ -34,8 +34,8 @@ describe('CheckboxCardComponent', () => {
   });
 
   // Checking handle change method
-  xit('handleChange() method should set preSelectedValue value', () => {
-    const cardCheckBox = fixture.debugElement.query(By.css('.ibd-check-box input'));
+  it('handleChange() method should set preSelectedValue value', () => {
+    const cardCheckBox = fixture.debugElement.query(By.css('.cards-checkbox-list input'));
     cardCheckBox.nativeElement.click();
     expect(cardCheckBox.nativeElement.checked).toBeTruthy();
     expect(component.preSelectedValue).toEqual(COVER_CARD_CHECKBOX_LIST[0].cardNumber);

@@ -36,7 +36,7 @@
         <div class="bank-certificate-summary-comp__wrapper__taxText" translate>tr_common_vatText</div>
     </div>
     <div class="button-wrapper" *ngIf="!showSuccessScreen">
-        <button class="cancel-btn" (click)="showBankCerificateDashboard()" translate>tr_common_cancelText</button>
+        <button class="cancel-btn" (click)="showBankCertificateDashboard()" translate>tr_common_cancelText</button>
         <button class="previous-btn" (click)="showPreviousScreen()" translate>tr_common_previousText</button>
         <button class="next-btn" (click)="makeBankCertificateRequest()" [disabled]="disableSubmitBtn"
             translate>tr_common_confirmText</button>
@@ -46,7 +46,7 @@
         <app-success-screen [paymentReferenceNumber]="referenceNumberForSuccessScreen"
             [componentName]="'bankCertificate'" class="bankcertificate-success-component">
         </app-success-screen>
-        <button translate class="next-btn success-screen-btn" (click)="showBankCerificateDashboard()">
+        <button translate class="next-btn success-screen-btn" (click)="showBankCertificateDashboard()">
             tr_bankCertificateComponent_bankCertificateDashboard
         </button>
     </div>

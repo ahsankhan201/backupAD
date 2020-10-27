@@ -35,7 +35,7 @@ export class ForgotOtpStepComponent implements OnInit , OnDestroy {
   /**
    * @methodName getOTPLocationData
    * @params none
-   * @description Used for get the otp locationfrom registration step
+   * @description Used for get the otp location from registration step
    * @return none
    */
   getOTPLocationData() {
@@ -95,7 +95,7 @@ export class ForgotOtpStepComponent implements OnInit , OnDestroy {
     } else if (otpResponseObj && Object.keys(otpResponseObj).length
     && otpResponseObj.message['mechanism'] === CIAM_MECHANISMS.otp_failure) {
       // Invalid OTP response
-      this.udpateOtpLocation(otpResponseObj);
+      this.updateOtpLocation(otpResponseObj);
       const SNACKBAR_MESSAGE = new OTPResponse();
       SNACKBAR_MESSAGE.success = otpResponseObj.success;
       SNACKBAR_MESSAGE.message = OTP_DATA.INVALID_OTP_TEXT;
@@ -151,12 +151,12 @@ handleForgetUsernameFinalApi(): void {
 }
 
 /**
- * @methodName udpateOtpLocation
+ * @methodName updateOtpLocation
  * @description used to update OTP location on invalid otp for forgetusername/unlockusername and forgetpassword
  * @parameters newOtpResponse<OTPResponse>
  * @return none
  */
-udpateOtpLocation(newOtpResponse: OTPResponse): void {
+updateOtpLocation(newOtpResponse: OTPResponse): void {
   if (newOtpResponse) {
     if (this.authService.forgetComponentName === COMPONENT_LIST.FORGET_PASSWORD) {
       // update otp location for forget password or unlock username
@@ -179,7 +179,7 @@ resendOTPRequired(resendOTP: boolean): void {
     // forgot username resent otp location logic
     this.subscription$.add(this.authService.forgotUsernameVerify().subscribe(res => {
       if (res) {
-        this.authService.forgotUsername$.next(res); // Used to udpate the location value
+        this.authService.forgotUsername$.next(res); // Used to update the location value
         this.authService.forgotUsername$.next(undefined); // reset location value for next instance
       }
     }));
@@ -188,7 +188,7 @@ resendOTPRequired(resendOTP: boolean): void {
     // forgot password resent otp location logic
     this.subscription$.add(this.authService.forgotPasswordOtpCall().subscribe(res => {
       if (res) {
-        this.authService.forgotPassword$.next(res); // Used to udpate the location value
+        this.authService.forgotPassword$.next(res); // Used to update the location value
         this.authService.forgotPassword$.next(undefined); // reset location value for next instance
       }
     }));

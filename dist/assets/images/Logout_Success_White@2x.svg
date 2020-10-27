@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300px" height="200px" viewBox="0 0 300 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>LogoutGraphics/Logout Successfuly@2x</title>
+    <g id="LogoutGraphics/Logout-Successfuly" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(15.000000, 6.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="2" fill-opacity="0.1" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="244" height="188" rx="10"></rect>
+            <path d="M244,21 L244,178 C244,183.522847 239.522847,188 234,188 L6.4632,188 C5.35863,188 4.4632,187.104569 4.4632,186 C4.4632,185.339928 4.788882,184.722364 5.33359,184.349551 L244,21 L244,21 Z" id="Rectangle-Copy" fill-opacity="0.05" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <line x1="0.5" y1="20.5" x2="244" y2="21" id="Line" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"></line>
+            <path d="M35,21 L35,11 C35,8.2385763 37.238576,6 40,6 L97,6 C99.761424,6 102,8.2385763 102,11 L102,21 L102,21" id="Path" stroke="#FFFFFF" stroke-width="2"></path>
+            <circle id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="9.5" cy="10.5" r="2.5"></circle>
+            <circle id="Oval-Copy" fill="#FFFFFF" fill-rule="nonzero" cx="17.5" cy="10.5" r="2.5"></circle>
+            <circle id="Oval-Copy-2" fill="#FFFFFF" fill-rule="nonzero" cx="25.5" cy="10.5" r="2.5"></circle>
+            <g id="Group-2" opacity="0.181803385" transform="translate(26.000000, 42.000000)" fill="#FFFFFF" fill-opacity="0.3" fill-rule="nonzero" stroke="#FFFFFF" stroke-width="2">
+                <rect id="Rectangle" x="0" y="0" width="117" height="31" rx="3"></rect>
+                <rect id="Rectangle-Copy-2" x="0" y="46" width="117" height="31" rx="3"></rect>
+                <rect id="Rectangle-Copy-3" x="0" y="92" width="117" height="31" rx="3"></rect>
+                <rect id="Rectangle-Copy-4" x="132" y="2" width="57" height="119" rx="3"></rect>
+            </g>
+            <g id="Group" transform="translate(99.000000, 67.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" stroke-width="2" fill="#5894BB" fill-rule="nonzero" x="0" y="17" width="47" height="37" rx="3"></rect>
+                <g id="Group-2" transform="translate(20.000000, 31.000000)">
+                    <ellipse id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="3.5" cy="3.63636364" rx="3.5" ry="3.63636364"></ellipse>
+                    <line x1="3.5" y1="5.45454545" x2="3.5" y2="10" id="Path-4" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></line>
+                </g>
+                <path d="M12,17 L12,12 C12,5.372583 17.372583,0 24,0 C30.627417,0 36,5.372583 36,12 L36,17 L36,17" id="Path-3" stroke="#FFFFFF" stroke-width="2"></path>
+            </g>
+            <g id="Group-2" transform="translate(219.000000, 50.000000)" stroke="#FFFFFF" stroke-width="2">
+                <circle id="Oval" fill="#5894BB" fill-rule="nonzero" cx="25.5" cy="25.5" r="25.5"></circle>
+                <path d="M17.57345,8.158549 C13.742852,10.134346 10.651199,13.342086 8.822346,17.257917" id="Oval-Copy-3" fill="#5894BB" fill-rule="nonzero" stroke-linecap="round"></path>
+                <g id="Group-3-Copy" transform="translate(33.500000, 62.000000) rotate(-20.000000) translate(-33.500000, -62.000000) translate(26.000000, 45.000000)">
+                    <circle id="Oval" fill="#5894BB" fill-rule="nonzero" cx="7.86841352" cy="7.38985493" r="7"></circle>
+                    <polyline id="Path-5" stroke-linecap="round" stroke-linejoin="round" points="8.36635503 14.5935792 8.36635503 33.5935792 14.366355 33.5935792"></polyline>
+                    <line x1="8.27998722" y1="27.2546772" x2="14.2799872" y2="27.2546772" id="Path-6" stroke-linecap="round"></line>
+                </g>
+                <g id="Group-3" transform="translate(20.000000, 66.000000) rotate(20.000000) translate(-20.000000, -66.000000) translate(11.000000, 44.000000)">
+                    <circle id="Oval" fill="#5894BB" fill-rule="nonzero" cx="9" cy="9" r="9"></circle>
+                    <polyline id="Path-5" stroke-linecap="round" stroke-linejoin="round" points="9 19 9 44 17 44"></polyline>
+                    <line x1="9" y1="35.5" x2="17" y2="35.5" id="Path-6" stroke-linecap="round"></line>
+                </g>
+                <path d="M9,45 C13.666667,49 19,51 25,51 C27.205199,51 29.36537,50.729839 31.480515,50.189516 C33.907071,49.569643 37.413566,47.839804 42,45" id="Path-7" opacity="0.25"></path>
+                <polyline id="Path-8" stroke-linecap="round" stroke-linejoin="round" points="18 27.071429 22.736842 31 33 20"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

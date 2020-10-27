@@ -125,7 +125,7 @@ export class SetPasswordStepComponent implements OnInit, OnChanges {
   /**
    * @methodName setPassword
    * @parameter none
-   * @description used to set pwd in registeration service
+   * @description used to set pwd in registration service
    * @return none
    */
   setPassword(): void {

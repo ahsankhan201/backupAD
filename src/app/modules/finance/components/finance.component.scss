@@ -25,31 +25,28 @@
           &__component-container {
             padding-left: 16px;
             @include respond-to(screen-m-min) {
-              padding-left: 38px;
-            }
-            @include respond-to(screen-l-min) {
-              padding-left: 41px;
+              padding-left: 0;
             }
           }
         }
-        &__marketing-banner{
-            @include respond-to(screen-m-min) {
-                padding-right: 67px;
-                padding-left: 38px;
-              }
-              @include respond-to(screen-m-min) {
-                margin-top: 18px;
-              }
-              @include respond-to(screen-xl-min) {
-                margin-top: unset;
-                padding-left: 41px;
-              }
-              &__row{
-                @include respond-to(screen-xl-min) {
-                  max-width: 933px;
-                }
-              }
+        &__marketing-banner {
+          @include respond-to(screen-m-min) {
+            padding-right: 67px;
+            padding-left: 38px;
           }
+          @include respond-to(screen-m-min) {
+            margin-top: 18px;
+          }
+          @include respond-to(screen-xl-min) {
+            margin-top: unset;
+            padding-left: 41px;
+          }
+          &__row {
+            @include respond-to(screen-xl-min) {
+              max-width: 933px;
+            }
+          }
+        }
       }
     }
   }
@@ -65,10 +62,7 @@
     .ibd-finance-comp__wrapper__container__body-wrapper__body__component-container {
       padding-right: 16px;
       @include respond-to(screen-m-min) {
-        padding-right: 38px;
-      }
-      @include respond-to(screen-l-min) {
-        padding-right: 41px;
+        padding-right: 0;
       }
     }
   }
@@ -76,7 +70,7 @@
 
 :host ::ng-deep .marketing-banner .marketing-banner__content {
   background: transparent;
-    @include respond-to(screen-m-min) {
-        padding-left: 10px;
-      }
+  @include respond-to(screen-m-min) {
+    padding-left: 10px;
+  }
 }

@@ -66,6 +66,18 @@ export class CheckboxGenericComponent implements OnInit, AfterViewChecked, OnDes
   }
 
   /**
+   * @methodName handleMultipleCheckboxClickEvent
+   * @parameter none
+   * @description Used to clear the preselected value in case of multiple checkbox components
+   * @return none
+   */
+  handleMultipleCheckboxClickEvent(): void {
+    const UNIQUE_ID = this.componentName + this.preSelectedOption;
+    document.getElementById(UNIQUE_ID)['checked'] = false;
+    this.preSelectedOption = undefined;
+  }
+
+  /**
    * @methodName getSelectedLanguage
    * @parameter none
    * @description Used to set selected language EN | AR

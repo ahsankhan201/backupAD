@@ -69,7 +69,7 @@ export class MoneyTransferConfirmStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName getSummaryDetails
    * @parameter none
-   * @description used to get the summaty details
+   * @description used to get the summary details
    * @return none
    */
   getSummaryDetails(): void {
@@ -183,7 +183,7 @@ export class MoneyTransferConfirmStepComponent implements OnInit, OnDestroy {
         this.moneyTransferService.selectedBeneficiaryForTransfer &&
           this.moneyTransferService.selectedBeneficiaryForTransfer.beneType === INTERNATIONAL_TRANSFER_TEXT.external ?
           this.showInternationalTransferSummary = true : this.showInternationalTransferSummary = false;
-        // resetting the subject details to avoid data confliction in next load of this component
+        // resetting the subject details to avoid data conflict in next load of this component
         this.moneyTransferService.showInternationalSummaryScreenInfo(undefined);
       }
     }));
@@ -202,7 +202,7 @@ export class MoneyTransferConfirmStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName setComponentInitialData
    * @parameter none
-   * @description used to set the component intial loda data
+   * @description used to set the component initial data
    * @return none
    */
   setComponentInitialData(): void {
@@ -219,7 +219,7 @@ export class MoneyTransferConfirmStepComponent implements OnInit, OnDestroy {
    */
   sendAccountToAccountRequest(): void {
     const TRANSFER_END_POINT =
-      `${this.sharedService.generateApiUrl(DOMAINS.API_SIT_CONNECT, true, false)}${TRANSFER_ENDPOINTS.ACCOUNT_INTERNAL_TRANSFER}`;
+      `${this.sharedService.generateApiUrl(DOMAINS.API_SIT_CONNECT, true, false)}${TRANSFER_ENDPOINTS.INTERNAL}`;
     this.moneyTransferService.sendTransferRequest(TRANSFER_END_POINT,
       this.moneyTransferService.setAccountTransferPayLoad()).subscribe((response) => {
         if (response.status === HTTP_STATUS_CODE.CREATED) {
@@ -240,7 +240,7 @@ export class MoneyTransferConfirmStepComponent implements OnInit, OnDestroy {
    */
   sendCardToAccountRequest(): void {
     const COVER_CARD_PAYMENT_END_POINT =
-      `${this.sharedService.generateApiUrl(DOMAINS.API_SIT_CONNECT, true, false)}${TRANSFER_ENDPOINTS.CARD_ACCOUNT_TRANSFER}`;
+      `${this.sharedService.generateApiUrl(DOMAINS.API_SIT_CONNECT, true, false)}${TRANSFER_ENDPOINTS.ACCOUNTS}`;
     this.moneyTransferService.setCardToAccountTransferPayLoad().then(cardToAccountPayload => {
       // async response from setCardToAccountTransferPayLoad
       if (cardToAccountPayload) {
@@ -285,7 +285,7 @@ export class MoneyTransferConfirmStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName updateAccountList
    * @parameter none
-   * @description used to udpated  accountsCardsList
+   * @description used to update  accountsCardsList
    * @return none
    */
   updateAccountList(): void {
@@ -297,7 +297,7 @@ export class MoneyTransferConfirmStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName fetchExchangeRate
    * @parameter none
-   * @description used to fetch udpated exchange rate from the server
+   * @description used to fetch update exchange rate from the server
    * @return none
    */
   fetchExchangeRate(): void {
@@ -343,7 +343,7 @@ export class MoneyTransferConfirmStepComponent implements OnInit, OnDestroy {
     this.disableConfirmBtn = false;
     if (this.moneyTransferService.isTransferToBeneficiary()) {
       this.transferSummaryDetails = this.moneyTransferService.generateInsideUaeSummaryScreenDetails();
-      // udpating payload credit amount using response date
+      // update payload credit amount using response date
       if (this.moneyTransferService.insideUaeTransferPayLoad && this.moneyTransferService.insideUaeTransferPayLoad.creditAccount) {
         this.moneyTransferService.insideUaeTransferPayLoad.creditAccount.amount = response.creditAmount;
       }
@@ -411,7 +411,7 @@ export class MoneyTransferConfirmStepComponent implements OnInit, OnDestroy {
   /**
    * @methodName openReceiptModal
    * @parameter none
-   * @description used to open the transfer recipt in modal
+   * @description used to open the transfer receipt in modal
    * @return none
    */
   openReceiptModal(): void {

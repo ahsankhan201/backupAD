@@ -3,8 +3,10 @@ import { HttpHeaders, HttpRequest } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { SharedService } from '../shared.service';
 
-import { TEXT_PLAIN, API_HEADERS, APPLICATION_JSON_TEXT, IS_REGISTERED_TEXT, CAPTCHA_TEXT } from '../../global-constants';
+import { TEXT_PLAIN, API_HEADERS, APPLICATION_JSON_TEXT, IS_REGISTERED_TEXT, CAPTCHA_TEXT,
+  CONTENT_TYPE_TEXT } from '../../global-constants';
 import { HeadersOTP } from '../../models/headers.model';
+import { CryptionService } from '../cryption.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +16,8 @@ export class HttpHeaderService {
   reCaptchaValue: string;
   requestURL: string;
   xUniqueId: string;
-
-  customHeaderFunction = this.generateCommonHeaders;  // Used to assign custom header method created
-  constructor(private sharedService: SharedService) { }
+  customHeaderFunction = this.generateCommonHeaders;   // Used to assign custom header method created
+  constructor(private sharedService: SharedService, private cryptoService: CryptionService) { }
 
   /**
    * @methodName generateHttpHeaders
@@ -87,7 +88,8 @@ export class HttpHeaderService {
    * @return HttpHeaders
    */
   generateCiamValidateCardHeaders(): HttpHeaders {
-    const HEADERS = new HttpHeaders().set('Content-Type', environment.CIAM.CONTENT_TYPE);
+    const HEADERS = new HttpHeaders().set('Content-Type', TEXT_PLAIN)
+    .set('x-channel-id', API_HEADERS.xChannelId);
     return HEADERS;
   }
 
@@ -99,7 +101,8 @@ export class HttpHeaderService {
    */
   generateCIAMUsernameHeaders(): HttpHeaders {
     const HEADERS = new HttpHeaders().set('Authorization', 'Bearer ' + this.sharedService.accessToken)
-      .set('Content-Type', TEXT_PLAIN);
+    .set('x-channel-id', API_HEADERS.xChannelId)
+    .set('Content-Type', TEXT_PLAIN);
     return HEADERS;
   }
 
@@ -131,6 +134,7 @@ export class HttpHeaderService {
   generateDeviceSessionRegHeaders(): HttpHeaders {
     return new HttpHeaders().set('Content-Type', TEXT_PLAIN)
       .set('Accept', APPLICATION_JSON_TEXT)
+      .set('x-channel-id', API_HEADERS.xChannelId)
       .set('Authorization', 'Bearer ' + this.sharedService.accessToken);
   }
 
@@ -142,7 +146,8 @@ export class HttpHeaderService {
    */
   generateLoginHeaders(): HttpHeaders {
     let HEADERS: HttpHeaders = new HttpHeaders();
-    HEADERS = HEADERS.append('Content-Type', environment.CIAM.CONTENT_TYPE);
+    HEADERS = HEADERS.append('Content-Type', TEXT_PLAIN)
+    .set('x-channel-id', API_HEADERS.xChannelId);
     if (this.reCaptchaValue) {
       HEADERS = HEADERS.append(CAPTCHA_TEXT, this.reCaptchaValue);
     }
@@ -195,6 +200,7 @@ export class HttpHeaderService {
   ciamOtpWithCaptchaHeaders(): HttpHeaders {
     const headersData = {} as HeadersOTP;
     headersData['Authorization'] = `Bearer ${this.sharedService.accessToken}`;
+    headersData['x-channel-id'] = API_HEADERS.xChannelId;
     headersData['Content-Type'] = API_HEADERS.ContentType;
     if (this.reCaptchaValue) {
       headersData['captcha'] = this.reCaptchaValue;
@@ -210,7 +216,8 @@ export class HttpHeaderService {
    */
   onlyAuthorizationHeader(): HttpHeaders {
     const HEADERS = new HttpHeaders().set('Authorization', 'Bearer ' + this.sharedService.accessToken)
-      .set('Content-Type', API_HEADERS.ContentType);
+    .set('x-channel-id', API_HEADERS.xChannelId)
+    .set('Content-Type', API_HEADERS.ContentType);
     return HEADERS;
   }
 
@@ -240,7 +247,7 @@ export class HttpHeaderService {
    * @return HttpHeaders
    */
   refershTokenHeaders(): HttpHeaders {
-    return new HttpHeaders().set('Content-Type', environment.CIAM.CONTENT_TYPE);
+    return new HttpHeaders().set('Content-Type', TEXT_PLAIN).set('x-channel-id', API_HEADERS.xChannelId);
   }
 
   /**

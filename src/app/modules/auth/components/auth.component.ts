@@ -44,13 +44,13 @@ export class AuthComponent implements OnInit, OnDestroy {
    */
   checkDeviceRegistration(): void {
     if (!this.sharedService.getCookie(IS_REGISTRED_COOKIE_TEXT)) {
-      this.authService.openRegistraionConfirmModal();
+      this.authService.openRegistrationConfirmModal();
     }
   }
 
   /** @methodName handleCloseButtonClick
    * @params status<boolean>
-   * @description used to handle close button click event emited
+   * @description used to handle close button click event emitted
    * @return none
    */
   handleCloseButtonClick(status: boolean): void {

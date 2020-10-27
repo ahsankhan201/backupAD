@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="9px" viewBox="0 0 16 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 64 (101010) - https://sketch.com -->
+    <title>F1543BED-6C27-4F41-9EC5-A16B93A4E719@2.00x</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Cards/Debit/Active-Normal" transform="translate(-165.000000, -39.000000)" fill-rule="nonzero">
+            <g id="Linked" transform="translate(162.000000, 32.000000)">
+                <g id="ic.Link">
+                    <rect id="ViewBox" x="0" y="0" width="24" height="24"></rect>
+                    <path d="M8,12 L8,11 L14,11 L14,12 L8,12 Z M14.1875,7 C16.8453704,7 19,9.01471863 19,11.5 C19,13.9852814 16.8453704,16 14.1875,16 L12,16 L12,15.1818182 L14.1875,15.1818182 C16.3621212,15.1818182 18.125,13.533412 18.125,11.5 C18.125,9.46658797 16.3621212,7.81818182 14.1875,7.81818182 L12,7.81818182 L12,7 L14.1875,7 Z M7.8125,16 C5.15462964,16 3,13.9852814 3,11.5 C3,9.01471863 5.15462964,7 7.8125,7 L10,7 L10,7.81818182 L7.8125,7.81818182 C5.6378788,7.81818182 3.875,9.46658797 3.875,11.5 C3.875,13.533412 5.6378788,15.1818182 7.8125,15.1818182 L10,15.1818182 L10,16 L7.8125,16 Z" id="Icon-Shape" fill="#A0A0A0"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

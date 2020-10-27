@@ -18,15 +18,16 @@ export class NumberDirective {
     let current: string = String.fromCharCode(event.which);
     current = this.el.nativeElement.value;
     current = this.sharedService.removeCommaFromString(current); // remove commas
+    let next: string = current.concat(event.key);
     if (this.decimals > 0 || this.allowDot) {
       this.pattern = (this.allowDot) ? new RegExp(PATTERN_NUMERIC_WITH_DOT) : new RegExp(PATTERN_NUMERIC_WITH_DECIMAL);
       const position = current.length;
-      const next: string = [current.slice(0, position), event.key === 'Decimal' ? '.' : event.key, current.slice(position)].join('');
+      next = [current.slice(0, position), event.key === 'Decimal' ? '.' : event.key, current.slice(position)].join('');
       if (next && !String(next).match(this.pattern)) {
         event.preventDefault();
       }
     } else {
-      if (!this.pattern.test(current)) {
+      if (next && !String(next).match(this.pattern)) {
         event.preventDefault();
       }
     }

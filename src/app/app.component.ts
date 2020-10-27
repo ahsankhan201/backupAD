@@ -11,7 +11,6 @@ import {
   LOGIN_HEADER_URLS, EVENT_LIST
 } from './common/global-constants';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

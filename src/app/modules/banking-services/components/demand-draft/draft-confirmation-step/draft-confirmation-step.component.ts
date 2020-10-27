@@ -3,6 +3,7 @@ import { DEMAND_DRAFT_DASHBOARD, SUMMARY_COMPONENT } from 'src/app/common/global
 import { BankingServicesService } from '../../../services/banking-services.service';
 import { DemandDraftSummaryScreenModel } from 'src/app/common/models/payment-order';
 import { BANKING_SERVICE_LIST, PAYMENT_ORDER_CONST } from '../../../banking-services-module.constants';
+import { SharedService } from 'src/app/common/services/shared.service';
 
 @Component({
   selector: 'app-draft-confirmation-step',
@@ -16,7 +17,10 @@ export class DraftConfirmationStepComponent implements OnInit {
   summaryDetails = {} as DemandDraftSummaryScreenModel;
   referanceNumber: string;
 
-  constructor(private bankingService: BankingServicesService) { }
+  constructor(
+    private bankingService: BankingServicesService,
+    private sharedService: SharedService
+  ) { }
 
   ngOnInit() {
     this.setComponentInitialData();
@@ -45,6 +49,7 @@ export class DraftConfirmationStepComponent implements OnInit {
    * @return none
    */
   handleCancelButtonClick(): void {
+    this.sharedService.selectedBankingServicesOnQuickLink = BANKING_SERVICE_LIST.demandDraft;
     this.bankingService.cancelButtonClick$.next(BANKING_SERVICE_LIST.demandDraft);
   }
 

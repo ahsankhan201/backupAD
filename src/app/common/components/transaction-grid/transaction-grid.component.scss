@@ -273,8 +273,6 @@
               }
               app-menu-option {
                 float: right;
-                padding-right: 8px;
-                padding-left: 8px;
                 cursor: pointer;
                 @include respond-to(screen-l-min) {
                   margin-right: 10px;
@@ -519,5 +517,10 @@
   direction: rtl;
   &.transaction-grid-comp__title {
     text-align: right;
+  }
+}
+:host ::ng-deep .transaction-grid-menu {
+  .settings-icon {
+    padding: 0 8px;
   }
 }

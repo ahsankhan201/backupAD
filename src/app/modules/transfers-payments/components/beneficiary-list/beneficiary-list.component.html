@@ -15,7 +15,7 @@
     <div class="col-sm-12 card-wrapper " [ngClass]="{'show-all-cards' : showAll}" (scroll)="moveScroll(undefined)"
         #beneScrollContainer>
         <div class="card" *ngFor='let item of formatedBeneList'
-            [ngClass]="(item.status === 'INACTIVE') ? 'inactive-beneficiary': ''">
+        [ngClass]="(item.isValidBeneficiary==='false')?'invalid-iban':''" [ngClass]="(item.status === 'INACTIVE') ? 'inactive-beneficiary': ''">
 
             <!-- card html starts here -->
             <div class="beneficiary-container">

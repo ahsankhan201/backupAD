@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>F9CC748E-DD27-4574-9D82-3121C72D8092@2x</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-1.0.0.1" transform="translate(-56.000000, -98.000000)">
+            <g id="Banking-Ser" transform="translate(40.000000, 40.000000)">
+                <g id="Finance-Product" transform="translate(0.000000, 40.000000)">
+                    <g id="ic.Cheque-Book" transform="translate(16.000000, 18.000000)">
+                        <rect id="Rectangle" stroke="#17396C" stroke-width="1.5" fill="#FFFFFF" x="12.75" y="16.75" width="28.5" height="18.5" rx="2"></rect>
+                        <rect id="Rectangle" stroke="#17396C" stroke-width="1.5" fill="#FFFFFF" x="8.75" y="12.75" width="28.5" height="18.5" rx="2"></rect>
+                        <rect id="Rectangle" stroke="#17396C" stroke-width="1.5" fill="#FFFFFF" x="2.75" y="8.75" width="30.5" height="18.5" rx="2"></rect>
+                        <text id="Cheque-Book" font-family="Roboto-Bold, Roboto" font-size="3.5" font-weight="bold" fill="#17396C">
+                            <tspan x="6.61376953" y="24"> Cheque Book </tspan>
+                        </text>
+                        <g id="Group-4" transform="translate(13.000000, 11.000000)">
+                            <ellipse id="Oval-Copy" stroke="#1E3A68" fill-opacity="0.75" fill="#00A0E6" cx="4.31394577" cy="4.39148401" rx="4.31394577" ry="4.39148401"></ellipse>
+                            <path d="M4.28990177e-13,3.4856176 C0.899364574,5.11555208 2.28516853,5.88100901 4.15741187,5.78198839 C6.02965521,5.68296777 7.41545916,4.71529503 8.31482374,2.87897015" id="Path-5" stroke="#FFFFFF" stroke-width="0.510638298"></path>
+                            <path d="M4.9686493,0.260686748 C3.58205536,1.43812143 2.93523304,2.86298859 3.02818233,4.53528822 C3.12113162,6.20758785 4.07081153,7.51087896 5.87722207,8.44516155" id="Path-6" stroke="#FFFFFF" stroke-width="0.510638298"></path>
+                            <path d="M7.12818859,1.2284332 C6.68192727,1.0544639 6.14130278,0.864773509 5.50631513,0.659362016 L6.26108954,1.2284332 L4.81932823,1.12097236 L6.45879661,1.9190923 L4.2521281,2.75416987 L6.45879661,2.58257062 L4.81932823,4.39198155 L6.76741443,3.21101933 L6.00478515,5.88925969 L7.42525976,3.4856176 L7.42525976,4.94721586 L7.86371858,3.4856176 L8.10305645,4.72929047 L8.25897561,2.87897015 C8.06246358,2.08324605 7.68553458,1.53306707 7.12818859,1.2284332 Z" id="Path-8" stroke="#FFFFFF" stroke-width="0.510638298" fill="#FFFFFF"></path>
+                            <ellipse id="Oval" stroke="#1E3A68" cx="4.31394577" cy="4.39148401" rx="4.31394577" ry="4.39148401"></ellipse>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

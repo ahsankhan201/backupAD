@@ -9,7 +9,7 @@
   "tr_common_blockAndReplaceText": "حظر واستبدال",
   "tr_common_freezeCardText": "تجميد البطاقة",
   "tr_common_viewStatementText": "عرض البيان",
-  "tr_common_changeCoverLimittText": "تغيير حد الغطاء",
+  "tr_common_changeCoverLimitText": "تغيير حد الغطاء",
   "tr_common_payBillsText": "ادفع الفواتير",
   "tr_common_chequeBookText": "دفتر شيكات",
   "tr_common_eStatementText": "كشف الحساب الإلكتروني",
@@ -228,7 +228,7 @@
   "tr_moneyTransferComponent_crossCurrencyText": "قد تختلف أسعار تحويل العملات قليلاً ، وسيتم تأكيدها في الخطوة التالية.",
   "tr_productsComponent_contactModeText": "أريد الاتصال بي",
   "tr_productsComponent_contactTimeText": "وقت الاتصال المفضل",
-  "tr_productsComponent_termsANDCondotionsText": "*تطبق الشروط والأحكام.",
+  "tr_productsComponent_termsANDConditionsText": "*تطبق الشروط والأحكام.",
   "tr_productsComponent_productsDashBoardText": "لوحة معلومات المنتجات",
   "tr_common_submitText": "إرسال",
   "tr_common_otpText": "OTP",
@@ -440,7 +440,7 @@
   "tr_paymentReceipt_donationTypeText": "نوع التبرع",
   "tr_paymentReceipt_phoneNumberText": "رقم الهاتف",
   "tr_common_shareText": "شارك",
-  "tr_common_disgree": "تعارض",
+  "tr_common_disagree": "تعارض",
   "tr_common_closeText": "أغلق",
   "tr_common_footer_banking_fees": "رسوم الخدمات المصرفية عبر الإنترنت",
   "tr_common_footer_copyright": "حقوق النشر © 2020 مصرف أبوظبي الإسلامي ، جميع الحقوق محفوظة.",
@@ -461,6 +461,8 @@
   "tr_transfer_module_payee_text": "يمكنك فقط تحرير لقب المستفيد. هل تريد التحرير؟1",
   "tr_active_session_text": "تم الكشف عن تسجيل دخول نشط لحسابك. الرجاء النقر فوق الزر متابعة أدناه لتسجيل الخروج من الأجهزة الأخرى ومتابعة الخدمات المصرفية عبر الإنترنت.",
   "tr_common_activeSessionHeadingText": "تم اكتشاف تسجيل دخول نشط",
-  "tr_common_continueText": "استمر"
+  "tr_common_continueText": "استمر",
+  "tr_logoutComponent_activeLoginSessionText": "اكتشفنا تسجيل دخول نشط لحسابك.",
+  "tr_transfer_module_invalid_beneficiary_data" : "هذا المستفيد لديه بيانات غير صالحة ، يرجى حذف هذا المستفيد وإنشاء حساب جديد."
 
 }

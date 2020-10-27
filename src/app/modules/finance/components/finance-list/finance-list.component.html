@@ -26,7 +26,7 @@
             <div class="ibd-finance-list__wrapper__card__footer">
                 <div class="ibd-finance-list__wrapper__card__footer__title" translate>
                     tr_financeComponent_outstandingAmount</div>
-                <div class="ibd-finance-list__wrapper__card__footer__fund">
+                <div class="ibd-finance-list__wrapper__card__footer__fund amount-primary">
                     <span> {{ finance.outstandingBalance | numberFormat}}</span>.<span
                         class="ibd-finance-list__wrapper__card__footer__fund__decimal">{{ finance.outstandingBalance | getDecimalValue}}</span>
                     <span class="ibd-finance-list__wrapper__card__footer__fund__currency"> {{ finance.currencyCode }}
@@ -58,7 +58,8 @@
     </div>
 </div>
 
-<div class="row margin-lrn ibd-finance-list__marketing-banner">
+<div class="row margin-lrn ibd-finance-list__marketing-banner"
+    [ngClass]="(selectedLanguage === arabicLanguageText) ? 'finance-list-rtl-layout': ''">
     <div class="margin-lrn ibd-finance-list__marketing-banner__row padding-lrn col-12 col-lg-12 col-xl-9">
         <app-marketing-banner class="marketing-banner"></app-marketing-banner>
     </div>

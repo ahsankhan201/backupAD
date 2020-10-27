@@ -23,7 +23,7 @@ import {
 import { ROUTING_URLS, ACCOUNTS_ENDPOINTS, PAYEE_ENDPOINTS, BENEFICIARY_ENDPOINTS } from 'src/app/common/api-endpoints';
 import {
   DELETE_BENEFICIARY_DIALOG_DATA, DELETE_BENEFICIARY_SUCCESS_MESSAGE,
-  BENEFICIARY_FAVORITE_MESSAGE
+  BENEFICIARY_FAVORITE_MESSAGE, INVALID_IBAN_BENEFICIARY, DELETE_BENEFICIARY_SUCCESS_MESSAGE_KEYS
 } from '../../transfers-payments-module.constants';
 import { BeneficiaryListResponse } from '../../../../common/models/beneficiary.model';
 import { MenuOption } from '../../../../common/models/menu-option.model';
@@ -59,6 +59,8 @@ export class BenificiaryListComponent implements OnInit, AfterViewChecked, OnDes
   selectedLanguage: string;
   arabicLanguageText = ARABIC_LANG_TEXT;
   accountTypes = ACCOUNT_TYPES;
+  subscription$ = new Subscription();
+
   constructor(
     @Optional() private changeDetector: ChangeDetectorRef,
     private transfersPaymentsService: TransfersPaymentsService,
@@ -140,7 +142,6 @@ export class BenificiaryListComponent implements OnInit, AfterViewChecked, OnDes
       if (Number(scrollElement.scrollWidth - this.beneScrollContainer.nativeElement.offsetWidth) === Number(scrollElement.scrollLeft)) {
         this.disableNextBtn = true;
       }
-      this.beneScrollContainer.nativeElement.scrollIntoView({ behavior: TRANSFER_PAYMENT_CONST.srollDirectionSmooth });
     }
   }
 
@@ -214,19 +215,22 @@ export class BenificiaryListComponent implements OnInit, AfterViewChecked, OnDes
   deleteBeneficiary(benefeciary: BeneficiaryListResponse): void {
     if (benefeciary) {
       const url = this.sharedService.generateApiUrl(DOMAINS.API_SIT_CONNECT, true, false)
-      + BENEFICIARY_ENDPOINTS.ACCOUNTS_BENEFICIARY + SLASH + benefeciary.beneID;
+        + BENEFICIARY_ENDPOINTS.ACCOUNTS_BENEFICIARY + SLASH + benefeciary.beneID;
       const OPTIONS = DELETE_BENEFICIARY_DIALOG_DATA;
       this.dialogService.open(OPTIONS);
       this.dialogService.confirmed().subscribe(confirmed => {
         if (confirmed) {
-          this.subscription.add( this.transfersPaymentsService.deleteUtility(url).subscribe(res => {
-                this.refreshBeneficiary.emit(true);
-                this.searchText = '';
-                const successMessage = `${DELETE_BENEFICIARY_SUCCESS_MESSAGE.prefix} “${benefeciary.nickName}”
-                  ${DELETE_BENEFICIARY_SUCCESS_MESSAGE.suffix}`;
-                this.snackBarService.showSnackBar({ showSnackBar: true, message: { msgText: successMessage }
-                });
-              })
+          this.subscription.add(this.transfersPaymentsService.deleteUtility(url).subscribe(res => {
+            this.refreshBeneficiary.emit(true);
+            this.searchText = '';
+            this.subscription$.add(this.translateService.get(DELETE_BENEFICIARY_SUCCESS_MESSAGE_KEYS).subscribe(translatedInfo => {
+              const successMessage = `${translatedInfo[DELETE_BENEFICIARY_SUCCESS_MESSAGE.prefix]} “${benefeciary.nickName}”
+                ${translatedInfo[DELETE_BENEFICIARY_SUCCESS_MESSAGE.suffix]}`;
+              this.snackBarService.showSnackBar({
+                showSnackBar: true, message: { msgText: successMessage }
+              });
+            }));
+          })
           );
         }
       });
@@ -250,9 +254,13 @@ export class BenificiaryListComponent implements OnInit, AfterViewChecked, OnDes
    * @return void
    */
   moveToMoneyTransferView(beneficiaryObj: BeneficiaryListResponse): void {
-    this.moneyTransferservice.selectedBeneficiaryForTransfer = beneficiaryObj;
-    this.moneyTransferservice.selectedTransferType = TRANSFER_TYPES.transferToBeneficiary;
-    this.showMoneyTransferView.emit(beneficiaryObj);
+    if (beneficiaryObj.isValidBeneficiary === 'true') {
+      this.moneyTransferservice.selectedBeneficiaryForTransfer = beneficiaryObj;
+      this.moneyTransferservice.selectedTransferType = TRANSFER_TYPES.transferToBeneficiary;
+      this.showMoneyTransferView.emit(beneficiaryObj);
+    } else {
+      this.snackBarService.showSnackBar({ showSnackBar: true, message: { msgType: 'error', msgText: INVALID_IBAN_BENEFICIARY } });
+    }
   }
 
   /**

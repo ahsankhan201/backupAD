@@ -95,6 +95,9 @@
         position: absolute;
         bottom: 64px;
       }
+      @include respond-to(screen-land) {
+        position: absolute;
+      }
       @include respond-to(screen-l-min) {
         bottom: 32px;
       }

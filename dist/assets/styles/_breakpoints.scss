@@ -1,0 +1,50 @@
+/** All the break points are defined here */
+
+$breakpoint-sm: 360px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1440px;
+$breakpoint-sm-max: 812px;
+$breakpoint-md-max: 767px;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == screen-s-min {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == screen-m-min {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == screen-l-min {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == screen-xl-min {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $breakpoint == screen-s-min-land {
+    @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-sm-max) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $breakpoint == screen-land {
+    @media (orientation: landscape) {
+      @content;
+    }
+  } @else if $breakpoint == only-screen-sm-land {
+    @media only screen and (min-width: $breakpoint-sm) and (max-width: $breakpoint-sm-max) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $breakpoint == only-screen-md-land {
+    @media only screen and (min-width: $breakpoint-sm) and (max-width: $breakpoint-md-max) and (orientation: landscape) {
+      @content;
+    }
+  }
+}
+
+/** Using Example 
+    @include respond-to(screen-m-min){
+        // properties
+    }
+*/

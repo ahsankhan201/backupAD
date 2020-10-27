@@ -68,7 +68,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
             product.title = product.categoryNameArabic;
           }
         });
-        this.preSelectedCategory = response.productCategoryList[0].id;
+        this.preSelectedCategory = this.sharedService.selectedProduct ? this.sharedService.selectedProduct :
+          response.productCategoryList[0].id;
         this.productsCategoryList = response.productCategoryList;
       }
     });
@@ -189,5 +190,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sharedService.setHorizontalLineClass(undefined);
+    this.sharedService.selectedProduct = undefined;
   }
 }
